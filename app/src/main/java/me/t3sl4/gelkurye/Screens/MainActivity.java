@@ -1,11 +1,12 @@
-package me.t3sl4.gelkurye;
-
-import androidx.appcompat.app.AppCompatActivity;
+package me.t3sl4.gelkurye.Screens;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
+import me.t3sl4.gelkurye.R;
+
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
