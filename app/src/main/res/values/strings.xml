@@ -12,4 +12,12 @@
 
     <string name="onboard_header_3">Hızlı Teslimat</string>
     <string name="onboard_spec_3">Kısa süre içerisinde siparişi teslim ediyoruz.</string>
+
+    <!-- Login Register Selection Texts -->
+    <string name="selection_header">GelKurye Size Bir Adım Kadar Yakın</string>
+    <string name="selection_spec">GelKurye uygulamamızda bir tıklama ile kuryemiz hemen kapınızda. Hemen kayıt olup ayrıcalıklardan yararlanın…</string>
+
+    <!-- Button Texts -->
+    <string name="button_login">Giriş Yap</string>
+    <string name="button_register">Kayıt Ol</string>
 </resources>
