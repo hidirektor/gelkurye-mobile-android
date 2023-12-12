@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">GelKurye</string>
+
+    <!-- OnBoard Screen Textx -->
+    <string name="onboard_skip">Atla</string>
+
+    <string name="onboard_header_1">Anlık Sipariş Çekme</string>
+    <string name="onboard_spec_1">Trendyol, Getir ve YemekSepeti siparişlerinizi anlık olarak takip ediyoruz.</string>
+
+    <string name="onboard_header_2">Otomatik Kurye Yönlendirme</string>
+    <string name="onboard_spec_2">Siparişiniz sisteme düştüğü gibi işletmenize kuryelerimizden biri yönlendiriyoruz.</string>
+
+    <string name="onboard_header_3">Hızlı Teslimat</string>
+    <string name="onboard_spec_3">Kısa süre içerisinde siparişi teslim ediyoruz.</string>
 </resources>

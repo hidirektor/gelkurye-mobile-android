@@ -3,4 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="mainColor">#000616</color>
+    <color name="atlaTextColor">#2828A5</color>
+    <color name="headerTextColor">#000023</color>
+    <color name="specTextColor">#000061</color>
 </resources>

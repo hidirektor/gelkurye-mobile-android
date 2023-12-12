@@ -7,6 +7,8 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
 import me.t3sl4.gelkurye.Screens.MainActivity;
+import me.t3sl4.gelkurye.Screens.OnBoard.OnBoard1;
+import me.t3sl4.gelkurye.Util.SharedPreferencesManager;
 
 public class SplashActivity extends AppCompatActivity {
     private final int WAITING_TIME = 2000;
@@ -16,14 +18,26 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        openMainScreen();
+        boolean isFirstTime = SharedPreferencesManager.getSharedPref("isFirstTime", this, false);
+
+        if (isFirstTime) {
+            setupOnboarding();
+        } else {
+            redirectToMainActivity();
+        }
     }
 
-    private void openMainScreen() {
+    private void setupOnboarding() {
+        Intent intent = new Intent(SplashActivity.this, OnBoard1.class);
+        startActivity(intent);
+        finish();
+        SharedPreferencesManager.writeSharedPref("isFirstTime", false, this);
+    }
+
+    private void redirectToMainActivity() {
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
-
             finish();
         }, WAITING_TIME);
     }

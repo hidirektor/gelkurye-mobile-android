@@ -21,6 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Screens.OnBoard.OnBoard1" />
+        <activity android:name=".Screens.OnBoard.OnBoard2" />
+        <activity android:name=".Screens.OnBoard.OnBoard3" />
         <activity android:name=".Screens.MainActivity" />
     </application>
 
