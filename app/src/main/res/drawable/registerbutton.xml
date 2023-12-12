@@ -3,11 +3,10 @@
     <!-- Oval background -->
     <item android:left="10dp" android:right="10dp">
         <shape android:shape="rectangle">
-            <gradient
-                android:angle="90"
-                android:endColor="#FF8B00"
-                android:startColor="#FF6D00"
-            />
+            <solid android:color="@color/white" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/atlaTextColor" />
             <corners android:radius="200dp"/>
         </shape>
     </item>
