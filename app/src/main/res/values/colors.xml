@@ -11,4 +11,5 @@
     <color name="editTextTopColor">#1A1A35</color>
     <color name="editTextStarColor">#F04971</color>
     <color name="checkBoxColor">#D9D9D9</color>
+    <color name="navbarButtonColor">#FC8900</color>
 </resources>

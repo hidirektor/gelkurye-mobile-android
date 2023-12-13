@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:layout_gravity="center|center_horizontal"
+            android:src="@drawable/topbar_hamburger_ikon" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.1"
+            android:layout_gravity="center|center_horizontal"
+            android:src="@drawable/app_ikon" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="0.5"
+            android:layout_gravity="center|center_horizontal"
+            app:srcCompat="@drawable/profilephoto" />
+    </LinearLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            app:fabCradleMargin="8dp"
+            app:fabCradleRoundedCornerRadius="50dp"
+            app:fabCradleVerticalOffset="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/mainConstraint"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2">
+
+                    <ImageView
+                        android:id="@+id/imageView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="15dp"
+                        android:src="@drawable/navbar_home_ikon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView1232"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/outfit"
+                        android:text="@string/navbar_home"
+                        android:textAlignment="center"
+                        android:textColor="@color/headerTextColor"
+                        android:textSize="12sp"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView19" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/profileConstraint"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2">
+
+                    <ImageView
+                        android:id="@+id/imageView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/navbar_orders_ikon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView12322"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/outfit"
+                        android:gravity="center|center_horizontal"
+                        android:text="@string/navbar_orders"
+                        android:textAlignment="center"
+                        android:textColor="@color/headerTextColor"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView20" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/imageView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/navbar_ikon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2">
+
+                    <ImageView
+                        android:id="@+id/imageView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/navbar_profile_ikon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView192"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/outfit"
+                        android:gravity="center|center_horizontal"
+                        android:text="@string/navbar_profile"
+                        android:textAlignment="center"
+                        android:textColor="@color/headerTextColor"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView22" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/settingsConstraint"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2">
+
+                    <ImageView
+                        android:id="@+id/imageView23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/navbar_settings_ikon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/outfit"
+                        android:gravity="center|center_horizontal"
+                        android:text="@string/navbar_settings"
+                        android:textAlignment="center"
+                        android:textColor="@color/headerTextColor"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView23" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:pointerIcon="wait"
+            android:src="@drawable/navbar_ikon"
+            app:backgroundTint="@color/navbarButtonColor"
+            app:layout_anchor="@id/app_bar"
+            app:maxImageSize="40dp"
+            app:tint="@color/white" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

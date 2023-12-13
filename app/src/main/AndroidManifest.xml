@@ -27,6 +27,7 @@
         <activity android:name=".Screens.MainActivity" />
         <activity android:name=".Screens.Authentication.Login" />
         <activity android:name=".Screens.Authentication.Register" />
+        <activity android:name=".Screens.General.Welcome" />
     </application>
 
 </manifest>

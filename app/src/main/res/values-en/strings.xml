@@ -23,4 +23,8 @@
     <string name="hint_pass_repeat">Repeat your Password</string>
     <string name="license_front">License Front</string>
     <string name="license_back">License Back</string>
+    <string name="navbar_home">Home</string>
+    <string name="navbar_orders">Orders</string>
+    <string name="navbar_profile">Profile</string>
+    <string name="navbar_settings">Settings</string>
 </resources>

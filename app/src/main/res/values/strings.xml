@@ -35,4 +35,8 @@
 
     <string name="license_front">Ehliyet Ön Yüz</string>
     <string name="license_back">Ehliyet Arka Yüz</string>
+    <string name="navbar_home">Anasayfa</string>
+    <string name="navbar_orders">Siparişler</string>
+    <string name="navbar_profile">Profil</string>
+    <string name="navbar_settings">Ayarlar</string>
 </resources>
