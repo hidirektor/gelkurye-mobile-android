@@ -109,7 +109,7 @@
                         android:gravity="center|center_horizontal"
                         android:text="@string/navbar_orders"
                         android:textAlignment="center"
-                        android:textColor="@color/headerTextColor"
+                        android:textColor="@color/inactiveColor"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView20" />
@@ -155,7 +155,7 @@
                         android:gravity="center|center_horizontal"
                         android:text="@string/navbar_profile"
                         android:textAlignment="center"
-                        android:textColor="@color/headerTextColor"
+                        android:textColor="@color/inactiveColor"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView22" />
@@ -185,7 +185,7 @@
                         android:gravity="center|center_horizontal"
                         android:text="@string/navbar_settings"
                         android:textAlignment="center"
-                        android:textColor="@color/headerTextColor"
+                        android:textColor="@color/inactiveColor"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView23" />
