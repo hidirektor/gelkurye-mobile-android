@@ -41,21 +41,109 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/selection_ikon" />
 
-        <EditText
-            android:id="@+id/editTextTextPersonName"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewUsernameLabel"
+                android:text="@string/hint_username"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/editTextTopColor"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewStarLabel"
+                android:text="@string/hint_star"
+                android:layout_toEndOf="@id/textViewUsernameLabel"
+                android:fontFamily="@font/gilroy_semibold"
+                android:layout_marginStart="2dp"
+                android:textColor="@color/editTextStarColor"
+                android:layout_marginTop="10dp"/>
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_below="@id/textViewUsernameLabel"
+                android:background="@drawable/edittextbackground"
+                android:drawablePadding="16dp"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/hint_username"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:textColorHint="@color/editTextColor" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewPasswordLabel"
+                android:text="@string/hint_password"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/editTextTopColor"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewPasswordStarLabel"
+                android:text="@string/hint_star"
+                android:layout_toEndOf="@id/textViewPasswordLabel"
+                android:fontFamily="@font/gilroy_semibold"
+                android:layout_marginStart="2dp"
+                android:textColor="@color/editTextStarColor"
+                android:layout_marginTop="10dp"/>
+            <EditText
+                android:id="@+id/editTextTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_below="@id/textViewPasswordLabel"
+                android:background="@drawable/edittextbackground"
+                android:drawableEnd="@drawable/password_hide_ikon"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColorHint="@color/editTextColor" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/edittextbackground"
-            android:drawablePadding="16dp"
-            android:ems="10"
-            android:fontFamily=""
-            android:hint="@string/hint_username"
-            android:inputType="textPersonName"
-            android:padding="8dp"
-            android:textColorHint="@color/editTextColor" />
+            android:layout_marginEnd="32dp">
+
+            <CheckBox
+                android:id="@+id/beniHatirlaCheckBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:buttonTint="@color/checkBoxColor"
+                android:text="@string/hint_rememberme" />
+
+            <TextView
+                android:id="@+id/sifreUnuttumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_horizontal"
+                android:fontFamily="@font/poppins"
+                android:text="@string/hint_forgetpass"
+                android:textColor="@color/atlaTextColor" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/loginButton"

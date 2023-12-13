@@ -22,5 +22,9 @@
     <string name="button_register">Kayıt Ol</string>
 
     <!-- Button Hints -->
+    <string name="hint_star">*</string>
     <string name="hint_username">Kullanıcı Adı</string>
+    <string name="hint_password">Şifre</string>
+    <string name="hint_rememberme">Beni Hatırla</string>
+    <string name="hint_forgetpass">Şifremi Unuttum ?</string>
 </resources>
