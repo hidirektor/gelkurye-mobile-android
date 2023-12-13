@@ -8,7 +8,7 @@
     <string name="onboard_spec_1">Trendyol, Getir ve YemekSepeti siparişlerinizi anlık olarak takip ediyoruz.</string>
 
     <string name="onboard_header_2">Otomatik Kurye Yönlendirme</string>
-    <string name="onboard_spec_2">Siparişiniz sisteme düştüğü gibi işletmenize kuryelerimizden biri yönlendiriyoruz.</string>
+    <string name="onboard_spec_2">Siparişiniz sisteme düştüğü gibi işletmenize kuryelerimizden birini yönlendiriyoruz.</string>
 
     <string name="onboard_header_3">Hızlı Teslimat</string>
     <string name="onboard_spec_3">Kısa süre içerisinde siparişi teslim ediyoruz.</string>
@@ -27,4 +27,12 @@
     <string name="hint_password">Şifre</string>
     <string name="hint_rememberme">Beni Hatırla</string>
     <string name="hint_forgetpass">Şifremi Unuttum ?</string>
+
+    <string name="hint_namesurname">İsim Soyisim</string>
+    <string name="hint_mail">E-Posta Adresi</string>
+    <string name="hint_phone">Telefon Numarası</string>
+    <string name="hint_pass_repeat">Şifreyi Tekrar Giriniz</string>
+
+    <string name="license_front">Ehliyet Ön Yüz</string>
+    <string name="license_back">Ehliyet Arka Yüz</string>
 </resources>

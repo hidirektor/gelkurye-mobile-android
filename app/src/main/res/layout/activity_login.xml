@@ -19,7 +19,7 @@
             android:id="@+id/selection_ikon"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:src="@drawable/selection_ikon"
+            android:src="@drawable/login_ikon"
             app:layout_constraintHorizontal_bias=".5"
             app:layout_constraintVertical_bias=".2"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -65,7 +65,7 @@
                 android:textColor="@color/editTextStarColor"
                 android:layout_marginTop="10dp"/>
             <EditText
-                android:id="@+id/editTextTextUsername"
+                android:id="@+id/editTextUsername"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="32dp"
@@ -104,7 +104,7 @@
                 android:textColor="@color/editTextStarColor"
                 android:layout_marginTop="10dp"/>
             <EditText
-                android:id="@+id/editTextTextPassword"
+                android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="32dp"
@@ -161,7 +161,7 @@
             android:textAllCaps="false"
             android:shadowColor="#FF5722"
             android:shadowDx="8"
-            android:shadowDy="15"
+            android:shadowDy="10"
             android:shadowRadius="4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

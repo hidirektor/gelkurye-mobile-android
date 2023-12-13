@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GelKurye</string>
+    <string name="onboard_skip">Skip</string>
+    <string name="onboard_header_1">Real-time Order Service</string>
+    <string name="onboard_spec_1">We follow your Trendyol, Getir and YemekSepeti orders instantly.</string>
+    <string name="onboard_header_2">Automatic Delivery-Boy Routing</string>
+    <string name="onboard_spec_2">As soon as your order is placed in the system, we direct one of our couriers to your business.</string>
+    <string name="onboard_header_3">Fast Delivery</string>
+    <string name="onboard_spec_3">We deliver the order in a short time.</string>
+    <string name="selection_header">GelKurye is One Step Close to You</string>
+    <string name="selection_spec">With one click on our GelKurye application, our courier is right at your door. Register now and benefit from the privileges…</string>
+    <string name="button_login">Login</string>
+    <string name="button_register">Register</string>
+    <string name="hint_star">*</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_rememberme">Remember Me</string>
+    <string name="hint_forgetpass">Forget Password ?</string>
+    <string name="hint_namesurname">Name Surname</string>
+    <string name="hint_mail">E-Mail</string>
+    <string name="hint_phone">Phone</string>
+    <string name="hint_pass_repeat">Repeat your Password</string>
+    <string name="license_front">License Front</string>
+    <string name="license_back">License Back</string>
+</resources>
