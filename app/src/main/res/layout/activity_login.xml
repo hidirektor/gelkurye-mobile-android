@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Screens.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/selection_ikon"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/selection_ikon"
+            app:layout_constraintHorizontal_bias=".5"
+            app:layout_constraintVertical_bias=".2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/mainText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/button_login"
+            android:fontFamily="@font/outfit_extrabold"
+            android:textColor="@color/headerTextColor"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selection_ikon" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittextbackground"
+            android:drawablePadding="16dp"
+            android:ems="10"
+            android:fontFamily=""
+            android:hint="@string/hint_username"
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            android:textColorHint="@color/editTextColor" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/loginbutton"
+            android:fontFamily="@font/outfit_bold"
+            android:padding="16dp"
+            android:text="@string/button_login"
+            android:textColor="#ffffff"
+            android:textSize="26sp"
+            android:textAllCaps="false"
+            android:shadowColor="#FF5722"
+            android:shadowDx="8"
+            android:shadowDy="15"
+            android:shadowRadius="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/specText"/>
+
+    </LinearLayout>
+</ScrollView>

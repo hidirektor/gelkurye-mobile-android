@@ -6,4 +6,6 @@
     <color name="atlaTextColor">#2828A5</color>
     <color name="headerTextColor">#000023</color>
     <color name="specTextColor">#000061</color>
+    <color name="editTextColor">#9595FD</color>
+    <color name="editTextBackground">#EBEBFF</color>
 </resources>
