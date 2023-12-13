@@ -1,14 +1,20 @@
 <!-- oval_button.xml -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Oval background -->
-    <item android:left="10dp" android:right="10dp">
-        <shape android:shape="rectangle">
-            <gradient
-                android:angle="90"
-                android:endColor="#FF8B00"
-                android:startColor="#FF6D00"
-            />
-            <corners android:radius="200dp"/>
-        </shape>
+    <!-- Oval background with drop shadow -->
+    <item>
+        <layer-list>
+            <!-- Oval background -->
+            <item android:left="10dp" android:right="10dp">
+                <shape android:shape="rectangle">
+                    <gradient
+                        android:angle="90"
+                        android:endColor="#FF8B00"
+                        android:startColor="#FF6D00"
+                        />
+                    <corners android:radius="200dp"/>
+                </shape>
+            </item>
+        </layer-list>
     </item>
 </layer-list>
+

@@ -68,17 +68,13 @@
             android:textColor="#ffffff"
             android:textSize="26sp"
             android:textAllCaps="false"
+            android:shadowColor="#FF5722"
+            android:shadowDx="8"
+            android:shadowDy="15"
+            android:shadowRadius="4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/specText"/>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:src="@drawable/buttonshadow"
-            app:layout_constraintEnd_toEndOf="@+id/loginButton"
-            app:layout_constraintStart_toStartOf="@+id/loginButton"
-            app:layout_constraintTop_toBottomOf="@id/loginButton" />
 
         <Button
             android:id="@+id/registerButton"
