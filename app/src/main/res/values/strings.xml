@@ -47,4 +47,8 @@
     <string name="settings">Ayarlar</string>
     <string name="faq">S.S.S.</string>
     <string name="support">Destek Olun</string>
+    <string name="delivered">Teslim Edilenler</string>
+    <string name="active">Aktif Siparişler</string>
+    <string name="accept">Kabul Et</string>
+    <string name="decline">Reddet</string>
 </resources>

@@ -35,4 +35,8 @@
     <string name="settings">Settings</string>
     <string name="faq">F.A.Q.</string>
     <string name="support">Support Us</string>
+    <string name="delivered">Delivered</string>
+    <string name="active">Active Orders</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
 </resources>

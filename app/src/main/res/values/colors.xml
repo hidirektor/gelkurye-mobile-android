@@ -13,4 +13,10 @@
     <color name="checkBoxColor">#D9D9D9</color>
     <color name="navbarButtonColor">#FC8900</color>
     <color name="inactiveColor">#A9A9DB</color>
+    <color name="allOrdersColor">#EEEEFF</color>
+    <color name="orderBackColor">#F1F1FF</color>
+    <color name="acceptStartColor">#2A9419</color>
+    <color name="acceptEndColor">#5AC926</color>
+    <color name="declineStartColor">#FF003D</color>
+    <color name="declineEndColor">#FC5B78</color>
 </resources>
