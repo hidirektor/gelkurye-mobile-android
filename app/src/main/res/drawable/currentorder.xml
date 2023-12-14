@@ -12,7 +12,7 @@
                         android:endColor="#FF8B00"
                         android:startColor="#FF6D00"
                         />
-                    <corners android:radius="200dp"/>
+                    <corners android:radius="150dp"/>
                 </shape>
             </item>
         </layer-list>

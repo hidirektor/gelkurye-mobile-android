@@ -27,4 +27,12 @@
     <string name="navbar_orders">Orders</string>
     <string name="navbar_profile">Profile</string>
     <string name="navbar_settings">Settings</string>
+    <string name="developer">Halil İbrahim Direktör</string>
+    <string name="welcome">Welcome back</string>
+    <string name="current_order">Current Order</string>
+    <string name="waiting_orders">Waiting Orders</string>
+    <string name="all_orders">All Orders</string>
+    <string name="settings">Settings</string>
+    <string name="faq">F.A.Q.</string>
+    <string name="support">Support Us</string>
 </resources>

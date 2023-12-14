@@ -39,4 +39,12 @@
     <string name="navbar_orders">Siparişler</string>
     <string name="navbar_profile">Profil</string>
     <string name="navbar_settings">Ayarlar</string>
+    <string name="developer">Halil İbrahim Direktör</string>
+    <string name="welcome">Merhabalar</string>
+    <string name="current_order">Şuanki Sipariş</string>
+    <string name="waiting_orders">Bekleyen Siparişler</string>
+    <string name="all_orders">Tüm Siparişler</string>
+    <string name="settings">Ayarlar</string>
+    <string name="faq">S.S.S.</string>
+    <string name="support">Destek Olun</string>
 </resources>
