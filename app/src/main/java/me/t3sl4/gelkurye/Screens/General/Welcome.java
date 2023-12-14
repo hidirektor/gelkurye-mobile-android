@@ -7,18 +7,26 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+
 import me.t3sl4.gelkurye.R;
+import me.t3sl4.gelkurye.Util.Order.Order;
+import me.t3sl4.gelkurye.Util.Order.OrderAdapter;
 
 public class Welcome extends AppCompatActivity {
     private NavigationView hamburgerMenu;
     private ImageView navigationButton;
     private ConstraintLayout mainLayout;
+    private ListView ordersList;
+
+    private ArrayList<Order> orderListTemp;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -29,6 +37,16 @@ public class Welcome extends AppCompatActivity {
         hamburgerMenu = findViewById(R.id.hamburgerMenu);
         navigationButton = findViewById(R.id.navigationButton);
         mainLayout = findViewById(R.id.mainLayout);
+        ordersList = findViewById(R.id.ordersListView);
+
+        orderListTemp = new ArrayList<>();
+        Order tempOrder = new Order("sd", "Zurna Tavuk Dürüm", "Acele Hatay Döner", "14/12/2023 21:03");
+        for(int i=0; i<15; i++) {
+            orderListTemp.add(tempOrder);
+        }
+
+        OrderAdapter adapter = new OrderAdapter(this, orderListTemp);
+        ordersList.setAdapter(adapter);
 
         navigationButton.setOnClickListener(v -> {
             showNavigationViewWithAnimation();
