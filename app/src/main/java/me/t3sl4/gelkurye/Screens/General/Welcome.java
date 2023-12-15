@@ -6,6 +6,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -26,6 +27,10 @@ public class Welcome extends AppCompatActivity {
     private ConstraintLayout mainLayout;
     private ListView ordersList;
 
+    private Button completedOrdersButton;
+    private Button allOrdersButton;
+
+
     private ArrayList<Order> orderListTemp;
 
     @SuppressLint("ClickableViewAccessibility")
@@ -38,6 +43,8 @@ public class Welcome extends AppCompatActivity {
         navigationButton = findViewById(R.id.navigationButton);
         mainLayout = findViewById(R.id.mainLayout);
         ordersList = findViewById(R.id.ordersListView);
+        completedOrdersButton = findViewById(R.id.completedOrders);
+        allOrdersButton = findViewById(R.id.allOrders);
 
         orderListTemp = new ArrayList<>();
         Order tempOrder = new Order("sd", "Zurna Tavuk Dürüm", "Acele Hatay Döner", "14/12/2023 21:03");
@@ -58,6 +65,20 @@ public class Welcome extends AppCompatActivity {
                 return true;
             }
             return false;
+        });
+
+        completedOrdersButton.setOnClickListener(view -> {
+            allOrdersButton.setBackgroundResource(R.drawable.allorders);
+            completedOrdersButton.setBackgroundResource(R.drawable.waitingorders);
+            allOrdersButton.setTextColor(getResources().getColor(R.color.editTextTopColor));
+            completedOrdersButton.setTextColor(getResources().getColor(R.color.white));
+        });
+
+        allOrdersButton.setOnClickListener(view -> {
+            completedOrdersButton.setBackgroundResource(R.drawable.allorders);
+            allOrdersButton.setBackgroundResource(R.drawable.waitingorders);
+            allOrdersButton.setTextColor(getResources().getColor(R.color.white));
+            completedOrdersButton.setTextColor(getResources().getColor(R.color.editTextTopColor));
         });
     }
 
