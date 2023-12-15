@@ -1,8 +1,6 @@
 package me.t3sl4.gelkurye.Screens.Authentication;
 
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -10,7 +8,7 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import me.t3sl4.gelkurye.R;
-import me.t3sl4.gelkurye.Util.Component.PasswordFieldTouchListener;
+import me.t3sl4.gelkurye.Util.Component.PasswordField.PasswordFieldTouchListener;
 
 public class Register extends AppCompatActivity  {
 

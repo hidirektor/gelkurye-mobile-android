@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Component;
+package me.t3sl4.gelkurye.Util.Component.PasswordField;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

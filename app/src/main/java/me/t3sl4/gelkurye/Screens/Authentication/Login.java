@@ -5,14 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.General.Welcome;
-import me.t3sl4.gelkurye.Screens.MainActivity;
-import me.t3sl4.gelkurye.Util.Component.PasswordFieldTouchListener;
+import me.t3sl4.gelkurye.Util.Component.PasswordField.PasswordFieldTouchListener;
 
 public class Login extends AppCompatActivity  {
     private EditText editTextUsername;

@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -18,6 +16,8 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 
 import me.t3sl4.gelkurye.R;
+import me.t3sl4.gelkurye.Util.Component.Button.ButtonManager;
+import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
 import me.t3sl4.gelkurye.Util.Order.Order;
 import me.t3sl4.gelkurye.Util.Order.OrderAdapter;
 
@@ -29,7 +29,6 @@ public class Welcome extends AppCompatActivity {
 
     private Button completedOrdersButton;
     private Button allOrdersButton;
-
 
     private ArrayList<Order> orderListTemp;
 
@@ -56,54 +55,19 @@ public class Welcome extends AppCompatActivity {
         ordersList.setAdapter(adapter);
 
         navigationButton.setOnClickListener(v -> {
-            showNavigationViewWithAnimation();
+            NavigationManager.showNavigationViewWithAnimation(hamburgerMenu, this);
         });
 
         mainLayout.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
-                hideNavigationViewWithAnimation();
+                NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
                 return true;
             }
             return false;
         });
 
-        completedOrdersButton.setOnClickListener(view -> {
-            allOrdersButton.setBackgroundResource(R.drawable.allorders);
-            completedOrdersButton.setBackgroundResource(R.drawable.waitingorders);
-            allOrdersButton.setTextColor(getResources().getColor(R.color.editTextTopColor));
-            completedOrdersButton.setTextColor(getResources().getColor(R.color.white));
-        });
+        completedOrdersButton.setOnClickListener(view -> ButtonManager.orderButtonColorEffect(1, completedOrdersButton, allOrdersButton, this));
 
-        allOrdersButton.setOnClickListener(view -> {
-            completedOrdersButton.setBackgroundResource(R.drawable.allorders);
-            allOrdersButton.setBackgroundResource(R.drawable.waitingorders);
-            allOrdersButton.setTextColor(getResources().getColor(R.color.white));
-            completedOrdersButton.setTextColor(getResources().getColor(R.color.editTextTopColor));
-        });
-    }
-
-    private void showNavigationViewWithAnimation() {
-        Animation slideIn = AnimationUtils.loadAnimation(this, R.anim.slide_in_right);
-        hamburgerMenu.setVisibility(View.VISIBLE);
-        hamburgerMenu.startAnimation(slideIn);
-    }
-
-    private void hideNavigationViewWithAnimation() {
-        Animation slideOut = AnimationUtils.loadAnimation(this, R.anim.slide_out_right);
-        slideOut.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                hamburgerMenu.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-            }
-        });
-        hamburgerMenu.startAnimation(slideOut);
+        allOrdersButton.setOnClickListener(view -> ButtonManager.orderButtonColorEffect(2, completedOrdersButton, allOrdersButton, this));
     }
 }
