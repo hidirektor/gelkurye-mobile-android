@@ -163,6 +163,8 @@
             android:shadowDx="8"
             android:shadowDy="10"
             android:shadowRadius="4"
+            android:outlineSpotShadowColor="@color/editTextColor"
+            android:outlineAmbientShadowColor="@color/editTextColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/specText"/>
