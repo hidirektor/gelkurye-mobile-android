@@ -52,4 +52,14 @@
     <string name="accept">Kabul Et</string>
     <string name="decline">Reddet</string>
     <string name="profile_photo">Profil Fotoğrafı</string>
+    <string name="password_forget">Şifremi Unuttum</string>
+    <string name="forget_password_spec">Kullanıcı Adı ya da E-Posta Adresiniz</string>
+    <string name="button_next">İleri</string>
+    <string name="enter_otp">Onay Kodu Gir</string>
+    <string name="button_confirm">Onayla</string>
+    <string name="enter_otp_spec">Gönderdiğimiz OTP kodunu aşağıya girin.</string>
+    <string name="enter_otp_second">Onay Kodunu Giriniz</string>
+    <string name="remaining_time">"Kalan Süre: "</string>
+    <string name="seperator">:</string>
+    <string name="send_again">Tekrar Gönder</string>
 </resources>

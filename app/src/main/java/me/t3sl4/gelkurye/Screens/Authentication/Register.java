@@ -36,8 +36,6 @@ public class Register extends AppCompatActivity  {
         editTextPhone = findViewById(R.id.editTextPhone);
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextPasswordRepeat = findViewById(R.id.editTextPasswordRepeat);
-        licenseFrontConstraint = findViewById(R.id.licenseFrontConstraint);
-        licenseBackConstraint = findViewById(R.id.licenseBackConstraint);
 
         PasswordFieldTouchListener.setChangeablePasswordField(editTextPassword, getApplicationContext());
         PasswordFieldTouchListener.setChangeablePasswordField(editTextPasswordRepeat, getApplicationContext());

@@ -40,4 +40,14 @@
     <string name="accept">Accept</string>
     <string name="decline">Decline</string>
     <string name="profile_photo">Profile Photo</string>
+    <string name="password_forget">Forget My Password</string>
+    <string name="forget_password_spec">Username or E-Mail</string>
+    <string name="button_next">Next</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="button_confirm">Confirm</string>
+    <string name="enter_otp_spec">Enter the OTP code we sent below.</string>
+    <string name="enter_otp_second">Enter OTP Code</string>
+    <string name="remaining_time">"Last: "</string>
+    <string name="seperator">" : "</string>
+    <string name="send_again">Send OTP Again</string>
 </resources>

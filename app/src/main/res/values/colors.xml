@@ -19,4 +19,5 @@
     <color name="acceptEndColor">#5AC926</color>
     <color name="declineStartColor">#FF003D</color>
     <color name="declineEndColor">#FC5B78</color>
+    <color name="otpBoxColor">#D8D8FF</color>
 </resources>
