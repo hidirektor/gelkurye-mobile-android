@@ -62,4 +62,7 @@
     <string name="remaining_time">"Kalan Süre: "</string>
     <string name="seperator">:</string>
     <string name="send_again">Tekrar Gönder</string>
+    <string name="password_reset">Şifre Sıfırla</string>
+    <string name="button_reset">Sıfırla</string>
+    <string name="reset_success">Şifreniz Başarılı Şekilde Değiştirilmiştir.</string>
 </resources>
