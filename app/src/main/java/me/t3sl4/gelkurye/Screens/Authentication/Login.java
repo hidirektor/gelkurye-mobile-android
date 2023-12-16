@@ -34,7 +34,12 @@ public class Login extends AppCompatActivity  {
         PasswordFieldTouchListener.setChangeablePasswordField(passwordField, getApplicationContext());
         loginButton.setOnClickListener(v -> {
             Intent intent = new Intent(Login.this, Welcome.class);
+            intent.putExtra("loginedUser", userNameField.getText());
             startActivity(intent);
+            //TODO
+            //remember me kontrol et
+            //remember me işaretliyse end pointe girilen şifreyi at ve şifrelenmiş halini
+            //shared preferences içinde sakla
         });
 
         sifremiUnuttumButton.setOnClickListener(v -> {

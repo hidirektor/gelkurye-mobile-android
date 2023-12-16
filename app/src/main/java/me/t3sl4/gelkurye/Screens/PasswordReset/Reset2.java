@@ -1,5 +1,6 @@
 package me.t3sl4.gelkurye.Screens.PasswordReset;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -17,13 +18,17 @@ import me.t3sl4.gelkurye.R;
 
 public class Reset2 extends AppCompatActivity {
     private PinView enteredOTP;
-    private Button otpVerifyButton;
+    private Button verifyButton;
+    private Button sendAgainButton;
+
+    private String incomingUserInfo = "";
+
+
     private PinView remainingTimeMinuteFirst;
     private PinView remainingTimeMinuteSecond;
     private PinView remainingTimeSecondFirst;
     private PinView remainingTimeSecondSecond;
     private CountDownTimer countDownTimer;
-    private Button sendAgainButton;
 
     boolean isOTPEntered = false;
     @Override
@@ -31,8 +36,13 @@ public class Reset2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password_reset_2);
 
+        Intent intent = getIntent();
+        if (intent != null) {
+            incomingUserInfo = intent.getStringExtra("userVerifyMethod");
+        }
+
         enteredOTP = findViewById(R.id.enteredOTP);
-        otpVerifyButton = findViewById(R.id.otpVerifyButton);
+        verifyButton = findViewById(R.id.otpVerifyButton);
 
         remainingTimeMinuteFirst = findViewById(R.id.remainingTimeMinuteFirst);
         remainingTimeMinuteSecond = findViewById(R.id.remainingTimeMinuteSecond);
@@ -48,35 +58,26 @@ public class Reset2 extends AppCompatActivity {
         sendAgainButton.setOnClickListener(v -> {
             sendAgainButton.setVisibility(View.INVISIBLE);
             startCountdown();
+            //TODO
+            if(incomingUserInfo.contains("@")) {
+                //maile otp gönder
+            } else {
+                //kullanıcı adına otp gönder
+            }
         });
 
-        otpVerifyButton.setOnClickListener(v -> {
+        verifyButton.setOnClickListener(v -> {
             if(isOTPEntered) {
                 //OTP Girildi ve 6 karaktere sahip işleme devam et
+                //otp doğrulamayı server tarafta yap ve diğer ekrana aktar
+                Intent nextIntent = new Intent(Reset2.this, Reset3.class);
+                startActivity(nextIntent);
+                finish();
+
             }
         });
 
         startCountdown();
-
-        countDownTimer = new CountDownTimer(120000, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                updateCountdownUI(millisUntilFinished);
-            }
-
-            @Override
-            public void onFinish() {
-                refreshColor(0);
-                if(checkPinView() == 1) {
-                    isOTPEntered = true;
-                }
-                sendAgainButton.setVisibility(View.VISIBLE);
-                remainingTimeMinuteFirst.setText("0");
-                remainingTimeMinuteSecond.setText("0");
-                remainingTimeSecondFirst.setText("0");
-                remainingTimeSecondSecond.setText("0");
-            }
-        }.start();
     }
 
     private void startCountdown() {
