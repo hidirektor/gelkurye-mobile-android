@@ -45,6 +45,16 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="16dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:progressDrawable="@drawable/progressbar"
+                android:layout_toEndOf="@+id/textViewProfilePhotoLabel"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
