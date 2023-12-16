@@ -13,22 +13,25 @@ import me.t3sl4.gelkurye.Screens.MainActivity;
 import me.t3sl4.gelkurye.Util.SharedPreferencesManager;
 
 public class OnBoard1 extends AppCompatActivity {
+    private TextView atlaButton;
+    private ImageView nextButton;
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboard_1);
 
-        TextView atlaButton1 = findViewById(R.id.atlaText);
-        ImageView nextButton1 = findViewById(R.id.onboardSonraki);
+        atlaButton = findViewById(R.id.atlaText);
+        nextButton = findViewById(R.id.onboardSonraki);
 
-        atlaButton1.setOnClickListener(v -> {
+        atlaButton.setOnClickListener(v -> {
             Intent intent = new Intent(OnBoard1.this, MainActivity.class);
             startActivity(intent);
             finish();
         });
 
-        nextButton1.setOnClickListener(v -> {
+        nextButton.setOnClickListener(v -> {
             Intent intent = new Intent(OnBoard1.this, OnBoard2.class);
             startActivity(intent);
             finish();

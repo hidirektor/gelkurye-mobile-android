@@ -30,7 +30,7 @@
             android:src="@drawable/app_ikon" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/profilePhotoImageView"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="0.5"
@@ -125,7 +125,7 @@
                     android:layout_weight="0.2">
 
                     <ImageView
-                        android:id="@+id/imageView19"
+                        android:id="@+id/bottomHomeIcon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:maxHeight="15dp"
@@ -144,7 +144,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/headerTextColor"
                         android:textSize="12sp"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView19" />
+                        app:layout_constraintTop_toBottomOf="@+id/bottomHomeIcon" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -154,7 +154,7 @@
                     android:layout_weight="0.2">
 
                     <ImageView
-                        android:id="@+id/imageView20"
+                        android:id="@+id/bottomOrdersIcon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/navbar_orders_ikon"
@@ -174,7 +174,7 @@
                         android:textColor="@color/inactiveColor"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView20" />
+                        app:layout_constraintTop_toBottomOf="@+id/bottomOrdersIcon" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -200,7 +200,7 @@
                     android:layout_weight="0.2">
 
                     <ImageView
-                        android:id="@+id/imageView22"
+                        android:id="@+id/bottomProfileIcon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/navbar_profile_ikon"
@@ -220,7 +220,7 @@
                         android:textColor="@color/inactiveColor"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView22" />
+                        app:layout_constraintTop_toBottomOf="@+id/bottomProfileIcon" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -230,7 +230,7 @@
                     android:layout_weight="0.2">
 
                     <ImageView
-                        android:id="@+id/imageView23"
+                        android:id="@+id/bottomSettingsIcon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/navbar_settings_ikon"
@@ -250,12 +250,13 @@
                         android:textColor="@color/inactiveColor"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView23" />
+                        app:layout_constraintTop_toBottomOf="@+id/bottomSettingsIcon" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </com.google.android.material.bottomappbar.BottomAppBar>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/currentOrderFAB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:pointerIcon="wait"

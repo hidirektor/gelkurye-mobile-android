@@ -137,7 +137,7 @@
                 android:text="@string/hint_rememberme" />
 
             <TextView
-                android:id="@+id/sifreUnuttumText"
+                android:id="@+id/sifremiUnuttumText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|center_horizontal"
