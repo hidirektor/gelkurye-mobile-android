@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -18,7 +19,10 @@ public class Login extends AppCompatActivity  {
     private EditText userNameField;
     private EditText passwordField;
     private Button loginButton;
+    private CheckBox rememberMe;
     private TextView sifremiUnuttumButton;
+
+    private boolean isRemembered = false;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -28,8 +32,27 @@ public class Login extends AppCompatActivity  {
 
         userNameField = findViewById(R.id.editTextUsername);
         passwordField = findViewById(R.id.editTextPassword);
+        rememberMe = findViewById(R.id.beniHatirlaCheckBox);
         sifremiUnuttumButton = findViewById(R.id.sifremiUnuttumText);
         loginButton = findViewById(R.id.loginButton);
+
+        isRemembered = rememberMe.isChecked();
+
+        if(isRemembered) {
+            //TODO
+            //sharedpreferences'dan veriyi çek ve directLogin yap
+            //kullanıcı adı ya da eposta + şifrenin şifreli hali
+        }
+
+        rememberMe.setOnClickListener(v -> {
+            isRemembered = true;
+
+            String tempUserName = userNameField.getText().toString();
+            String tempPassword = passwordField.getText().toString();
+
+            //TODO
+            //directLogin yap.
+        });
 
         PasswordFieldTouchListener.setChangeablePasswordField(passwordField, getApplicationContext());
         loginButton.setOnClickListener(v -> {
