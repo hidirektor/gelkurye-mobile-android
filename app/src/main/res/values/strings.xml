@@ -65,4 +65,5 @@
     <string name="password_reset">Şifre Sıfırla</string>
     <string name="button_reset">Sıfırla</string>
     <string name="reset_success">Şifreniz Başarılı Şekilde Değiştirilmiştir.</string>
+    <string name="faq_spec">Sıkça Sorulan Sorular</string>
 </resources>
