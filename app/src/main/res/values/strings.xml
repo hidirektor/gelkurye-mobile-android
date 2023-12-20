@@ -69,5 +69,5 @@
     <string name="faq_q1">Teslim ederken onay kodu alacak mıyız?</string>
     <string name="faq_a1">Evet siparişi üzerinize aldığınız anda müşteriye bir OTP kodu gönderiyoruz. Sizler de siparişi müşteriye götürdüğünüz an müşteriden bu 6 haneli kodu alıp uygulama ekranından girip sipariş teslimini o şekilde gerçekleştirmelisiniz.</string>
     <string name="faq_q2">Ödemeler ne zaman hesabımıza yatacak?</string>
-    <string name="faq_a2">Kuryelerimize ödemeleri otomatik olarak yapılmaktadır. Ödemeler haftanın 3. günü yapılmaktadır.</string>
+    <string name="faq_a2">Kuryelerimize ödemeleri otomatik olarak yapılmaktadır. Ödemeler haftanın 1. günü yapılmaktadır.</string>
 </resources>
