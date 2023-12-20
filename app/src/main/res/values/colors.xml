@@ -20,4 +20,6 @@
     <color name="declineStartColor">#FF003D</color>
     <color name="declineEndColor">#FC5B78</color>
     <color name="otpBoxColor">#D8D8FF</color>
+    <color name="faqColor">051B35</color>
+    <color name="answerBackcolor"></color>
 </resources>
