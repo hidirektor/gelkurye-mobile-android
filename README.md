@@ -1,1 +1,1 @@
-# gelalkurye-mobile-android
+# gelkurye-mobile-android

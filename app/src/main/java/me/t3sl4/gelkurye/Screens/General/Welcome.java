@@ -10,7 +10,9 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -27,6 +29,8 @@ public class Welcome extends AppCompatActivity {
     private NavigationView hamburgerMenu;
     private ImageView profilePhoto;
     private ConstraintLayout restrictedArea4Hamburger;
+    private CoordinatorLayout restrictedBottomArea4Hamburger;
+    private BottomAppBar restrictedBottomAppbarArea4Hamburger;
 
     private Button completedOrdersButton;
     private Button allOrdersButton;
@@ -50,6 +54,8 @@ public class Welcome extends AppCompatActivity {
         hamburgerMenu = findViewById(R.id.hamburgerMenu);
         profilePhoto = findViewById(R.id.profilePhotoImageView);
         restrictedArea4Hamburger = findViewById(R.id.mainLayout);
+        restrictedBottomArea4Hamburger = findViewById(R.id.bottomBar);
+        restrictedBottomAppbarArea4Hamburger = findViewById(R.id.app_bar);
 
         completedOrdersButton = findViewById(R.id.completedOrders);
         allOrdersButton = findViewById(R.id.allOrders);
@@ -86,6 +92,30 @@ public class Welcome extends AppCompatActivity {
     private void hamburgerEffect() {
         restrictedArea4Hamburger.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
+                NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
+                return true;
+            }
+            return false;
+        });
+
+        restrictedBottomArea4Hamburger.setOnTouchListener((view, motionEvent) -> {
+            if(motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
+                NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
+                return true;
+            }
+            return false;
+        });
+
+        ordersList.setOnTouchListener((view, motionEvent) -> {
+            if(motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
+                NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
+                return true;
+            }
+            return false;
+        });
+
+        restrictedBottomAppbarArea4Hamburger.setOnTouchListener((view, motionEvent) -> {
+            if(motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
                 NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
                 return true;
             }
