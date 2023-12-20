@@ -19,7 +19,6 @@ public class FAQ extends AppCompatActivity {
     private LinearLayout question1;
     private LinearLayout answer1;
 
-
     private Animation slideDownAnimation;
     private Animation slideUpAnimation;
 
