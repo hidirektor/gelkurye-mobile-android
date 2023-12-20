@@ -56,4 +56,6 @@
     <string name="faq_spec">Frequently Asked Questions</string>
     <string name="faq_q1">Will we receive a confirmation code when submitting?</string>
     <string name="faq_a1">Yes, we send an OTP code to the customer as soon as you receive the order. As soon as you take the order to the customer, you must take this 6-digit code from the customer, enter it on the application screen and deliver the order that way.</string>
+    <string name="faq_q2">When will the payments be deposited into our account?</string>
+    <string name="faq_a2">Payments to our couriers are made automatically. Payments are made on the 3rd day of the week.</string>
 </resources>

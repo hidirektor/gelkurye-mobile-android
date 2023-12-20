@@ -36,25 +36,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
                     <ImageView
-                        android:id="@+id/questionOrder"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/faq_first_ikon"
                         android:layout_marginEnd="8dp"/>
-                    <EditText
-                        android:id="@+id/questionEditText"
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edittextbackground"
                         android:drawablePadding="16dp"
                         android:ems="10"
                         android:fontFamily="@font/outfit_medium"
-                        android:hint="@string/faq_q1"
-                        android:inputType="none"
+                        android:text="@string/faq_q1"
                         android:padding="8dp"
-                        android:textColorHint="@color/faqColor"
+                        android:textColor="@color/faqColor"
                         android:drawableEnd="@drawable/faq_end_ikon"/>
                 </LinearLayout>
                 <LinearLayout
@@ -63,7 +61,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:visibility="invisible">
+                    android:visibility="gone"
+                    android:layout_marginBottom="12dp">
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -76,6 +75,61 @@
                         android:fontFamily="@font/outfit_medium"
                         android:background="@drawable/answerbackground"
                         android:text="@string/faq_a1"
+                        android:textColor="@color/white"
+                        android:padding="16dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:id="@+id/question2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/faq_second_ikon"
+                        android:layout_marginEnd="8dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittextbackground"
+                        android:drawablePadding="16dp"
+                        android:ems="10"
+                        android:fontFamily="@font/outfit_medium"
+                        android:text="@string/faq_q2"
+                        android:padding="8dp"
+                        android:textColor="@color/faqColor"
+                        android:drawableEnd="@drawable/faq_end_ikon"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/answer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    android:layout_marginBottom="12dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/faq_first_ikon"
+                        android:layout_marginEnd="8dp"
+                        android:visibility="invisible"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/outfit_medium"
+                        android:background="@drawable/answerbackground"
+                        android:text="@string/faq_a2"
                         android:textColor="@color/white"
                         android:padding="16dp" />
                 </LinearLayout>
