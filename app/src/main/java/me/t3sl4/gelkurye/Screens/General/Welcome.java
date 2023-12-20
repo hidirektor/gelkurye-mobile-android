@@ -1,11 +1,13 @@
 package me.t3sl4.gelkurye.Screens.General;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,7 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 
 import me.t3sl4.gelkurye.R;
+import me.t3sl4.gelkurye.Screens.Hamburger.Faq;
 import me.t3sl4.gelkurye.Util.Component.Button.ButtonManager;
 import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
 import me.t3sl4.gelkurye.Util.Order.Order;
@@ -37,6 +40,13 @@ public class Welcome extends AppCompatActivity {
 
     private ListView ordersList;
     private ArrayList<Order> orderListTemp;
+
+    private Button navCurrentOrderButton;
+    private LinearLayout navWaitingOrdersButton;
+    private LinearLayout navAllOrdersButton;
+    private LinearLayout navSettingsButton;
+    private LinearLayout navFaqButton;
+    private LinearLayout navSupportButton;
 
     private ImageView homeButton;
     private ImageView ordersButton;
@@ -67,6 +77,14 @@ public class Welcome extends AppCompatActivity {
             orderListTemp.add(tempOrder);
         }
 
+        View hamburgerView = hamburgerMenu.getHeaderView(0);
+        navCurrentOrderButton = hamburgerView.findViewById(R.id.navCurrentOrder);
+        navWaitingOrdersButton = hamburgerView.findViewById(R.id.navWaitingOrders);
+        navAllOrdersButton = hamburgerView.findViewById(R.id.navAllOrders);
+        navSettingsButton = hamburgerView.findViewById(R.id.navSettings);
+        navFaqButton = hamburgerView.findViewById(R.id.navFAQ);
+        navSupportButton = hamburgerView.findViewById(R.id.navSupport);
+
         homeButton = findViewById(R.id.bottomHomeIcon);
         ordersButton = findViewById(R.id.bottomOrdersIcon);
         profileButton = findViewById(R.id.bottomProfileIcon);
@@ -80,6 +98,11 @@ public class Welcome extends AppCompatActivity {
 
         hamburgerEffect();
         filterColorEffect();
+
+        navFaqButton.setOnClickListener(v -> {
+            Intent faqIntent = new Intent(Welcome.this, Faq.class);
+            startActivity(faqIntent);
+        });
     }
 
     private void filterColorEffect() {
