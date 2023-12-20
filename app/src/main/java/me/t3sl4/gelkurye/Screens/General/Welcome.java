@@ -21,7 +21,7 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 
 import me.t3sl4.gelkurye.R;
-import me.t3sl4.gelkurye.Screens.Hamburger.Faq;
+import me.t3sl4.gelkurye.Screens.Hamburger.FAQ;
 import me.t3sl4.gelkurye.Util.Component.Button.ButtonManager;
 import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
 import me.t3sl4.gelkurye.Util.Order.Order;
@@ -100,7 +100,7 @@ public class Welcome extends AppCompatActivity {
         filterColorEffect();
 
         navFaqButton.setOnClickListener(v -> {
-            Intent faqIntent = new Intent(Welcome.this, Faq.class);
+            Intent faqIntent = new Intent(Welcome.this, FAQ.class);
             startActivity(faqIntent);
         });
     }

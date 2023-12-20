@@ -1,6 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Base.Theme.GelKurye" parent="Theme.AppCompat.Light.NoActionBar">
-
     </style>
 
     <style name="Theme.GelKurye" parent="Base.Theme.GelKurye">

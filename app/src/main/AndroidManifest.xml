@@ -32,7 +32,7 @@
         <activity android:name=".Screens.PasswordReset.Reset2" />
         <activity android:name=".Screens.PasswordReset.Reset3" />
         <activity android:name=".Screens.PasswordReset.Reset4" />
-        <activity android:name=".Screens.Hamburger.Faq" />
+        <activity android:name=".Screens.Hamburger.FAQ" />
     </application>
 
 </manifest>
