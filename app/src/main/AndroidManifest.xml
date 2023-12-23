@@ -27,7 +27,7 @@
         <activity android:name=".Screens.MainActivity" />
         <activity android:name=".Screens.Authentication.Login" />
         <activity android:name=".Screens.Authentication.Register" />
-        <activity android:name=".Screens.General.Welcome" />
+        <activity android:name=".Screens.General.Dashboard" />
         <activity android:name=".Screens.PasswordReset.Reset1" />
         <activity android:name=".Screens.PasswordReset.Reset2" />
         <activity android:name=".Screens.PasswordReset.Reset3" />

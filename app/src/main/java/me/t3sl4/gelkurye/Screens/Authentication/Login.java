@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import me.t3sl4.gelkurye.R;
-import me.t3sl4.gelkurye.Screens.General.Welcome;
+import me.t3sl4.gelkurye.Screens.General.Dashboard;
 import me.t3sl4.gelkurye.Screens.PasswordReset.Reset1;
 import me.t3sl4.gelkurye.Util.Component.PasswordField.PasswordFieldTouchListener;
 
@@ -56,7 +56,7 @@ public class Login extends AppCompatActivity  {
 
         PasswordFieldTouchListener.setChangeablePasswordField(passwordField, getApplicationContext());
         loginButton.setOnClickListener(v -> {
-            Intent intent = new Intent(Login.this, Welcome.class);
+            Intent intent = new Intent(Login.this, Dashboard.class);
             intent.putExtra("loginedUser", userNameField.getText());
             startActivity(intent);
             //TODO

@@ -27,7 +27,7 @@ import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
 import me.t3sl4.gelkurye.Util.Order.Order;
 import me.t3sl4.gelkurye.Util.Order.OrderAdapter;
 
-public class Welcome extends AppCompatActivity {
+public class Dashboard extends AppCompatActivity {
     private ImageView hamburgerButton;
     private NavigationView hamburgerMenu;
     private ImageView profilePhoto;
@@ -100,7 +100,7 @@ public class Welcome extends AppCompatActivity {
         filterColorEffect();
 
         navFaqButton.setOnClickListener(v -> {
-            Intent faqIntent = new Intent(Welcome.this, FAQ.class);
+            Intent faqIntent = new Intent(Dashboard.this, FAQ.class);
             startActivity(faqIntent);
         });
     }
