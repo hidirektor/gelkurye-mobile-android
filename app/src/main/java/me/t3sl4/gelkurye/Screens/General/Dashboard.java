@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.Hamburger.FAQ;
+import me.t3sl4.gelkurye.Screens.Order.CurrentOrder;
 import me.t3sl4.gelkurye.Util.Component.Button.ButtonManager;
 import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
 import me.t3sl4.gelkurye.Util.Order.Order;
@@ -95,6 +96,11 @@ public class Dashboard extends AppCompatActivity {
         ordersList.setAdapter(adapter);
 
         hamburgerButton.setOnClickListener(v -> NavigationManager.showNavigationViewWithAnimation(hamburgerMenu, this));
+
+        currentOrderButton.setOnClickListener(v -> {
+            Intent currentOrderIntent = new Intent(Dashboard.this, CurrentOrder.class);
+            startActivity(currentOrderIntent);
+        });
 
         hamburgerEffect();
         filterColorEffect();

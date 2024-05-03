@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GelKurye"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBwOPs2oc0XZfNc3ndeZmZpiL3BaH2R4pk" />
+
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -33,6 +38,7 @@
         <activity android:name=".Screens.PasswordReset.Reset3" />
         <activity android:name=".Screens.PasswordReset.Reset4" />
         <activity android:name=".Screens.Hamburger.FAQ" />
+        <activity android:name=".Screens.Order.CurrentOrder" />
     </application>
 
 </manifest>
