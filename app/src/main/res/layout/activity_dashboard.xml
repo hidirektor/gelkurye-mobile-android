@@ -609,7 +609,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/bottom1Btn"
+                    android:id="@+id/dashboardButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -634,7 +634,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/bottom3Btn"
+                    android:id="@+id/ordersButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -658,7 +658,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/bottom4Btn"
+                    android:id="@+id/earningButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -682,7 +682,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/bottom5Btn"
+                    android:id="@+id/profileButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"

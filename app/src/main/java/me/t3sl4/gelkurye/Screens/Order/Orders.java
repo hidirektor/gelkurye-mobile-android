@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Screens.General;
+package me.t3sl4.gelkurye.Screens.Order;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -15,26 +15,28 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
 import me.t3sl4.gelkurye.R;
+import me.t3sl4.gelkurye.Screens.General.Dashboard;
 import me.t3sl4.gelkurye.Screens.Hamburger.FAQ;
-import me.t3sl4.gelkurye.Screens.Order.Orders;
-import me.t3sl4.gelkurye.Util.Component.Button.ButtonManager;
 import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
 import me.t3sl4.gelkurye.Util.Order.Order;
 import me.t3sl4.gelkurye.Util.Order.OrderAdapter;
 
-public class Dashboard extends AppCompatActivity {
+public class Orders extends AppCompatActivity {
     private ImageView hamburgerButton;
     private NavigationView hamburgerMenu;
     private ImageView profilePhoto;
     private ConstraintLayout restrictedArea4Hamburger;
     private CoordinatorLayout restrictedBottomArea4Hamburger;
     private BottomAppBar restrictedBottomAppbarArea4Hamburger;
+
+
+    private ListView ordersList;
+    private ArrayList<Order> orderListTemp;
 
     //Navbar Buttons
     private LinearLayout dashboardButton;
@@ -54,7 +56,7 @@ public class Dashboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_orders);
 
         hamburgerButton = findViewById(R.id.navigationButton);
         hamburgerMenu = findViewById(R.id.hamburgerMenu);
@@ -78,24 +80,36 @@ public class Dashboard extends AppCompatActivity {
         navFaqButton = hamburgerView.findViewById(R.id.navFAQ);
         navSupportButton = hamburgerView.findViewById(R.id.navSupport);
 
-        hamburgerButton.setOnClickListener(v -> NavigationManager.showNavigationViewWithAnimation(hamburgerMenu, this));
+        //ListView
+        ordersList = findViewById(R.id.ordersListView);
 
-        hamburgerEffect();
+        orderListTemp = new ArrayList<>();
+        Order tempOrder = new Order("sd", "Zurna Tavuk Dürüm", "Acele Hatay Döner", "14/12/2023 21:03");
+        for(int i=0; i<15; i++) {
+            orderListTemp.add(tempOrder);
+        }
 
-        navFaqButton.setOnClickListener(v -> {
-            Intent faqIntent = new Intent(Dashboard.this, FAQ.class);
-            startActivity(faqIntent);
-        });
+        OrderAdapter adapter = new OrderAdapter(this, orderListTemp);
+        ordersList.setAdapter(adapter);
 
-        //Navbar button click listeners
+        //Navbar Buttons click events
         dashboardButton.setOnClickListener(v -> {
-            //Ekranı yenileme işlemi
+            finish();
         });
 
         ordersButton.setOnClickListener(v -> {
-            Intent ordersIntent = new Intent(Dashboard.this, Orders.class);
-            startActivity(ordersIntent);
+            //Siparişleri yenileme işlemi
         });
+
+        //Hamburger Menu Click events
+        hamburgerButton.setOnClickListener(v -> NavigationManager.showNavigationViewWithAnimation(hamburgerMenu, this));
+
+        navFaqButton.setOnClickListener(v -> {
+            Intent faqIntent = new Intent(Orders.this, FAQ.class);
+            startActivity(faqIntent);
+        });
+
+        hamburgerEffect();
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -109,6 +123,14 @@ public class Dashboard extends AppCompatActivity {
         });
 
         restrictedBottomArea4Hamburger.setOnTouchListener((view, motionEvent) -> {
+            if(motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
+                NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
+                return true;
+            }
+            return false;
+        });
+
+        ordersList.setOnTouchListener((view, motionEvent) -> {
             if(motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
                 NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
                 return true;
