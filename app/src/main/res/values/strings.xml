@@ -70,4 +70,17 @@
     <string name="faq_a1">Evet siparişi üzerinize aldığınız anda müşteriye bir OTP kodu gönderiyoruz. Sizler de siparişi müşteriye götürdüğünüz an müşteriden bu 6 haneli kodu alıp uygulama ekranından girip sipariş teslimini o şekilde gerçekleştirmelisiniz.</string>
     <string name="faq_q2">Ödemeler ne zaman hesabımıza yatacak?</string>
     <string name="faq_a2">Kuryelerimize ödemeleri otomatik olarak yapılmaktadır. Ödemeler haftanın 1. günü yapılmaktadır.</string>
+
+    <!-- Navbar -->
+    <string name="navbar_button_dashboard">Dashboard</string>
+    <string name="navbar_button_orders">Siparişler</string>
+    <string name="navbar_button_earning">Kazanç</string>
+    <string name="navbar_button_profile">Profil</string>
+
+    <!-- Stats -->
+    <string name="stats_completed">Teslim Edilen Paket</string>
+    <string name="stats_pending">Bekleyen Sipariş</string>
+    <string name="stats_total">Toplam Sipariş</string>
+    <string name="stats_total_earning">Toplam Kazanç</string>
+    <string name="stats_cancelled">Sipariş İptal Edildi</string>
 </resources>

@@ -41,7 +41,6 @@
         <activity android:name=".Screens.PasswordReset.Reset3" />
         <activity android:name=".Screens.PasswordReset.Reset4" />
         <activity android:name=".Screens.Hamburger.FAQ" />
-        <activity android:name=".Screens.Order.CurrentOrder" />
     </application>
 
 </manifest>

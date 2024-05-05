@@ -58,4 +58,17 @@
     <string name="faq_a1">Yes, we send an OTP code to the customer as soon as you receive the order. As soon as you take the order to the customer, you must take this 6-digit code from the customer, enter it on the application screen and deliver the order that way.</string>
     <string name="faq_q2">When will the payments be deposited into our account?</string>
     <string name="faq_a2">Payments to our couriers are made automatically. Payments are made on the 1st day of the week.</string>
+
+    <!-- Navbar -->
+    <string name="navbar_button_dashboard">Dashboard</string>
+    <string name="navbar_button_orders">Orders</string>
+    <string name="navbar_button_earning">Earning</string>
+    <string name="navbar_button_profile">Profile</string>
+
+    <!-- Stats -->
+    <string name="stats_completed">Completed Deliveries</string>
+    <string name="stats_pending">Pending Deliveries</string>
+    <string name="stats_total">Total Orders</string>
+    <string name="stats_total_earning">Total Earning</string>
+    <string name="stats_cancelled">Deliveries Cancelled</string>
 </resources>

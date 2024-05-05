@@ -16,7 +16,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_splash);
 
         boolean isFirstTime = SharedPreferencesManager.getSharedPref("isFirstTime", this, false);
 

@@ -22,7 +22,6 @@ import java.util.ArrayList;
 
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.Hamburger.FAQ;
-import me.t3sl4.gelkurye.Screens.Order.CurrentOrder;
 import me.t3sl4.gelkurye.Util.Component.Button.ButtonManager;
 import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
 import me.t3sl4.gelkurye.Util.Order.Order;
@@ -59,7 +58,7 @@ public class Dashboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
+        setContentView(R.layout.activity_dashboard);
 
         hamburgerButton = findViewById(R.id.navigationButton);
         hamburgerMenu = findViewById(R.id.hamburgerMenu);
@@ -68,10 +67,10 @@ public class Dashboard extends AppCompatActivity {
         restrictedBottomArea4Hamburger = findViewById(R.id.bottomBar);
         restrictedBottomAppbarArea4Hamburger = findViewById(R.id.app_bar);
 
-        completedOrdersButton = findViewById(R.id.completedOrders);
-        allOrdersButton = findViewById(R.id.allOrders);
+        //completedOrdersButton = findViewById(R.id.completedOrders);
+        //allOrdersButton = findViewById(R.id.allOrders);
 
-        ordersList = findViewById(R.id.ordersListView);
+        //ordersList = findViewById(R.id.ordersListView);
         orderListTemp = new ArrayList<>();
         Order tempOrder = new Order("sd", "Zurna Tavuk Dürüm", "Acele Hatay Döner", "14/12/2023 21:03");
         for(int i=0; i<15; i++) {
@@ -86,24 +85,19 @@ public class Dashboard extends AppCompatActivity {
         navFaqButton = hamburgerView.findViewById(R.id.navFAQ);
         navSupportButton = hamburgerView.findViewById(R.id.navSupport);
 
-        homeButton = findViewById(R.id.bottomHomeIcon);
+        /*homeButton = findViewById(R.id.bottomHomeIcon);
         ordersButton = findViewById(R.id.bottomOrdersIcon);
         profileButton = findViewById(R.id.bottomProfileIcon);
         settingsButton = findViewById(R.id.bottomSettingsIcon);
-        currentOrderButton = findViewById(R.id.currentOrderFAB);
+        currentOrderButton = findViewById(R.id.currentOrderFAB);*/
 
-        OrderAdapter adapter = new OrderAdapter(this, orderListTemp);
-        ordersList.setAdapter(adapter);
+        //OrderAdapter adapter = new OrderAdapter(this, orderListTemp);
+        //ordersList.setAdapter(adapter);
 
         hamburgerButton.setOnClickListener(v -> NavigationManager.showNavigationViewWithAnimation(hamburgerMenu, this));
 
-        currentOrderButton.setOnClickListener(v -> {
-            Intent currentOrderIntent = new Intent(Dashboard.this, CurrentOrder.class);
-            startActivity(currentOrderIntent);
-        });
-
         hamburgerEffect();
-        filterColorEffect();
+        //filterColorEffect();
 
         navFaqButton.setOnClickListener(v -> {
             Intent faqIntent = new Intent(Dashboard.this, FAQ.class);
@@ -111,11 +105,11 @@ public class Dashboard extends AppCompatActivity {
         });
     }
 
-    private void filterColorEffect() {
+    /*private void filterColorEffect() {
         completedOrdersButton.setOnClickListener(view -> ButtonManager.orderButtonColorEffect(1, completedOrdersButton, allOrdersButton, this));
 
         allOrdersButton.setOnClickListener(view -> ButtonManager.orderButtonColorEffect(2, completedOrdersButton, allOrdersButton, this));
-    }
+    }*/
 
     @SuppressLint("ClickableViewAccessibility")
     private void hamburgerEffect() {
@@ -135,13 +129,13 @@ public class Dashboard extends AppCompatActivity {
             return false;
         });
 
-        ordersList.setOnTouchListener((view, motionEvent) -> {
+        /*ordersList.setOnTouchListener((view, motionEvent) -> {
             if(motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
                 NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
                 return true;
             }
             return false;
-        });
+        });*/
 
         restrictedBottomAppbarArea4Hamburger.setOnTouchListener((view, motionEvent) -> {
             if(motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
