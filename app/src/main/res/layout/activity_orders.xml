@@ -7,38 +7,33 @@
     android:id="@+id/mainLayout"
     android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
             android:id="@+id/navigationButton"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.4"
-            android:layout_gravity="center|center_horizontal"
-            android:src="@drawable/topbar_hamburger_ikon" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2.1"
-            android:layout_gravity="center|center_horizontal"
+            android:layout_centerInParent="true"
             android:src="@drawable/app_ikon" />
 
         <ImageView
-            android:id="@+id/profilePhotoImageView"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="0.5"
-            android:layout_gravity="center|center_horizontal"
-            app:srcCompat="@drawable/profilephoto" />
-    </LinearLayout>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/navigationButton"
+            android:layout_alignTop="@id/navigationButton"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp"
+            android:foregroundGravity="center_vertical"
+            android:src="@drawable/topbar_hamburger_ikon" />
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/filterSection"

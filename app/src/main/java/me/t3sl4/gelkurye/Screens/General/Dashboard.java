@@ -2,6 +2,7 @@ package me.t3sl4.gelkurye.Screens.General;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -88,9 +89,18 @@ public class Dashboard extends AppCompatActivity {
 
         hamburgerEffect();
 
+        //Hamburger Button Clicks
         navFaqButton.setOnClickListener(v -> {
             Intent faqIntent = new Intent(Dashboard.this, FAQ.class);
             startActivity(faqIntent);
+        });
+        navAllOrdersButton.setOnClickListener(v -> {
+            Intent allOrdersIntent = new Intent(Dashboard.this, Orders.class);
+            startActivity(allOrdersIntent);
+        });
+        navSupportButton.setOnClickListener(v -> {
+            Intent githubIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/hidirektor"));
+            startActivity(githubIntent);
         });
 
         //Navbar button click listeners
