@@ -37,6 +37,7 @@ public class Dashboard extends AppCompatActivity {
     private ConstraintLayout restrictedArea4Hamburger;
     private CoordinatorLayout restrictedBottomArea4Hamburger;
     private BottomAppBar restrictedBottomAppbarArea4Hamburger;
+    private LinearLayout restrictedMidSection;
 
     private SimpleRatingBar ratingBar;
 
@@ -67,6 +68,7 @@ public class Dashboard extends AppCompatActivity {
         restrictedArea4Hamburger = findViewById(R.id.mainLayout);
         restrictedBottomArea4Hamburger = findViewById(R.id.bottomBar);
         restrictedBottomAppbarArea4Hamburger = findViewById(R.id.app_bar);
+        restrictedMidSection = findViewById(R.id.midSection);
 
         //Navbar Buttons
         dashboardButton = findViewById(R.id.dashboardButton);
@@ -122,6 +124,14 @@ public class Dashboard extends AppCompatActivity {
 
         restrictedBottomAppbarArea4Hamburger.setOnTouchListener((view, motionEvent) -> {
             if(motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
+                NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
+                return true;
+            }
+            return false;
+        });
+
+        restrictedMidSection.setOnTouchListener((view, motionEvent) -> {
+            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
                 NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
                 return true;
             }

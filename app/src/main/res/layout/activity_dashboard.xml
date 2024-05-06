@@ -42,6 +42,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomBar">
 
         <LinearLayout
+            android:id="@+id/midSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
