@@ -53,11 +53,17 @@
     <string name="password_reset">Reset Password</string>
     <string name="button_reset">Reset</string>
     <string name="reset_success">Password Reset Succesfully Completed.</string>
+
+    <!-- F.A.Q. Section -->
     <string name="faq_spec">Frequently Asked Questions</string>
     <string name="faq_q1">Will we receive a confirmation code when submitting?</string>
     <string name="faq_a1">Yes, we send an OTP code to the customer as soon as you receive the order. As soon as you take the order to the customer, you must take this 6-digit code from the customer, enter it on the application screen and deliver the order that way.</string>
     <string name="faq_q2">When will the payments be deposited into our account?</string>
     <string name="faq_a2">Payments to our couriers are made automatically. Payments are made on the 1st day of the week.</string>
+    <string name="faq_q3">Why is the app constantly tracking my location?</string>
+    <string name="faq_a3">The application constantly tracks your location to ensure precision in terms of order tracking.</string>
+    <string name="faq_q4">Are my package statistics updated?</string>
+    <string name="faq_a4">Yes, your statistics are updated after each delivery.</string>
 
     <!-- Navbar -->
     <string name="navbar_button_dashboard">Dashboard</string>
