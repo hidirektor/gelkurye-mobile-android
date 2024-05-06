@@ -46,7 +46,7 @@ public class Login extends AppCompatActivity  {
             //kullanıcı adı ya da eposta + şifrenin şifreli hali
         }
 
-        rememberMe.setOnClickListener(v -> {
+        rememberMe.setOnCheckedChangeListener((buttonView, isChecked) -> {
             isRemembered = true;
 
             String tempUserName = userNameField.getText().toString();
