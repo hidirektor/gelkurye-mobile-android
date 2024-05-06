@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -35,12 +37,11 @@ public class Dashboard extends AppCompatActivity {
     private ImageView hamburgerButton;
     private NavigationView hamburgerMenu;
     private ImageView profilePhoto;
-    private ConstraintLayout restrictedArea4Hamburger;
-    private CoordinatorLayout restrictedBottomArea4Hamburger;
-    private BottomAppBar restrictedBottomAppbarArea4Hamburger;
-    private LinearLayout restrictedMidSection;
 
     private SimpleRatingBar ratingBar;
+    private RelativeLayout restrictedHeaderSection;
+    private ScrollView restrictedMidSection;
+    private BottomAppBar restrictedBottomSection;
 
     //Navbar Buttons
     private LinearLayout dashboardButton;
@@ -62,14 +63,13 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         ratingBar = findViewById(R.id.ratingStar);
+        restrictedHeaderSection = findViewById(R.id.header);
+        restrictedMidSection = findViewById(R.id.midSection);
+        restrictedBottomSection = findViewById(R.id.app_bar);
 
-        hamburgerButton = findViewById(R.id.navigationButton);
+        hamburgerButton = findViewById(R.id.hamburgerButton);
         hamburgerMenu = findViewById(R.id.hamburgerMenu);
         profilePhoto = findViewById(R.id.profilePhotoImageView);
-        restrictedArea4Hamburger = findViewById(R.id.mainLayout);
-        restrictedBottomArea4Hamburger = findViewById(R.id.bottomBar);
-        restrictedBottomAppbarArea4Hamburger = findViewById(R.id.app_bar);
-        restrictedMidSection = findViewById(R.id.midSection);
 
         //Navbar Buttons
         dashboardButton = findViewById(R.id.dashboardButton);
@@ -116,7 +116,13 @@ public class Dashboard extends AppCompatActivity {
 
     @SuppressLint("ClickableViewAccessibility")
     private void hamburgerEffect() {
-        restrictedArea4Hamburger.setOnTouchListener((view, motionEvent) -> {
+        restrictedHeaderSection.setOnClickListener(v -> {
+            if (hamburgerMenu.getVisibility() == View.VISIBLE) {
+                NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, Dashboard.this);
+            }
+        });
+
+        restrictedMidSection.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
                 NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
                 return true;
@@ -124,23 +130,7 @@ public class Dashboard extends AppCompatActivity {
             return false;
         });
 
-        restrictedBottomArea4Hamburger.setOnTouchListener((view, motionEvent) -> {
-            if(motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
-                NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
-                return true;
-            }
-            return false;
-        });
-
-        restrictedBottomAppbarArea4Hamburger.setOnTouchListener((view, motionEvent) -> {
-            if(motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
-                NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
-                return true;
-            }
-            return false;
-        });
-
-        restrictedMidSection.setOnTouchListener((view, motionEvent) -> {
+        restrictedBottomSection.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
                 NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
                 return true;

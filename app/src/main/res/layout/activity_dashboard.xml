@@ -25,6 +25,7 @@
             android:src="@drawable/app_ikon" />
 
         <ImageView
+            android:id="@+id/hamburgerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@id/navigationButton"
@@ -36,6 +37,7 @@
     </RelativeLayout>
 
     <ScrollView
+        android:id="@+id/midSection"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:gravity="center|center_horizontal"
@@ -45,7 +47,6 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomBar">
 
         <LinearLayout
-            android:id="@+id/midSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
