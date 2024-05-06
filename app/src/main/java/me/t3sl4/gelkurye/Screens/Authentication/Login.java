@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.zpj.widget.checkbox.ZCheckBox;
+
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.General.Dashboard;
 import me.t3sl4.gelkurye.Screens.PasswordReset.Reset1;
@@ -19,7 +21,7 @@ public class Login extends AppCompatActivity  {
     private EditText userNameField;
     private EditText passwordField;
     private Button loginButton;
-    private CheckBox rememberMe;
+    private ZCheckBox rememberMe;
     private TextView sifremiUnuttumButton;
 
     private boolean isRemembered = false;

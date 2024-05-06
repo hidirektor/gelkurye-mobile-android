@@ -22,4 +22,6 @@
     <color name="otpBoxColor">#D8D8FF</color>
     <color name="faqColor">#051B35</color>
     <color name="answerBackcolor">#FC8900</color>
+    <color name="ratingColor">#FFE234</color>
+    <color name="beniHatirlaColor">#0c83e5</color>
 </resources>

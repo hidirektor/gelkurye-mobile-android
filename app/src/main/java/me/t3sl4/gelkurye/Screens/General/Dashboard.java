@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.BounceInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,6 +18,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 
 import java.util.ArrayList;
 
@@ -36,6 +38,8 @@ public class Dashboard extends AppCompatActivity {
     private CoordinatorLayout restrictedBottomArea4Hamburger;
     private BottomAppBar restrictedBottomAppbarArea4Hamburger;
 
+    private SimpleRatingBar ratingBar;
+
     //Navbar Buttons
     private LinearLayout dashboardButton;
     private LinearLayout ordersButton;
@@ -44,7 +48,6 @@ public class Dashboard extends AppCompatActivity {
 
     //Hamburger Menu Buttons
     private Button navCurrentOrderButton;
-    private LinearLayout navWaitingOrdersButton;
     private LinearLayout navAllOrdersButton;
     private LinearLayout navSettingsButton;
     private LinearLayout navFaqButton;
@@ -55,6 +58,8 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        ratingBar = findViewById(R.id.ratingStar);
 
         hamburgerButton = findViewById(R.id.navigationButton);
         hamburgerMenu = findViewById(R.id.hamburgerMenu);
@@ -72,7 +77,6 @@ public class Dashboard extends AppCompatActivity {
         //Hamburger Menu Buttons
         View hamburgerView = hamburgerMenu.getHeaderView(0);
         navCurrentOrderButton = hamburgerView.findViewById(R.id.navCurrentOrder);
-        navWaitingOrdersButton = hamburgerView.findViewById(R.id.navWaitingOrders);
         navAllOrdersButton = hamburgerView.findViewById(R.id.navAllOrders);
         navSettingsButton = hamburgerView.findViewById(R.id.navSettings);
         navFaqButton = hamburgerView.findViewById(R.id.navFAQ);

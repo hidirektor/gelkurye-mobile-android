@@ -46,7 +46,6 @@ public class Orders extends AppCompatActivity {
 
     //Hamburger Menu Buttons
     private Button navCurrentOrderButton;
-    private LinearLayout navWaitingOrdersButton;
     private LinearLayout navAllOrdersButton;
     private LinearLayout navSettingsButton;
     private LinearLayout navFaqButton;
@@ -74,7 +73,6 @@ public class Orders extends AppCompatActivity {
         //Hamburger Menu Buttons
         View hamburgerView = hamburgerMenu.getHeaderView(0);
         navCurrentOrderButton = hamburgerView.findViewById(R.id.navCurrentOrder);
-        navWaitingOrdersButton = hamburgerView.findViewById(R.id.navWaitingOrders);
         navAllOrdersButton = hamburgerView.findViewById(R.id.navAllOrders);
         navSettingsButton = hamburgerView.findViewById(R.id.navSettings);
         navFaqButton = hamburgerView.findViewById(R.id.navFAQ);
