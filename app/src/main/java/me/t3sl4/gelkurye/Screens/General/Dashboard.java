@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.Hamburger.FAQ;
 import me.t3sl4.gelkurye.Screens.Order.Orders;
+import me.t3sl4.gelkurye.Screens.User.Profile;
 import me.t3sl4.gelkurye.Util.Component.Button.ButtonManager;
 import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
 import me.t3sl4.gelkurye.Util.Order.Order;
@@ -111,6 +112,11 @@ public class Dashboard extends AppCompatActivity {
         ordersButton.setOnClickListener(v -> {
             Intent ordersIntent = new Intent(Dashboard.this, Orders.class);
             startActivity(ordersIntent);
+        });
+
+        profileButton.setOnClickListener(v -> {
+            Intent profileIntent = new Intent(Dashboard.this, Profile.class);
+            startActivity(profileIntent);
         });
     }
 

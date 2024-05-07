@@ -77,4 +77,7 @@
     <string name="stats_total">Total Orders</string>
     <string name="stats_total_earning">Total Earning</string>
     <string name="stats_cancelled">Deliveries Cancelled</string>
+
+    <string name="shift">Shift</string>
+    <string name="night_mode">Night Mode</string>
 </resources>

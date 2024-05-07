@@ -23,5 +23,9 @@
     <color name="faqColor">#051B35</color>
     <color name="answerBackcolor">#FC8900</color>
     <color name="ratingColor">#FFE234</color>
-    <color name="beniHatirlaColor">#0c83e5</color>
+    <color name="beniHatirlaColor">#0C83E5</color>
+    <color name="profileBackground">#F3F6FE</color>
+    <color name="on_color">#48ea8b</color>
+    <color name="off_color">#ff4651</color>
+    <color name="icon_color">#FFFFFF</color>
 </resources>
