@@ -8,7 +8,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -17,7 +17,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -31,7 +31,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:background="@color/profileBackground"
                 app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4"
                     app:cardBackgroundColor="@android:color/transparent"
                     app:cardElevation="0dp" >
 
@@ -104,7 +105,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3"
                     android:orientation="horizontal"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="16dp"
@@ -229,6 +231,89 @@
                                 android:layout_gravity="center|center_horizontal" />
                         </LinearLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.0"
+                    android:orientation="vertical"
+                    android:padding="36dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp">
+
+                    <LinearLayout
+                        android:id="@+id/question1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/profilebuttonbackground"
+                            android:drawablePadding="16dp"
+                            android:ems="10"
+                            android:fontFamily="@font/outfit_medium"
+                            android:text="@string/navbar_button_earning"
+                            android:padding="8dp"
+                            android:textColor="@color/faqColor"
+                            app:drawableEndCompat="@drawable/faq_end_ikon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/profilebuttonbackground"
+                            android:drawablePadding="16dp"
+                            android:ems="10"
+                            android:fontFamily="@font/outfit_medium"
+                            android:text="@string/change_pass"
+                            android:padding="8dp"
+                            android:textColor="@color/faqColor"
+                            app:drawableEndCompat="@drawable/faq_end_ikon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/profilebuttonbackground"
+                            android:drawablePadding="16dp"
+                            android:ems="10"
+                            android:fontFamily="@font/outfit_medium"
+                            android:text="@string/language"
+                            android:padding="8dp"
+                            android:textColor="@color/faqColor"
+                            app:drawableEndCompat="@drawable/faq_end_ikon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/profilebuttonbackground"
+                            android:drawablePadding="16dp"
+                            android:ems="10"
+                            android:fontFamily="@font/outfit_medium"
+                            android:text="@string/contact_us"
+                            android:padding="8dp"
+                            android:textColor="@color/faqColor"
+                            app:drawableEndCompat="@drawable/faq_end_ikon" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>

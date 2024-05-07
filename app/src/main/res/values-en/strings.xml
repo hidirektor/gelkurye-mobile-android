@@ -80,4 +80,7 @@
 
     <string name="shift">Shift</string>
     <string name="night_mode">Night Mode</string>
+    <string name="change_pass">Change Password</string>
+    <string name="language">Change Language</string>
+    <string name="contact_us">Support</string>
 </resources>

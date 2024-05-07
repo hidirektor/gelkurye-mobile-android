@@ -92,4 +92,7 @@
 
     <string name="shift">Vardiya</string>
     <string name="night_mode">Gece Modu</string>
+    <string name="change_pass">Şifreni Değiştir</string>
+    <string name="language">Dil Değiştir</string>
+    <string name="contact_us">Bize Ulaşın</string>
 </resources>
