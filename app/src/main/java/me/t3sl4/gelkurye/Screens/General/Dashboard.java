@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,11 +27,20 @@ import me.t3sl4.gelkurye.Screens.User.Profile;
 import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
 
 public class Dashboard extends AppCompatActivity {
+
+    //Personal Stats:
+    private ImageView profilePhotoDashboard;
+    private ImageView profilePhotoHamburger;
+    private SimpleRatingBar ratingBarDashboard;
+    private TextView nameSurnameDashboard;
+    private TextView nameSurnameHamburger;
+    private TextView phoneNumberDashboard;
+
+    //Hamburger Menu
     private ImageView hamburgerButton;
     private NavigationView hamburgerMenu;
-    private ImageView profilePhoto;
 
-    private SimpleRatingBar ratingBar;
+    //Restriction Area
     private RelativeLayout restrictedHeaderSection;
     private ScrollView restrictedMidSection;
     private BottomAppBar restrictedBottomSection;
@@ -42,7 +52,7 @@ public class Dashboard extends AppCompatActivity {
     private LinearLayout profileButton;
 
     //Hamburger Menu Buttons
-    private Button navCurrentOrderButton;
+    private Button currentOrderButton;
     private LinearLayout navAllOrdersButton;
     private LinearLayout navSettingsButton;
     private LinearLayout navFaqButton;
@@ -54,66 +64,12 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        ratingBar = findViewById(R.id.ratingStar);
-        restrictedHeaderSection = findViewById(R.id.header);
-        restrictedMidSection = findViewById(R.id.midSection);
-        restrictedBottomSection = findViewById(R.id.app_bar);
+        componentInitialize();
 
-        hamburgerButton = findViewById(R.id.hamburgerButton);
-        hamburgerMenu = findViewById(R.id.hamburgerMenu);
-        profilePhoto = findViewById(R.id.profilePhotoImageView);
-
-        //Navbar Buttons
-        dashboardButton = findViewById(R.id.dashboardButton);
-        ordersButton = findViewById(R.id.ordersButton);
-        earningButton = findViewById(R.id.earningButton);
-        profileButton = findViewById(R.id.profileButton);
-
-        //Hamburger Menu Buttons
-        View hamburgerView = hamburgerMenu.getHeaderView(0);
-        navCurrentOrderButton = hamburgerView.findViewById(R.id.navCurrentOrder);
-        navAllOrdersButton = hamburgerView.findViewById(R.id.navAllOrders);
-        navSettingsButton = hamburgerView.findViewById(R.id.navSettings);
-        navFaqButton = hamburgerView.findViewById(R.id.navFAQ);
-        navSupportButton = hamburgerView.findViewById(R.id.navSupport);
-
-        hamburgerButton.setOnClickListener(v -> NavigationManager.showNavigationViewWithAnimation(hamburgerMenu, this));
+        hamburgerMenuButtonClicks();
+        navbarButtonClicks();
 
         hamburgerEffect();
-
-        //Hamburger Button Clicks
-        navFaqButton.setOnClickListener(v -> {
-            Intent faqIntent = new Intent(Dashboard.this, FAQ.class);
-            startActivity(faqIntent);
-        });
-        navAllOrdersButton.setOnClickListener(v -> {
-            Intent allOrdersIntent = new Intent(Dashboard.this, Orders.class);
-            startActivity(allOrdersIntent);
-        });
-        navSupportButton.setOnClickListener(v -> {
-            Intent githubIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/hidirektor"));
-            startActivity(githubIntent);
-        });
-
-        //Navbar button click listeners
-        dashboardButton.setOnClickListener(v -> {
-            //Ekranı yenileme işlemi
-        });
-
-        ordersButton.setOnClickListener(v -> {
-            Intent ordersIntent = new Intent(Dashboard.this, Orders.class);
-            startActivity(ordersIntent);
-        });
-
-        profileButton.setOnClickListener(v -> {
-            Intent profileIntent = new Intent(Dashboard.this, Profile.class);
-            startActivity(profileIntent);
-        });
-
-        earningButton.setOnClickListener(v -> {
-            Intent earningIntent = new Intent(Dashboard.this, Earning.class);
-            startActivity(earningIntent);
-        });
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -138,6 +94,91 @@ public class Dashboard extends AppCompatActivity {
                 return true;
             }
             return false;
+        });
+    }
+
+    private void componentInitialize() {
+        //Personal Stats Definitions:
+        profilePhotoDashboard = findViewById(R.id.profilePhotoDashboard);
+        ratingBarDashboard = findViewById(R.id.ratingStar);
+        nameSurnameDashboard = findViewById(R.id.nameSurnameDashboard);
+        phoneNumberDashboard = findViewById(R.id.phoneNumberDashboard);
+
+        //RestrictedSections:
+        restrictedHeaderSection = findViewById(R.id.header);
+        restrictedMidSection = findViewById(R.id.midSection);
+        restrictedBottomSection = findViewById(R.id.app_bar);
+
+        //Hamburger Menu:
+        hamburgerButton = findViewById(R.id.hamburgerButton);
+        hamburgerMenu = findViewById(R.id.hamburgerMenu);
+
+        //Navbar Buttons
+        dashboardButton = findViewById(R.id.dashboardButton);
+        ordersButton = findViewById(R.id.ordersButton);
+        earningButton = findViewById(R.id.earningButton);
+        profileButton = findViewById(R.id.profileButton);
+
+        //Hamburger Menu Buttons
+        View hamburgerView = hamburgerMenu.getHeaderView(0);
+        profilePhotoHamburger = hamburgerView.findViewById(R.id.profilePhotoHamburger);
+        nameSurnameHamburger = hamburgerView.findViewById(R.id.nameSurnameHamburger);
+        currentOrderButton = hamburgerView.findViewById(R.id.navCurrentOrder);
+        navAllOrdersButton = hamburgerView.findViewById(R.id.navAllOrders);
+        navSettingsButton = hamburgerView.findViewById(R.id.navSettings);
+        navFaqButton = hamburgerView.findViewById(R.id.navFAQ);
+        navSupportButton = hamburgerView.findViewById(R.id.navSupport);
+    }
+
+    private void hamburgerMenuButtonClicks() {
+        //Hamburger Menu Trigger Listener
+        hamburgerButton.setOnClickListener(v -> NavigationManager.showNavigationViewWithAnimation(hamburgerMenu, this));
+
+        //Hamburger Button Clicks
+        currentOrderButton.setOnClickListener(v -> {
+            //Anlık map takibi ile şuanki ekranı gösterme
+        });
+
+        navAllOrdersButton.setOnClickListener(v -> {
+            Intent allOrdersIntent = new Intent(Dashboard.this, Orders.class);
+            startActivity(allOrdersIntent);
+        });
+
+        navSettingsButton.setOnClickListener(v -> {
+            //Ayarlar ekranına yönlendir
+        });
+
+        navFaqButton.setOnClickListener(v -> {
+            Intent faqIntent = new Intent(Dashboard.this, FAQ.class);
+            startActivity(faqIntent);
+        });
+
+        navSupportButton.setOnClickListener(v -> {
+            Intent githubIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/hidirektor"));
+            startActivity(githubIntent);
+        });
+    }
+
+    private void navbarButtonClicks() {
+        //Navbar button click listeners
+        dashboardButton.setOnClickListener(v -> {
+            finish();
+            startActivity(getIntent());
+        });
+
+        ordersButton.setOnClickListener(v -> {
+            Intent ordersIntent = new Intent(Dashboard.this, Orders.class);
+            startActivity(ordersIntent);
+        });
+
+        earningButton.setOnClickListener(v -> {
+            Intent earningIntent = new Intent(Dashboard.this, Earning.class);
+            startActivity(earningIntent);
+        });
+
+        profileButton.setOnClickListener(v -> {
+            Intent profileIntent = new Intent(Dashboard.this, Profile.class);
+            startActivity(profileIntent);
         });
     }
 }
