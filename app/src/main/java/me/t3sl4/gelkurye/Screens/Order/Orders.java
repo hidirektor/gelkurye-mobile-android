@@ -203,11 +203,13 @@ public class Orders extends AppCompatActivity {
 
         earningButton.setOnClickListener(v -> {
             Intent earningIntent = new Intent(Orders.this, Earning.class);
+            finish();
             startActivity(earningIntent);
         });
 
         profileButton.setOnClickListener(v -> {
             Intent profileIntent = new Intent(Orders.this, Profile.class);
+            finish();
             startActivity(profileIntent);
         });
     }

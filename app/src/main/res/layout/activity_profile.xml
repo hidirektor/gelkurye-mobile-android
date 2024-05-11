@@ -52,6 +52,7 @@
                         android:gravity="start" />
 
                     <ImageView
+                        android:id="@+id/logoutImageView"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_marginEnd="16dp"
@@ -103,9 +104,9 @@
                             android:textAlignment="center" />
 
                         <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                            android:id="@+id/ratingStar"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/ratingStar"
                             app:srb_starSize="24dp"
                             app:srb_numberOfStars="5"
                             app:srb_rating="3"
@@ -114,6 +115,7 @@
                             app:srb_fillColor="@color/answerBackcolor" />
                     </LinearLayout>
                     <ImageView
+                        android:id="@+id/editProfileImageView"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:src="@drawable/profile_edit"
@@ -170,6 +172,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintVertical_bias="0.29000002"
+                                android:layout_marginTop="12dp"
                                 app:srcCompat="@drawable/bike"
                                 app:tint="@color/navbarButtonColor"
                                 android:layout_gravity="center|center_vertical"/>
@@ -190,9 +193,8 @@
                         </LinearLayout>
 
                         <com.sigma.niceswitch.NiceSwitch
-                            android:id="@+id/switcher"
-                            android:layout_width="0dp"
-                            android:layout_weight="0.5"
+                            android:id="@+id/shiftSwitch"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             app:switcher_on_color="@color/on_color"
                             app:switcher_off_color="@color/off_color"
@@ -220,7 +222,8 @@
                             android:layout_width="0dp"
                             android:layout_weight="0.5"
                             android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:layout_gravity="center|center_vertical">
                             <ImageView
                                 android:id="@+id/imageView89"
                                 android:layout_width="32dp"
@@ -230,6 +233,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintVertical_bias="0.29000002"
+                                android:layout_marginTop="12dp"
                                 app:srcCompat="@drawable/night_mode"
                                 app:tint="@color/navbarButtonColor"
                                 android:layout_gravity="center|center_vertical"/>
@@ -249,9 +253,8 @@
                         </LinearLayout>
 
                         <com.sigma.niceswitch.NiceSwitch
-                            android:id="@+id/switcher2"
-                            android:layout_width="0dp"
-                            android:layout_weight="0.5"
+                            android:id="@+id/nightThemeSwitch"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             app:switcher_on_color="@color/on_color"
                             app:switcher_off_color="@color/off_color"
@@ -271,7 +274,7 @@
                 android:layout_marginEnd="24dp">
 
                 <LinearLayout
-                    android:id="@+id/question1"
+                    android:id="@+id/earningLinearButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -290,6 +293,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/changePassLinearButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -308,6 +312,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/changeLangLinearButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -326,6 +331,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/contactUsLinearButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
