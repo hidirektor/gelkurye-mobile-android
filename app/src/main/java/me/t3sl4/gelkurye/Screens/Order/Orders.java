@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.General.Dashboard;
 import me.t3sl4.gelkurye.Screens.Hamburger.FAQ;
+import me.t3sl4.gelkurye.Screens.User.Profile;
 import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
 import me.t3sl4.gelkurye.Util.Order.Order;
 import me.t3sl4.gelkurye.Util.Order.OrderAdapter;
@@ -29,7 +30,6 @@ import me.t3sl4.gelkurye.Util.Order.OrderAdapter;
 public class Orders extends AppCompatActivity {
     private ImageView hamburgerButton;
     private NavigationView hamburgerMenu;
-    private ImageView profilePhoto;
     private ConstraintLayout restrictedArea4Hamburger;
     private CoordinatorLayout restrictedBottomArea4Hamburger;
     private BottomAppBar restrictedBottomAppbarArea4Hamburger;
@@ -59,7 +59,6 @@ public class Orders extends AppCompatActivity {
 
         hamburgerButton = findViewById(R.id.navigationButton);
         hamburgerMenu = findViewById(R.id.hamburgerMenu);
-        profilePhoto = findViewById(R.id.profilePhotoImageView);
         restrictedArea4Hamburger = findViewById(R.id.mainLayout);
         restrictedBottomArea4Hamburger = findViewById(R.id.bottomBar);
         restrictedBottomAppbarArea4Hamburger = findViewById(R.id.app_bar);
@@ -91,12 +90,15 @@ public class Orders extends AppCompatActivity {
         ordersList.setAdapter(adapter);
 
         //Navbar Buttons click events
-        dashboardButton.setOnClickListener(v -> {
-            finish();
-        });
+        dashboardButton.setOnClickListener(v -> finish());
 
         ordersButton.setOnClickListener(v -> {
             //Siparişleri yenileme işlemi
+        });
+
+        profileButton.setOnClickListener(v -> {
+            Intent profileIntent = new Intent(Orders.this, Profile.class);
+            startActivity(profileIntent);
         });
 
         //Hamburger Menu Click events

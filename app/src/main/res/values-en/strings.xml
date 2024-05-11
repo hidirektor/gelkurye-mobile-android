@@ -78,9 +78,15 @@
     <string name="stats_total_earning">Total Earning</string>
     <string name="stats_cancelled">Deliveries Cancelled</string>
 
+    <!-- Profile -->
     <string name="shift">Shift</string>
     <string name="night_mode">Night Mode</string>
     <string name="change_pass">Change Password</string>
     <string name="language">Change Language</string>
     <string name="contact_us">Support</string>
+
+    <!-- Earning -->
+    <string name="earning_transactions">Transactions</string>
+    <string name="earning_balance">Balance</string>
+    <string name="earning_withdraw">Withdraw</string>
 </resources>

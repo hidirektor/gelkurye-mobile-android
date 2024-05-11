@@ -90,9 +90,15 @@
     <string name="stats_total_earning">Toplam Kazanç</string>
     <string name="stats_cancelled">Sipariş İptal Edildi</string>
 
+    <!-- Profile -->
     <string name="shift">Vardiya</string>
     <string name="night_mode">Koyu Tema</string>
     <string name="change_pass">Şifreni Değiştir</string>
     <string name="language">Dil Değiştir</string>
     <string name="contact_us">Bize Ulaşın</string>
+
+    <!-- Earning -->
+    <string name="earning_transactions">Yapılan İşlemler</string>
+    <string name="earning_balance">Toplam Bakiye</string>
+    <string name="earning_withdraw">Hesaba Aktar</string>
 </resources>
