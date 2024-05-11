@@ -18,17 +18,18 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
-            android:id="@+id/navigationButton"
+            android:id="@+id/appLogo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:src="@drawable/app_ikon" />
 
         <ImageView
+            android:id="@+id/navigationButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@id/navigationButton"
-            android:layout_alignTop="@id/navigationButton"
+            android:layout_alignStart="@id/appLogo"
+            android:layout_alignTop="@id/appLogo"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="0dp"
             android:foregroundGravity="center_vertical"
