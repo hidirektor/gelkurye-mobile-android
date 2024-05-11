@@ -152,6 +152,7 @@
                     android:textSize="22sp"/>
 
                 <Button
+                    android:id="@+id/filterButton"
                     android:layout_width="0dp"
                     android:layout_weight="0.35"
                     android:layout_height="wrap_content"
