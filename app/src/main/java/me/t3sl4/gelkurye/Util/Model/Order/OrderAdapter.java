@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Order;
+package me.t3sl4.gelkurye.Util.Model.Order;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -10,8 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
-
-import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 

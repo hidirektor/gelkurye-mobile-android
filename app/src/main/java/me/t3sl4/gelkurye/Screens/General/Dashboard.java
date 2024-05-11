@@ -6,33 +6,24 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.BounceInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
-
-import java.util.ArrayList;
 
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.Hamburger.FAQ;
 import me.t3sl4.gelkurye.Screens.Order.Orders;
+import me.t3sl4.gelkurye.Screens.User.Earning;
 import me.t3sl4.gelkurye.Screens.User.Profile;
-import me.t3sl4.gelkurye.Util.Component.Button.ButtonManager;
 import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
-import me.t3sl4.gelkurye.Util.Order.Order;
-import me.t3sl4.gelkurye.Util.Order.OrderAdapter;
 
 public class Dashboard extends AppCompatActivity {
     private ImageView hamburgerButton;
@@ -117,6 +108,11 @@ public class Dashboard extends AppCompatActivity {
         profileButton.setOnClickListener(v -> {
             Intent profileIntent = new Intent(Dashboard.this, Profile.class);
             startActivity(profileIntent);
+        });
+
+        earningButton.setOnClickListener(v -> {
+            Intent earningIntent = new Intent(Dashboard.this, Earning.class);
+            startActivity(earningIntent);
         });
     }
 

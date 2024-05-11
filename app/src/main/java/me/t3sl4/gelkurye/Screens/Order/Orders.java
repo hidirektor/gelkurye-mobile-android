@@ -20,12 +20,12 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 
 import me.t3sl4.gelkurye.R;
-import me.t3sl4.gelkurye.Screens.General.Dashboard;
 import me.t3sl4.gelkurye.Screens.Hamburger.FAQ;
+import me.t3sl4.gelkurye.Screens.User.Earning;
 import me.t3sl4.gelkurye.Screens.User.Profile;
 import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
-import me.t3sl4.gelkurye.Util.Order.Order;
-import me.t3sl4.gelkurye.Util.Order.OrderAdapter;
+import me.t3sl4.gelkurye.Util.Model.Order.Order;
+import me.t3sl4.gelkurye.Util.Model.Order.OrderAdapter;
 
 public class Orders extends AppCompatActivity {
     private ImageView hamburgerButton;
@@ -99,6 +99,11 @@ public class Orders extends AppCompatActivity {
         profileButton.setOnClickListener(v -> {
             Intent profileIntent = new Intent(Orders.this, Profile.class);
             startActivity(profileIntent);
+        });
+
+        earningButton.setOnClickListener(v -> {
+            Intent earningIntent = new Intent(Orders.this, Earning.class);
+            startActivity(earningIntent);
         });
 
         //Hamburger Menu Click events

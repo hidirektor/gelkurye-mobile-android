@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Order;
+package me.t3sl4.gelkurye.Util.Model.Order;
 
 import android.os.Parcel;
 import android.os.Parcelable;

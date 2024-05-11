@@ -43,6 +43,7 @@
         <activity android:name=".Screens.Hamburger.FAQ" />
         <activity android:name=".Screens.Order.Orders" />
         <activity android:name=".Screens.User.Profile" />
+        <activity android:name=".Screens.User.Earning" />
     </application>
 
 </manifest>

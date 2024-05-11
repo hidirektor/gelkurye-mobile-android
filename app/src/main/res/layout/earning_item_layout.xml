@@ -21,7 +21,7 @@
             android:layout_marginStart="16dp">
 
             <TextView
-                android:id="@+id/foodNameTextView"
+                android:id="@+id/transactionIDTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -31,7 +31,7 @@
                 android:textColor="@color/editTextTopColor"/>
 
             <TextView
-                android:id="@+id/orderDateTextView"
+                android:id="@+id/transactionDateTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -42,6 +42,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/transactionAmountButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
