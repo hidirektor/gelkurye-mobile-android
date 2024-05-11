@@ -1,13 +1,20 @@
 package me.t3sl4.gelkurye.Screens.User;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +23,8 @@ import androidx.core.content.ContextCompat;
 
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 import com.sigma.niceswitch.NiceSwitch;
+
+import java.util.Objects;
 
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.General.Dashboard;
@@ -40,6 +49,7 @@ public class Profile extends AppCompatActivity {
     private LinearLayout changePassLinearButton;
     private LinearLayout changeLangLinearButton;
     private LinearLayout contactUsLinearButton;
+    private Dialog languageDialog;
 
     //Navbar Buttons
     private LinearLayout dashboardButton;
@@ -156,7 +166,37 @@ public class Profile extends AppCompatActivity {
         });
 
         changeLangLinearButton.setOnClickListener(v -> {
+            languageDialog = new Dialog(this);
             //Dil Değiştirme Arayüzüne Aktar
+            languageDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            languageDialog.setContentView(R.layout.popup_language_selector);
+
+            //Popup items:
+            ImageView closeButton = languageDialog.findViewById(R.id.closeLanguagePopup);
+            RadioButton turkishButton = languageDialog.findViewById(R.id.turkishButton);
+            RadioButton englishButton = languageDialog.findViewById(R.id.englishButton);
+
+            closeButton.setOnClickListener(view -> {
+                languageDialog.dismiss();
+            });
+
+            turkishButton.setOnClickListener(view -> {
+                //Sistem dilini türkçe yap
+
+                englishButton.setChecked(false);
+            });
+
+            englishButton.setOnClickListener(view -> {
+                //Sistem dilini ingilizce yap
+
+                turkishButton.setChecked(false);
+            });
+
+            languageDialog.show();
+            Objects.requireNonNull(languageDialog.getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+            languageDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            languageDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+            languageDialog.getWindow().setGravity(Gravity.BOTTOM);
         });
 
         contactUsLinearButton.setOnClickListener(v -> {

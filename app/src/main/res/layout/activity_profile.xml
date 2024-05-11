@@ -173,7 +173,7 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintVertical_bias="0.29000002"
                                 android:layout_marginTop="12dp"
-                                app:srcCompat="@drawable/bike"
+                                app:srcCompat="@drawable/shift_icon"
                                 app:tint="@color/navbarButtonColor"
                                 android:layout_gravity="center|center_vertical"/>
 
