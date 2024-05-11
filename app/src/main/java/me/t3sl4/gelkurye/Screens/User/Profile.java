@@ -1,6 +1,9 @@
 package me.t3sl4.gelkurye.Screens.User;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -8,6 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 import com.sigma.niceswitch.NiceSwitch;
@@ -155,7 +160,23 @@ public class Profile extends AppCompatActivity {
         });
 
         contactUsLinearButton.setOnClickListener(v -> {
-            //Arama Yapmasını Sağla
+            contactUs();
         });
+    }
+
+    public void contactUs() {
+        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
+
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{Manifest.permission.CALL_PHONE},
+                    1);
+        } else {
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(Uri.parse("tel:"+ "905386390476"));
+            callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(callIntent);
+        }
     }
 }
