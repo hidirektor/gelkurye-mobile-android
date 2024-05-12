@@ -1,7 +1,9 @@
 package me.t3sl4.gelkurye.Screens.Order;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.navigation.NavigationView;
@@ -78,6 +81,8 @@ public class Orders extends AppCompatActivity {
         navbarButtonClicks();
 
         hamburgerMenuButtonClicks();
+
+        filterButtonClicks();
 
         getAllOrders();
 
@@ -185,6 +190,30 @@ public class Orders extends AppCompatActivity {
         navSupportButton.setOnClickListener(v -> {
             Intent githubIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/hidirektor"));
             startActivity(githubIntent);
+        });
+    }
+
+    private void filterButtonClicks() {
+        int defaultTextColor = ContextCompat.getColor(this, R.color.editTextTopColor);
+        int secondTextColor = ContextCompat.getColor(this, R.color.white);
+
+        Drawable defaultDrawable = ContextCompat.getDrawable(this, R.drawable.allorders);
+        Drawable secondDrawable = ContextCompat.getDrawable(this, R.drawable.waitingorders);
+
+        allOrdersButton.setOnClickListener(v -> {
+            //Tüm siparişleri listeleme
+            allOrdersButton.setTextColor(secondTextColor);
+            allOrdersButton.setBackground(secondDrawable);
+            completedOrdersButton.setTextColor(defaultTextColor);
+            completedOrdersButton.setBackground(defaultDrawable);
+        });
+
+        completedOrdersButton.setOnClickListener(v -> {
+            //Sadece teslim edilen siparişleri listeleme
+            completedOrdersButton.setTextColor(secondTextColor);
+            completedOrdersButton.setBackground(secondDrawable);
+            allOrdersButton.setTextColor(defaultTextColor);
+            allOrdersButton.setBackground(defaultDrawable);
         });
     }
 

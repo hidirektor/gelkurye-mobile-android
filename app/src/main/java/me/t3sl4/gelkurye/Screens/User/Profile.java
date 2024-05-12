@@ -12,6 +12,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -50,6 +52,7 @@ public class Profile extends AppCompatActivity {
     private LinearLayout changeLangLinearButton;
     private LinearLayout contactUsLinearButton;
     private Dialog languageDialog;
+    private Dialog passDialog;
 
     //Navbar Buttons
     private LinearLayout dashboardButton;
@@ -163,6 +166,26 @@ public class Profile extends AppCompatActivity {
 
         changePassLinearButton.setOnClickListener(v -> {
             //Şifre Değiştirme Arayüzüne Aktar
+            passDialog = new Dialog(this);
+            //Şifre Değiştirme Arayüzüne Aktar
+            passDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            passDialog.setContentView(R.layout.popup_changepass);
+
+            //Popup items:
+            EditText currentPassword = passDialog.findViewById(R.id.currentPasswordEditText);
+            EditText newPass = passDialog.findViewById(R.id.passwordEditText);
+            EditText newPassRepeat = passDialog.findViewById(R.id.passwordRepeatEditText);
+            Button changePassButton = passDialog.findViewById(R.id.changePassButton);
+
+            changePassButton.setOnClickListener(View -> {
+                //Şifre Değiştirme İşlemi
+            });
+
+            passDialog.show();
+            Objects.requireNonNull(passDialog.getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+            passDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            passDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+            passDialog.getWindow().setGravity(Gravity.BOTTOM);
         });
 
         changeLangLinearButton.setOnClickListener(v -> {

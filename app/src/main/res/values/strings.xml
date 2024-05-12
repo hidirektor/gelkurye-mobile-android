@@ -107,4 +107,7 @@
     <string name="lang_turkish_2" translatable="false">Turkish</string>
     <string name="lang_english_1" translatable="false">English (United States)</string>
     <string name="lang_english_2" translatable="false">English (United States)</string>
+
+    <!-- Change Password -->
+    <string name="current_password">Mevcut Şifreniz</string>
 </resources>
