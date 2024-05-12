@@ -36,25 +36,8 @@ import me.t3sl4.gelkurye.Util.Model.Order.Order;
 import me.t3sl4.gelkurye.Util.Model.Order.OrderAdapter;
 
 public class Orders extends AppCompatActivity {
-    //Personal Stats:
-    private ImageView profilePhotoHamburger;
-    private TextView nameSurnameHamburger;
-
-    //Restriction Area:
-    private RelativeLayout restrictedHeaderSection;
-    private LinearLayout restrictedMidSection;
-    private BottomAppBar restrictedBottomSection;
-
-    //Hamburger Menu Definitions:
-    private ImageView hamburgerButton;
-    private NavigationView hamburgerMenu;
-
-    //Hamburger Menu Buttons
-    private Button currentOrderButton;
-    private LinearLayout navAllOrdersButton;
-    private LinearLayout navSettingsButton;
-    private LinearLayout navFaqButton;
-    private LinearLayout navSupportButton;
+    //Header Buttons:
+    private ImageView goBackButton;
 
     //Filter Section Buttons:
     private Button completedOrdersButton;
@@ -78,67 +61,18 @@ public class Orders extends AppCompatActivity {
 
         componentInitialize();
 
-        navbarButtonClicks();
+        headerButtonClicks();
 
-        hamburgerMenuButtonClicks();
+        navbarButtonClicks();
 
         filterButtonClicks();
 
         getAllOrders();
-
-        hamburgerEffect();
-    }
-
-    @SuppressLint("ClickableViewAccessibility")
-    private void hamburgerEffect() {
-        restrictedHeaderSection.setOnClickListener(v -> {
-            if (hamburgerMenu.getVisibility() == View.VISIBLE) {
-                NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, Orders.this);
-            }
-        });
-
-        restrictedMidSection.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
-                NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
-                return true;
-            }
-            return false;
-        });
-
-        restrictedBottomSection.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
-                NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
-                return true;
-            }
-            return false;
-        });
-
-        ordersList.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
-                NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
-                return true;
-            }
-            return false;
-        });
-
-        allOrdersButton.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
-                NavigationManager.hideNavigationViewWithAnimation(hamburgerMenu, this);
-                return true;
-            }
-            return false;
-        });
     }
 
     private void componentInitialize() {
-        //Restriction Areas:
-        restrictedHeaderSection = findViewById(R.id.header);
-        restrictedMidSection = findViewById(R.id.filterSection);
-        restrictedBottomSection = findViewById(R.id.app_bar);
-
-        //Hamburger Menu:
-        hamburgerButton = findViewById(R.id.navigationButton);
-        hamburgerMenu = findViewById(R.id.hamburgerMenu);
+        //Header Buttons:
+        goBackButton = findViewById(R.id.backButtonImage);
 
         //Filter Section Buttons:
         completedOrdersButton = findViewById(R.id.completedOrders);
@@ -150,46 +84,13 @@ public class Orders extends AppCompatActivity {
         earningButton = findViewById(R.id.earningButton);
         profileButton = findViewById(R.id.profileButton);
 
-        //Hamburger Menu Buttons
-        View hamburgerView = hamburgerMenu.getHeaderView(0);
-        profilePhotoHamburger = hamburgerView.findViewById(R.id.profilePhotoHamburger);
-        nameSurnameHamburger = hamburgerView.findViewById(R.id.nameSurnameHamburger);
-        currentOrderButton = hamburgerView.findViewById(R.id.navCurrentOrder);
-        navAllOrdersButton = hamburgerView.findViewById(R.id.navAllOrders);
-        navSettingsButton = hamburgerView.findViewById(R.id.navSettings);
-        navFaqButton = hamburgerView.findViewById(R.id.navFAQ);
-        navSupportButton = hamburgerView.findViewById(R.id.navSupport);
-
         //Order ListView
         ordersList = findViewById(R.id.ordersListView);
     }
 
-    private void hamburgerMenuButtonClicks() {
-        //Hamburger Menu Trigger Listener
-        hamburgerButton.setOnClickListener(v -> NavigationManager.showNavigationViewWithAnimation(hamburgerMenu, this));
-
-        //Hamburger Button Clicks
-        currentOrderButton.setOnClickListener(v -> {
-            //Anlık map takibi ile şuanki ekranı gösterme
-        });
-
-        navAllOrdersButton.setOnClickListener(v -> {
-            Intent allOrdersIntent = new Intent(Orders.this, Orders.class);
-            startActivity(allOrdersIntent);
-        });
-
-        navSettingsButton.setOnClickListener(v -> {
-            //Ayarlar ekranına yönlendir
-        });
-
-        navFaqButton.setOnClickListener(v -> {
-            Intent faqIntent = new Intent(Orders.this, FAQ.class);
-            startActivity(faqIntent);
-        });
-
-        navSupportButton.setOnClickListener(v -> {
-            Intent githubIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/hidirektor"));
-            startActivity(githubIntent);
+    private void headerButtonClicks() {
+        goBackButton.setOnClickListener(v -> {
+            finish();
         });
     }
 

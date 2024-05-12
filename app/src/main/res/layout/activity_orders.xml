@@ -3,38 +3,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/profileBackground"
     android:id="@+id/mainLayout"
     android:fitsSystemWindows="true">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/appLogo"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:src="@drawable/app_ikon" />
-
-        <ImageView
-            android:id="@+id/navigationButton"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@id/appLogo"
-            android:layout_alignTop="@id/appLogo"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="0dp"
-            android:foregroundGravity="center_vertical"
-            android:src="@drawable/topbar_hamburger_ikon" />
-    </RelativeLayout>
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="0dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/profilecardview" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/backButtonImage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.15"
+                        android:src="@drawable/backikon"
+                        android:layout_gravity="center|center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:layout_gravity="center|center_horizontal"
+                        android:fontFamily="@font/outfit_bold"
+                        android:text="@string/navbar_orders"
+                        android:textColor="@color/editTextTopColor"
+                        android:textSize="22sp"
+                        android:layout_marginStart="8dp"
+                        android:gravity="start" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/filterSection"
@@ -80,16 +101,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomBar"/>
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/hamburgerMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@drawable/navigation"
-        app:headerLayout="@layout/nav_hamburger"
-        app:layout_constraintStart_toStartOf="parent"
-        android:visibility="invisible"/>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/bottomBar"
