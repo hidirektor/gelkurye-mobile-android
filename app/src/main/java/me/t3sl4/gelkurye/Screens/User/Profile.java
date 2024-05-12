@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -31,6 +32,8 @@ import java.util.Objects;
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.General.Dashboard;
 import me.t3sl4.gelkurye.Screens.Order.Orders;
+import me.t3sl4.gelkurye.Util.Util.Data.SharedPreferencesManager;
+import me.t3sl4.gelkurye.Util.Util.Language.LanguageConverter;
 
 public class Profile extends AppCompatActivity {
     //Personal Stats:
@@ -186,6 +189,40 @@ public class Profile extends AppCompatActivity {
             passDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             passDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
             passDialog.getWindow().setGravity(Gravity.BOTTOM);
+
+            passDialog.getWindow().getDecorView().setOnTouchListener(new View.OnTouchListener() {
+                private float y1, y2;
+                private int SWIPE_THRESHOLD = 100;
+                private int originalHeight;
+
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    switch (event.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            y1 = event.getY();
+                            originalHeight = passDialog.getWindow().getAttributes().height;
+                            break;
+                        case MotionEvent.ACTION_MOVE:
+                            y2 = event.getY();
+                            float deltaY = y2 - y1;
+                            if (Math.abs(deltaY) > SWIPE_THRESHOLD) {
+                                int newHeight = originalHeight - (int) deltaY;
+                                if (newHeight > 0) {
+                                    passDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, newHeight);
+                                }
+                            }
+                            break;
+                        case MotionEvent.ACTION_UP:
+                            if (Math.abs(y2 - y1) > SWIPE_THRESHOLD) {
+                                passDialog.dismiss();
+                            } else {
+                                passDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, originalHeight);
+                            }
+                            break;
+                    }
+                    return true;
+                }
+            });
         });
 
         changeLangLinearButton.setOnClickListener(v -> {
@@ -199,18 +236,28 @@ public class Profile extends AppCompatActivity {
             RadioButton turkishButton = languageDialog.findViewById(R.id.turkishButton);
             RadioButton englishButton = languageDialog.findViewById(R.id.englishButton);
 
+            String currentLanguage = SharedPreferencesManager.getSharedPref("language", Profile.this, "en");
+
+            if (Objects.equals(currentLanguage, "tr")) {
+                turkishButton.setChecked(true);
+            } else {
+                englishButton.setChecked(true);
+            }
+
             closeButton.setOnClickListener(view -> {
                 languageDialog.dismiss();
             });
 
             turkishButton.setOnClickListener(view -> {
                 //Sistem dilini türkçe yap
+                switchLanguage("tr");
 
                 englishButton.setChecked(false);
             });
 
             englishButton.setOnClickListener(view -> {
                 //Sistem dilini ingilizce yap
+                switchLanguage("en");
 
                 turkishButton.setChecked(false);
             });
@@ -241,5 +288,11 @@ public class Profile extends AppCompatActivity {
             callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(callIntent);
         }
+    }
+
+    private void switchLanguage(String nextLang) {
+        SharedPreferencesManager.writeSharedPref("language", nextLang, Profile.this);
+        LanguageConverter.setLocale(Profile.this, nextLang);
+        recreate();
     }
 }

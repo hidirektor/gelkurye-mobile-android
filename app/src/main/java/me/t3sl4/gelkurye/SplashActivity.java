@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import me.t3sl4.gelkurye.Screens.MainActivity;
 import me.t3sl4.gelkurye.Screens.OnBoard.OnBoard1;
-import me.t3sl4.gelkurye.Util.SharedPreferencesManager;
+import me.t3sl4.gelkurye.Screens.User.Profile;
+import me.t3sl4.gelkurye.Util.Util.Data.SharedPreferencesManager;
+import me.t3sl4.gelkurye.Util.Util.Language.LanguageConverter;
 
 public class SplashActivity extends AppCompatActivity {
     private final int WAITING_TIME = 2000;
@@ -19,6 +21,8 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         boolean isFirstTime = SharedPreferencesManager.getSharedPref("isFirstTime", this, false);
+
+        checkLanguage();
 
         if (isFirstTime) {
             setupOnboarding();
@@ -40,5 +44,15 @@ public class SplashActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }, WAITING_TIME);
+    }
+
+    private void checkLanguage() {
+        String currentLanguage = SharedPreferencesManager.getSharedPref("language", SplashActivity.this, "en");
+
+        if(currentLanguage == null || currentLanguage.isEmpty()) {
+            SharedPreferencesManager.writeSharedPref("language", "tr", SplashActivity.this);
+        } else {
+            LanguageConverter.setLocale(SplashActivity.this, currentLanguage);
+        }
     }
 }

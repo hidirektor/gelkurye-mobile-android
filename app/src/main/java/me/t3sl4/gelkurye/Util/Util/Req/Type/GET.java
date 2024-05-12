@@ -1,6 +1,6 @@
-package me.t3sl4.gelkurye.Util.Util.Req;
+package me.t3sl4.gelkurye.Util.Util.Req.Type;
 
-import me.t3sl4.gelkurye.Util.Util.Singleton;
+import me.t3sl4.gelkurye.Util.Util.Req.Singleton;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

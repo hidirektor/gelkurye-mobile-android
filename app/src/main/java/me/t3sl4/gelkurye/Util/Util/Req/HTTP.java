@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Util;
+package me.t3sl4.gelkurye.Util.Util.Req;
 
 import org.json.JSONObject;
 

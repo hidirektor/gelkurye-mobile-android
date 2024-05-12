@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util;
+package me.t3sl4.gelkurye.Util.Util.Data;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -25,14 +25,6 @@ public class SharedPreferencesManager {
         }
 
         editor.apply();
-    }
-
-    public static <T> void writeDataAsync(String variable, T data, Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(variable, Context.MODE_PRIVATE);
-        SharedPreferences.Editor prefEditor = sharedPreferences.edit();
-
-        //TODO
-        //Add asynchronously data write
     }
 
     @SuppressWarnings("unchecked")
