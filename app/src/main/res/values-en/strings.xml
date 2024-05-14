@@ -92,4 +92,7 @@
 
     <!-- Change Password -->
     <string name="current_password">Current Password</string>
+
+    <!-- SOS Section -->
+    <string name="sos_button">Help</string>
 </resources>
