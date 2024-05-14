@@ -30,4 +30,5 @@
     <color name="icon_color">#FFFFFF</color>
     <color name="earning_success">#DDF2D1</color>
     <color name="earning_failed">#FECCC9</color>
+    <color name="sos_button">#FF3F3F</color>
 </resources>

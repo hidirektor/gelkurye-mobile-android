@@ -104,6 +104,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/kazaButton"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/sos_button"
+                    android:text="Yardım"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:textStyle="bold"
+                    android:textSize="22sp"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -315,60 +330,6 @@
                             app:layout_constraintStart_toStartOf="@+id/imageView73"
                             app:layout_constraintTop_toBottomOf="@+id/textView4234" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="12dp"
-                    android:layout_weight="0.1"
-                    android:background="@drawable/btn_background_5">
-
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/stats_canceled_ikon" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:id="@+id/cat1Btn"
-                    android:layout_weight="0.25"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/cancelledCount"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="20"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        android:textSize="32sp"
-                        android:textColor="@color/declineStartColor" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/stats_cancelled"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        android:textSize="24sp"
-                        android:textColor="@color/declineStartColor" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
