@@ -59,7 +59,7 @@
                     android:id="@+id/profilePhotoDashboard"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    android:layout_weight="0.23"
+                    android:layout_weight="0.3"
                     android:layout_gravity="center|center_horizontal"
                     app:srcCompat="@drawable/profilephoto" />
                 <LinearLayout
@@ -98,19 +98,13 @@
                         app:srb_borderColor="@color/black"
                         app:srb_fillColor="@color/ratingColor" />
                 </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
                 <Button
                     android:id="@+id/kazaButton"
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     android:background="@drawable/sos_button"
                     android:text="@string/sos_button"
                     android:textAllCaps="false"
@@ -118,6 +112,12 @@
                     android:fontFamily="@font/gilroy_medium"
                     android:textStyle="bold"
                     android:textSize="22sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"

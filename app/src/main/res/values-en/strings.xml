@@ -95,4 +95,9 @@
 
     <!-- SOS Section -->
     <string name="sos_button">Help</string>
+
+    <!-- Register Section -->
+    <string name="hint_address">Address</string>
+    <string name="hint_relative_name_surname">Relative Name Surname</string>
+    <string name="hint_relative_phone_number">Relative Phone Number</string>
 </resources>
