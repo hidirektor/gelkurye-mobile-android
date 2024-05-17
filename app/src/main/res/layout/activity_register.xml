@@ -13,34 +13,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center" >
 
-        <ImageView
-            android:id="@+id/selection_ikon"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:src="@drawable/register_ikon"
-            app:layout_constraintHorizontal_bias=".5"
-            app:layout_constraintVertical_bias=".2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <TextView
-            android:id="@+id/mainText"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/button_register"
-            android:fontFamily="@font/outfit_extrabold"
-            android:textColor="@color/headerTextColor"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/selection_ikon" />
+            android:orientation="vertical" >
+            <ImageView
+                android:id="@+id/selection_ikon"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:src="@drawable/register_ikon" />
+
+            <TextView
+                android:id="@+id/mainText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/button_register"
+                android:fontFamily="@font/outfit_extrabold"
+                android:textColor="@color/headerTextColor"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:layout_gravity="center" />
+
+            <com.kofigyan.stateprogressbar.StateProgressBar
+                android:id="@+id/registerStateBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:spb_currentStateNumber="one"
+                app:spb_maxStateNumber="four"
+                app:spb_stateBackgroundColor="#BDBDBD"
+                app:spb_stateForegroundColor="#DB0082"
+                app:spb_stateNumberBackgroundColor="#808080"
+                app:spb_stateNumberForegroundColor="#eeeeee"
+                app:spb_currentStateDescriptionColor="#DB0082"
+                app:spb_stateDescriptionColor="@color/black"
+                app:spb_animateToCurrentProgressState="true"
+                app:spb_checkStateCompleted="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"/>
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"

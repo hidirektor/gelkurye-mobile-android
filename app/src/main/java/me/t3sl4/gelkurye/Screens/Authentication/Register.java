@@ -7,39 +7,62 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.kofigyan.stateprogressbar.StateProgressBar;
+
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Util.Component.PasswordField.PasswordFieldTouchListener;
 
 public class Register extends AppCompatActivity  {
-    private Button registerButton;
-    private EditText profilePhotoField;
-    private EditText nameSurnameField;
-    private EditText usernameField;
-    private EditText eMailField;
-    private EditText phoneField;
-    private EditText passwordField;
-    private EditText passwordRepeatField;
-    private EditText licenseFrontField;
-    private EditText licenseBackField;
+    String[] stateNames = {"Hesap\nBilgileri", "Kişisel\nBilgiler", "Yakınınız", "Yasal"};
+
+    //State Bar:
+    private StateProgressBar registerStateBar;
+
+    //Section One:
+    private EditText userNameEditText;
+    private EditText eMailEditText;
+    private EditText passwordEditText;
+    private EditText passwordRepeatEditText;
+
+    //Section Two:
+    private EditText hashedProfilePhoto;
+    private EditText nameSurnameEditText;
+    private EditText phoneNumberEditText;
+    private EditText addressEditText;
+
+    //Section Three:
+    private EditText relativeNameSurnameEditText;
+    private EditText relativePhoneNumberEditText;
+
+    //Section Four:
+    private EditText hashedLicenseFrontFaceEditText;
+    private EditText hashedLicenseBackFaceEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        registerButton = findViewById(R.id.registerButton);
+        initializeComponents();
 
-        profilePhotoField = findViewById(R.id.editTextProfilePhoto);
-        nameSurnameField = findViewById(R.id.editTextNameSurname);
-        usernameField = findViewById(R.id.editTextUsername);
-        eMailField = findViewById(R.id.editTextMail);
-        phoneField = findViewById(R.id.editTextPhone);
-        passwordField = findViewById(R.id.editTextPassword);
-        passwordRepeatField = findViewById(R.id.editTextPasswordRepeat);
-        licenseFrontField = findViewById(R.id.editTextLicenseFront);
-        licenseBackField = findViewById(R.id.editTextLicenseBack);
+        //PasswordFieldTouchListener.setChangeablePasswordField(passwordField, getApplicationContext());
+        //PasswordFieldTouchListener.setChangeablePasswordField(passwordRepeatField, getApplicationContext());
+    }
 
-        PasswordFieldTouchListener.setChangeablePasswordField(passwordField, getApplicationContext());
-        PasswordFieldTouchListener.setChangeablePasswordField(passwordRepeatField, getApplicationContext());
+    private void initializeComponents() {
+        //State Bar:
+        registerStateBar = findViewById(R.id.registerStateBar);
+        registerStateBar.setStateDescriptionData(stateNames);
+
+        registerStateBar.setCurrentStateNumber(StateProgressBar.StateNumber.TWO);
+
+        //Section One:
+        userNameEditText = findViewById(R.id.userNameEditText);
+        eMailEditText = findViewById(R.id.eMailEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
+        passwordRepeatEditText = findViewById(R.id.passwordRepeatEditText);
+
+        //Section Two:
+
     }
 }
