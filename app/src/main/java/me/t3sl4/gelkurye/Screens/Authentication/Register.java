@@ -1,5 +1,6 @@
 package me.t3sl4.gelkurye.Screens.Authentication;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,7 @@ import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step1Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step2Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step3Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step4Fragment;
+import me.t3sl4.gelkurye.Util.Util.Image.ImageUtil;
 
 public class Register extends AppCompatActivity {
     String[] stateNames = {"Hesap\nBilgileri", "Kişisel\nBilgiler", "Yakınınız", "Yasal"};
@@ -51,6 +53,14 @@ public class Register extends AppCompatActivity {
         fragmentAdapterInitialize();
 
         bottomComponentsClickListeners();
+
+        if (fragmentData.containsKey(1)) {
+            String encodedImage = fragmentData.get(1).getString("profilePhoto");
+            if (encodedImage != null) {
+                Step2Fragment step2Fragment = (Step2Fragment) fragmentList.get(1);
+                step2Fragment.setProfilePhoto(encodedImage);
+            }
+        }
     }
 
     private void saveFragmentData(int position) {
