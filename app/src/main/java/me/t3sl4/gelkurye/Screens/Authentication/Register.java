@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step1Fragment;
@@ -29,7 +30,7 @@ import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step4Fragment;
 import me.t3sl4.gelkurye.Util.Util.Image.ImageUtil;
 
 public class Register extends AppCompatActivity {
-    String[] stateNames = {"Hesap\nBilgileri", "Kişisel\nBilgiler", "Yakınınız", "Yasal"};
+    String[] stateNames;
 
     //Header Components:
     private ViewPager2 registerViewPager;
@@ -55,10 +56,23 @@ public class Register extends AppCompatActivity {
         bottomComponentsClickListeners();
 
         if (fragmentData.containsKey(1)) {
-            String encodedImage = fragmentData.get(1).getString("profilePhoto");
+            String encodedImage = Objects.requireNonNull(fragmentData.get(1)).getString("profilePhoto");
             if (encodedImage != null) {
                 Step2Fragment step2Fragment = (Step2Fragment) fragmentList.get(1);
                 step2Fragment.setProfilePhoto(encodedImage);
+            }
+        } else if(fragmentData.containsKey(3)) {
+            String encodedLicenseFront = Objects.requireNonNull(fragmentData.get(3)).getString("licenseFront");
+            String encodedLicenseBack = Objects.requireNonNull(fragmentData.get(3)).getString("licenseBack");
+
+            Step4Fragment step4Fragment = (Step4Fragment) fragmentList.get(3);
+
+            if (encodedLicenseFront != null) {
+                step4Fragment.setLicenseFront(encodedLicenseFront);
+            }
+
+            if(encodedLicenseBack != null) {
+                step4Fragment.setLicenseBack(encodedLicenseBack);
             }
         }
     }
@@ -105,6 +119,13 @@ public class Register extends AppCompatActivity {
         stepOncekiImageView = findViewById(R.id.stepOncekiImageView);
         stepSonrakiImageView = findViewById(R.id.stepSonrakiImageView);
         registerStateBar = findViewById(R.id.registerStateBar);
+
+        stateNames = new String[]{
+                getString(R.string.register_fragment_auth),
+                getString(R.string.register_fragment_personal),
+                getString(R.string.register_fragment_relative),
+                getString(R.string.register_fragment_license)
+        };
 
         registerStateBar.setStateDescriptionData(stateNames);
 

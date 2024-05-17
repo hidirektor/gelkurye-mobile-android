@@ -13,87 +13,86 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp">
             <TextView
+                android:id="@+id/licenseFrontFaceTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textViewLicenseFrontLabel"
                 android:text="@string/license_front"
                 android:fontFamily="@font/poppins"
-                android:textColor="@color/editTextTopColor"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="10dp"/>
+                android:textColor="@color/editTextTopColor"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textViewLicenseFrontStarLabel"
                 android:text="@string/hint_star"
-                android:layout_toEndOf="@id/textViewLicenseFrontLabel"
                 android:fontFamily="@font/gilroy_semibold"
-                android:layout_marginStart="2dp"
                 android:textColor="@color/editTextStarColor"
-                android:layout_marginTop="10dp"/>
-            <EditText
-                android:id="@+id/editTextLicenseFront"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_below="@id/textViewLicenseFrontLabel"
-                android:background="@drawable/edittextbackground"
-                android:drawableStart="@drawable/license_ikon"
-                android:drawablePadding="8dp"
-                android:drawableEnd="@drawable/image_upload_ikon"
-                android:ems="10"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/license_front"
-                android:inputType="none"
-                android:padding="8dp"
-                android:textColorHint="@color/editTextColor" />
-        </RelativeLayout>
+                android:layout_marginEnd="12dp"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/licenseFrontFaceCardView"
+                android:layout_width="160dp"
+                android:layout_height="80dp"
+                android:elevation="12dp"
+                app:cardCornerRadius="16dp">
+                <ImageView
+                    android:id="@+id/licenseFrontFaceImageView"
+                    android:layout_height="80dp"
+                    android:layout_width="match_parent"
+                    android:src="@drawable/license_ikon"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true">
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp">
             <TextView
+                android:id="@+id/licenseBackFaceTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textViewLicenseBackLabel"
                 android:text="@string/license_back"
                 android:fontFamily="@font/poppins"
-                android:textColor="@color/editTextTopColor"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="10dp"/>
+                android:textColor="@color/editTextTopColor"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textViewLicenseBackStarLabel"
                 android:text="@string/hint_star"
-                android:layout_toEndOf="@id/textViewLicenseBackLabel"
                 android:fontFamily="@font/gilroy_semibold"
-                android:layout_marginStart="2dp"
                 android:textColor="@color/editTextStarColor"
-                android:layout_marginTop="10dp"/>
-            <EditText
-                android:id="@+id/editTextLicenseBack"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_below="@id/textViewLicenseBackLabel"
-                android:background="@drawable/edittextbackground"
-                android:drawableStart="@drawable/license_ikon"
-                android:drawablePadding="8dp"
-                android:drawableEnd="@drawable/image_upload_ikon"
-                android:ems="10"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/license_back"
-                android:inputType="none"
-                android:padding="8dp"
-                android:textColorHint="@color/editTextColor" />
-        </RelativeLayout>
+                android:layout_marginEnd="12dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/licenseBackFaceCardView"
+                android:layout_width="160dp"
+                android:layout_height="80dp"
+                android:elevation="12dp"
+                app:cardCornerRadius="16dp">
+                <ImageView
+                    android:id="@+id/licenseBackFaceImageView"
+                    android:layout_height="80dp"
+                    android:layout_width="match_parent"
+                    android:src="@drawable/license_ikon"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true">
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
     </LinearLayout>
 

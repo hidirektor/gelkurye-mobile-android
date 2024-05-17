@@ -42,6 +42,7 @@ public class Step2Fragment extends Fragment {
         });
 
         if (getArguments() != null) {
+            profilePhotoImageView.setImageDrawable(ImageUtil.decodeImage(getArguments().getString("profilePhoto", "")));
             nameSurnameEditText.setText(getArguments().getString("nameSurname", ""));
             phoneNumberEditText.setText(getArguments().getString("phoneNumber", ""));
             addressEditText.setText(getArguments().getString("address", ""));

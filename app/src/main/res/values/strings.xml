@@ -120,8 +120,8 @@
     <string name="hint_relative_phone_number">Yakınınızın Telefon Numarası</string>
 
     <!-- Register Fragment Section -->
-    <string name="register_fragment_auth">Giriş Bilgileri</string>
-    <string name="register_fragment_personal">Kişisel Bilgiler</string>
-    <string name="register_fragment_relative">Yakınınızın Bilgileri</string>
-    <string name="register_fragment_license">Yasal Belgeler</string>
+    <string name="register_fragment_auth">Hesap\nBilgileri</string>
+    <string name="register_fragment_personal">Kişisel\nBilgiler</string>
+    <string name="register_fragment_relative">Yakınınız</string>
+    <string name="register_fragment_license">Yasal</string>
 </resources>
