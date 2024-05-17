@@ -28,10 +28,16 @@ import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step4Fragment;
 
 public class Register extends AppCompatActivity {
     String[] stateNames = {"Hesap\nBilgileri", "Kişisel\nBilgiler", "Yakınınız", "Yasal"};
+
+    //Header Components:
     private ViewPager2 registerViewPager;
+    private StateProgressBar registerStateBar;
+
+    //Bottom Buttons:
     private Button registerButton;
     private ImageView stepOncekiImageView, stepSonrakiImageView;
-    private StateProgressBar registerStateBar;
+
+    //Fragment Management:
     private List<Fragment> fragmentList = new ArrayList<>();
     private Map<Integer, Bundle> fragmentData = new HashMap<>();
 
@@ -40,71 +46,11 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        registerViewPager = findViewById(R.id.registerViewPager);
-        registerButton = findViewById(R.id.registerButton);
-        stepOncekiImageView = findViewById(R.id.stepOncekiImageView);
-        stepSonrakiImageView = findViewById(R.id.stepSonrakiImageView);
-        registerStateBar = findViewById(R.id.registerStateBar);
+        initializeComponents();
 
-        registerButton.setVisibility(View.GONE);
-        stepOncekiImageView.setVisibility(View.GONE);
+        fragmentAdapterInitialize();
 
-        registerStateBar.setStateDescriptionData(stateNames);
-
-        fragmentList.add(new Step1Fragment());
-        fragmentList.add(new Step2Fragment());
-        fragmentList.add(new Step3Fragment());
-        fragmentList.add(new Step4Fragment());
-
-        FragmentStateAdapter adapter = new FragmentStateAdapter(this) {
-            @NonNull
-            @Override
-            public Fragment createFragment(int position) {
-                Fragment fragment = fragmentList.get(position);
-                fragment.setArguments(fragmentData.get(position));
-                return fragment;
-            }
-
-            @Override
-            public int getItemCount() {
-                return fragmentList.size();
-            }
-        };
-
-        registerViewPager.setAdapter(adapter);
-        registerViewPager.setUserInputEnabled(false); // Disable swipe
-
-        stepSonrakiImageView.setOnClickListener(v -> {
-            int currentItem = registerViewPager.getCurrentItem();
-            if (currentItem < fragmentList.size() - 1) {
-                saveFragmentData(currentItem);
-                registerViewPager.setCurrentItem(currentItem + 1);
-                registerStateBar.setCurrentStateNumber(StateProgressBar.StateNumber.values()[currentItem + 1]);
-                if (currentItem + 1 == fragmentList.size() - 1) {
-                    registerButton.setVisibility(View.VISIBLE);
-                    stepSonrakiImageView.setVisibility(View.GONE);
-                }
-                stepOncekiImageView.setVisibility(View.VISIBLE);
-            }
-        });
-
-        stepOncekiImageView.setOnClickListener(v -> {
-            int currentItem = registerViewPager.getCurrentItem();
-            if (currentItem > 0) {
-                registerViewPager.setCurrentItem(currentItem - 1);
-                registerStateBar.setCurrentStateNumber(StateProgressBar.StateNumber.values()[currentItem - 1]);
-                if (currentItem - 1 == 0) {
-                    stepOncekiImageView.setVisibility(View.GONE);
-                }
-                registerButton.setVisibility(View.GONE);
-                stepSonrakiImageView.setVisibility(View.VISIBLE);
-            }
-        });
-
-        registerButton.setOnClickListener(v -> {
-            saveFragmentData(registerViewPager.getCurrentItem());
-            logFragmentData();
-        });
+        bottomComponentsClickListeners();
     }
 
     private void saveFragmentData(int position) {
@@ -141,5 +87,78 @@ public class Register extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    private void initializeComponents() {
+        registerViewPager = findViewById(R.id.registerViewPager);
+        registerButton = findViewById(R.id.registerButton);
+        stepOncekiImageView = findViewById(R.id.stepOncekiImageView);
+        stepSonrakiImageView = findViewById(R.id.stepSonrakiImageView);
+        registerStateBar = findViewById(R.id.registerStateBar);
+
+        registerStateBar.setStateDescriptionData(stateNames);
+
+        registerButton.setVisibility(View.GONE);
+        stepOncekiImageView.setVisibility(View.GONE);
+
+        //Fragment Definition:
+        fragmentList.add(new Step1Fragment());
+        fragmentList.add(new Step2Fragment());
+        fragmentList.add(new Step3Fragment());
+        fragmentList.add(new Step4Fragment());
+    }
+
+    private void fragmentAdapterInitialize() {
+        FragmentStateAdapter adapter = new FragmentStateAdapter(this) {
+            @NonNull
+            @Override
+            public Fragment createFragment(int position) {
+                Fragment fragment = fragmentList.get(position);
+                fragment.setArguments(fragmentData.get(position));
+                return fragment;
+            }
+
+            @Override
+            public int getItemCount() {
+                return fragmentList.size();
+            }
+        };
+
+        registerViewPager.setAdapter(adapter);
+        registerViewPager.setUserInputEnabled(false); // Disable swipe
+    }
+
+    private void bottomComponentsClickListeners() {
+        stepSonrakiImageView.setOnClickListener(v -> {
+            int currentItem = registerViewPager.getCurrentItem();
+            if (currentItem < fragmentList.size() - 1) {
+                saveFragmentData(currentItem);
+                registerViewPager.setCurrentItem(currentItem + 1);
+                registerStateBar.setCurrentStateNumber(StateProgressBar.StateNumber.values()[currentItem + 1]);
+                if (currentItem + 1 == fragmentList.size() - 1) {
+                    registerButton.setVisibility(View.VISIBLE);
+                    stepSonrakiImageView.setVisibility(View.GONE);
+                }
+                stepOncekiImageView.setVisibility(View.VISIBLE);
+            }
+        });
+
+        stepOncekiImageView.setOnClickListener(v -> {
+            int currentItem = registerViewPager.getCurrentItem();
+            if (currentItem > 0) {
+                registerViewPager.setCurrentItem(currentItem - 1);
+                registerStateBar.setCurrentStateNumber(StateProgressBar.StateNumber.values()[currentItem - 1]);
+                if (currentItem - 1 == 0) {
+                    stepOncekiImageView.setVisibility(View.GONE);
+                }
+                registerButton.setVisibility(View.GONE);
+                stepSonrakiImageView.setVisibility(View.VISIBLE);
+            }
+        });
+
+        registerButton.setOnClickListener(v -> {
+            saveFragmentData(registerViewPager.getCurrentItem());
+            logFragmentData();
+        });
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,7 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center" >
+        android:gravity="top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,52 +65,54 @@
             android:id="@+id/registerViewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+    </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/registerButton">
+
+        <ImageView
+            android:id="@+id/stepOncekiImageView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp">
+            android:src="@drawable/onboard_onceki"
+            android:layout_gravity="start"/>
 
-            <ImageView
-                android:id="@+id/stepOncekiImageView"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:src="@drawable/onboard_onceki"
-                android:layout_gravity="start"/>
-
-            <ImageView
-                android:id="@+id/stepSonrakiImageView"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:src="@drawable/onboard_sonraki"
-                android:layout_gravity="end"/>
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/registerButton"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/stepSonrakiImageView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/registerbuttonfill"
-            android:fontFamily="@font/outfit_bold"
-            android:padding="16dp"
-            android:text="@string/button_register"
-            android:textColor="#ffffff"
-            android:textSize="26sp"
-            android:textAllCaps="false"
-            android:shadowColor="#9090FD"
-            android:shadowDx="8"
-            android:shadowDy="10"
-            android:shadowRadius="4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/specText"/>
+            android:src="@drawable/onboard_sonraki"
+            android:layout_gravity="end"/>
 
     </LinearLayout>
-</ScrollView>
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/registerbuttonfill"
+        android:fontFamily="@font/outfit_bold"
+        android:padding="16dp"
+        android:text="@string/button_register"
+        android:textColor="#ffffff"
+        android:textSize="26sp"
+        android:textAllCaps="false"
+        android:shadowColor="#9090FD"
+        android:shadowDx="8"
+        android:shadowDy="10"
+        android:shadowRadius="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
