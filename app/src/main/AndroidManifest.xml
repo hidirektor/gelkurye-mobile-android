@@ -36,16 +36,16 @@
         <activity android:name=".Screens.OnBoard.OnBoard2" />
         <activity android:name=".Screens.OnBoard.OnBoard3" />
         <activity android:name=".Screens.MainActivity" />
-        <activity android:name=".Screens.Authentication.Login" />
-        <activity android:name=".Screens.Authentication.Register" />
+        <activity android:name=".Screens.Authentication.Login" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".Screens.Authentication.Register" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Screens.General.Dashboard" />
-        <activity android:name=".Screens.PasswordReset.Reset1" />
-        <activity android:name=".Screens.PasswordReset.Reset2" />
-        <activity android:name=".Screens.PasswordReset.Reset3" />
+        <activity android:name=".Screens.PasswordReset.Reset1" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".Screens.PasswordReset.Reset2" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".Screens.PasswordReset.Reset3" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Screens.PasswordReset.Reset4" />
         <activity android:name=".Screens.Hamburger.FAQ" />
         <activity android:name=".Screens.Order.Orders" />
-        <activity android:name=".Screens.User.Profile" />
+        <activity android:name=".Screens.User.Profile" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Screens.User.Earning" />
     </application>
 

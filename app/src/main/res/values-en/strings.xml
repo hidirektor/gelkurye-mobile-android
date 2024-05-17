@@ -100,4 +100,10 @@
     <string name="hint_address">Address</string>
     <string name="hint_relative_name_surname">Relative Name Surname</string>
     <string name="hint_relative_phone_number">Relative Phone Number</string>
+
+    <!-- Register Fragment Section -->
+    <string name="register_fragment_auth">Authentication</string>
+    <string name="register_fragment_personal">Personal Info</string>
+    <string name="register_fragment_relative">Relative Info</string>
+    <string name="register_fragment_license">License</string>
 </resources>
