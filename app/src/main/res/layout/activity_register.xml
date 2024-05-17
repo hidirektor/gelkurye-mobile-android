@@ -70,7 +70,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/movementButtonSection"
-        app:layout_constraintTop_toBottomOf="@+id/headerSection" />
+        app:layout_constraintTop_toBottomOf="@+id/headerSection"
+        android:layout_marginBottom="12dp" />
 
     <LinearLayout
         android:id="@+id/movementButtonSection"
@@ -78,7 +79,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/registerButton">
@@ -107,7 +107,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:layout_marginTop="20dp"
         android:background="@drawable/registerbuttonfill"
         android:fontFamily="@font/outfit_bold"
         android:padding="16dp"
