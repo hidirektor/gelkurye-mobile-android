@@ -1,19 +1,22 @@
 package me.t3sl4.gelkurye.Screens.Authentication;
 
-import android.graphics.drawable.Drawable;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.google.android.material.snackbar.Snackbar;
+import com.irozon.sneaker.Sneaker;
 import com.kofigyan.stateprogressbar.StateProgressBar;
 
 import java.util.ArrayList;
@@ -27,7 +30,6 @@ import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step1Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step2Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step3Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step4Fragment;
-import me.t3sl4.gelkurye.Util.Util.Image.ImageUtil;
 
 public class Register extends AppCompatActivity {
     String[] stateNames;
@@ -186,7 +188,27 @@ public class Register extends AppCompatActivity {
 
         registerButton.setOnClickListener(v -> {
             saveFragmentData(registerViewPager.getCurrentItem());
-            logFragmentData();
+            if(allDataValid()) {
+                logFragmentData();
+            } else {
+                Sneaker.with(Register.this).setTitle("Hata !").setMessage("Lütfen eksik kısımları kontrol edin!").sneakError();
+            }
         });
+    }
+
+    private boolean allDataValid() {
+        for (int i = 0; i < fragmentData.size(); i++) {
+            Bundle data = fragmentData.get(i);
+            if (data != null) {
+                for (String key : data.keySet()) {
+                    if (data.getString(key) == null || Objects.requireNonNull(data.getString(key)).isEmpty()) {
+                        return false;
+                    }
+                }
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
 }
