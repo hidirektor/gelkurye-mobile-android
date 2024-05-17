@@ -98,9 +98,6 @@ public class Register extends AppCompatActivity {
 
         registerStateBar.setStateDescriptionData(stateNames);
 
-        registerButton.setVisibility(View.GONE);
-        stepOncekiImageView.setVisibility(View.GONE);
-
         //Fragment Definition:
         fragmentList.add(new Step1Fragment());
         fragmentList.add(new Step2Fragment());
