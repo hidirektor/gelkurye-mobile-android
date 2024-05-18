@@ -167,7 +167,7 @@ public class Register extends AppCompatActivity {
                 registerStateBar.setCurrentStateNumber(StateProgressBar.StateNumber.values()[currentItem + 1]);
                 if (currentItem + 1 == fragmentList.size() - 1) {
                     registerButton.setVisibility(View.VISIBLE);
-                    stepSonrakiImageView.setVisibility(View.GONE);
+                    stepSonrakiImageView.setVisibility(View.INVISIBLE);
                 }
                 stepOncekiImageView.setVisibility(View.VISIBLE);
             }
