@@ -106,4 +106,9 @@
     <string name="register_fragment_personal">Personal Info</string>
     <string name="register_fragment_relative">Relative Info</string>
     <string name="register_fragment_license">License</string>
+
+    <!-- Current Order Section -->
+    <string name="current_taken">Received</string>
+    <string name="current_on_way">On the Road</string>
+    <string name="current_delivered">Delivered</string>
 </resources>

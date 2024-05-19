@@ -27,7 +27,7 @@
             android:layout_gravity="center|center_horizontal"
             android:src="@drawable/profilephoto"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/nameSurname"
+            app:layout_constraintBottom_toTopOf="@+id/nameSurnameHamburger"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

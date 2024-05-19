@@ -11,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Looper;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.Polyline;
+import com.kofigyan.stateprogressbar.StateProgressBar;
 
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Util.Util.GoogleMaps.FetchURL;
@@ -47,16 +49,21 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
     private LocationRequest locationRequest;
     private LatLng courierLocation;
 
+    //UI Components:
+    private StateProgressBar orderStateBar;
+    String[] stateNames;
+    private TextView orderETATextView;
+    private TextView orderIDTextView;
+    private TextView orderDetailsTextView;
+    private TextView orderTotalPriceTextView;
+    private Button deliverOrderButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_current);
 
-        TextView orderIdText = findViewById(R.id.order_id);
-        TextView orderDetailsText = findViewById(R.id.order_details_text);
-
-        orderIdText.setText("Order ID: 12345");
-        orderDetailsText.setText("Details: 2 Pizzas, 1 Coke");
+        initializeComponents();
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -150,5 +157,27 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
                 Toast.makeText(this, "Location permission is required", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private void initializeComponents() {
+        orderStateBar = findViewById(R.id.orderStateBar);
+        orderETATextView = findViewById(R.id.orderETATextView);
+        orderIDTextView = findViewById(R.id.orderIDTextView);
+        orderDetailsTextView = findViewById(R.id.orderDetailsTextView);
+        orderTotalPriceTextView = findViewById(R.id.orderTotalPriceTextView);
+        deliverOrderButton = findViewById(R.id.deliverOrderButton);
+
+        stateNames = new String[]{
+                getString(R.string.current_taken),
+                getString(R.string.current_on_way),
+                getString(R.string.current_delivered)
+        };
+
+        orderStateBar.setStateDescriptionData(stateNames);
+
+        orderETATextView.setText("Teslime Kalan Süre: \n4 dk");
+        orderIDTextView.setText("#23124123123");
+        orderDetailsTextView.setText("Kapıda Ödeme");
+        orderTotalPriceTextView.setText("123.45 ₺");
     }
 }

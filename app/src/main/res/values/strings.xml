@@ -124,4 +124,9 @@
     <string name="register_fragment_personal">Kişisel\nBilgiler</string>
     <string name="register_fragment_relative">Yakınınız</string>
     <string name="register_fragment_license">Yasal</string>
+
+    <!-- Current Order Section -->
+    <string name="current_taken">Teslim Alındı</string>
+    <string name="current_on_way">Yolda</string>
+    <string name="current_delivered">Teslim Edildi</string>
 </resources>
