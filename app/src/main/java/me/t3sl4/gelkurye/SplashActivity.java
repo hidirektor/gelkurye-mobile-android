@@ -51,8 +51,9 @@ public class SplashActivity extends AppCompatActivity {
 
         if(currentLanguage == null || currentLanguage.isEmpty()) {
             SharedPreferencesManager.writeSharedPref("language", "tr", SplashActivity.this);
-        } else {
-            LanguageConverter.setLocale(SplashActivity.this, currentLanguage);
+            currentLanguage = "tr";
         }
+
+        LanguageConverter.setLocale(SplashActivity.this, currentLanguage);
     }
 }
