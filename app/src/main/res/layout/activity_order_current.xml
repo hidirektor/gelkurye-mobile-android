@@ -37,8 +37,8 @@
                 app:spb_stateSize="48dp"
                 app:spb_stateBackgroundColor="#BDBDBD"
                 app:spb_stateForegroundColor="@color/navbarButtonColor"
-                app:spb_stateNumberBackgroundColor="@android:color/transparent"
-                app:spb_stateNumberForegroundColor="@android:color/transparent"
+                app:spb_stateNumberBackgroundColor="#808080"
+                app:spb_stateNumberForegroundColor="@color/white"
                 app:spb_currentStateDescriptionColor="@color/navbarButtonColor"
                 app:spb_stateDescriptionColor="@color/specTextColor"
                 android:textAlignment="center"
@@ -155,6 +155,94 @@
                     android:textSize="22sp" />
 
             </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="6dp"
+                android:background="#D9D9D9" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Müşteri"
+                    android:textColor="@color/specTextColor"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/clientNameSurnameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Halil İbrahim Direktör"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/specTextColor"
+                    android:textSize="22sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="6dp"
+                android:background="#D9D9D9" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Adres"
+                    android:textColor="@color/specTextColor"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/clientAddressTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Hacıfeyzullah Mah. Kuşadası / Aydın"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/specTextColor"
+                    android:textSize="22sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/callClientButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Müşteriyi Ara"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:fontFamily="@font/gilroy_medium"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginTop="12dp"
+                android:textAlignment="textStart"
+                android:background="@drawable/button_date_picker"
+                android:drawableEnd="@drawable/button_call" />
 
             <Button
                 android:id="@+id/deliverOrderButton"

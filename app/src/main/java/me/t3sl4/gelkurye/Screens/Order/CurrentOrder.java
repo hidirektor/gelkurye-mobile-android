@@ -59,6 +59,9 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
     private TextView orderIDTextView;
     private TextView orderDetailsTextView;
     private TextView orderTotalPriceTextView;
+    private TextView clientNameSurnameTextView;
+    private TextView clientAddressTextView;
+    private Button callClientButton;
     private Button deliverOrderButton;
     private LinearLayout orderDetailsLayout;
 
@@ -176,6 +179,9 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
         orderIDTextView = findViewById(R.id.orderIDTextView);
         orderDetailsTextView = findViewById(R.id.orderDetailsTextView);
         orderTotalPriceTextView = findViewById(R.id.orderTotalPriceTextView);
+        clientNameSurnameTextView = findViewById(R.id.clientNameSurnameTextView);
+        clientAddressTextView = findViewById(R.id.clientAddressTextView);
+        callClientButton = findViewById(R.id.callClientButton);
         deliverOrderButton = findViewById(R.id.deliverOrderButton);
         orderDetailsLayout = findViewById(R.id.order_details);
 
