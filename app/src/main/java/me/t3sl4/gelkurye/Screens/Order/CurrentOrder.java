@@ -11,12 +11,15 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -24,7 +27,10 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.MapsInitializer.Renderer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.OnMapsSdkInitializedCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -39,7 +45,7 @@ import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Util.Util.GoogleMaps.FetchURL;
 import me.t3sl4.gelkurye.Util.Util.GoogleMaps.OnTaskDoneListener;
 
-public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback, OnTaskDoneListener {
+public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback, OnTaskDoneListener, OnMapsSdkInitializedCallback {
 
     private GoogleMap mMap;
     private String origin = "37.85068712946069,27.25600338766238"; // Başlangıç noktası
@@ -78,8 +84,20 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
 
         initializeComponents();
 
+        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+        int googlePlayServicesStatus = apiAvailability.isGooglePlayServicesAvailable(this);
+        if (googlePlayServicesStatus == ConnectionResult.SUCCESS) {
+            MapsInitializer.initialize(getApplicationContext(), MapsInitializer.Renderer.LATEST, this);
+        } else {
+            Log.e("MapsDemo", "Google Play Services are not available: " + apiAvailability.getErrorString(googlePlayServicesStatus));
+            if (apiAvailability.isUserResolvableError(googlePlayServicesStatus)) {
+                apiAvailability.getErrorDialog(this, googlePlayServicesStatus, 0).show();
+            }
+        }
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+        assert mapFragment != null;
         mapFragment.getMapAsync(this);
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
@@ -118,6 +136,18 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
         new FetchURL(CurrentOrder.this).execute(url, "driving");
     }
 
+    @Override
+    public void onMapsSdkInitialized(MapsInitializer.Renderer renderer) {
+        switch (renderer) {
+            case LATEST:
+                Log.d("MapsDemo", "The latest version of the renderer is used.");
+                break;
+            case LEGACY:
+                Log.d("MapsDemo", "The legacy version of the renderer is used.");
+                break;
+        }
+    }
+
     private String getDirectionsUrl(String origin, String destination) {
         String str_origin = "origin=" + origin;
         String str_dest = "destination=" + destination;
@@ -125,8 +155,7 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
         String parameters = str_origin + "&" + str_dest + "&" + mode;
         String output = "json";
         String key = getString(R.string.google_maps_key);
-        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + key;
-        return url;
+        return "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + key;
     }
 
     @Override
