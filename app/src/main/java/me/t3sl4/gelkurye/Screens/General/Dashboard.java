@@ -15,12 +15,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.maps.model.Dash;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.navigation.NavigationView;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.Hamburger.FAQ;
+import me.t3sl4.gelkurye.Screens.Order.CurrentOrder;
 import me.t3sl4.gelkurye.Screens.Order.Orders;
 import me.t3sl4.gelkurye.Screens.User.Earning;
 import me.t3sl4.gelkurye.Screens.User.Profile;
@@ -137,6 +139,8 @@ public class Dashboard extends AppCompatActivity {
         //Hamburger Button Clicks
         currentOrderButton.setOnClickListener(v -> {
             //Anlık map takibi ile şuanki ekranı gösterme
+            Intent currentOrderIntent = new Intent(Dashboard.this, CurrentOrder.class);
+            startActivity(currentOrderIntent);
         });
 
         navAllOrdersButton.setOnClickListener(v -> {

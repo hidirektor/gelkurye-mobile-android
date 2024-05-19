@@ -45,6 +45,7 @@
         <activity android:name=".Screens.PasswordReset.Reset4" />
         <activity android:name=".Screens.Hamburger.FAQ" />
         <activity android:name=".Screens.Order.Orders" />
+        <activity android:name=".Screens.Order.CurrentOrder" />
         <activity android:name=".Screens.User.Profile" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Screens.User.Earning" />
     </application>
