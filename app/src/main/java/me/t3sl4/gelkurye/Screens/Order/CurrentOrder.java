@@ -11,7 +11,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Looper;
+import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +32,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.Polyline;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.kofigyan.stateprogressbar.StateProgressBar;
 
 import me.t3sl4.gelkurye.R;
@@ -57,6 +60,13 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
     private TextView orderDetailsTextView;
     private TextView orderTotalPriceTextView;
     private Button deliverOrderButton;
+    private LinearLayout orderDetailsLayout;
+
+    private BottomSheetBehavior<LinearLayout> bottomSheetBehavior;
+
+    //Location Variables:
+    LatLng originLatLng;
+    LatLng destinationLatLng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +91,8 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng originLatLng = new LatLng(37.85068712946069, 27.25600338766238);
-        LatLng destinationLatLng = new LatLng(37.86565628149133, 27.262955034100262);
+        originLatLng = new LatLng(37.85068712946069, 27.25600338766238);
+        destinationLatLng = new LatLng(37.86565628149133, 27.262955034100262);
 
         originMarker = mMap.addMarker(new MarkerOptions()
                 .position(originLatLng)
@@ -141,7 +151,8 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
                 if (locationResult != null) {
                     courierLocation = new LatLng(locationResult.getLastLocation().getLatitude(), locationResult.getLastLocation().getLongitude());
                     courierMarker.setPosition(courierLocation);
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(courierLocation, 15));
+                    //mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(courierLocation, 15));
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(originLatLng, 15));
                 }
             }
         }, Looper.getMainLooper());
@@ -166,6 +177,7 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
         orderDetailsTextView = findViewById(R.id.orderDetailsTextView);
         orderTotalPriceTextView = findViewById(R.id.orderTotalPriceTextView);
         deliverOrderButton = findViewById(R.id.deliverOrderButton);
+        orderDetailsLayout = findViewById(R.id.order_details);
 
         stateNames = new String[]{
                 getString(R.string.current_taken),
@@ -179,5 +191,30 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
         orderIDTextView.setText("#23124123123");
         orderDetailsTextView.setText("Kapıda Ödeme");
         orderTotalPriceTextView.setText("123.45 ₺");
+
+        orderDetailsLayout.post(() -> {
+            bottomSheetBehavior = BottomSheetBehavior.from(orderDetailsLayout);
+            bottomSheetBehavior.setPeekHeight(findViewById(R.id.orderStateBar).getHeight() + 24); //marginTop + marginBottom
+            bottomSheetBehavior.setHideable(false);
+            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+
+            bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+                @Override
+                public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                    if (newState == BottomSheetBehavior.STATE_HIDDEN) {
+                        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                    } else if (newState == BottomSheetBehavior.STATE_EXPANDED) {
+                        // Handle the bottom sheet expanded state if needed
+                    } else if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
+                        // Handle the bottom sheet collapsed state if needed
+                    }
+                }
+
+                @Override
+                public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+                    // Handle slide events
+                }
+            });
+        });
     }
 }
