@@ -111,6 +111,7 @@
                             app:srb_numberOfStars="5"
                             app:srb_rating="3"
                             app:srb_stepSize="0.5"
+                            app:srb_isIndicator="true"
                             app:srb_borderColor="@color/black"
                             app:srb_fillColor="@color/answerBackcolor" />
                     </LinearLayout>

@@ -91,6 +91,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/ratingStar"
+                        app:srb_isIndicator="true"
                         app:srb_starSize="24dp"
                         app:srb_numberOfStars="5"
                         app:srb_rating="3"
