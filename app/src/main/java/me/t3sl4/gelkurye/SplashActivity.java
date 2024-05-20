@@ -14,13 +14,14 @@ import me.t3sl4.gelkurye.Util.Util.Language.LanguageConverter;
 
 public class SplashActivity extends AppCompatActivity {
     private final int WAITING_TIME = 2000;
+    boolean isFirstTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        boolean isFirstTime = SharedPreferencesManager.getSharedPref("isFirstTime", this, false);
+        isFirstTime = SharedPreferencesManager.getSharedPref("isFirstTime", this, false);
 
         checkLanguage();
 
@@ -47,11 +48,12 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void checkLanguage() {
-        String currentLanguage = SharedPreferencesManager.getSharedPref("language", SplashActivity.this, "en");
+        String currentLanguage;
 
-        if(currentLanguage == null || currentLanguage.isEmpty()) {
-            SharedPreferencesManager.writeSharedPref("language", "tr", SplashActivity.this);
+        if(isFirstTime) {
             currentLanguage = "tr";
+        } else {
+            currentLanguage = SharedPreferencesManager.getSharedPref("language", SplashActivity.this, "tr");
         }
 
         LanguageConverter.setLocale(SplashActivity.this, currentLanguage);
