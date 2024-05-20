@@ -36,12 +36,81 @@
             android:src="@drawable/topbar_hamburger_ikon" />
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/profileInfoSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+        <ImageView
+            android:id="@+id/profilePhotoDashboard"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="0.3"
+            android:layout_gravity="center|center_horizontal"
+            app:srcCompat="@drawable/profilephoto" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/nameSurnameDashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/developer"
+                android:textColor="@color/specTextColor"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/phoneNumberDashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hidirektor@gmail.com"
+                android:textColor="@color/specTextColor"
+                android:textSize="14sp"
+                android:textAlignment="center" />
+
+            <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingStar"
+                app:srb_isIndicator="true"
+                app:srb_starSize="24dp"
+                app:srb_numberOfStars="5"
+                app:srb_rating="3"
+                app:srb_stepSize="0.5"
+                app:srb_borderColor="@color/black"
+                app:srb_fillColor="@color/ratingColor" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/kazaButton"
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/sos_button"
+            android:text="@string/sos_button"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:fontFamily="@font/gilroy_medium"
+            android:textStyle="bold"
+            android:textSize="22sp"/>
+    </LinearLayout>
+
     <ScrollView
         android:id="@+id/midSection"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:gravity="center|center_horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintTop_toBottomOf="@+id/profileInfoSection"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/bottomBar">
@@ -49,71 +118,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="24dp"
-                android:orientation="horizontal">
-                <ImageView
-                    android:id="@+id/profilePhotoDashboard"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="0.3"
-                    android:layout_gravity="center|center_horizontal"
-                    app:srcCompat="@drawable/profilephoto" />
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1.0"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/nameSurnameDashboard"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/developer"
-                        android:textColor="@color/specTextColor"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textAlignment="center" />
-
-                    <TextView
-                        android:id="@+id/phoneNumberDashboard"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="hidirektor@gmail.com"
-                        android:textColor="@color/specTextColor"
-                        android:textSize="14sp"
-                        android:textAlignment="center" />
-
-                    <com.iarcuschin.simpleratingbar.SimpleRatingBar
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/ratingStar"
-                        app:srb_isIndicator="true"
-                        app:srb_starSize="24dp"
-                        app:srb_numberOfStars="5"
-                        app:srb_rating="3"
-                        app:srb_stepSize="0.5"
-                        app:srb_borderColor="@color/black"
-                        app:srb_fillColor="@color/ratingColor" />
-                </LinearLayout>
-                <Button
-                    android:id="@+id/kazaButton"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.3"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="10dp"
-                    android:background="@drawable/sos_button"
-                    android:text="@string/sos_button"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/gilroy_medium"
-                    android:textStyle="bold"
-                    android:textSize="22sp"/>
-            </LinearLayout>
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
             <LinearLayout
                 android:layout_width="match_parent"

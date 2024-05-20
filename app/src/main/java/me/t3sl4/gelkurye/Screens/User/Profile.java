@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 import com.sigma.niceswitch.NiceSwitch;
 
@@ -55,8 +56,8 @@ public class Profile extends AppCompatActivity {
     private LinearLayout changePassLinearButton;
     private LinearLayout changeLangLinearButton;
     private LinearLayout contactUsLinearButton;
-    private Dialog languageDialog;
-    private Dialog passDialog;
+    private BottomSheetDialog languageDialog;
+    private BottomSheetDialog passDialog;
 
     //Navbar Buttons
     private LinearLayout dashboardButton;
@@ -91,6 +92,9 @@ public class Profile extends AppCompatActivity {
         editProfileButton = findViewById(R.id.editProfileImageView);
         shiftSwitch = findViewById(R.id.shiftSwitch);
         nightThemeSwitch = findViewById(R.id.nightThemeSwitch);
+
+        shiftSwitch.setChecked(false);
+        nightThemeSwitch.setChecked(false);
 
         //Linear Buttons:
         earningLinearButton = findViewById(R.id.earningLinearButton);
@@ -170,9 +174,9 @@ public class Profile extends AppCompatActivity {
 
         changePassLinearButton.setOnClickListener(v -> {
             //Şifre Değiştirme Arayüzüne Aktar
-            passDialog = new Dialog(this);
+            passDialog = new BottomSheetDialog(this, R.style.BottomSheetDialog);
             //Şifre Değiştirme Arayüzüne Aktar
-            passDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            //passDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             passDialog.setContentView(R.layout.popup_changepass);
 
             //Popup items:
@@ -190,44 +194,10 @@ public class Profile extends AppCompatActivity {
             passDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             passDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
             passDialog.getWindow().setGravity(Gravity.BOTTOM);
-
-            passDialog.getWindow().getDecorView().setOnTouchListener(new View.OnTouchListener() {
-                private float y1, y2;
-                private int SWIPE_THRESHOLD = 100;
-                private int originalHeight;
-
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    switch (event.getAction()) {
-                        case MotionEvent.ACTION_DOWN:
-                            y1 = event.getY();
-                            originalHeight = passDialog.getWindow().getAttributes().height;
-                            break;
-                        case MotionEvent.ACTION_MOVE:
-                            y2 = event.getY();
-                            float deltaY = y2 - y1;
-                            if (Math.abs(deltaY) > SWIPE_THRESHOLD) {
-                                int newHeight = originalHeight - (int) deltaY;
-                                if (newHeight > 0) {
-                                    passDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, newHeight);
-                                }
-                            }
-                            break;
-                        case MotionEvent.ACTION_UP:
-                            if (Math.abs(y2 - y1) > SWIPE_THRESHOLD) {
-                                passDialog.dismiss();
-                            } else {
-                                passDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, originalHeight);
-                            }
-                            break;
-                    }
-                    return true;
-                }
-            });
         });
 
         changeLangLinearButton.setOnClickListener(v -> {
-            languageDialog = new Dialog(this);
+            languageDialog = new BottomSheetDialog(this, R.style.BottomSheetDialog);
             //Dil Değiştirme Arayüzüne Aktar
             languageDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             languageDialog.setContentView(R.layout.popup_language_selector);
