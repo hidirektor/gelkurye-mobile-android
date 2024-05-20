@@ -25,6 +25,7 @@ import me.t3sl4.gelkurye.Screens.Hamburger.FAQ;
 import me.t3sl4.gelkurye.Screens.Order.CurrentOrder;
 import me.t3sl4.gelkurye.Screens.Order.Orders;
 import me.t3sl4.gelkurye.Screens.User.Earning;
+import me.t3sl4.gelkurye.Screens.User.EditProfile;
 import me.t3sl4.gelkurye.Screens.User.Profile;
 import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
 
@@ -150,6 +151,8 @@ public class Dashboard extends AppCompatActivity {
 
         navSettingsButton.setOnClickListener(v -> {
             //Ayarlar ekranına yönlendir
+            Intent settingsIntent = new Intent(Dashboard.this, EditProfile.class);
+            startActivity(settingsIntent);
         });
 
         navFaqButton.setOnClickListener(v -> {
