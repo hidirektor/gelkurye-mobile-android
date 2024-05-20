@@ -111,4 +111,7 @@
     <string name="current_taken">Received</string>
     <string name="current_on_way">On the Road</string>
     <string name="current_delivered">Delivered</string>
+
+    <!-- Edit Profile -->
+    <string name="profile_edit">Edit Profile</string>
 </resources>

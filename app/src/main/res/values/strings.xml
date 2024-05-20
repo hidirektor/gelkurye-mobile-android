@@ -129,4 +129,7 @@
     <string name="current_taken">Teslim Alındı</string>
     <string name="current_on_way">Yolda</string>
     <string name="current_delivered">Teslim Edildi</string>
+
+    <!-- Edit Profile -->
+    <string name="profile_edit">Profili Düzenle</string>
 </resources>

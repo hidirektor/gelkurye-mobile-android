@@ -50,6 +50,7 @@
         <activity android:name=".Screens.Order.Orders" />
         <activity android:name=".Screens.Order.CurrentOrder" />
         <activity android:name=".Screens.User.Profile" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".Screens.User.EditProfile" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Screens.User.Earning" />
     </application>
 

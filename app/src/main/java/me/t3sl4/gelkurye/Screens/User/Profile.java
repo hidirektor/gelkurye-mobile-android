@@ -146,6 +146,8 @@ public class Profile extends AppCompatActivity {
 
         editProfileButton.setOnClickListener(v -> {
             //Profil Düzenleme Processi
+            Intent profileEditIntent = new Intent(Profile.this, EditProfile.class);
+            startActivity(profileEditIntent);
         });
 
         shiftSwitch.setOnCheckedChangedListener(v -> {
@@ -184,9 +186,14 @@ public class Profile extends AppCompatActivity {
             EditText newPass = passDialog.findViewById(R.id.passwordEditText);
             EditText newPassRepeat = passDialog.findViewById(R.id.passwordRepeatEditText);
             Button changePassButton = passDialog.findViewById(R.id.changePassButton);
+            ImageView closeLanguagePopup = passDialog.findViewById(R.id.closeLanguagePopup);
 
             changePassButton.setOnClickListener(View -> {
                 //Şifre Değiştirme İşlemi
+            });
+
+            closeLanguagePopup.setOnClickListener(View -> {
+                passDialog.dismiss();
             });
 
             passDialog.show();
@@ -206,6 +213,7 @@ public class Profile extends AppCompatActivity {
             ImageView closeButton = languageDialog.findViewById(R.id.closeLanguagePopup);
             RadioButton turkishButton = languageDialog.findViewById(R.id.turkishButton);
             RadioButton englishButton = languageDialog.findViewById(R.id.englishButton);
+            ImageView closeLanguagePopup = languageDialog.findViewById(R.id.closeLanguagePopup);
 
             String currentLanguage = SharedPreferencesManager.getSharedPref("language", Profile.this, "en");
 
@@ -231,6 +239,10 @@ public class Profile extends AppCompatActivity {
                 switchLanguage("en");
 
                 turkishButton.setChecked(false);
+            });
+
+            closeLanguagePopup.setOnClickListener(View -> {
+                languageDialog.dismiss();
             });
 
             languageDialog.show();
