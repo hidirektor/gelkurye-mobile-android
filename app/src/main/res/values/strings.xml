@@ -39,8 +39,8 @@
     <string name="navbar_orders">Siparişler</string>
     <string name="navbar_profile">Profil</string>
     <string name="navbar_settings">Ayarlar</string>
-    <string name="developer" translatable="false">İlayda Dinçbilek</string>
-    <string name="developer_mail" translatable="false">johndoe@gmail.com</string>
+    <string name="developer" translatable="false">Halil İbrahim Direktör</string>
+    <string name="developer_mail" translatable="false">hidirektor@gmail.com</string>
     <string name="welcome">Merhabalar</string>
     <string name="current_order">Şuanki Sipariş</string>
     <string name="waiting_orders">Bekleyen Siparişler</string>
