@@ -1,13 +1,13 @@
 package me.t3sl4.gelkurye.Screens.Authentication;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,9 +15,19 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
 import com.irozon.sneaker.Sneaker;
 import com.kofigyan.stateprogressbar.StateProgressBar;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,17 +44,20 @@ import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step4Fragment;
 public class Register extends AppCompatActivity {
     String[] stateNames;
 
-    //Header Components:
+    // Header Components:
     private ViewPager2 registerViewPager;
     private StateProgressBar registerStateBar;
 
-    //Bottom Buttons:
+    // Bottom Buttons:
     private Button registerButton;
     private ImageView stepOncekiImageView, stepSonrakiImageView;
 
-    //Fragment Management:
+    // Fragment Management:
     private List<Fragment> fragmentList = new ArrayList<>();
     private Map<Integer, Bundle> fragmentData = new HashMap<>();
+
+    // Volley Request Queue
+    private RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +65,10 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         initializeComponents();
-
         fragmentAdapterInitialize();
-
         bottomComponentsClickListeners();
+
+        requestQueue = Volley.newRequestQueue(this);
 
         if (fragmentData.containsKey(1)) {
             String encodedImage = Objects.requireNonNull(fragmentData.get(1)).getString("profilePhoto");
@@ -63,7 +76,7 @@ public class Register extends AppCompatActivity {
                 Step2Fragment step2Fragment = (Step2Fragment) fragmentList.get(1);
                 step2Fragment.setProfilePhoto(encodedImage);
             }
-        } else if(fragmentData.containsKey(3)) {
+        } else if (fragmentData.containsKey(3)) {
             String encodedLicenseFront = Objects.requireNonNull(fragmentData.get(3)).getString("licenseFront");
             String encodedLicenseBack = Objects.requireNonNull(fragmentData.get(3)).getString("licenseBack");
 
@@ -73,7 +86,7 @@ public class Register extends AppCompatActivity {
                 step4Fragment.setLicenseFront(encodedLicenseFront);
             }
 
-            if(encodedLicenseBack != null) {
+            if (encodedLicenseBack != null) {
                 step4Fragment.setLicenseBack(encodedLicenseBack);
             }
         }
@@ -131,7 +144,7 @@ public class Register extends AppCompatActivity {
 
         registerStateBar.setStateDescriptionData(stateNames);
 
-        //Fragment Definition:
+        // Fragment Definition:
         fragmentList.add(new Step1Fragment());
         fragmentList.add(new Step2Fragment());
         fragmentList.add(new Step3Fragment());
@@ -188,8 +201,9 @@ public class Register extends AppCompatActivity {
 
         registerButton.setOnClickListener(v -> {
             saveFragmentData(registerViewPager.getCurrentItem());
-            if(allDataValid()) {
+            if (allDataValid()) {
                 logFragmentData();
+                registerUser();
             } else {
                 Sneaker.with(Register.this).setTitle("Hata !").setMessage("Lütfen eksik kısımları kontrol edin!").sneakError();
             }
@@ -210,5 +224,57 @@ public class Register extends AppCompatActivity {
             }
         }
         return true;
+    }
+
+    private void registerUser() {
+        String url = "http://85.95.231.92:3000/api/v1/register";
+
+        Map<String, String> params = new HashMap<>();
+        params.put("username", Objects.requireNonNull(fragmentData.get(0)).getString("username"));
+        params.put("email", Objects.requireNonNull(fragmentData.get(0)).getString("email"));
+        params.put("password", Objects.requireNonNull(fragmentData.get(0)).getString("password"));
+        params.put("nameSurname", Objects.requireNonNull(fragmentData.get(1)).getString("nameSurname"));
+        params.put("phoneNumber", Objects.requireNonNull(fragmentData.get(1)).getString("phoneNumber"));
+        params.put("address", Objects.requireNonNull(fragmentData.get(1)).getString("address"));
+        params.put("profilePhoto", Objects.requireNonNull(fragmentData.get(1)).getString("profilePhoto"));
+        params.put("relativeNameSurname", Objects.requireNonNull(fragmentData.get(2)).getString("relativeNameSurname"));
+        params.put("relativePhoneNumber", Objects.requireNonNull(fragmentData.get(2)).getString("relativePhoneNumber"));
+        params.put("licenseFrontFace", Objects.requireNonNull(fragmentData.get(3)).getString("licenseFront"));
+        params.put("licenseBackFace", Objects.requireNonNull(fragmentData.get(3)).getString("licenseBack"));
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params),
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            String accessToken = response.getString("accessToken");
+                            String refreshToken = response.getString("refreshToken");
+                            // Tokenları saklayın veya işleyin
+                            Log.d("RegisterSuccess", "AccessToken: " + accessToken);
+                            Log.d("RegisterSuccess", "RefreshToken: " + refreshToken);
+                            saveTokens(accessToken, refreshToken);
+                            Sneaker.with(Register.this).setTitle("Başarılı!").setMessage("Kayıt işlemi başarılı!").sneakSuccess();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Sneaker.with(Register.this).setTitle("Hata !").setMessage("Yanıt işlenirken bir hata oluştu!").sneakError();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                Sneaker.with(Register.this).setTitle("Hata !").setMessage("Kayıt işlemi başarısız!").sneakError();
+            }
+        });
+
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    private void saveTokens(String accessToken, String refreshToken) {
+        SharedPreferences sharedPreferences = getSharedPreferences("TokenPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("accessToken", accessToken);
+        editor.putString("refreshToken", refreshToken);
+        editor.apply();
     }
 }
