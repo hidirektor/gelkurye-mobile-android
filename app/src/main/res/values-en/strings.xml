@@ -113,4 +113,9 @@
 
     <!-- Edit Profile -->
     <string name="profile_edit">Edit Profile</string>
+
+    <!-- Map Texts -->
+    <string name="map_text_origin">Restaurant</string>
+    <string name="map_text_destination">You</string>
+    <string name="map_text_courier">Courier</string>
 </resources>

@@ -115,19 +115,23 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
         originLatLng = new LatLng(37.85068712946069, 27.25600338766238);
         destinationLatLng = new LatLng(37.86565628149133, 27.262955034100262);
 
+        String originText = getApplicationContext().getString(R.string.map_text_origin);
+        String destinationText = getApplicationContext().getString(R.string.map_text_origin);
+        String courierText = getApplicationContext().getString(R.string.map_text_origin);
+
         originMarker = mMap.addMarker(new MarkerOptions()
                 .position(originLatLng)
-                .title("Origin")
+                .title(originText)
                 .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap(R.drawable.carrier_ikon, 100, 100))));
 
         destinationMarker = mMap.addMarker(new MarkerOptions()
                 .position(destinationLatLng)
-                .title("Destination")
+                .title(destinationText)
                 .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap(R.drawable.destination_ikon, 100, 100))));
 
         courierMarker = mMap.addMarker(new MarkerOptions()
                 .position(originLatLng)
-                .title("Courier")
+                .title(courierText)
                 .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap(R.drawable.carrier_ikon, 100, 100))));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(originLatLng, 10));

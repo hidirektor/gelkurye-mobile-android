@@ -133,4 +133,9 @@
 
     <!-- Edit Profile -->
     <string name="profile_edit">Profili Düzenle</string>
+
+    <!-- Map Texts -->
+    <string name="map_text_origin">Restaurant</string>
+    <string name="map_text_destination">Siz</string>
+    <string name="map_text_courier">Kurye</string>
 </resources>
