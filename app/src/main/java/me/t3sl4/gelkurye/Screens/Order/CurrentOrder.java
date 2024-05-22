@@ -134,7 +134,7 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
                 .title(courierText)
                 .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap(R.drawable.carrier_ikon, 100, 100))));
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(originLatLng, 10));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(originLatLng, 18));
 
         String url = getDirectionsUrl(origin, destination);
         new FetchURL(CurrentOrder.this).execute(url, "driving");
@@ -187,8 +187,8 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
                 if (locationResult != null) {
                     courierLocation = new LatLng(locationResult.getLastLocation().getLatitude(), locationResult.getLastLocation().getLongitude());
                     courierMarker.setPosition(courierLocation);
-                    //mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(courierLocation, 15));
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(originLatLng, 15));
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(courierLocation, 18));
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(originLatLng, 18));
                 }
             }
         }, Looper.getMainLooper());

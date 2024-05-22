@@ -89,8 +89,6 @@ public class Login extends AppCompatActivity {
                             Log.d("LoginSuccess", "AccessToken: " + accessToken);
                             Log.d("LoginSuccess", "RefreshToken: " + refreshToken);
                             saveTokens(accessToken, refreshToken);
-                            Intent intent = new Intent(Login.this, Dashboard.class);
-                            startActivity(intent);
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Sneaker.with(Login.this).setTitle("Hata !").setMessage("Yanıt işlenirken bir hata oluştu!").sneakError();
@@ -105,6 +103,9 @@ public class Login extends AppCompatActivity {
                 },
                 tokenManager
         );
+
+        Intent intent = new Intent(Login.this, Dashboard.class);
+        startActivity(intent);
     }
 
     private void saveTokens(String accessToken, String refreshToken) {
