@@ -2,7 +2,6 @@ package me.t3sl4.gelkurye.Screens.Authentication;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,13 +15,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.gson.Gson;
 import com.irozon.sneaker.Sneaker;
 import com.kofigyan.stateprogressbar.StateProgressBar;
 
@@ -40,6 +33,9 @@ import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step1Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step2Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step3Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step4Fragment;
+import me.t3sl4.gelkurye.Util.Util.HTTP.HTTPHelper;
+import me.t3sl4.gelkurye.Util.Util.HTTP.HTTPResponseListener;
+import me.t3sl4.gelkurye.Util.Util.HTTP.TokenManager;
 
 public class Register extends AppCompatActivity {
     String[] stateNames;
@@ -56,8 +52,9 @@ public class Register extends AppCompatActivity {
     private List<Fragment> fragmentList = new ArrayList<>();
     private Map<Integer, Bundle> fragmentData = new HashMap<>();
 
-    // Volley Request Queue
-    private RequestQueue requestQueue;
+    // HTTPHelper and TokenManager
+    private HTTPHelper httpHelper;
+    private TokenManager tokenManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +65,8 @@ public class Register extends AppCompatActivity {
         fragmentAdapterInitialize();
         bottomComponentsClickListeners();
 
-        requestQueue = Volley.newRequestQueue(this);
+        httpHelper = HTTPHelper.getInstance(this);
+        tokenManager = new TokenManager(this);
 
         if (fragmentData.containsKey(1)) {
             String encodedImage = Objects.requireNonNull(fragmentData.get(1)).getString("profilePhoto");
@@ -227,7 +225,7 @@ public class Register extends AppCompatActivity {
     }
 
     private void registerUser() {
-        String url = "http://85.95.231.92:3000/api/v1/register";
+        String endpoint = "register";
 
         Map<String, String> params = new HashMap<>();
         params.put("username", Objects.requireNonNull(fragmentData.get(0)).getString("username"));
@@ -242,26 +240,36 @@ public class Register extends AppCompatActivity {
         params.put("licenseFrontFace", Objects.requireNonNull(fragmentData.get(3)).getString("licenseFront"));
         params.put("licenseBackFace", Objects.requireNonNull(fragmentData.get(3)).getString("licenseBack"));
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params),
-                response -> {
-                    try {
-                        String accessToken = response.getString("accessToken");
-                        String refreshToken = response.getString("refreshToken");
-                        // Tokenları saklayın veya işleyin
-                        Log.d("RegisterSuccess", "AccessToken: " + accessToken);
-                        Log.d("RegisterSuccess", "RefreshToken: " + refreshToken);
-                        saveTokens(accessToken, refreshToken);
-                        Sneaker.with(Register.this).setTitle("Başarılı!").setMessage("Kayıt işlemi başarılı!").sneakSuccess();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Sneaker.with(Register.this).setTitle("Hata !").setMessage("Yanıt işlenirken bir hata oluştu!").sneakError();
+        httpHelper.makeRequest(
+                Request.Method.POST,
+                endpoint,
+                new JSONObject(params),
+                false,
+                new HTTPResponseListener() {
+                    @Override
+                    public void onSuccess(JSONObject response) {
+                        try {
+                            String accessToken = response.getString("accessToken");
+                            String refreshToken = response.getString("refreshToken");
+                            // Tokenları saklayın veya işleyin
+                            Log.d("RegisterSuccess", "AccessToken: " + accessToken);
+                            Log.d("RegisterSuccess", "RefreshToken: " + refreshToken);
+                            saveTokens(accessToken, refreshToken);
+                            Sneaker.with(Register.this).setTitle("Başarılı!").setMessage("Kayıt işlemi başarılı!").sneakSuccess();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Sneaker.with(Register.this).setTitle("Hata !").setMessage("Yanıt işlenirken bir hata oluştu!").sneakError();
+                        }
                     }
-                }, error -> {
-                    error.printStackTrace();
-                    Sneaker.with(Register.this).setTitle("Hata !").setMessage("Kayıt işlemi başarısız!").sneakError();
-                });
 
-        requestQueue.add(jsonObjectRequest);
+                    @Override
+                    public void onError(VolleyError error) {
+                        error.printStackTrace();
+                        Sneaker.with(Register.this).setTitle("Hata !").setMessage("Kayıt işlemi başarısız!").sneakError();
+                    }
+                },
+                tokenManager
+        );
     }
 
     private void saveTokens(String accessToken, String refreshToken) {

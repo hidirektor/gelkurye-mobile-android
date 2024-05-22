@@ -12,12 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.irozon.sneaker.Sneaker;
 import com.zpj.widget.checkbox.ZCheckBox;
 
@@ -31,6 +26,9 @@ import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.General.Dashboard;
 import me.t3sl4.gelkurye.Screens.PasswordReset.Reset1;
 import me.t3sl4.gelkurye.Util.Component.PasswordField.PasswordFieldTouchListener;
+import me.t3sl4.gelkurye.Util.Util.HTTP.HTTPHelper;
+import me.t3sl4.gelkurye.Util.Util.HTTP.HTTPResponseListener;
+import me.t3sl4.gelkurye.Util.Util.HTTP.TokenManager;
 
 public class Login extends AppCompatActivity {
     private EditText userNameField;
@@ -40,7 +38,8 @@ public class Login extends AppCompatActivity {
     private TextView sifremiUnuttumButton;
 
     private boolean isRemembered = false;
-    private RequestQueue requestQueue;
+    private HTTPHelper httpHelper;
+    private TokenManager tokenManager;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -54,7 +53,8 @@ public class Login extends AppCompatActivity {
         sifremiUnuttumButton = findViewById(R.id.sifremiUnuttumText);
         loginButton = findViewById(R.id.loginButton);
 
-        requestQueue = Volley.newRequestQueue(this);
+        httpHelper = HTTPHelper.getInstance(this);
+        tokenManager = new TokenManager(this);
 
         isRemembered = rememberMe.isChecked();
 
@@ -68,16 +68,20 @@ public class Login extends AppCompatActivity {
     }
 
     private void loginUser() {
-        String url = "http://85.95.231.92:3000/api/v1/login";
+        String endpoint = "login";
 
         Map<String, String> params = new HashMap<>();
         params.put("userName", userNameField.getText().toString());
         params.put("password", passwordField.getText().toString());
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params),
-                new Response.Listener<JSONObject>() {
+        httpHelper.makeRequest(
+                com.android.volley.Request.Method.POST,
+                endpoint,
+                new JSONObject(params),
+                false,
+                new HTTPResponseListener() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onSuccess(JSONObject response) {
                         try {
                             String accessToken = response.getString("accessToken");
                             String refreshToken = response.getString("refreshToken");
@@ -92,12 +96,15 @@ public class Login extends AppCompatActivity {
                             Sneaker.with(Login.this).setTitle("Hata !").setMessage("Yanıt işlenirken bir hata oluştu!").sneakError();
                         }
                     }
-                }, error -> {
-                    error.printStackTrace();
-                    Sneaker.with(Login.this).setTitle("Hata !").setMessage("Giriş işlemi başarısız!").sneakError();
-                });
 
-        requestQueue.add(jsonObjectRequest);
+                    @Override
+                    public void onError(VolleyError error) {
+                        error.printStackTrace();
+                        Sneaker.with(Login.this).setTitle("Hata !").setMessage("Giriş işlemi başarısız!").sneakError();
+                    }
+                },
+                tokenManager
+        );
     }
 
     private void saveTokens(String accessToken, String refreshToken) {
