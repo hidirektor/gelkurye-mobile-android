@@ -19,3 +19,16 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Android için varsayılan Proguard kuralları
+-keepclassmembers class * {
+    public static final ** CREATOR;
+}
+
+-keepclassmembers class * implements android.os.Parcelable {
+    public static final android.os.Parcelable$Creator CREATOR;
+}
+
+# Proguard ve R8 günlüğe alma
+-printmapping mapping.txt
+-printusage usage.txt

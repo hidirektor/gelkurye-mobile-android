@@ -92,13 +92,10 @@ public class Login extends AppCompatActivity {
                             Sneaker.with(Login.this).setTitle("Hata !").setMessage("Yanıt işlenirken bir hata oluştu!").sneakError();
                         }
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-                Sneaker.with(Login.this).setTitle("Hata !").setMessage("Giriş işlemi başarısız!").sneakError();
-            }
-        });
+                }, error -> {
+                    error.printStackTrace();
+                    Sneaker.with(Login.this).setTitle("Hata !").setMessage("Giriş işlemi başarısız!").sneakError();
+                });
 
         requestQueue.add(jsonObjectRequest);
     }

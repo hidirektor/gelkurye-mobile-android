@@ -243,29 +243,23 @@ public class Register extends AppCompatActivity {
         params.put("licenseBackFace", Objects.requireNonNull(fragmentData.get(3)).getString("licenseBack"));
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params),
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            String accessToken = response.getString("accessToken");
-                            String refreshToken = response.getString("refreshToken");
-                            // Tokenları saklayın veya işleyin
-                            Log.d("RegisterSuccess", "AccessToken: " + accessToken);
-                            Log.d("RegisterSuccess", "RefreshToken: " + refreshToken);
-                            saveTokens(accessToken, refreshToken);
-                            Sneaker.with(Register.this).setTitle("Başarılı!").setMessage("Kayıt işlemi başarılı!").sneakSuccess();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Sneaker.with(Register.this).setTitle("Hata !").setMessage("Yanıt işlenirken bir hata oluştu!").sneakError();
-                        }
+                response -> {
+                    try {
+                        String accessToken = response.getString("accessToken");
+                        String refreshToken = response.getString("refreshToken");
+                        // Tokenları saklayın veya işleyin
+                        Log.d("RegisterSuccess", "AccessToken: " + accessToken);
+                        Log.d("RegisterSuccess", "RefreshToken: " + refreshToken);
+                        saveTokens(accessToken, refreshToken);
+                        Sneaker.with(Register.this).setTitle("Başarılı!").setMessage("Kayıt işlemi başarılı!").sneakSuccess();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Sneaker.with(Register.this).setTitle("Hata !").setMessage("Yanıt işlenirken bir hata oluştu!").sneakError();
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-                Sneaker.with(Register.this).setTitle("Hata !").setMessage("Kayıt işlemi başarısız!").sneakError();
-            }
-        });
+                }, error -> {
+                    error.printStackTrace();
+                    Sneaker.with(Register.this).setTitle("Hata !").setMessage("Kayıt işlemi başarısız!").sneakError();
+                });
 
         requestQueue.add(jsonObjectRequest);
     }

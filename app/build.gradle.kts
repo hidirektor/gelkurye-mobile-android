@@ -13,12 +13,17 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        //buildConfigField("String", "BASE_URL", "\"http://85.95.231.92:3000/api/v1/\"")
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            //buildFeatures.buildConfig = true
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -34,6 +39,7 @@ android {
 dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.security:security-crypto:1.1.0-alpha06")
 
     implementation("com.google.android.material:material:1.12.0")
     implementation("com.google.firebase:protolite-well-known-types:18.0.0")
@@ -53,6 +59,8 @@ dependencies {
     implementation("com.github.Z-P-J:ZCheckBox:1.0.0")
     implementation("com.github.sigma1326:NiceSwitch:1.0")
     implementation("com.kofigyan.stateprogressbar:stateprogressbar:1.0.0")
+
+    implementation("org.cactoos:cactoos:0.55.0")
 
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("com.irozon.sneaker:sneaker:2.0.0")
