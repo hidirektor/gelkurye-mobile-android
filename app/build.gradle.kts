@@ -59,6 +59,7 @@ dependencies {
     implementation("com.github.Z-P-J:ZCheckBox:1.0.0")
     implementation("com.github.sigma1326:NiceSwitch:1.0")
     implementation("com.kofigyan.stateprogressbar:stateprogressbar:1.0.0")
+    implementation("com.hbb20:ccp:2.7.3")
 
     implementation("org.cactoos:cactoos:0.55.0")
 
