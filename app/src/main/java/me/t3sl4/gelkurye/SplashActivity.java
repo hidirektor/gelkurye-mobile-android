@@ -8,9 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import me.t3sl4.gelkurye.Screens.MainActivity;
 import me.t3sl4.gelkurye.Screens.OnBoard.OnBoard1;
-import me.t3sl4.gelkurye.Screens.User.Profile;
-import me.t3sl4.gelkurye.Util.Util.Data.SharedPreferencesManager;
-import me.t3sl4.gelkurye.Util.Util.Language.LanguageConverter;
+import me.t3sl4.gelkurye.Util.Data.SharedPreferencesManager;
+import me.t3sl4.gelkurye.Util.Language.LanguageConverter;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class SplashActivity extends AppCompatActivity {
     private final int WAITING_TIME = 2000;
@@ -20,6 +20,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         isFirstTime = SharedPreferencesManager.getSharedPref("isFirstTime", this, false);
 

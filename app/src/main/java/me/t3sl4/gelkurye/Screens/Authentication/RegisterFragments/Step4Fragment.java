@@ -8,7 +8,6 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -18,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import java.io.IOException;
 
 import me.t3sl4.gelkurye.R;
-import me.t3sl4.gelkurye.Util.Util.Image.ImageUtil;
+import me.t3sl4.gelkurye.Util.Image.ImageUtil;
 
 public class Step4Fragment extends Fragment {
     private ImageView licenseFrontFace, licenseBackFace;

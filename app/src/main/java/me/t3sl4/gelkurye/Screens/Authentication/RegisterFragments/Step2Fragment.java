@@ -15,13 +15,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.hbb20.CountryCodePicker;
+
 import java.io.IOException;
 
 import me.t3sl4.gelkurye.R;
-import me.t3sl4.gelkurye.Util.Util.Image.ImageUtil;
+import me.t3sl4.gelkurye.Util.Image.ImageUtil;
 
 public class Step2Fragment extends Fragment {
     private EditText nameSurnameEditText, phoneNumberEditText, addressEditText;
+    private CountryCodePicker phoneNumberContryCode;
     private ImageView profilePhotoImageView;
     private static final int PICK_IMAGE = 1;
 
@@ -34,6 +37,7 @@ public class Step2Fragment extends Fragment {
         profilePhotoImageView = view.findViewById(R.id.profilePhotoImageView);
         nameSurnameEditText = view.findViewById(R.id.nameSurnameEditText);
         phoneNumberEditText = view.findViewById(R.id.phoneNumberEditText);
+        phoneNumberContryCode = view.findViewById(R.id.phoneNumberContryCode);
         addressEditText = view.findViewById(R.id.addressEditText);
 
         profilePhotoImageView.setOnClickListener(v -> {

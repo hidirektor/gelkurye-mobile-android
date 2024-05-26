@@ -28,6 +28,7 @@ import me.t3sl4.gelkurye.Screens.User.Earning;
 import me.t3sl4.gelkurye.Screens.User.EditProfile;
 import me.t3sl4.gelkurye.Screens.User.Profile;
 import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class Dashboard extends AppCompatActivity {
 
@@ -66,6 +67,8 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         componentInitialize();
 

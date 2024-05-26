@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Util.Component.EditText.EditTextManager;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class Reset3 extends AppCompatActivity {
     private EditText passwordField;
@@ -19,6 +20,8 @@ public class Reset3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password_reset_3);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         passwordField = findViewById(R.id.editTextPassword);
         passwordRepeatField = findViewById(R.id.editTextPasswordRepeat);

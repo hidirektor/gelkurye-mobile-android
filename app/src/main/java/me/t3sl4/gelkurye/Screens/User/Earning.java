@@ -19,6 +19,7 @@ import me.t3sl4.gelkurye.Screens.Order.Orders;
 import me.t3sl4.gelkurye.Util.Model.Earning.EarningAdapter;
 import me.t3sl4.gelkurye.Util.Model.Order.Order;
 import me.t3sl4.gelkurye.Util.Model.Order.OrderAdapter;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class Earning extends AppCompatActivity {
     //Personal Statistics:
@@ -43,6 +44,8 @@ public class Earning extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_earning);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         componentInitialize();
 

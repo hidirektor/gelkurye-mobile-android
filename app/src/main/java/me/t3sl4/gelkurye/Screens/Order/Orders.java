@@ -34,6 +34,7 @@ import me.t3sl4.gelkurye.Screens.User.Profile;
 import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
 import me.t3sl4.gelkurye.Util.Model.Order.Order;
 import me.t3sl4.gelkurye.Util.Model.Order.OrderAdapter;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class Orders extends AppCompatActivity {
     //Header Buttons:
@@ -58,6 +59,8 @@ public class Orders extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orders);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         componentInitialize();
 

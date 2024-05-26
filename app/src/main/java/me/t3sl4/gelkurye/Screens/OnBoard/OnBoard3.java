@@ -9,7 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.MainActivity;
-import me.t3sl4.gelkurye.Util.Util.Data.SharedPreferencesManager;
+import me.t3sl4.gelkurye.Util.Data.SharedPreferencesManager;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class OnBoard3 extends AppCompatActivity {
     private ImageView nextButton;
@@ -20,6 +21,8 @@ public class OnBoard3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboard_3);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         nextButton = findViewById(R.id.onboardSonraki);
         previousButton = findViewById(R.id.onboardOnceki);

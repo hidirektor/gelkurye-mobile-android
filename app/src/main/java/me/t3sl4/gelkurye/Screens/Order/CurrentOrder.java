@@ -28,7 +28,6 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.MapsInitializer.Renderer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.OnMapsSdkInitializedCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -42,8 +41,9 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.kofigyan.stateprogressbar.StateProgressBar;
 
 import me.t3sl4.gelkurye.R;
-import me.t3sl4.gelkurye.Util.Util.GoogleMaps.FetchURL;
-import me.t3sl4.gelkurye.Util.Util.GoogleMaps.OnTaskDoneListener;
+import me.t3sl4.gelkurye.Util.GoogleMaps.FetchURL;
+import me.t3sl4.gelkurye.Util.GoogleMaps.OnTaskDoneListener;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback, OnTaskDoneListener, OnMapsSdkInitializedCallback {
 
@@ -81,6 +81,8 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_current);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         initializeComponents();
 

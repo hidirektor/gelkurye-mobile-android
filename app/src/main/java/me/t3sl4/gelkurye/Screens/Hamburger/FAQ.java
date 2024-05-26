@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.navigation.NavigationView;
 import me.t3sl4.gelkurye.R;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class FAQ extends AppCompatActivity {
     private ImageView backButton;
@@ -39,6 +40,8 @@ public class FAQ extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         backButton = findViewById(R.id.backButtonImage);
         faqList = findViewById(R.id.faqMainHeader);

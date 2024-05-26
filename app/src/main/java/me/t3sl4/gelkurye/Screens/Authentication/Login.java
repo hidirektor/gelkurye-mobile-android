@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.VolleyError;
+import com.hbb20.CountryCodePicker;
 import com.irozon.sneaker.Sneaker;
 import com.zpj.widget.checkbox.ZCheckBox;
 
@@ -26,12 +27,14 @@ import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.General.Dashboard;
 import me.t3sl4.gelkurye.Screens.PasswordReset.Reset1;
 import me.t3sl4.gelkurye.Util.Component.PasswordField.PasswordFieldTouchListener;
-import me.t3sl4.gelkurye.Util.Util.HTTP.HTTPHelper;
-import me.t3sl4.gelkurye.Util.Util.HTTP.HTTPResponseListener;
-import me.t3sl4.gelkurye.Util.Util.HTTP.TokenManager;
+import me.t3sl4.gelkurye.Util.HTTP.HTTPHelper;
+import me.t3sl4.gelkurye.Util.HTTP.HTTPResponseListener;
+import me.t3sl4.gelkurye.Util.HTTP.TokenManager;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class Login extends AppCompatActivity {
-    private EditText userNameField;
+    private CountryCodePicker phoneNumberCode;
+    private EditText phoneNumberField;
     private EditText passwordField;
     private Button loginButton;
     private ZCheckBox rememberMe;
@@ -47,7 +50,10 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        userNameField = findViewById(R.id.editTextUsername);
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
+
+        phoneNumberCode = findViewById(R.id.phoneNumberContryCode);
+        phoneNumberField = findViewById(R.id.phoneNumberEditText);
         passwordField = findViewById(R.id.editTextPassword);
         rememberMe = findViewById(R.id.beniHatirlaCheckBox);
         sifremiUnuttumButton = findViewById(R.id.sifremiUnuttumText);
@@ -71,7 +77,7 @@ public class Login extends AppCompatActivity {
         String endpoint = "login";
 
         Map<String, String> params = new HashMap<>();
-        params.put("userName", userNameField.getText().toString());
+        params.put("phoneNumber", phoneNumberField.getText().toString());
         params.put("password", passwordField.getText().toString());
 
         httpHelper.makeRequest(

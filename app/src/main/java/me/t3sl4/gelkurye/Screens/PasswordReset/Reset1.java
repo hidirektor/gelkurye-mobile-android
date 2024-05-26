@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Util.Component.EditText.EditTextManager;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class Reset1 extends AppCompatActivity {
     private EditText mailField;
@@ -18,6 +19,8 @@ public class Reset1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password_reset_1);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         mailField = findViewById(R.id.editTextMailField);
         nextButton = findViewById(R.id.nextButton);

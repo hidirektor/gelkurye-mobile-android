@@ -1,7 +1,6 @@
 package me.t3sl4.gelkurye.Screens.User;
 
 import android.Manifest;
-import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -9,8 +8,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
@@ -21,7 +18,6 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -34,8 +30,9 @@ import java.util.Objects;
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.General.Dashboard;
 import me.t3sl4.gelkurye.Screens.Order.Orders;
-import me.t3sl4.gelkurye.Util.Util.Data.SharedPreferencesManager;
-import me.t3sl4.gelkurye.Util.Util.Language.LanguageConverter;
+import me.t3sl4.gelkurye.Util.Data.SharedPreferencesManager;
+import me.t3sl4.gelkurye.Util.Language.LanguageConverter;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class Profile extends AppCompatActivity {
     //Personal Stats:
@@ -69,6 +66,8 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         componentInitialize();
 

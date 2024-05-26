@@ -10,7 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.MainActivity;
-import me.t3sl4.gelkurye.Util.Util.Data.SharedPreferencesManager;
+import me.t3sl4.gelkurye.Util.Data.SharedPreferencesManager;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class OnBoard1 extends AppCompatActivity {
     private TextView atlaButton;
@@ -21,6 +22,8 @@ public class OnBoard1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboard_1);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         atlaButton = findViewById(R.id.atlaText);
         nextButton = findViewById(R.id.onboardSonraki);

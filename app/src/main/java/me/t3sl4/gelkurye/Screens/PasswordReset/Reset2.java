@@ -15,6 +15,7 @@ import com.chaos.view.PinView;
 import java.util.Objects;
 
 import me.t3sl4.gelkurye.R;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class Reset2 extends AppCompatActivity {
     private PinView enteredOTP;
@@ -35,6 +36,8 @@ public class Reset2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password_reset_2);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         Intent intent = getIntent();
         if (intent != null) {

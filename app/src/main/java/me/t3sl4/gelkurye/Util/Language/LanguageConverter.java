@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Util.Language;
+package me.t3sl4.gelkurye.Util.Language;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -6,7 +6,7 @@ import android.content.res.Resources;
 
 import java.util.Locale;
 
-import me.t3sl4.gelkurye.Util.Util.Data.SharedPreferencesManager;
+import me.t3sl4.gelkurye.Util.Data.SharedPreferencesManager;
 
 public class LanguageConverter {
     public static void setLocale(Context context, String newLanguage) {

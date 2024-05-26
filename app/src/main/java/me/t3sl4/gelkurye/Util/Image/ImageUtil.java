@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Util.Image;
+package me.t3sl4.gelkurye.Util.Image;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

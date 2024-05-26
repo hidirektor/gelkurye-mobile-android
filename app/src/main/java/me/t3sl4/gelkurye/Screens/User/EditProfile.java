@@ -26,6 +26,7 @@ import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step1Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step2Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step3Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step4Fragment;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class EditProfile extends AppCompatActivity {
     //Main Variables:
@@ -49,6 +50,8 @@ public class EditProfile extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_edit);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         initializeComponents();
 

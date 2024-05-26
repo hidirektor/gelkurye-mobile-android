@@ -81,7 +81,7 @@
                             app:ccp_defaultPhoneCode="90"/>
 
                         <EditText
-                            android:id="@+id/editTextUsername"
+                            android:id="@+id/phoneNumberEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawablePadding="16dp"

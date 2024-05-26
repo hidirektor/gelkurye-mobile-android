@@ -33,9 +33,10 @@ import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step1Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step2Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step3Fragment;
 import me.t3sl4.gelkurye.Screens.Authentication.RegisterFragments.Step4Fragment;
-import me.t3sl4.gelkurye.Util.Util.HTTP.HTTPHelper;
-import me.t3sl4.gelkurye.Util.Util.HTTP.HTTPResponseListener;
-import me.t3sl4.gelkurye.Util.Util.HTTP.TokenManager;
+import me.t3sl4.gelkurye.Util.HTTP.HTTPHelper;
+import me.t3sl4.gelkurye.Util.HTTP.HTTPResponseListener;
+import me.t3sl4.gelkurye.Util.HTTP.TokenManager;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class Register extends AppCompatActivity {
     String[] stateNames;
@@ -60,6 +61,8 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         initializeComponents();
         fragmentAdapterInitialize();

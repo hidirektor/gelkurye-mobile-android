@@ -1,10 +1,9 @@
-package me.t3sl4.gelkurye.Util.Util.GoogleMaps;
+package me.t3sl4.gelkurye.Util.GoogleMaps;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.google.maps.android.PolyUtil;
 import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONException;

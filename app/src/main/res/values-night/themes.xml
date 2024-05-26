@@ -4,7 +4,7 @@
         <item name="android:statusBarColor">@color/black</item>
         <!-- Customize your theme here. -->
         <item name="android:windowTranslucentStatus">false</item>
-        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -12,5 +12,9 @@
     <style name="CircleImageview">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="Theme.RemoveSplashScreenTheme" parent="@style/Theme.GelKurye">
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 </resources>

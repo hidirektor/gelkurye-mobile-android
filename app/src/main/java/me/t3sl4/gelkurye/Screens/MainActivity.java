@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.Authentication.Login;
 import me.t3sl4.gelkurye.Screens.Authentication.Register;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
         Button loginButton = findViewById(R.id.loginButton);
         Button registerButton = findViewById(R.id.registerButton);

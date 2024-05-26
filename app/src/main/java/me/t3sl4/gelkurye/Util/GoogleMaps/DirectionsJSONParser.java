@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Util.GoogleMaps;
+package me.t3sl4.gelkurye.Util.GoogleMaps;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.maps.android.PolyUtil;
