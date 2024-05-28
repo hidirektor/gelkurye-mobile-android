@@ -29,7 +29,7 @@
                     android:id="@+id/selection_ikon"
                     android:layout_width="300dp"
                     android:layout_height="300dp"
-                    android:src="@drawable/login_ikon"
+                    android:src="@drawable/ikon_login"
                     android:layout_gravity="center"/>
 
                 <TextView
@@ -87,11 +87,11 @@
                             android:drawablePadding="16dp"
                             android:ems="10"
                             android:padding="8dp"
-                            android:background="@drawable/edittextbackground"
+                            android:background="@drawable/background_edittext"
                             android:fontFamily="@font/poppins"
                             android:hint="@string/hint_phone"
                             android:inputType="phone"
-                            android:drawableStart="@drawable/button_phone"
+                            android:drawableStart="@drawable/ikon_phone"
                             android:textColorHint="@color/editTextColor" />
                     </LinearLayout>
                 </RelativeLayout>
@@ -125,7 +125,7 @@
                         android:layout_marginStart="32dp"
                         android:layout_marginEnd="32dp"
                         android:layout_below="@id/textViewPasswordLabel"
-                        android:background="@drawable/edittextbackground"
+                        android:background="@drawable/background_edittext"
                         android:drawableEnd="@drawable/password_show_ikon"
                         android:ems="10"
                         android:fontFamily="@font/poppins"
@@ -186,7 +186,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/loginbutton"
+                    android:background="@drawable/background_btn_login"
                     android:fontFamily="@font/outfit_bold"
                     android:padding="16dp"
                     android:text="@string/button_login"

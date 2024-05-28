@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:src="@drawable/app_ikon" />
+            android:src="@drawable/app_logo" />
 
         <ImageView
             android:id="@+id/hamburgerButton"
@@ -33,7 +33,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="0dp"
             android:foregroundGravity="center_vertical"
-            android:src="@drawable/topbar_hamburger_ikon" />
+            android:src="@drawable/ikon_topbar_hamburger" />
     </RelativeLayout>
 
     <LinearLayout
@@ -51,7 +51,7 @@
             android:layout_height="50dp"
             android:layout_weight="0.3"
             android:layout_gravity="center|center_horizontal"
-            app:srcCompat="@drawable/profilephoto" />
+            app:srcCompat="@drawable/background_profilephoto" />
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1.0"
@@ -96,7 +96,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginEnd="10dp"
-            android:background="@drawable/sos_button"
+            android:background="@drawable/background_sos"
             android:text="@string/sos_button"
             android:textAllCaps="false"
             android:textColor="@color/white"
@@ -140,7 +140,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginEnd="12dp"
                         android:layout_weight="0.5"
-                        android:background="@drawable/btn_background_1">
+                        android:background="@drawable/background_btn_1">
 
                         <ImageView
                             android:id="@+id/imageView7"
@@ -151,7 +151,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.29000002"
-                            app:srcCompat="@drawable/stats_completed_ikon" />
+                            app:srcCompat="@drawable/ikon_stats_completed" />
 
                         <TextView
                             android:id="@+id/textView423456"
@@ -188,7 +188,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="12dp"
                         android:layout_weight="0.5"
-                        android:background="@drawable/btn_background_2">
+                        android:background="@drawable/background_btn_2">
 
                         <ImageView
                             android:id="@+id/imageView71"
@@ -199,7 +199,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.29000002"
-                            app:srcCompat="@drawable/stats_pending_ikon" />
+                            app:srcCompat="@drawable/ikon_stats_pending" />
 
                         <TextView
                             android:id="@+id/textView42345"
@@ -247,7 +247,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginEnd="12dp"
                         android:layout_weight="0.5"
-                        android:background="@drawable/btn_background_3">
+                        android:background="@drawable/background_btn_3">
 
                         <ImageView
                             android:id="@+id/imageView72"
@@ -259,7 +259,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.29000002"
-                            app:srcCompat="@drawable/stats_total_ikon" />
+                            app:srcCompat="@drawable/ikon_stats_total" />
 
                         <TextView
                             android:id="@+id/textView423"
@@ -296,7 +296,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="12dp"
                         android:layout_weight="0.5"
-                        android:background="@drawable/btn_background_4">
+                        android:background="@drawable/background_btn_4">
 
                         <ImageView
                             android:id="@+id/imageView73"
@@ -307,7 +307,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.29000002"
-                            app:srcCompat="@drawable/stats_total_earning_ikon" />
+                            app:srcCompat="@drawable/ikon_stats_total_earning" />
 
                         <TextView
                             android:id="@+id/textView4234"
@@ -389,7 +389,7 @@
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/navbar_home_ikon"
+                        app:srcCompat="@drawable/ikon_navbar_home"
                         app:tint="@color/navbarButtonColor" />
 
                     <TextView
@@ -414,7 +414,7 @@
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/navbar_delivery_ikon" />
+                        app:srcCompat="@drawable/ikon_navbar_delivery" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -438,7 +438,7 @@
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/navbar_earning_ikon" />
+                        app:srcCompat="@drawable/ikon_navbar_earning" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -463,7 +463,7 @@
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/navbar_profile_ikon" />
+                        app:srcCompat="@drawable/ikon_navbar_profile" />
 
                     <TextView
                         android:id="@+id/textView8"

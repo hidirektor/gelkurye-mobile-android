@@ -12,7 +12,7 @@
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_gravity="center|center_horizontal"
-        android:src="@drawable/app_ikon" />
+        android:src="@drawable/app_logo" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edittextbackground"
+                        android:background="@drawable/background_edittext"
                         android:drawablePadding="16dp"
                         android:ems="10"
                         android:fontFamily="@font/outfit_medium"
@@ -74,7 +74,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/outfit_medium"
-                        android:background="@drawable/answerbackground"
+                        android:background="@drawable/faq_answerbackground"
                         android:text="@string/faq_a1"
                         android:textColor="@color/white"
                         android:padding="16dp" />
@@ -102,7 +102,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edittextbackground"
+                        android:background="@drawable/background_edittext"
                         android:drawablePadding="16dp"
                         android:ems="10"
                         android:fontFamily="@font/outfit_medium"
@@ -130,7 +130,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/outfit_medium"
-                        android:background="@drawable/answerbackground"
+                        android:background="@drawable/faq_answerbackground"
                         android:text="@string/faq_a2"
                         android:textColor="@color/white"
                         android:padding="16dp" />
@@ -158,7 +158,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edittextbackground"
+                        android:background="@drawable/background_edittext"
                         android:drawablePadding="16dp"
                         android:ems="10"
                         android:fontFamily="@font/outfit_medium"
@@ -187,7 +187,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/outfit_medium"
-                        android:background="@drawable/answerbackground"
+                        android:background="@drawable/faq_answerbackground"
                         android:text="@string/faq_a3"
                         android:textColor="@color/white"
                         android:padding="16dp" />
@@ -215,7 +215,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edittextbackground"
+                        android:background="@drawable/background_edittext"
                         android:drawablePadding="16dp"
                         android:ems="10"
                         android:fontFamily="@font/outfit_medium"
@@ -244,7 +244,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/outfit_medium"
-                        android:background="@drawable/answerbackground"
+                        android:background="@drawable/faq_answerbackground"
                         android:text="@string/faq_a4"
                         android:textColor="@color/white"
                         android:padding="16dp" />

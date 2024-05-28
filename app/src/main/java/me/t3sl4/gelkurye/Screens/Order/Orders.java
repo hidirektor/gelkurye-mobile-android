@@ -1,37 +1,23 @@
 package me.t3sl4.gelkurye.Screens.Order;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
-
-import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.General.Dashboard;
-import me.t3sl4.gelkurye.Screens.Hamburger.FAQ;
 import me.t3sl4.gelkurye.Screens.User.Earning;
 import me.t3sl4.gelkurye.Screens.User.Profile;
-import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
 import me.t3sl4.gelkurye.Util.Model.Order.Order;
 import me.t3sl4.gelkurye.Util.Model.Order.OrderAdapter;
 import me.t3sl4.gelkurye.Util.Utils;
@@ -102,7 +88,7 @@ public class Orders extends AppCompatActivity {
         int secondTextColor = ContextCompat.getColor(this, R.color.white);
 
         Drawable defaultDrawable = ContextCompat.getDrawable(this, R.drawable.allorders);
-        Drawable secondDrawable = ContextCompat.getDrawable(this, R.drawable.waitingorders);
+        Drawable secondDrawable = ContextCompat.getDrawable(this, R.drawable.background_waitingorders);
 
         allOrdersButton.setOnClickListener(v -> {
             //Tüm siparişleri listeleme

@@ -57,7 +57,7 @@ public class OrderAdapter extends BaseAdapter {
 
         Order order = orderList.get(position);
         //Glide.with(context).load(imageUrl).override(100, 100).into(holder.profilePhoto);
-        Drawable drawable = ContextCompat.getDrawable(context, R.drawable.testyemek);
+        Drawable drawable = ContextCompat.getDrawable(context, R.drawable.testdata_yemek);
         holder.orderImage.setImageDrawable(drawable);
         holder.foodNameTextView.setText(order.getFoodName());
         holder.shopNameTextView.setText(order.getShopName());

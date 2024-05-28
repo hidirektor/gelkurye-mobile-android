@@ -8,19 +8,19 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/navbar_home_ikon"
+            android:icon="@drawable/ikon_navbar_home"
             android:title="Home"/>
         <item
             android:id="@+id/nav_settings"
-            android:icon="@drawable/navbar_settings_ikon"
+            android:icon="@drawable/ikon_navbar_settings"
             android:title="Settings"/>
         <item
             android:id="@+id/nav_share"
-            android:icon="@drawable/navbar_profile_ikon"
+            android:icon="@drawable/ikon_navbar_profile"
             android:title="Share"/>
         <item
             android:id="@+id/nav_about"
-            android:icon="@drawable/navbar_orders_ikon"
+            android:icon="@drawable/ikon_navbar_orders"
             android:title="About Us"/>
     </group>
     <item
@@ -28,7 +28,7 @@
         <menu>
             <item
                 android:id="@+id/nav_logout"
-                android:icon="@drawable/navbar_profile_ikon"
+                android:icon="@drawable/ikon_navbar_profile"
                 android:title="Logout"/>
         </menu>
     </item>

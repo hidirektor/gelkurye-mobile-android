@@ -124,17 +124,17 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
         originMarker = mMap.addMarker(new MarkerOptions()
                 .position(originLatLng)
                 .title(originText)
-                .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap(R.drawable.carrier_ikon, 100, 100))));
+                .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap(R.drawable.ikon_carrier, 100, 100))));
 
         destinationMarker = mMap.addMarker(new MarkerOptions()
                 .position(destinationLatLng)
                 .title(destinationText)
-                .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap(R.drawable.destination_ikon, 100, 100))));
+                .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap(R.drawable.ikon_destination, 100, 100))));
 
         courierMarker = mMap.addMarker(new MarkerOptions()
                 .position(originLatLng)
                 .title(courierText)
-                .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap(R.drawable.carrier_ikon, 100, 100))));
+                .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap(R.drawable.ikon_carrier, 100, 100))));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(originLatLng, 18));
 

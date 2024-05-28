@@ -57,7 +57,7 @@
                             android:id="@+id/licenseFrontFaceImageView"
                             android:layout_height="80dp"
                             android:layout_width="match_parent"
-                            android:src="@drawable/license_ikon"
+                            android:src="@drawable/ikon_license"
                             android:scaleType="fitXY"
                             android:layout_alignParentTop="true"
                             android:layout_centerHorizontal="true">
@@ -98,7 +98,7 @@
                             android:id="@+id/licenseBackFaceImageView"
                             android:layout_height="80dp"
                             android:layout_width="match_parent"
-                            android:src="@drawable/license_ikon"
+                            android:src="@drawable/ikon_license"
                             android:scaleType="fitXY"
                             android:layout_alignParentTop="true"
                             android:layout_centerHorizontal="true">

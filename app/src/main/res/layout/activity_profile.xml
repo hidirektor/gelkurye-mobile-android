@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/profilecardview" >
+                android:background="@drawable/background_profilecardview" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.15"
-                        android:src="@drawable/backikon"
+                        android:src="@drawable/ikon_back"
                         android:layout_gravity="center|center_horizontal"/>
 
                     <TextView
@@ -57,7 +57,7 @@
                         android:layout_height="24dp"
                         android:layout_marginEnd="16dp"
                         android:layout_gravity="center|center_horizontal"
-                        android:src="@drawable/logout"
+                        android:src="@drawable/ikon_logout"
                         android:gravity="end" />
                 </LinearLayout>
 
@@ -78,7 +78,7 @@
                         android:layout_height="50dp"
                         android:layout_weight="0.28"
                         android:layout_gravity="center|center_horizontal"
-                        app:srcCompat="@drawable/profilephoto" />
+                        app:srcCompat="@drawable/background_profilephoto" />
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_weight="1.0"
@@ -119,7 +119,7 @@
                         android:id="@+id/editProfileImageView"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/profile_edit"
+                        android:src="@drawable/ikon_profile_edit"
                         android:layout_marginStart="10dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginEnd="16dp"
@@ -150,7 +150,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginEnd="12dp"
                     android:layout_weight="0.5"
-                    android:background="@drawable/btn_background_6"
+                    android:background="@drawable/background_btn_6"
                     android:padding="10dp">
 
                     <LinearLayout
@@ -174,7 +174,7 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintVertical_bias="0.29000002"
                                 android:layout_marginTop="12dp"
-                                app:srcCompat="@drawable/shift_icon"
+                                app:srcCompat="@drawable/ikon_shift"
                                 app:tint="@color/navbarButtonColor"
                                 android:layout_gravity="center|center_vertical"/>
 
@@ -210,7 +210,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginEnd="12dp"
                     android:layout_weight="0.5"
-                    android:background="@drawable/btn_background_6"
+                    android:background="@drawable/background_btn_6"
                     android:padding="10dp">
 
                     <LinearLayout
@@ -235,7 +235,7 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintVertical_bias="0.29000002"
                                 android:layout_marginTop="12dp"
-                                app:srcCompat="@drawable/night_mode"
+                                app:srcCompat="@drawable/ikon_night_mode"
                                 app:tint="@color/navbarButtonColor"
                                 android:layout_gravity="center|center_vertical"/>
 
@@ -390,7 +390,7 @@
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/navbar_home_ikon" />
+                        app:srcCompat="@drawable/ikon_navbar_home" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -414,7 +414,7 @@
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/navbar_delivery_ikon" />
+                        app:srcCompat="@drawable/ikon_navbar_delivery" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -438,7 +438,7 @@
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/navbar_earning_ikon" />
+                        app:srcCompat="@drawable/ikon_navbar_earning" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -463,7 +463,7 @@
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/navbar_profile_ikon"
+                        app:srcCompat="@drawable/ikon_navbar_profile"
                         app:tint="@color/navbarButtonColor" />
 
                     <TextView

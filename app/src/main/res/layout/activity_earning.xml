@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/profilecardview" >
+                android:background="@drawable/background_profilecardview" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -37,7 +37,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.15"
-                        android:src="@drawable/backikon"
+                        android:src="@drawable/ikon_back"
                         android:layout_gravity="center|center_horizontal"/>
 
                     <TextView
@@ -120,7 +120,7 @@
                         android:layout_marginStart="12dp"
                         android:textAlignment="textStart"
                         android:background="@drawable/button_date_picker"
-                        android:drawableEnd="@drawable/withdraw_button_icon"/>
+                        android:drawableEnd="@drawable/ikon_withdraw"/>
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -210,7 +210,7 @@
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/navbar_home_ikon" />
+                        app:srcCompat="@drawable/ikon_navbar_home" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -234,7 +234,7 @@
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/navbar_delivery_ikon" />
+                        app:srcCompat="@drawable/ikon_navbar_delivery" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -258,7 +258,7 @@
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/navbar_earning_ikon"
+                        app:srcCompat="@drawable/ikon_navbar_earning"
                         app:tint="@color/navbarButtonColor" />
 
                     <TextView
@@ -284,7 +284,7 @@
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/navbar_profile_ikon" />
+                        app:srcCompat="@drawable/ikon_navbar_profile" />
 
                     <TextView
                         android:id="@+id/textView8"

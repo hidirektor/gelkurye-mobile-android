@@ -13,13 +13,13 @@ public class ButtonManager {
         switch (type) {
             case 1:
                 secondButton.setBackgroundResource(R.drawable.allorders);
-                firstButton.setBackgroundResource(R.drawable.waitingorders);
+                firstButton.setBackgroundResource(R.drawable.background_waitingorders);
                 secondButton.setTextColor(ContextCompat.getColor(context, R.color.editTextTopColor));
                 firstButton.setTextColor(ContextCompat.getColor(context, R.color.white));
                 break;
             case 2:
                 firstButton.setBackgroundResource(R.drawable.allorders);
-                secondButton.setBackgroundResource(R.drawable.waitingorders);
+                secondButton.setBackgroundResource(R.drawable.background_waitingorders);
                 firstButton.setTextColor(ContextCompat.getColor(context, R.color.editTextTopColor));
                 secondButton.setTextColor(ContextCompat.getColor(context, R.color.white));
                 break;

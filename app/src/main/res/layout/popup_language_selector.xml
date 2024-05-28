@@ -20,7 +20,7 @@
             android:id="@+id/closeLanguagePopup"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/close_ikon"
+            android:src="@drawable/ikon_close"
             android:layout_gravity="end|center_vertical"
             android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"/>

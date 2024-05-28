@@ -2,8 +2,9 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:drawable="@drawable/phone_ikon"
-        android:width="16dp"
-        android:height="16dp" />
+        android:drawable="@drawable/ikon_deliver_order"
+        android:width="32dp"
+        android:height="32dp"
+        />
 
 </layer-list >

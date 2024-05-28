@@ -242,7 +242,7 @@
                 android:layout_marginTop="12dp"
                 android:textAlignment="textStart"
                 android:background="@drawable/button_date_picker"
-                android:drawableEnd="@drawable/button_call" />
+                android:drawableEnd="@drawable/ikon_call" />
 
             <Button
                 android:id="@+id/deliverOrderButton"
@@ -260,7 +260,7 @@
                 android:layout_marginTop="12dp"
                 android:textAlignment="textStart"
                 android:background="@drawable/button_date_picker"
-                android:drawableEnd="@drawable/button_deliver" />
+                android:drawableEnd="@drawable/ikon_deliver" />
 
         </LinearLayout>
 

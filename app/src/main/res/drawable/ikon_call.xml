@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:drawable="@drawable/phone_ikon"
+        android:drawable="@drawable/ikon_phone"
         android:width="32dp"
         android:height="32dp"
         />

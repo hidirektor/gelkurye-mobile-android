@@ -64,7 +64,7 @@
                             android:layout_alignParentTop="true"
                             android:layout_centerHorizontal="true"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/license_ikon"></ImageView>
+                            android:src="@drawable/ikon_license"></ImageView>
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
 
@@ -96,7 +96,7 @@
                         android:layout_marginStart="32dp"
                         android:layout_marginEnd="32dp"
                         android:layout_below="@id/nameSurnameTextView"
-                        android:background="@drawable/edittextbackground"
+                        android:background="@drawable/background_edittext"
                         android:drawablePadding="16dp"
                         android:ems="10"
                         android:fontFamily="@font/poppins"
@@ -148,11 +148,11 @@
                             android:drawablePadding="16dp"
                             android:ems="10"
                             android:padding="8dp"
-                            android:background="@drawable/edittextbackground"
+                            android:background="@drawable/background_edittext"
                             android:fontFamily="@font/poppins"
                             android:hint="@string/hint_phone"
                             android:inputType="phone"
-                            android:drawableStart="@drawable/button_phone"
+                            android:drawableStart="@drawable/ikon_phone"
                             android:textColorHint="@color/editTextColor" />
                     </LinearLayout>
                 </RelativeLayout>
@@ -185,7 +185,7 @@
                         android:layout_marginStart="32dp"
                         android:layout_marginEnd="32dp"
                         android:layout_below="@id/addressTextView"
-                        android:background="@drawable/edittextbackground"
+                        android:background="@drawable/background_edittext"
                         android:drawablePadding="16dp"
                         android:ems="10"
                         android:fontFamily="@font/poppins"

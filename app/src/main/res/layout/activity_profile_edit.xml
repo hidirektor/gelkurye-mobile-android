@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/profilecardview" >
+                android:background="@drawable/background_profilecardview" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -37,7 +37,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.15"
-                        android:src="@drawable/backikon"
+                        android:src="@drawable/ikon_back"
                         android:layout_gravity="center|center_horizontal"/>
 
                     <TextView
@@ -130,7 +130,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:background="@drawable/registerbuttonfill"
+            android:background="@drawable/background_btn_register"
             android:fontFamily="@font/outfit_bold"
             android:padding="16dp"
             android:text="@string/profile_edit"

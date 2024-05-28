@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:background="@drawable/orderlistitem">
+        android:background="@drawable/background_orderlistitem">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -46,7 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:background="@drawable/earning_success"
+            android:background="@drawable/background_earning_success"
             android:padding="12dp"
             android:fontFamily="@font/outfit_bold"
             android:text="+ 35.27 ₺"

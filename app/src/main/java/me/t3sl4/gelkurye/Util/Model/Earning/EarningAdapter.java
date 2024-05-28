@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
@@ -63,12 +62,12 @@ public class EarningAdapter extends BaseAdapter {
         String amountText;
         if(earning.isTransactionType()) {
             //Başarılı İşlem Demek
-            backgroundDrawable = ContextCompat.getDrawable(context, R.drawable.earning_success);
+            backgroundDrawable = ContextCompat.getDrawable(context, R.drawable.background_earning_success);
             textColor = ContextCompat.getColor(context, R.color.acceptStartColor);
             amountText = "+ " + String.valueOf(earning.getTransactionAmount()) + " ₺";
         } else {
             //Başarısız İşlem Demek
-            backgroundDrawable = ContextCompat.getDrawable(context, R.drawable.earning_failed);
+            backgroundDrawable = ContextCompat.getDrawable(context, R.drawable.background_earning_failed);
             textColor = ContextCompat.getColor(context, R.color.declineStartColor);
             amountText = "- " + String.valueOf(earning.getTransactionAmount()) + " ₺";
         }
