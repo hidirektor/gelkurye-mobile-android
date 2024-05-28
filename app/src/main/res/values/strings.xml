@@ -153,8 +153,7 @@
 
     <!-- GetirYemek Texts -->
     <string name="merchant_setup_getiryemek2">GetirYemek Info</string>
-    <string name="merchant_setup_getiryemek3">API Key</string>
-    <string name="merchant_setup_getiryemek4">Secret Key</string>
+    <string name="merchant_setup_getiryemek3">Token</string>
 
     <!-- YemekSepeti Texts -->
     <string name="merchant_setup_yemeksepeti2">YemekSepeti Info</string>
