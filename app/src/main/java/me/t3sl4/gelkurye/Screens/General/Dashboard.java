@@ -65,7 +65,7 @@ public class Dashboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.courier_dashboard);
+        setContentView(R.layout.courier);
 
         Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 

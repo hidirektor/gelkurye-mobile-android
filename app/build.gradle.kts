@@ -9,6 +9,7 @@ android {
     sourceSets {
         getByName("main") {
             res.srcDirs(
+                "src/main/res/layouts/dashboard",
                 "src/main/res/layouts/order",
                 "src/main/res/layouts/earning",
                 "src/main/res/layouts/profile",
