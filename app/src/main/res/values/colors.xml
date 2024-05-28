@@ -2,14 +2,19 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">transparent</color>
+
     <color name="mainColor">#000616</color>
+
     <color name="atlaTextColor">#2828A5</color>
     <color name="headerTextColor">#000023</color>
     <color name="specTextColor">#000061</color>
+
     <color name="editTextColor">#9595FD</color>
     <color name="editTextBackground">#EBEBFF</color>
     <color name="editTextTopColor">#1A1A35</color>
     <color name="editTextStarColor">#F04971</color>
+
     <color name="checkBoxColor">#D9D9D9</color>
     <color name="navbarButtonColor">#FC8900</color>
     <color name="inactiveColor">#A9A9DB</color>
@@ -31,4 +36,5 @@
     <color name="earning_success">#DDF2D1</color>
     <color name="earning_failed">#FECCC9</color>
     <color name="sos_button">#FF3F3F</color>
+    <color name="profile_button_background">#F6F7FB</color>
 </resources>

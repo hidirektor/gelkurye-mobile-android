@@ -40,7 +40,6 @@
         android:id="@+id/profileInfoSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="24dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +48,7 @@
             android:id="@+id/profilePhotoDashboard"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight="0.3"
+            android:layout_weight="0.21"
             android:layout_gravity="center|center_horizontal"
             app:srcCompat="@drawable/background_profilephoto" />
         <LinearLayout
@@ -77,20 +76,6 @@
                 android:textSize="14sp"
                 android:textAlignment="center" />
         </LinearLayout>
-        <Button
-            android:id="@+id/kazaButton"
-            android:layout_width="0dp"
-            android:layout_weight="0.3"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/background_sos"
-            android:text="@string/sos_button"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:fontFamily="@font/gilroy_medium"
-            android:textStyle="bold"
-            android:textSize="22sp"/>
     </LinearLayout>
 
     <ScrollView
@@ -123,23 +108,23 @@
                     android:orientation="horizontal">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/btn1"
+                        android:id="@+id/trendyolYemekInitialize"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginEnd="12dp"
                         android:layout_weight="0.5"
-                        android:background="@drawable/background_btn_1">
+                        android:background="@drawable/background_btn_7">
 
                         <ImageView
                             android:id="@+id/imageView7"
-                            android:layout_width="64dp"
+                            android:layout_width="128dp"
                             android:layout_height="64dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.29000002"
-                            app:srcCompat="@drawable/ikon_stats_completed" />
+                            app:srcCompat="@drawable/ikon_trendyol" />
 
                         <TextView
                             android:id="@+id/textView423456"
@@ -154,40 +139,26 @@
                             app:layout_constraintEnd_toEndOf="@+id/imageView7"
                             app:layout_constraintStart_toStartOf="@+id/imageView7"
                             app:layout_constraintTop_toBottomOf="@+id/imageView7" />
-
-                        <TextView
-                            android:id="@+id/textView4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/stats_completed"
-                            android:textColor="@color/specTextColor"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textAlignment="center"
-                            android:paddingBottom="10dp"
-                            app:layout_constraintEnd_toEndOf="@+id/imageView7"
-                            app:layout_constraintStart_toStartOf="@+id/imageView7"
-                            app:layout_constraintTop_toBottomOf="@+id/textView423456" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/btn2"
+                        android:id="@+id/yemeksepetiInitialize"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="12dp"
                         android:layout_weight="0.5"
-                        android:background="@drawable/background_btn_2">
+                        android:background="@drawable/background_btn_7">
 
                         <ImageView
                             android:id="@+id/imageView71"
-                            android:layout_width="64dp"
+                            android:layout_width="128dp"
                             android:layout_height="64dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.29000002"
-                            app:srcCompat="@drawable/ikon_stats_pending" />
+                            app:srcCompat="@drawable/ikon_yemeksepeti" />
 
                         <TextView
                             android:id="@+id/textView42345"
@@ -203,21 +174,6 @@
                             app:layout_constraintEnd_toEndOf="@+id/imageView71"
                             app:layout_constraintStart_toStartOf="@+id/imageView71"
                             app:layout_constraintTop_toBottomOf="@+id/imageView71" />
-
-                        <TextView
-                            android:id="@+id/textView41"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/stats_pending"
-                            android:textColor="@color/specTextColor"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textAlignment="center"
-                            android:paddingBottom="10dp"
-                            android:fontFamily="@font/outfit"
-                            app:layout_constraintEnd_toEndOf="@+id/imageView71"
-                            app:layout_constraintStart_toStartOf="@+id/imageView71"
-                            app:layout_constraintTop_toBottomOf="@+id/textView42345" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
 
@@ -230,72 +186,23 @@
                     android:orientation="horizontal">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/btn3"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="12dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/background_btn_3">
-
-                        <ImageView
-                            android:id="@+id/imageView72"
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.29000002"
-                            app:srcCompat="@drawable/ikon_stats_total" />
-
-                        <TextView
-                            android:id="@+id/textView423"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="20"
-                            android:textColor="@color/specTextColor"
-                            android:textSize="24sp"
-                            android:textStyle="bold"
-                            android:textAlignment="center"
-                            app:layout_constraintEnd_toEndOf="@+id/imageView72"
-                            app:layout_constraintStart_toStartOf="@+id/imageView72"
-                            app:layout_constraintTop_toBottomOf="@+id/imageView72" />
-
-                        <TextView
-                            android:id="@+id/textView42"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/stats_total"
-                            android:textColor="@color/specTextColor"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textAlignment="center"
-                            android:paddingBottom="10dp"
-                            app:layout_constraintEnd_toEndOf="@+id/imageView72"
-                            app:layout_constraintStart_toStartOf="@+id/imageView72"
-                            app:layout_constraintTop_toBottomOf="@+id/textView423" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/btn4"
+                        android:id="@+id/getirInitialize"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="12dp"
                         android:layout_weight="0.5"
-                        android:background="@drawable/background_btn_4">
+                        android:background="@drawable/background_btn_7">
 
                         <ImageView
                             android:id="@+id/imageView73"
-                            android:layout_width="64dp"
+                            android:layout_width="128dp"
                             android:layout_height="64dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.29000002"
-                            app:srcCompat="@drawable/ikon_stats_total_earning" />
+                            app:srcCompat="@drawable/ikon_getir" />
 
                         <TextView
                             android:id="@+id/textView4234"
@@ -310,20 +217,6 @@
                             app:layout_constraintEnd_toEndOf="@+id/imageView73"
                             app:layout_constraintStart_toStartOf="@+id/imageView73"
                             app:layout_constraintTop_toBottomOf="@+id/imageView73" />
-
-                        <TextView
-                            android:id="@+id/textView43"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/stats_total_earning"
-                            android:textColor="@color/specTextColor"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textAlignment="center"
-                            android:paddingBottom="10dp"
-                            app:layout_constraintEnd_toEndOf="@+id/imageView73"
-                            app:layout_constraintStart_toStartOf="@+id/imageView73"
-                            app:layout_constraintTop_toBottomOf="@+id/textView4234" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
             </LinearLayout>
