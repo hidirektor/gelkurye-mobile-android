@@ -9,7 +9,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.navigation.NavigationView;
+
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Util.Utils;
 
