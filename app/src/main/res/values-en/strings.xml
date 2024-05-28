@@ -51,7 +51,7 @@
     <string name="send_again">Send OTP Again</string>
     <string name="password_reset">Reset Password</string>
     <string name="button_reset">Reset</string>
-    <string name="reset_success">Password Reset Succesfully Completed.</string>
+    <string name="reset_success">Password Reset Successfully Completed.</string>
 
     <!-- F.A.Q. Section -->
     <string name="faq_spec">Frequently Asked Questions</string>

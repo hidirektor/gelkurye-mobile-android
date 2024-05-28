@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
@@ -199,6 +200,11 @@ public class Profile extends AppCompatActivity {
             passDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             passDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
             passDialog.getWindow().setGravity(Gravity.BOTTOM);
+
+            Utils.getInstance().getNavigationBar().hideNavigationBarOnDialog(passDialog);
+            passDialog.setOnDismissListener(dialog -> {
+                Utils.getInstance().getNavigationBar().hideNavigationBar(Profile.this);
+            });
         });
 
         changeLangLinearButton.setOnClickListener(v -> {
@@ -248,6 +254,11 @@ public class Profile extends AppCompatActivity {
             languageDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             languageDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
             languageDialog.getWindow().setGravity(Gravity.BOTTOM);
+
+            Utils.getInstance().getNavigationBar().hideNavigationBarOnDialog(languageDialog);
+            languageDialog.setOnDismissListener(dialog -> {
+                Utils.getInstance().getNavigationBar().hideNavigationBar(Profile.this);
+            });
         });
 
         contactUsLinearButton.setOnClickListener(v -> {
