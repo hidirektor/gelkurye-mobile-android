@@ -39,7 +39,7 @@ public class FAQ extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faq);
+        setContentView(R.layout.activity_hamburger_faq);
 
         Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 

@@ -6,6 +6,15 @@ android {
     namespace = "me.t3sl4.gelkurye"
     compileSdk = 34
 
+    sourceSets {
+        getByName("main") {
+            //file("src/main/res/layouts/").listFiles()
+            res.srcDirs("src/main/res/layouts/auth")
+            res.srcDirs("src/main/res/layouts")
+            res.srcDirs("src/main/res")
+        }
+    }
+
     defaultConfig {
         applicationId = "me.t3sl4.gelkurye"
         minSdk = 29
@@ -13,7 +22,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        //buildConfigField("String", "BASE_URL", "\"http://85.95.231.92:3000/api/v1/\"")
+        buildConfigField("String", "BASE_URL", "\"http://85.95.231.92:3000/api/v1/\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -22,7 +31,7 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            //buildFeatures.buildConfig = true
+            buildFeatures.buildConfig = true
 
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),

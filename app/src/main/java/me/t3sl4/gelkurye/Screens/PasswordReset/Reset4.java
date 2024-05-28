@@ -14,7 +14,7 @@ public class Reset4 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_password_reset_4);
+        setContentView(R.layout.activity_auth_password_reset_4);
 
         Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 

@@ -44,7 +44,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:background="@drawable/navigation"
-            app:headerLayout="@layout/nav_faq"
+            app:headerLayout="@layout/activity_hamburger_nav_faq"
             app:layout_constraintStart_toStartOf="@+id/faqMain"
             android:visibility="visible"/>
     </LinearLayout>

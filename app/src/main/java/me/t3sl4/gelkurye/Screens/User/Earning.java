@@ -2,7 +2,6 @@ package me.t3sl4.gelkurye.Screens.User;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,8 +16,6 @@ import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.General.Dashboard;
 import me.t3sl4.gelkurye.Screens.Order.Orders;
 import me.t3sl4.gelkurye.Util.Model.Earning.EarningAdapter;
-import me.t3sl4.gelkurye.Util.Model.Order.Order;
-import me.t3sl4.gelkurye.Util.Model.Order.OrderAdapter;
 import me.t3sl4.gelkurye.Util.Utils;
 
 public class Earning extends AppCompatActivity {
@@ -43,7 +40,7 @@ public class Earning extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_earning);
+        setContentView(R.layout.activity_user_earning);
 
         Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 

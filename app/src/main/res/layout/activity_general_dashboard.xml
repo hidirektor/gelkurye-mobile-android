@@ -348,7 +348,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@drawable/navigation"
-        app:headerLayout="@layout/nav_hamburger"
+        app:headerLayout="@layout/activity_hamburger_nav_hamburger"
         app:layout_constraintStart_toStartOf="parent"
         android:visibility="invisible"/>
 
