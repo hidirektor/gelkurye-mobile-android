@@ -20,7 +20,7 @@ import com.hbb20.CountryCodePicker;
 import java.io.IOException;
 
 import me.t3sl4.gelkurye.R;
-import me.t3sl4.gelkurye.Util.Image.ImageUtil;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class Step2Fragment extends Fragment {
     private EditText nameSurnameEditText, phoneNumberEditText, addressEditText;
@@ -46,7 +46,7 @@ public class Step2Fragment extends Fragment {
         });
 
         if (getArguments() != null) {
-            profilePhotoImageView.setImageDrawable(ImageUtil.decodeImage(getArguments().getString("profilePhoto", "")));
+            profilePhotoImageView.setImageDrawable(Utils.getInstance().getImageUtil().decodeImage(getArguments().getString("profilePhoto", "")));
             nameSurnameEditText.setText(getArguments().getString("nameSurname", ""));
             phoneNumberEditText.setText(getArguments().getString("phoneNumber", ""));
             addressEditText.setText(getArguments().getString("address", ""));
@@ -72,7 +72,7 @@ public class Step2Fragment extends Fragment {
     }
 
     public void setProfilePhoto(String encodedPhoto) {
-        profilePhotoImageView.setImageDrawable(ImageUtil.decodeImage(encodedPhoto));
+        profilePhotoImageView.setImageDrawable(Utils.getInstance().getImageUtil().decodeImage(encodedPhoto));
     }
 
     @Override
@@ -83,7 +83,7 @@ public class Step2Fragment extends Fragment {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), data.getData());
                 profilePhotoImageView.setImageBitmap(bitmap);
 
-                hashedProfilePhoto = ImageUtil.encodeImage(bitmap);
+                hashedProfilePhoto = Utils.getInstance().getImageUtil().encodeImage(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }

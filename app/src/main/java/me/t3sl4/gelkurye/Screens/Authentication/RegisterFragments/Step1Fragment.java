@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import me.t3sl4.gelkurye.R;
-import me.t3sl4.gelkurye.Util.Component.PasswordField.PasswordFieldTouchListener;
+import me.t3sl4.gelkurye.UI.PasswordField.PasswordFieldTouchListener;
 
 public class Step1Fragment extends Fragment {
     private EditText userNameEditText, eMailEditText, passwordEditText, passwordRepeatEditText;

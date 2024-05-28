@@ -8,8 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import me.t3sl4.gelkurye.Screens.MainActivity;
 import me.t3sl4.gelkurye.Screens.OnBoard.OnBoard1;
-import me.t3sl4.gelkurye.Util.Data.SharedPreferencesManager;
-import me.t3sl4.gelkurye.Util.Language.LanguageConverter;
+import me.t3sl4.gelkurye.LocalData.SharedPreferencesManager;
 import me.t3sl4.gelkurye.Util.Utils;
 
 public class SplashActivity extends AppCompatActivity {
@@ -58,6 +57,6 @@ public class SplashActivity extends AppCompatActivity {
             currentLanguage = SharedPreferencesManager.getSharedPref("language", SplashActivity.this, "tr");
         }
 
-        LanguageConverter.setLocale(SplashActivity.this, currentLanguage);
+        Utils.getInstance().getLanguageConverter().setLocale(SplashActivity.this, currentLanguage);
     }
 }

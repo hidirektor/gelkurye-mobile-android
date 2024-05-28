@@ -26,7 +26,7 @@ import java.util.Map;
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.General.Dashboard;
 import me.t3sl4.gelkurye.Screens.PasswordReset.Reset1;
-import me.t3sl4.gelkurye.Util.Component.PasswordField.PasswordFieldTouchListener;
+import me.t3sl4.gelkurye.UI.PasswordField.PasswordFieldTouchListener;
 import me.t3sl4.gelkurye.Util.HTTP.HTTPHelper;
 import me.t3sl4.gelkurye.Util.HTTP.HTTPResponseListener;
 import me.t3sl4.gelkurye.Util.HTTP.TokenManager;

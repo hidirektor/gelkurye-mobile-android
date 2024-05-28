@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Component.Navigation;
+package me.t3sl4.gelkurye.UI.Navigation;
 
 import android.content.Context;
 import android.view.View;

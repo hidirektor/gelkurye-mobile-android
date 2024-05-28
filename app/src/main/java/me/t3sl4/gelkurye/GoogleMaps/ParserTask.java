@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.GoogleMaps;
+package me.t3sl4.gelkurye.GoogleMaps;
 
 import android.os.AsyncTask;
 import android.util.Log;

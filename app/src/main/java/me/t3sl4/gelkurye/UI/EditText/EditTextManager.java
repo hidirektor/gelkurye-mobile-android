@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Component.EditText;
+package me.t3sl4.gelkurye.UI.EditText;
 
 import android.widget.EditText;
 

@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Data;
+package me.t3sl4.gelkurye.LocalData;
 
 import android.content.Context;
 import android.content.SharedPreferences;

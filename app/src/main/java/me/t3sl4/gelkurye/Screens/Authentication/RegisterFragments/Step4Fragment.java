@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import java.io.IOException;
 
 import me.t3sl4.gelkurye.R;
-import me.t3sl4.gelkurye.Util.Image.ImageUtil;
+import me.t3sl4.gelkurye.Util.Utils;
 
 public class Step4Fragment extends Fragment {
     private ImageView licenseFrontFace, licenseBackFace;
@@ -44,8 +44,8 @@ public class Step4Fragment extends Fragment {
         });
 
         if (getArguments() != null) {
-            licenseFrontFace.setImageDrawable(ImageUtil.decodeImage(getArguments().getString("licenseFront", "")));
-            licenseBackFace.setImageDrawable(ImageUtil.decodeImage(getArguments().getString("licenseBack", "")));
+            licenseFrontFace.setImageDrawable(Utils.getInstance().getImageUtil().decodeImage(getArguments().getString("licenseFront", "")));
+            licenseBackFace.setImageDrawable(Utils.getInstance().getImageUtil().decodeImage(getArguments().getString("licenseBack", "")));
         }
 
         return view;
@@ -60,12 +60,12 @@ public class Step4Fragment extends Fragment {
     }
 
     public void setLicenseFront(String encodedPhoto) {
-        licenseFrontFace.setImageDrawable(ImageUtil.decodeImage(encodedPhoto));
+        licenseFrontFace.setImageDrawable(Utils.getInstance().getImageUtil().decodeImage(encodedPhoto));
         licenseFrontFace.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
     public void setLicenseBack(String encodedPhoto) {
-        licenseBackFace.setImageDrawable(ImageUtil.decodeImage(encodedPhoto));
+        licenseBackFace.setImageDrawable(Utils.getInstance().getImageUtil().decodeImage(encodedPhoto));
         licenseBackFace.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
@@ -78,7 +78,7 @@ public class Step4Fragment extends Fragment {
                 licenseFrontFace.setImageBitmap(bitmap);
                 licenseFrontFace.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
-                hashedLicenseFrontFace = ImageUtil.encodeImage(bitmap);
+                hashedLicenseFrontFace = Utils.getInstance().getImageUtil().encodeImage(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -88,7 +88,7 @@ public class Step4Fragment extends Fragment {
                 licenseBackFace.setImageBitmap(bitmap);
                 licenseBackFace.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
-                hashedLicenseBackFace = ImageUtil.encodeImage(bitmap);
+                hashedLicenseBackFace = Utils.getInstance().getImageUtil().encodeImage(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }

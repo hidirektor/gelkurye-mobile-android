@@ -41,8 +41,8 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.kofigyan.stateprogressbar.StateProgressBar;
 
 import me.t3sl4.gelkurye.R;
-import me.t3sl4.gelkurye.Util.GoogleMaps.FetchURL;
-import me.t3sl4.gelkurye.Util.GoogleMaps.OnTaskDoneListener;
+import me.t3sl4.gelkurye.GoogleMaps.FetchURL;
+import me.t3sl4.gelkurye.GoogleMaps.OnTaskDoneListener;
 import me.t3sl4.gelkurye.Util.Utils;
 
 public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback, OnTaskDoneListener, OnMapsSdkInitializedCallback {

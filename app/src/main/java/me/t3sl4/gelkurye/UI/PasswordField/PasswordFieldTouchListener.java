@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Component.PasswordField;
+package me.t3sl4.gelkurye.UI.PasswordField;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

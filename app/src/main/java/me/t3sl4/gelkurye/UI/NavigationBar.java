@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Component;
+package me.t3sl4.gelkurye.UI;
 
 import android.app.Activity;
 import android.view.View;

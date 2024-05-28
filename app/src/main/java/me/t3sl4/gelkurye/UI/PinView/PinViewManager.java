@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Component.PinView;
+package me.t3sl4.gelkurye.UI.PinView;
 
 import androidx.annotation.Nullable;
 

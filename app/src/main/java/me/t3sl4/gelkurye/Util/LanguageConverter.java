@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Language;
+package me.t3sl4.gelkurye.Util;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -6,10 +6,10 @@ import android.content.res.Resources;
 
 import java.util.Locale;
 
-import me.t3sl4.gelkurye.Util.Data.SharedPreferencesManager;
+import me.t3sl4.gelkurye.LocalData.SharedPreferencesManager;
 
 public class LanguageConverter {
-    public static void setLocale(Context context, String newLanguage) {
+    public void setLocale(Context context, String newLanguage) {
         Resources activityRes = context.getResources();
         Configuration activityConf = activityRes.getConfiguration();
         Locale newLocale = new Locale(newLanguage);
@@ -23,9 +23,9 @@ public class LanguageConverter {
                 applicationRes.getDisplayMetrics());
     }
 
-    public static void loadNewTranslations(Context context) {
+    public void loadNewTranslations(Context context) {
         String currentLanguage = SharedPreferencesManager.getSharedPref("language", context, "en");
 
-        LanguageConverter.setLocale(context, currentLanguage);
+        Utils.getInstance().getLanguageConverter().setLocale(context, currentLanguage);
     }
 }

@@ -26,7 +26,7 @@ import me.t3sl4.gelkurye.Screens.Order.Orders;
 import me.t3sl4.gelkurye.Screens.User.Earning;
 import me.t3sl4.gelkurye.Screens.User.EditProfile;
 import me.t3sl4.gelkurye.Screens.User.Profile;
-import me.t3sl4.gelkurye.Util.Component.Navigation.NavigationManager;
+import me.t3sl4.gelkurye.UI.Navigation.NavigationManager;
 import me.t3sl4.gelkurye.Util.Utils;
 
 public class Dashboard extends AppCompatActivity {

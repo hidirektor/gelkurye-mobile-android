@@ -30,8 +30,7 @@ import java.util.Objects;
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.General.Dashboard;
 import me.t3sl4.gelkurye.Screens.Order.Orders;
-import me.t3sl4.gelkurye.Util.Data.SharedPreferencesManager;
-import me.t3sl4.gelkurye.Util.Language.LanguageConverter;
+import me.t3sl4.gelkurye.LocalData.SharedPreferencesManager;
 import me.t3sl4.gelkurye.Util.Utils;
 
 public class Profile extends AppCompatActivity {
@@ -274,7 +273,7 @@ public class Profile extends AppCompatActivity {
 
     private void switchLanguage(String nextLang) {
         SharedPreferencesManager.writeSharedPref("language", nextLang, Profile.this);
-        LanguageConverter.setLocale(Profile.this, nextLang);
+        Utils.getInstance().getLanguageConverter().setLocale(Profile.this, nextLang);
         recreate();
     }
 }

@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Model.Order;
+package me.t3sl4.gelkurye.Model.Order;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

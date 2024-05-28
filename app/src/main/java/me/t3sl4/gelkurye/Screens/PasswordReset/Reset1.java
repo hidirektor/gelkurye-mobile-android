@@ -8,7 +8,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import me.t3sl4.gelkurye.R;
-import me.t3sl4.gelkurye.Util.Component.EditText.EditTextManager;
+import me.t3sl4.gelkurye.UI.EditText.EditTextManager;
 import me.t3sl4.gelkurye.Util.Utils;
 
 public class Reset1 extends AppCompatActivity {

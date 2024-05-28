@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.MainActivity;
-import me.t3sl4.gelkurye.Util.Data.SharedPreferencesManager;
+import me.t3sl4.gelkurye.LocalData.SharedPreferencesManager;
 import me.t3sl4.gelkurye.Util.Utils;
 
 public class OnBoard2 extends AppCompatActivity {

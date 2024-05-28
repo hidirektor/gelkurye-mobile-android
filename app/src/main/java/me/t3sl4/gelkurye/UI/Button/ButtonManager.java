@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Component.Button;
+package me.t3sl4.gelkurye.UI.Button;
 
 import android.content.Context;
 import android.util.Log;

@@ -1,4 +1,4 @@
-package me.t3sl4.gelkurye.Util.Model.Earning;
+package me.t3sl4.gelkurye.Model.Earning;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

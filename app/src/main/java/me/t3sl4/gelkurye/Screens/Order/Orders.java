@@ -18,8 +18,8 @@ import me.t3sl4.gelkurye.R;
 import me.t3sl4.gelkurye.Screens.General.Dashboard;
 import me.t3sl4.gelkurye.Screens.User.Earning;
 import me.t3sl4.gelkurye.Screens.User.Profile;
-import me.t3sl4.gelkurye.Util.Model.Order.Order;
-import me.t3sl4.gelkurye.Util.Model.Order.OrderAdapter;
+import me.t3sl4.gelkurye.Model.Order.Order;
+import me.t3sl4.gelkurye.Model.Order.OrderAdapter;
 import me.t3sl4.gelkurye.Util.Utils;
 
 public class Orders extends AppCompatActivity {

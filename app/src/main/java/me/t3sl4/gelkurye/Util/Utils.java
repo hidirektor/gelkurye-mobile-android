@@ -4,15 +4,19 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
-import me.t3sl4.gelkurye.Util.Component.NavigationBar;
+import me.t3sl4.gelkurye.UI.NavigationBar;
 
 public class Utils {
 
     private static Utils instance;
     private NavigationBar navigationBar;
+    private ImageUtil imageUtil;
+    private LanguageConverter languageConverter;
 
     private Utils() {
         navigationBar = new NavigationBar();
+        imageUtil = new ImageUtil();
+        languageConverter = new LanguageConverter();
     }
 
     public static synchronized Utils getInstance() {
@@ -24,6 +28,14 @@ public class Utils {
 
     public NavigationBar getNavigationBar() {
         return navigationBar;
+    }
+
+    public ImageUtil getImageUtil() {
+        return imageUtil;
+    }
+
+    public LanguageConverter getLanguageConverter() {
+        return languageConverter;
     }
 
     public static String getBaseURL(Context context) {

@@ -4,7 +4,7 @@ import android.content.Context;
 
 import org.json.JSONObject;
 
-import me.t3sl4.gelkurye.Util.Data.SharedPreferencesManager;
+import me.t3sl4.gelkurye.LocalData.SharedPreferencesManager;
 
 public final class TokenManager {
     private static final String ACCESS_TOKEN = "accessToken";
