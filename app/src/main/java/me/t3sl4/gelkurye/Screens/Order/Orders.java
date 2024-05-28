@@ -44,7 +44,7 @@ public class Orders extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_orders);
+        setContentView(R.layout.orders);
 
         Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 

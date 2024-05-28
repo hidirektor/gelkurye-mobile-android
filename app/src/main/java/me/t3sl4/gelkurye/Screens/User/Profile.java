@@ -65,7 +65,7 @@ public class Profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.profile);
 
         Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
@@ -178,7 +178,7 @@ public class Profile extends AppCompatActivity {
             passDialog = new BottomSheetDialog(this, R.style.BottomSheetDialog);
             //Şifre Değiştirme Arayüzüne Aktar
             //passDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            passDialog.setContentView(R.layout.popup_changepass);
+            passDialog.setContentView(R.layout.profile_changepass);
 
             //Popup items:
             EditText currentPassword = passDialog.findViewById(R.id.currentPasswordEditText);
@@ -206,7 +206,7 @@ public class Profile extends AppCompatActivity {
             languageDialog = new BottomSheetDialog(this, R.style.BottomSheetDialog);
             //Dil Değiştirme Arayüzüne Aktar
             languageDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            languageDialog.setContentView(R.layout.popup_language_selector);
+            languageDialog.setContentView(R.layout.profile_changelanguage);
 
             //Popup items:
             ImageView closeButton = languageDialog.findViewById(R.id.closeLanguagePopup);

@@ -19,7 +19,7 @@ public class Step1Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.register_fragment_step1, container, false);
+        View view = inflater.inflate(R.layout.fragment_step1, container, false);
         userNameEditText = view.findViewById(R.id.userNameEditText);
         eMailEditText = view.findViewById(R.id.eMailEditText);
         passwordEditText = view.findViewById(R.id.passwordEditText);

@@ -35,7 +35,7 @@ public class Reset2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auth_password_reset_2);
+        setContentView(R.layout.password_reset_2);
 
         Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 

@@ -44,7 +44,7 @@ public class OrderAdapter extends BaseAdapter {
         ViewHolder holder;
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.orders_item_layout, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.orders_item, parent, false);
             holder = new ViewHolder();
             holder.orderImage = convertView.findViewById(R.id.orderImage);
             holder.foodNameTextView = convertView.findViewById(R.id.foodNameTextView);

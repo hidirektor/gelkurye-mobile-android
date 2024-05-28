@@ -49,7 +49,7 @@ public class EditProfile extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_edit);
+        setContentView(R.layout.profile_edit);
 
         Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 

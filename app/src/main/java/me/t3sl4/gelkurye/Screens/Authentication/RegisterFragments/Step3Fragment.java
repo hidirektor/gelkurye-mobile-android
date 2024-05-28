@@ -18,7 +18,7 @@ public class Step3Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.register_fragment_step3, container, false);
+        View view = inflater.inflate(R.layout.fragment_step3, container, false);
         relativeNameSurnameEditText = view.findViewById(R.id.relativeNameSurnameEditText);
         relativePhoneNumberEditText = view.findViewById(R.id.relativePhoneNumberEditText);
 

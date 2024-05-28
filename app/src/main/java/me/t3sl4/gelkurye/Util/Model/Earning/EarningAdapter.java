@@ -44,7 +44,7 @@ public class EarningAdapter extends BaseAdapter {
         ViewHolder holder;
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.earning_item_layout, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.user_earning_item, parent, false);
             holder = new ViewHolder();
             holder.transactionIDTextView = convertView.findViewById(R.id.transactionIDTextView);
             holder.transactionDateTextView = convertView.findViewById(R.id.transactionDateTextView);

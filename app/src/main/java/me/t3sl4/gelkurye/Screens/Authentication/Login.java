@@ -48,7 +48,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auth_login);
+        setContentView(R.layout.login);
 
         Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 

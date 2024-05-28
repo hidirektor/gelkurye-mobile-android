@@ -21,7 +21,7 @@ public class OnBoard1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_onboard_1);
+        setContentView(R.layout.onboard_1);
 
         Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 

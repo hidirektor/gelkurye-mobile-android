@@ -33,7 +33,7 @@ public class Step2Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.register_fragment_step2, container, false);
+        View view = inflater.inflate(R.layout.fragment_step2, container, false);
         profilePhotoImageView = view.findViewById(R.id.profilePhotoImageView);
         nameSurnameEditText = view.findViewById(R.id.nameSurnameEditText);
         phoneNumberEditText = view.findViewById(R.id.phoneNumberEditText);

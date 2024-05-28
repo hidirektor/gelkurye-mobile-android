@@ -29,7 +29,7 @@ public class Step4Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.register_fragment_step4, container, false);
+        View view = inflater.inflate(R.layout.fragment_step4, container, false);
         licenseFrontFace = view.findViewById(R.id.licenseFrontFaceImageView);
         licenseBackFace = view.findViewById(R.id.licenseBackFaceImageView);
 

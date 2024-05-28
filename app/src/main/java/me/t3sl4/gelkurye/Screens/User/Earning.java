@@ -40,7 +40,7 @@ public class Earning extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_earning);
+        setContentView(R.layout.user_earning);
 
         Utils.getInstance().getNavigationBar().hideNavigationBar(this);
 
