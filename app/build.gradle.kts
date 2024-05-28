@@ -11,7 +11,10 @@ android {
             //file("src/main/res/layouts/").listFiles()
             res.srcDirs("src/main/res/layouts/auth")
             res.srcDirs("src/main/res/layouts")
-            res.srcDirs("src/main/res")
+            res.srcDirs("src/main/res", "src/main/res/layouts/onboard",
+                "src/main/res/layouts/general", "src/main/res/layouts/hamburger", "src/main/res/layouts/profile",
+                "src/main/res/layouts/earning", "src/main/res/layouts/order"
+            )
         }
     }
 
