@@ -8,12 +8,16 @@ android {
 
     sourceSets {
         getByName("main") {
-            //file("src/main/res/layouts/").listFiles()
-            res.srcDirs("src/main/res/layouts/auth")
-            res.srcDirs("src/main/res/layouts")
-            res.srcDirs("src/main/res", "src/main/res/layouts/onboard",
-                "src/main/res/layouts/general", "src/main/res/layouts/hamburger", "src/main/res/layouts/profile",
-                "src/main/res/layouts/earning", "src/main/res/layouts/order"
+            res.srcDirs(
+                "src/main/res/layouts/order",
+                "src/main/res/layouts/earning",
+                "src/main/res/layouts/profile",
+                "src/main/res/layouts/hamburger",
+                "src/main/res/layouts/general",
+                "src/main/res/layouts/onboard",
+                "src/main/res/layouts/auth",
+                "src/main/res/layouts",
+                "src/main/res"
             )
         }
     }
