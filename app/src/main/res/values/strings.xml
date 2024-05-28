@@ -138,4 +138,28 @@
     <string name="map_text_origin">Restaurant</string>
     <string name="map_text_destination">Siz</string>
     <string name="map_text_courier">Kurye</string>
+
+    <!-- Merchant Texts -->
+    <string name="merchant_marketplace">Pazaryeri</string>
+    <string name="merchant_setup_trendyol">Trendyol Eşle</string>
+    <string name="merchant_setup_getiryemek">GetirYemek Eşle</string>
+    <string name="merchant_setup_yemeksepeti">YemekSepeti Eşle</string>
+
+    <!-- Trendyol Texts -->
+    <string name="merchant_setup_trendyol2">Trendyol Info</string>
+    <string name="merchant_setup_trendyol3">Supplier Id</string>
+    <string name="merchant_setup_trendyol4">API Key</string>
+    <string name="merchant_setup_trendyol5">Secret Key</string>
+
+    <!-- GetirYemek Texts -->
+    <string name="merchant_setup_getiryemek2">GetirYemek Info</string>
+    <string name="merchant_setup_getiryemek3">API Key</string>
+    <string name="merchant_setup_getiryemek4">Secret Key</string>
+
+    <!-- YemekSepeti Texts -->
+    <string name="merchant_setup_yemeksepeti2">YemekSepeti Info</string>
+    <string name="merchant_setup_yemeksepeti3">Username</string>
+    <string name="merchant_setup_yemeksepeti4">Password</string>
+
+    <string name="merchant_synch">Hesabı Eşle</string>
 </resources>

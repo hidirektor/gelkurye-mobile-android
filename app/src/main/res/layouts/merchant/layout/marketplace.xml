@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/profileBackground"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="0dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/background_profilecardview" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/backButtonImage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.15"
+                        android:src="@drawable/ikon_back"
+                        android:layout_gravity="center|center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:layout_gravity="center|center_horizontal"
+                        android:fontFamily="@font/outfit_bold"
+                        android:text="@string/merchant_marketplace"
+                        android:textColor="@color/editTextTopColor"
+                        android:textSize="22sp"
+                        android:layout_marginStart="8dp"
+                        android:gravity="start" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center|center_vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.45"
+                android:orientation="horizontal"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:padding="12dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/btn1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/background_btn_6"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_gravity="center|center_vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="128dp"
+                            android:layout_height="64dp"
+                            app:srcCompat="@drawable/ikon_trendyol"
+                            app:tint="@color/navbarButtonColor"
+                            android:layout_gravity="center|center_vertical"/>
+
+                        <com.sigma.niceswitch.NiceSwitch
+                            android:id="@+id/trendyolYemekSwitch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:switcher_on_color="@color/on_color"
+                            app:switcher_off_color="@color/off_color"
+                            app:switcher_icon_color="@color/icon_color"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="12dp"/>
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/btn2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/background_btn_6"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_gravity="center|center_vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView89"
+                            android:layout_width="128dp"
+                            android:layout_height="64dp"
+                            app:srcCompat="@drawable/ikon_getiryemek"
+                            android:layout_gravity="center|center_vertical"/>
+
+                        <com.sigma.niceswitch.NiceSwitch
+                            android:id="@+id/getirYemekSwitch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:switcher_on_color="@color/on_color"
+                            app:switcher_off_color="@color/off_color"
+                            app:switcher_icon_color="@color/icon_color"
+                            android:layout_gravity="center|center_horizontal"
+                            android:layout_marginTop="12dp"/>
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.45"
+                android:orientation="horizontal"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:padding="12dp"
+                android:gravity="center">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/yemeksepetiButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/background_btn_6"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_gravity="center|center_vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView8"
+                            android:layout_width="128dp"
+                            android:layout_height="64dp"
+                            app:srcCompat="@drawable/ikon_yemeksepeti"
+                            android:layout_gravity="center|center_vertical"/>
+
+                        <com.sigma.niceswitch.NiceSwitch
+                            android:id="@+id/yemeksepetiSwitch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:switcher_on_color="@color/on_color"
+                            app:switcher_off_color="@color/off_color"
+                            app:switcher_icon_color="@color/icon_color"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="12dp"/>
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.0"
+                android:orientation="vertical"
+                android:padding="36dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp">
+
+                <LinearLayout
+                    android:id="@+id/changePassLinearButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_profile_button"
+                        android:drawablePadding="16dp"
+                        android:ems="10"
+                        android:fontFamily="@font/outfit_medium"
+                        android:text="@string/merchant_setup_trendyol"
+                        android:padding="8dp"
+                        android:textColor="@color/faqColor"
+                        app:drawableEndCompat="@drawable/faq_end_ikon" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/changeLangLinearButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_profile_button"
+                        android:drawablePadding="16dp"
+                        android:ems="10"
+                        android:fontFamily="@font/outfit_medium"
+                        android:text="@string/merchant_setup_getiryemek"
+                        android:padding="8dp"
+                        android:textColor="@color/faqColor"
+                        app:drawableEndCompat="@drawable/faq_end_ikon" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contactUsLinearButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_profile_button"
+                        android:drawablePadding="16dp"
+                        android:ems="10"
+                        android:fontFamily="@font/outfit_medium"
+                        android:text="@string/merchant_setup_yemeksepeti"
+                        android:padding="8dp"
+                        android:textColor="@color/faqColor"
+                        app:drawableEndCompat="@drawable/faq_end_ikon" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_gravity="bottom"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetEnd="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/dashboardButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="5dp"
+                        app:srcCompat="@drawable/ikon_navbar_home" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/navbar_button_dashboard"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ordersButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="5dp"
+                        app:srcCompat="@drawable/ikon_navbar_delivery" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/navbar_button_orders"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/earningButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="5dp"
+                        app:srcCompat="@drawable/ikon_navbar_earning" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/navbar_button_earning"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/profileButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="5dp"
+                        app:srcCompat="@drawable/ikon_merchant"
+                        app:tint="@color/navbarButtonColor" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/merchant_marketplace"
+                        android:textAlignment="center"
+                        android:textColor="@color/navbarButtonColor"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.bottomappbar.BottomAppBar>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@ android {
                 "src/main/res/layouts/onboard",
                 "src/main/res/layouts/auth",
                 "src/main/res/layouts",
-                "src/main/res"
+                "src/main/res", "src/main/res/layouts/merchant"
             )
         }
     }

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_dialog"
+    android:padding="16dp"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <ImageView
+            android:id="@+id/closeLanguagePopup"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ikon_close"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:src="@drawable/ikon_getiryemek"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/merchant_setup_getiryemek2"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/outfit_medium"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/background_dialog"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/passwordTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/merchant_setup_getiryemek3"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/editTextTopColor"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:id="@+id/passwordStar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hint_star"
+                    android:layout_toEndOf="@id/passwordTextView"
+                    android:fontFamily="@font/gilroy_semibold"
+                    android:layout_marginStart="2dp"
+                    android:textColor="@color/editTextStarColor"
+                    android:layout_marginTop="10dp"/>
+                <EditText
+                    android:id="@+id/passwordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_below="@id/passwordTextView"
+                    android:background="@drawable/background_edittext"
+                    android:drawableEnd="@drawable/password_show_ikon"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="@string/merchant_setup_getiryemek3"
+                    android:inputType="textPassword"
+                    android:padding="8dp"
+                    android:textColorHint="@color/editTextColor" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/passwordRepeatTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/merchant_setup_getiryemek4"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/editTextTopColor"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:id="@+id/passwordRepeatStar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hint_star"
+                    android:layout_toEndOf="@id/passwordRepeatTextView"
+                    android:fontFamily="@font/gilroy_semibold"
+                    android:layout_marginStart="2dp"
+                    android:textColor="@color/editTextStarColor"
+                    android:layout_marginTop="10dp"/>
+                <EditText
+                    android:id="@+id/passwordRepeatEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_below="@id/passwordRepeatTextView"
+                    android:background="@drawable/background_edittext"
+                    android:drawableEnd="@drawable/password_show_ikon"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="@string/merchant_setup_getiryemek4"
+                    android:inputType="textPassword"
+                    android:padding="8dp"
+                    android:textColorHint="@color/editTextColor" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/synchGetirYemekButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="22dp"
+                android:background="@drawable/background_btn_register"
+                android:fontFamily="@font/outfit_bold"
+                android:padding="16dp"
+                android:text="@string/merchant_synch"
+                android:textColor="#ffffff"
+                android:textSize="26sp"
+                android:textAllCaps="false"
+                android:shadowColor="#9090FD"
+                android:shadowDx="8"
+                android:shadowDy="10"
+                android:shadowRadius="4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/specText"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
