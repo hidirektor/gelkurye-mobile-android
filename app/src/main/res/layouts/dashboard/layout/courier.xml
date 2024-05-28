@@ -56,12 +56,12 @@
             android:layout_width="0dp"
             android:layout_weight="1.0"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center">
             <TextView
                 android:id="@+id/nameSurnameDashboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="@string/developer"
                 android:textColor="@color/specTextColor"
                 android:textSize="18sp"
