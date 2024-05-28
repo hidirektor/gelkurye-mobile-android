@@ -91,7 +91,7 @@
                             android:fontFamily="@font/poppins"
                             android:hint="@string/hint_phone"
                             android:inputType="phone"
-                            android:drawableStart="@drawable/ikon_phone"
+                            android:drawableStart="@drawable/ikon_phone_custom"
                             android:textColorHint="@color/editTextColor" />
                     </LinearLayout>
                 </RelativeLayout>
