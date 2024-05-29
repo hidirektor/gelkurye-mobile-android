@@ -29,6 +29,9 @@
     public static final android.os.Parcelable$Creator CREATOR;
 }
 
+# Keep all classes in the main package and its subpackages
+-keep class me.t3sl4.kurye.** { *; }
+
 # Proguard ve R8 günlüğe alma
 -printmapping mapping.txt
 -printusage usage.txt

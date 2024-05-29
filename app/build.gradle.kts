@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "me.t3sl4.gelkurye"
+    namespace = "me.t3sl4.kurye"
     compileSdk = 34
 
     sourceSets {
@@ -25,7 +25,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "me.t3sl4.gelkurye"
+        applicationId = "me.t3sl4.kurye"
         minSdk = 29
         targetSdk = 34
         versionCode = 1
@@ -38,8 +38,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
-            isShrinkResources = true
+            isMinifyEnabled = false
+            isShrinkResources = false
             buildFeatures.buildConfig = true
 
             proguardFiles(
