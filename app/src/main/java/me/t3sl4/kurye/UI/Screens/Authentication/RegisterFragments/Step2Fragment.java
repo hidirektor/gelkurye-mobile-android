@@ -42,14 +42,10 @@ public class Step2Fragment extends Fragment {
                     Intent data = result.getData();
                     if (data != null) {
                         try {
-                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                             Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), data.getData());
                             profilePhotoImageView.setImageBitmap(bitmap);
 
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                            byte[] imageBytes = byteArrayOutputStream.toByteArray();
-
-                            hashedProfilePhoto = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+                            hashedProfilePhoto = Utils.encodeImage(bitmap);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

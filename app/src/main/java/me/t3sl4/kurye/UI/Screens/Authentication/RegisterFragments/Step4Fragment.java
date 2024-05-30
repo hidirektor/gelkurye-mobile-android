@@ -30,8 +30,6 @@ public class Step4Fragment extends Fragment {
 
     private String hashedLicenseFrontFace, hashedLicenseBackFace;
 
-    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-
     private ActivityResultLauncher<Intent> licenseFrontPicker = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -42,10 +40,7 @@ public class Step4Fragment extends Fragment {
                             Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), data.getData());
                             licenseFrontFace.setImageBitmap(bitmap);
 
-                            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                            byte[] byteArray = stream.toByteArray();
-
-                            hashedLicenseFrontFace = Base64.encodeToString(byteArray, Base64.DEFAULT);
+                            hashedLicenseFrontFace = Utils.encodeImage(bitmap);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -64,10 +59,7 @@ public class Step4Fragment extends Fragment {
                             Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), data.getData());
                             licenseBackFace.setImageBitmap(bitmap);
 
-                            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                            byte[] byteArray = stream.toByteArray();
-
-                            hashedLicenseBackFace = Base64.encodeToString(byteArray, Base64.DEFAULT);
+                            hashedLicenseBackFace = Utils.encodeImage(bitmap);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
