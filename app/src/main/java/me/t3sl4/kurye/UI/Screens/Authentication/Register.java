@@ -247,6 +247,7 @@ public class Register extends AppCompatActivity {
 
             @Override
             public void onError(VolleyError error) {
+                Log.d("registererror", error.toString());
                 Sneaker.with(Register.this).setTitle("Hata !").setMessage("Kayıt işlemi başarısız!").sneakError();
             }
         });

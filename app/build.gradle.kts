@@ -31,7 +31,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        buildConfigField("String", "BASE_URL", "\"http://85.95.231.92:3000/api/v1/\"")
+        buildConfigField("String", "BASE_URL", "\"http://85.95.231.92:4000/api/v1/\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

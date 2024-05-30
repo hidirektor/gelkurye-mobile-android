@@ -6,6 +6,8 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Objects;
+
 import me.t3sl4.kurye.Model.User.Profile;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Authentication.Login;
@@ -36,7 +38,7 @@ public class SplashActivity extends AppCompatActivity {
         if (isFirstTime) {
             setupOnboarding();
         } else {
-            if(accessToken != null && refreshToken != null) {
+            if(!Objects.equals(accessToken, "") && !Objects.equals(refreshToken, "")) {
                 Profile profile = Utils.getFromSharedPreferences(this);
                 if (profile != null && !profile.toJson().isEmpty()) {
                     Intent dashboardIntent = null;
