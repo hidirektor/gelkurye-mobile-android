@@ -4,10 +4,13 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -161,8 +164,8 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onSuccess(JSONObject response) {
                 Intent loginIntent = new Intent(Profile.this, Login.class);
-                startActivity(loginIntent);
                 finish();
+                startActivity(loginIntent);
             }
 
             @Override
@@ -326,8 +329,12 @@ public class Profile extends AppCompatActivity {
             if (encodedProfilePhoto != null && !encodedProfilePhoto.isEmpty()) {
                 Bitmap decodedProfilePhoto = Utils.decodeImage(encodedProfilePhoto);
                 if (decodedProfilePhoto != null) {
+                    byte[] byteArray = Base64.decode(encodedProfilePhoto, Base64.DEFAULT);
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+                    BitmapDrawable drawable = new BitmapDrawable(getResources(), bitmap);
+
                     Glide.with(this)
-                            .load(decodedProfilePhoto)
+                            .load(drawable)
                             .into(profilePhotoDashboard);
                 } else {
                     Log.e("Dashboard", "Decoded profile photo is null");

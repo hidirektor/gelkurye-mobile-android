@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.hbb20.CountryCodePicker;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import me.t3sl4.kurye.R;
@@ -30,7 +32,6 @@ public class Step2Fragment extends Fragment {
     private EditText nameSurnameEditText, phoneNumberEditText, addressEditText;
     private CountryCodePicker phoneNumberContryCode;
     private ImageView profilePhotoImageView;
-    private static final int PICK_IMAGE = 1;
 
     private String hashedProfilePhoto;
 
@@ -43,7 +44,11 @@ public class Step2Fragment extends Fragment {
                         try {
                             Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), data.getData());
                             profilePhotoImageView.setImageBitmap(bitmap);
-                            hashedProfilePhoto = Utils.encodeImage(bitmap);
+
+                            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                            byte[] byteArray = stream.toByteArray();
+                            hashedProfilePhoto = Base64.encodeToString(byteArray, Base64.DEFAULT);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

@@ -5,17 +5,21 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import me.t3sl4.kurye.R;
@@ -26,7 +30,48 @@ public class Step4Fragment extends Fragment {
 
     private String hashedLicenseFrontFace, hashedLicenseBackFace;
 
-    private static final int PICK_FRONT = 1, PICK_BACK = 2;
+    private ActivityResultLauncher<Intent> licenseFrontPicker = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent data = result.getData();
+                    if (data != null) {
+                        try {
+                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), data.getData());
+                            licenseFrontFace.setImageBitmap(bitmap);
+
+                            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                            byte[] byteArray = stream.toByteArray();
+                            hashedLicenseFrontFace = Base64.encodeToString(byteArray, Base64.DEFAULT);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
+
+
+    private ActivityResultLauncher<Intent> licenseBackPicker = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent data = result.getData();
+                    if (data != null) {
+                        try {
+                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), data.getData());
+                            licenseBackFace.setImageBitmap(bitmap);
+
+                            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                            byte[] byteArray = stream.toByteArray();
+                            hashedLicenseBackFace = Base64.encodeToString(byteArray, Base64.DEFAULT);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
 
     @Nullable
     @Override
@@ -37,12 +82,12 @@ public class Step4Fragment extends Fragment {
 
         licenseFrontFace.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            startActivityForResult(intent, PICK_FRONT);
+            licenseFrontPicker.launch(intent);
         });
 
         licenseBackFace.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            startActivityForResult(intent, PICK_BACK);
+            licenseBackPicker.launch(intent);
         });
 
         if (getArguments() != null) {
@@ -50,7 +95,7 @@ public class Step4Fragment extends Fragment {
                     .load(Utils.decodeImage(getArguments().getString("licenseFront", "")))
                     .into(licenseFrontFace);
             Glide.with(this)
-                    .load(Utils.decodeImage(getArguments().getString("licenseBack", "")))
+                    .load(Utils.decodeImage(getArguments().getString("licenseFront", "")))
                     .into(licenseBackFace);
         }
 
@@ -66,42 +111,12 @@ public class Step4Fragment extends Fragment {
     }
 
     public void setLicenseFront(String encodedPhoto) {
-        Glide.with(this)
-                .load(Utils.decodeImage(encodedPhoto))
-                .into(licenseFrontFace);
+        licenseFrontFace.setImageBitmap(Utils.decodeImage(encodedPhoto));
         licenseFrontFace.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
     public void setLicenseBack(String encodedPhoto) {
-        Glide.with(this)
-                .load(Utils.decodeImage(encodedPhoto))
-                .into(licenseBackFace);
+        licenseBackFace.setImageBitmap(Utils.decodeImage(encodedPhoto));
         licenseBackFace.setScaleType(ImageView.ScaleType.CENTER_CROP);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_FRONT && resultCode == Activity.RESULT_OK && data != null) {
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), data.getData());
-                licenseFrontFace.setImageBitmap(bitmap);
-                licenseFrontFace.setScaleType(ImageView.ScaleType.CENTER_CROP);
-
-                hashedLicenseFrontFace = Utils.encodeImage(bitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if(requestCode == PICK_BACK && resultCode == Activity.RESULT_OK && data != null) {
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), data.getData());
-                licenseBackFace.setImageBitmap(bitmap);
-                licenseBackFace.setScaleType(ImageView.ScaleType.CENTER_CROP);
-
-                hashedLicenseBackFace = Utils.encodeImage(bitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 }

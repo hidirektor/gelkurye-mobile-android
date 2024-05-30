@@ -3,8 +3,11 @@ package me.t3sl4.kurye.UI.Screens.General;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -214,11 +217,15 @@ public class Dashboard extends AppCompatActivity {
             if (encodedProfilePhoto != null && !encodedProfilePhoto.isEmpty()) {
                 Bitmap decodedProfilePhoto = Utils.decodeImage(encodedProfilePhoto);
                 if (decodedProfilePhoto != null) {
+                    byte[] byteArray = Base64.decode(encodedProfilePhoto, Base64.DEFAULT);
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+                    BitmapDrawable drawable = new BitmapDrawable(getResources(), bitmap);
+
                     Glide.with(this)
-                            .load(decodedProfilePhoto)
+                            .load(drawable)
                             .into(profilePhotoDashboard);
                     Glide.with(this)
-                            .load(decodedProfilePhoto)
+                            .load(drawable)
                             .into(profilePhotoHamburger);
                 } else {
                     Log.e("Dashboard", "Decoded profile photo is null");
