@@ -42,7 +42,7 @@ public class Dashboard extends AppCompatActivity {
 
     //Personal Stats:
     private CircularImageView profilePhotoDashboard;
-    private ImageView profilePhotoHamburger;
+    private CircularImageView profilePhotoHamburger;
     private SimpleRatingBar ratingBarDashboard;
     private TextView nameSurnameDashboard;
     private TextView nameSurnameHamburger;
