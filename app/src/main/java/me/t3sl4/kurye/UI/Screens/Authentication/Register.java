@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,7 +48,7 @@ public class Register extends AppCompatActivity {
 
     // Bottom Buttons:
     private Button registerButton;
-    private ImageView stepOncekiImageView, stepSonrakiImageView;
+    private LinearLayout stepOncekiImageView, stepSonrakiImageView;
 
     // Fragment Management:
     private List<Fragment> fragmentList = new ArrayList<>();
