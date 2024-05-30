@@ -5,17 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.VolleyError;
 import com.hbb20.CountryCodePicker;
 import com.irozon.sneaker.Sneaker;
 import com.zpj.widget.checkbox.ZCheckBox;
@@ -23,18 +19,12 @@ import com.zpj.widget.checkbox.ZCheckBox;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.EditText.EditTextUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Components.PasswordField.PasswordFieldUtil;
 import me.t3sl4.kurye.UI.Screens.General.Dashboard;
 import me.t3sl4.kurye.UI.Screens.PasswordReset.Reset1;
-import me.t3sl4.kurye.Util.HTTP.HTTPHelper;
-import me.t3sl4.kurye.Util.HTTP.HTTPResponseListener;
-import me.t3sl4.kurye.Util.HTTP.TokenManager;
 import me.t3sl4.kurye.Util.ReqUtil;
 
 public class Login extends AppCompatActivity {
