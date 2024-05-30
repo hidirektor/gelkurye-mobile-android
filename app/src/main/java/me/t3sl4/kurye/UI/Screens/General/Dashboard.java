@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.maps.model.Dash;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.navigation.NavigationView;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
@@ -25,7 +24,6 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 import me.t3sl4.kurye.Model.User.Profile;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
-import me.t3sl4.kurye.UI.Screens.Authentication.Login;
 import me.t3sl4.kurye.UI.Screens.Hamburger.FAQ;
 import me.t3sl4.kurye.UI.Screens.Order.CurrentOrder;
 import me.t3sl4.kurye.UI.Screens.Order.Orders;
