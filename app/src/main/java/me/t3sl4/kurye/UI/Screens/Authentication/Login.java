@@ -5,10 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,6 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import me.t3sl4.kurye.R;
+import me.t3sl4.kurye.UI.Components.EditText.EditTextUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Components.PasswordField.PasswordFieldUtil;
 import me.t3sl4.kurye.UI.Screens.General.Dashboard;
@@ -42,8 +46,6 @@ public class Login extends AppCompatActivity {
     private TextView sifremiUnuttumButton;
 
     private boolean isRemembered = false;
-    private HTTPHelper httpHelper;
-    private TokenManager tokenManager;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -60,12 +62,10 @@ public class Login extends AppCompatActivity {
         sifremiUnuttumButton = findViewById(R.id.sifremiUnuttumText);
         loginButton = findViewById(R.id.loginButton);
 
-        httpHelper = HTTPHelper.getInstance(this);
-        tokenManager = new TokenManager(this);
-
         isRemembered = rememberMe.isChecked();
 
         PasswordFieldUtil.setChangeablePasswordField(passwordField, getApplicationContext());
+        EditTextUtil.blockFirstZeroCharacter(phoneNumberField, Login.this);
         loginButton.setOnClickListener(v -> {
             try {
                 loginUser();
@@ -84,10 +84,11 @@ public class Login extends AppCompatActivity {
         JSONObject params = new JSONObject();
         String inputPhoneNumber = phoneNumberField.getText().toString();
         String inputPassword = passwordField.getText().toString();
-        if(inputPhoneNumber.isEmpty() || inputPassword.isEmpty() || inputPhoneNumber == null || inputPassword == null) {
+        if(inputPhoneNumber.isEmpty() || inputPassword.isEmpty()) {
             Sneaker.with(Login.this).setTitle("Hata !").setMessage("Lütfen gerekli alanları kontrol edin!").sneakError();
         } else {
-            params.put("phoneNumber", phoneNumberField.getText().toString());
+            params.put("phoneNumber", phoneNumberCode.getSelectedCountryCode() + phoneNumberField.getText().toString());
+            Log.d("tel no:", phoneNumberCode.getSelectedCountryCode() + phoneNumberField.getText().toString());
             params.put("password", passwordField.getText().toString());
 
             ReqUtil.loginReq(this, params, new ReqUtil.LoginCallback() {

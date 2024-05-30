@@ -1,11 +1,9 @@
 package me.t3sl4.kurye.Util;
 
-import android.app.Activity;
 import android.content.Context;
 
 import com.android.volley.Request;
 import com.android.volley.VolleyError;
-import com.irozon.sneaker.Sneaker;
 
 import org.json.JSONObject;
 
