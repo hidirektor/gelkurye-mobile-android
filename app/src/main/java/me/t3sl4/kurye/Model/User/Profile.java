@@ -2,9 +2,12 @@ package me.t3sl4.kurye.Model.User;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.Gson;
 
-public class Profile {
+public class Profile implements Parcelable {
     private int id;
     private String userID;
     private String userName;
@@ -144,6 +147,72 @@ public class Profile {
     // Gson to JSON
     public String toJson() {
         return new Gson().toJson(this);
+    }
+
+    protected Profile(Parcel in) {
+        id = in.readInt();
+        userID = in.readString();
+        userName = in.readString();
+        eMail = in.readString();
+        userType = in.readString();
+        nameSurname = in.readString();
+        phoneNumber = in.readString();
+        address = in.readString();
+        password = in.readString();
+        profilePhoto = in.readString();
+        relativeNameSurname = in.readString();
+        relativePhoneNumber = in.readString();
+        lastPasswordChange = in.readString();
+        createdAt = in.readString();
+        licenseFrontFace = in.readString();
+        licenseBackFace = in.readString();
+        nightMode = in.readByte() != 0;
+        selectedLanguage = in.readByte() != 0;
+        firstBreakTime = in.readString();
+        secondBreakTime = in.readString();
+        userRating = in.readInt();
+    }
+
+    public static final Creator<Profile> CREATOR = new Creator<Profile>() {
+        @Override
+        public Profile createFromParcel(Parcel in) {
+            return new Profile(in);
+        }
+
+        @Override
+        public Profile[] newArray(int size) {
+            return new Profile[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(userID);
+        dest.writeString(userName);
+        dest.writeString(eMail);
+        dest.writeString(userType);
+        dest.writeString(nameSurname);
+        dest.writeString(phoneNumber);
+        dest.writeString(address);
+        dest.writeString(password);
+        dest.writeString(profilePhoto);
+        dest.writeString(relativeNameSurname);
+        dest.writeString(relativePhoneNumber);
+        dest.writeString(lastPasswordChange);
+        dest.writeString(createdAt);
+        dest.writeString(licenseFrontFace);
+        dest.writeString(licenseBackFace);
+        dest.writeByte((byte) (nightMode ? 1 : 0));
+        dest.writeByte((byte) (selectedLanguage ? 1 : 0));
+        dest.writeString(firstBreakTime);
+        dest.writeString(secondBreakTime);
+        dest.writeInt(userRating);
     }
 
     // SharedPreferences

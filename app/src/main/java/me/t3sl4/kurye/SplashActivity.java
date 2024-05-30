@@ -6,7 +6,10 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import me.t3sl4.kurye.Model.User.Profile;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
+import me.t3sl4.kurye.UI.Screens.Authentication.Login;
+import me.t3sl4.kurye.UI.Screens.General.Dashboard;
 import me.t3sl4.kurye.UI.Screens.MainActivity;
 import me.t3sl4.kurye.UI.Screens.OnBoard.OnBoard1;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
@@ -34,7 +37,21 @@ public class SplashActivity extends AppCompatActivity {
             setupOnboarding();
         } else {
             if(accessToken != null && refreshToken != null) {
-                //token ile kullanıcı verisi alınıp
+                Profile profile = Utils.getFromSharedPreferences(this);
+                if (profile != null && !profile.toJson().isEmpty()) {
+                    Intent dashboardIntent = null;
+                    if ("CARRIER".equals(profile.getUserType())) {
+                        dashboardIntent = new Intent(SplashActivity.this, Dashboard.class);
+                        dashboardIntent.putExtra("profile", profile);
+                    } else if ("MERCHANT".equals(profile.getUserType())) {
+                        dashboardIntent = new Intent(SplashActivity.this, Dashboard.class);
+                        dashboardIntent.putExtra("profile", profile);
+                    }
+                    startActivity(dashboardIntent);
+                    finish();
+                } else {
+                    redirectToLoginScreen();
+                }
             } else {
                 redirectToSelectionScreen();
             }
@@ -51,6 +68,14 @@ public class SplashActivity extends AppCompatActivity {
     private void redirectToSelectionScreen() {
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }, WAITING_TIME);
+    }
+
+    private void redirectToLoginScreen() {
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(SplashActivity.this, Login.class);
             startActivity(intent);
             finish();
         }, WAITING_TIME);
