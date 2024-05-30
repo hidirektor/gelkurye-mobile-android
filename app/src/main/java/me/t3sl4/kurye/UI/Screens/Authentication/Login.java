@@ -87,8 +87,6 @@ public class Login extends AppCompatActivity {
                     ReqUtil.getProfileReq(Login.this, phoneNumberCode.getSelectedCountryCode() + phoneNumberField.getText().toString(), new ReqUtil.ProfileCallback() {
                         @Override
                         public void onSuccess(Profile profile) {
-                            //TODO
-                            // Profil datasını yeni intente aktar
                             Intent intent = new Intent(Login.this, Dashboard.class);
                             startActivity(intent);
                         }
