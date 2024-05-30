@@ -49,19 +49,16 @@ public class Utils {
         setLocale(context, currentLanguage);
     }
 
-    public static String encodeImage(Bitmap bitmap) {
+    public static String encodeImage(Bitmap image) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] b = baos.toByteArray();
-
-        return Base64.encodeToString(b, Base64.NO_WRAP);
+        image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        return Base64.encodeToString(imageBytes, Base64.DEFAULT);
     }
 
-    public static Bitmap decodeImage(String input) {
-        byte[] decodedByte = Base64.decode(input, Base64.DEFAULT);
-        Bitmap bitmap = BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.length);
-
-        return bitmap;
+    public static Bitmap decodeImage(String encodedImage) {
+        byte[] decodedImageBytes = Base64.decode(encodedImage, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedImageBytes, 0, decodedImageBytes.length);
     }
 
     public static Carrier getFromSharedPreferences(Context context) {

@@ -30,6 +30,8 @@ public class Step4Fragment extends Fragment {
 
     private String hashedLicenseFrontFace, hashedLicenseBackFace;
 
+    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+
     private ActivityResultLauncher<Intent> licenseFrontPicker = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -40,9 +42,9 @@ public class Step4Fragment extends Fragment {
                             Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), data.getData());
                             licenseFrontFace.setImageBitmap(bitmap);
 
-                            ByteArrayOutputStream stream = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                             byte[] byteArray = stream.toByteArray();
+
                             hashedLicenseFrontFace = Base64.encodeToString(byteArray, Base64.DEFAULT);
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -62,9 +64,9 @@ public class Step4Fragment extends Fragment {
                             Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), data.getData());
                             licenseBackFace.setImageBitmap(bitmap);
 
-                            ByteArrayOutputStream stream = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                             byte[] byteArray = stream.toByteArray();
+
                             hashedLicenseBackFace = Base64.encodeToString(byteArray, Base64.DEFAULT);
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -111,12 +113,17 @@ public class Step4Fragment extends Fragment {
     }
 
     public void setLicenseFront(String encodedPhoto) {
-        licenseFrontFace.setImageBitmap(Utils.decodeImage(encodedPhoto));
-        licenseFrontFace.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        Glide.with(this)
+                .load(Utils.decodeImage(encodedPhoto))
+                .centerCrop()
+                .into(licenseFrontFace);
     }
 
     public void setLicenseBack(String encodedPhoto) {
-        licenseBackFace.setImageBitmap(Utils.decodeImage(encodedPhoto));
-        licenseBackFace.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        Glide.with(this)
+                .load(Utils.decodeImage(encodedPhoto))
+                .centerCrop()
+                .into(licenseBackFace);
     }
+
 }

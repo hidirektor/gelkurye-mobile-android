@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
@@ -19,31 +17,23 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.annotation.GlideModule;
-import com.bumptech.glide.request.target.CustomTarget;
-import com.bumptech.glide.request.transition.Transition;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.navigation.NavigationView;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
-import com.irozon.sneaker.Sneaker;
 import com.mikhaellopez.circularimageview.CircularImageView;
-
-import java.io.ByteArrayOutputStream;
 
 import me.t3sl4.kurye.Model.User.Carrier;
 import me.t3sl4.kurye.R;
+import me.t3sl4.kurye.UI.Components.Navigation.NavigationUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Hamburger.FAQ;
 import me.t3sl4.kurye.UI.Screens.Order.CurrentOrder;
 import me.t3sl4.kurye.UI.Screens.Order.Orders;
 import me.t3sl4.kurye.UI.Screens.User.Earning;
 import me.t3sl4.kurye.UI.Screens.User.EditProfile;
-import me.t3sl4.kurye.UI.Components.Navigation.NavigationUtil;
 import me.t3sl4.kurye.UI.Screens.User.Profile;
 import me.t3sl4.kurye.Util.Utils;
 
@@ -224,8 +214,12 @@ public class Dashboard extends AppCompatActivity {
             String encodedProfilePhoto = currentProfile.getProfilePhoto();
             Log.d("base64", encodedProfilePhoto);
             if (!encodedProfilePhoto.isEmpty()) {
-                profilePhotoDashboard.setImageBitmap(Utils.decodeImage(encodedProfilePhoto));
-                profilePhotoHamburger.setImageBitmap(Utils.decodeImage(encodedProfilePhoto));
+                Glide.with(this)
+                        .load(Utils.decodeImage(encodedProfilePhoto))
+                        .into(profilePhotoDashboard);
+                Glide.with(this)
+                        .load(Utils.decodeImage(encodedProfilePhoto))
+                        .into(profilePhotoHamburger);
             } else {
                 Log.e("Dashboard", "Encoded profile photo is empty or null");
             }

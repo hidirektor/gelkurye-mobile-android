@@ -327,14 +327,11 @@ public class Profile extends AppCompatActivity {
 
             String encodedProfilePhoto = currentProfile.getProfilePhoto();
             if (encodedProfilePhoto != null && !encodedProfilePhoto.isEmpty()) {
-                Bitmap decodedProfilePhoto = Utils.decodeImage(encodedProfilePhoto);
-                if (decodedProfilePhoto != null) {
-                    byte[] byteArray = Base64.decode(encodedProfilePhoto, Base64.DEFAULT);
+                byte[] byteArray = Base64.decode(encodedProfilePhoto, Base64.DEFAULT);
+                if (byteArray != null) {
                     Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-                    BitmapDrawable drawable = new BitmapDrawable(getResources(), bitmap);
-
                     Glide.with(this)
-                            .load(drawable)
+                            .load(bitmap)
                             .into(profilePhotoDashboard);
                 } else {
                     Log.e("Dashboard", "Decoded profile photo is null");
@@ -344,4 +341,5 @@ public class Profile extends AppCompatActivity {
             }
         }
     }
+
 }
