@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
@@ -18,14 +19,21 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.annotation.GlideModule;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.navigation.NavigationView;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 import com.irozon.sneaker.Sneaker;
 import com.mikhaellopez.circularimageview.CircularImageView;
+
+import java.io.ByteArrayOutputStream;
 
 import me.t3sl4.kurye.Model.User.Carrier;
 import me.t3sl4.kurye.R;
@@ -214,22 +222,10 @@ public class Dashboard extends AppCompatActivity {
             ratingBarDashboard.setRating(currentProfile.getUserRating());
 
             String encodedProfilePhoto = currentProfile.getProfilePhoto();
-            if (encodedProfilePhoto != null && !encodedProfilePhoto.isEmpty()) {
-                Bitmap decodedProfilePhoto = Utils.decodeImage(encodedProfilePhoto);
-                if (decodedProfilePhoto != null) {
-                    byte[] byteArray = Base64.decode(encodedProfilePhoto, Base64.DEFAULT);
-                    Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-                    BitmapDrawable drawable = new BitmapDrawable(getResources(), bitmap);
-
-                    Glide.with(this)
-                            .load(drawable)
-                            .into(profilePhotoDashboard);
-                    Glide.with(this)
-                            .load(drawable)
-                            .into(profilePhotoHamburger);
-                } else {
-                    Log.e("Dashboard", "Decoded profile photo is null");
-                }
+            Log.d("base64", encodedProfilePhoto);
+            if (!encodedProfilePhoto.isEmpty()) {
+                profilePhotoDashboard.setImageBitmap(Utils.decodeImage(encodedProfilePhoto));
+                profilePhotoHamburger.setImageBitmap(Utils.decodeImage(encodedProfilePhoto));
             } else {
                 Log.e("Dashboard", "Encoded profile photo is empty or null");
             }

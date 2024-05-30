@@ -1,6 +1,7 @@
 package me.t3sl4.kurye.Util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -9,12 +10,15 @@ import android.graphics.BitmapFactory;
 import android.util.Base64;
 
 import com.google.gson.Gson;
+import com.irozon.sneaker.Sneaker;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Locale;
 
 import me.t3sl4.kurye.BuildConfig;
 import me.t3sl4.kurye.Model.User.Carrier;
+import me.t3sl4.kurye.SplashActivity;
+import me.t3sl4.kurye.UI.Screens.General.Dashboard;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 
 public class Utils {
@@ -46,15 +50,18 @@ public class Utils {
     }
 
     public static String encodeImage(Bitmap bitmap) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-        byte[] byteArray = byteArrayOutputStream.toByteArray();
-        return Base64.encodeToString(byteArray, Base64.DEFAULT);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] b = baos.toByteArray();
+
+        return Base64.encodeToString(b, Base64.NO_WRAP);
     }
 
-    public static Bitmap decodeImage(String encodedImage) {
-        byte[] decodedBytes = Base64.decode(encodedImage, Base64.DEFAULT);
-        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+    public static Bitmap decodeImage(String input) {
+        byte[] decodedByte = Base64.decode(input, Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.length);
+
+        return bitmap;
     }
 
     public static Carrier getFromSharedPreferences(Context context) {

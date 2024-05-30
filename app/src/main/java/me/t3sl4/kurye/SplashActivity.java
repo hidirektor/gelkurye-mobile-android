@@ -6,6 +6,8 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.irozon.sneaker.Sneaker;
+
 import java.util.Objects;
 
 import me.t3sl4.kurye.Model.User.Carrier;
@@ -15,11 +17,14 @@ import me.t3sl4.kurye.UI.Screens.General.Dashboard;
 import me.t3sl4.kurye.UI.Screens.MainActivity;
 import me.t3sl4.kurye.UI.Screens.OnBoard.OnBoard1;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
+import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
 
 public class SplashActivity extends AppCompatActivity {
     private final int WAITING_TIME = 2000;
     boolean isFirstTime;
+
+    private Carrier currentProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +44,15 @@ public class SplashActivity extends AppCompatActivity {
             setupOnboarding();
         } else {
             if(!Objects.equals(accessToken, "") && !Objects.equals(refreshToken, "")) {
-                Carrier profile = Utils.getFromSharedPreferences(this);
-                if (profile != null && !profile.toJson().isEmpty()) {
+                currentProfile = Utils.getFromSharedPreferences(this);
+                if (currentProfile != null && !currentProfile.toJson().isEmpty()) {
+                    refreshProfileData();
+
                     Intent dashboardIntent = null;
-                    if ("CARRIER".equals(profile.getUserType())) {
+                    if ("CARRIER".equals(currentProfile.getUserType())) {
                         dashboardIntent = new Intent(SplashActivity.this, Dashboard.class);
-                        dashboardIntent.putExtra("profile", profile);
-                    } else if ("MERCHANT".equals(profile.getUserType())) {
+                    } else if ("MERCHANT".equals(currentProfile.getUserType())) {
                         dashboardIntent = new Intent(SplashActivity.this, Dashboard.class);
-                        dashboardIntent.putExtra("profile", profile);
                     }
                     startActivity(dashboardIntent);
                     finish();
@@ -93,5 +98,19 @@ public class SplashActivity extends AppCompatActivity {
         }
 
         Utils.setLocale(SplashActivity.this, currentLanguage);
+    }
+
+    private void refreshProfileData() {
+        ReqUtil.getProfileReq(SplashActivity.this, currentProfile.getPhoneNumber(), new ReqUtil.ProfileCallback() {
+            @Override
+            public void onSuccess(Carrier profile) {
+                //TODO: Update profile
+            }
+
+            @Override
+            public void onError() {
+                Sneaker.with(SplashActivity.this).setTitle("Hata !").setMessage("Profil alınamadı!").sneakError();
+            }
+        });
     }
 }
