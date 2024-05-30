@@ -24,7 +24,6 @@ public class ReqUtil {
     }
 
     public static void loginReq(Context context, JSONObject params, LoginCallback callback) {
-        String baseURL = Utils.getBaseURL();
         httpHelper = HTTPHelper.getInstance(context);
         tokenManager = new TokenManager(context);
 
@@ -53,12 +52,22 @@ public class ReqUtil {
         );
     }
 
-    public static void registerReq(Context context) {
-        String baseURL = Utils.getBaseURL();
+    public static void registerReq(Context context, JSONObject params, HTTPResponseListener listener) {
+        httpHelper = HTTPHelper.getInstance(context);
+        tokenManager = new TokenManager(context);
+
+        httpHelper.makeRequest(
+                Request.Method.POST,
+                "auth/register",
+                params,
+                false,
+                listener,
+                tokenManager
+        );
     }
 
+
     public static void getProfileReq(Context context, String phoneNumber, ProfileCallback callback) {
-        String baseURL = Utils.getBaseURL();
         httpHelper = HTTPHelper.getInstance(context);
         tokenManager = new TokenManager(context);
 

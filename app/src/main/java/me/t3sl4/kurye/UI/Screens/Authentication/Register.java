@@ -1,6 +1,7 @@
 package me.t3sl4.kurye.UI.Screens.Authentication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +39,7 @@ import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step4Fragment;
 import me.t3sl4.kurye.Util.HTTP.HTTPHelper;
 import me.t3sl4.kurye.Util.HTTP.HTTPResponseListener;
 import me.t3sl4.kurye.Util.HTTP.TokenManager;
+import me.t3sl4.kurye.Util.ReqUtil;
 
 public class Register extends AppCompatActivity {
     String[] stateNames;
@@ -119,17 +121,6 @@ public class Register extends AppCompatActivity {
         }
     }
 
-    private void logFragmentData() {
-        for (int i = 0; i < fragmentData.size(); i++) {
-            Bundle data = fragmentData.get(i);
-            if (data != null) {
-                for (String key : data.keySet()) {
-                    Log.d("RegisterData", key + ": " + data.getString(key));
-                }
-            }
-        }
-    }
-
     private void initializeComponents() {
         registerViewPager = findViewById(R.id.registerViewPager);
         registerButton = findViewById(R.id.registerButton);
@@ -204,8 +195,11 @@ public class Register extends AppCompatActivity {
         registerButton.setOnClickListener(v -> {
             saveFragmentData(registerViewPager.getCurrentItem());
             if (allDataValid()) {
-                logFragmentData();
-                registerUser();
+                try {
+                    registerUser();
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
             } else {
                 Sneaker.with(Register.this).setTitle("Hata !").setMessage("Lütfen eksik kısımları kontrol edin!").sneakError();
             }
@@ -228,10 +222,8 @@ public class Register extends AppCompatActivity {
         return true;
     }
 
-    private void registerUser() {
-        String endpoint = "register";
-
-        Map<String, String> params = new HashMap<>();
+    private void registerUser() throws JSONException {
+        JSONObject params = new JSONObject();
         params.put("username", Objects.requireNonNull(fragmentData.get(0)).getString("username"));
         params.put("email", Objects.requireNonNull(fragmentData.get(0)).getString("email"));
         params.put("password", Objects.requireNonNull(fragmentData.get(0)).getString("password"));
@@ -244,36 +236,20 @@ public class Register extends AppCompatActivity {
         params.put("licenseFrontFace", Objects.requireNonNull(fragmentData.get(3)).getString("licenseFront"));
         params.put("licenseBackFace", Objects.requireNonNull(fragmentData.get(3)).getString("licenseBack"));
 
-        httpHelper.makeRequest(
-                Request.Method.POST,
-                endpoint,
-                new JSONObject(params),
-                false,
-                new HTTPResponseListener() {
-                    @Override
-                    public void onSuccess(JSONObject response) {
-                        try {
-                            String accessToken = response.getString("accessToken");
-                            String refreshToken = response.getString("refreshToken");
-                            // Tokenları saklayın veya işleyin
-                            Log.d("RegisterSuccess", "AccessToken: " + accessToken);
-                            Log.d("RegisterSuccess", "RefreshToken: " + refreshToken);
-                            saveTokens(accessToken, refreshToken);
-                            Sneaker.with(Register.this).setTitle("Başarılı!").setMessage("Kayıt işlemi başarılı!").sneakSuccess();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Sneaker.with(Register.this).setTitle("Hata !").setMessage("Yanıt işlenirken bir hata oluştu!").sneakError();
-                        }
-                    }
+        ReqUtil.registerReq(Register.this, params, new HTTPResponseListener() {
+            @Override
+            public void onSuccess(JSONObject response) {
+                Sneaker.with(Register.this).setTitle("Başarılı!").setMessage("Kayıt işlemi başarılı!").sneakSuccess();
+                Intent loginIntent = new Intent(Register.this, Login.class);
+                startActivity(loginIntent);
+                finish();
+            }
 
-                    @Override
-                    public void onError(VolleyError error) {
-                        error.printStackTrace();
-                        Sneaker.with(Register.this).setTitle("Hata !").setMessage("Kayıt işlemi başarısız!").sneakError();
-                    }
-                },
-                tokenManager
-        );
+            @Override
+            public void onError(VolleyError error) {
+                Sneaker.with(Register.this).setTitle("Hata !").setMessage("Kayıt işlemi başarısız!").sneakError();
+            }
+        });
     }
 
     private void saveTokens(String accessToken, String refreshToken) {
