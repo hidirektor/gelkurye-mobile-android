@@ -15,22 +15,27 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.maps.model.Dash;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.navigation.NavigationView;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
+import com.irozon.sneaker.Sneaker;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
+import me.t3sl4.kurye.Model.User.Profile;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
+import me.t3sl4.kurye.UI.Screens.Authentication.Login;
 import me.t3sl4.kurye.UI.Screens.Hamburger.FAQ;
 import me.t3sl4.kurye.UI.Screens.Order.CurrentOrder;
 import me.t3sl4.kurye.UI.Screens.Order.Orders;
 import me.t3sl4.kurye.UI.Screens.User.Earning;
 import me.t3sl4.kurye.UI.Screens.User.EditProfile;
-import me.t3sl4.kurye.UI.Screens.User.Profile;
 import me.t3sl4.kurye.UI.Components.Navigation.NavigationUtil;
+import me.t3sl4.kurye.Util.Utils;
 
 public class Dashboard extends AppCompatActivity {
+    private Profile currentProfile;
 
     //Personal Stats:
     private CircularImageView profilePhotoDashboard;
@@ -76,6 +81,10 @@ public class Dashboard extends AppCompatActivity {
         navbarButtonClicks();
 
         hamburgerEffect();
+
+        currentProfile = initializeProfile();
+
+        initializeProfileData();
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -190,5 +199,26 @@ public class Dashboard extends AppCompatActivity {
             Intent profileIntent = new Intent(Dashboard.this, Profile.class);
             startActivity(profileIntent);
         });
+    }
+
+    private Profile initializeProfile() {
+        Intent intent = getIntent();
+        if (intent.hasExtra("profile")) {
+            return intent.getParcelableExtra("profile");
+        } else {
+            Sneaker.with(Dashboard.this).setTitle("Hata !").setMessage("Profil alınamadı tekrar giriş yapınız!").sneakError();
+        }
+        return null;
+    }
+
+    private void initializeProfileData() {
+        if(currentProfile != null) {
+            nameSurnameDashboard.setText(currentProfile.getNameSurname());
+            nameSurnameHamburger.setText(currentProfile.getNameSurname());
+            phoneNumberDashboard.setText(currentProfile.getPhoneNumber());
+            ratingBarDashboard.setRating(currentProfile.getUserRating());
+            profilePhotoDashboard.setImageDrawable(Utils.decodeImage(currentProfile.getProfilePhoto()));
+            profilePhotoHamburger.setImageDrawable(Utils.decodeImage(currentProfile.getProfilePhoto()));
+        }
     }
 }
