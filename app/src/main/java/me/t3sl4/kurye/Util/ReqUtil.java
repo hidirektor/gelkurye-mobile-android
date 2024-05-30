@@ -1,6 +1,7 @@
 package me.t3sl4.kurye.Util;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.VolleyError;
@@ -33,7 +34,7 @@ public class ReqUtil {
 
         httpHelper.makeRequest(
                 Request.Method.POST,
-                baseURL + "auth/login",
+                "auth/login",
                 params,
                 false,
                 new HTTPResponseListener() {
@@ -70,7 +71,7 @@ public class ReqUtil {
 
         httpHelper.makeRequest(
                 Request.Method.POST,
-                baseURL + "user/getProfile",
+                "user/getProfile",
                 params,
                 true,
                 new HTTPResponseListener() {
