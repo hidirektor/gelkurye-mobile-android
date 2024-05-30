@@ -156,10 +156,4 @@ public class Profile {
         editor.putString(KEY_PROFILE_GSON, toJson());
         editor.apply();
     }
-
-    public static Profile getFromSharedPreferences(Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        String profileJson = sharedPreferences.getString(KEY_PROFILE_GSON, "");
-        return new Gson().fromJson(profileJson, Profile.class);
-    }
 }

@@ -1,6 +1,7 @@
 package me.t3sl4.kurye.Util;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -11,12 +12,17 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.Base64;
 
+import com.google.gson.Gson;
+
 import java.io.ByteArrayOutputStream;
 import java.util.Locale;
 
+import me.t3sl4.kurye.Model.User.Profile;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 
 public class Utils {
+    private static final String PREF_NAME = "MyProfilePref";
+    private static final String KEY_PROFILE_GSON = "profileGSON";
 
     public static String getBaseURL(Context context) {
         try {
@@ -59,5 +65,11 @@ public class Utils {
         byte[] decodedString = Base64.decode(encodedImage, Base64.DEFAULT);
         Bitmap decodedBitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
         return new BitmapDrawable(decodedBitmap);
+    }
+
+    public static Profile getFromSharedPreferences(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        String profileJson = sharedPreferences.getString(KEY_PROFILE_GSON, "");
+        return new Gson().fromJson(profileJson, Profile.class);
     }
 }
