@@ -17,6 +17,7 @@ import com.google.gson.Gson;
 import java.io.ByteArrayOutputStream;
 import java.util.Locale;
 
+import me.t3sl4.kurye.BuildConfig;
 import me.t3sl4.kurye.Model.User.Profile;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 
@@ -24,14 +25,8 @@ public class Utils {
     private static final String PREF_NAME = "MyProfilePref";
     private static final String KEY_PROFILE_GSON = "profileGSON";
 
-    public static String getBaseURL(Context context) {
-        try {
-            ApplicationInfo ai = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
-            return ai.metaData.getString("BASE_URL");
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
+    public static String getBaseURL() {
+        return BuildConfig.BASE_URL;
     }
 
     public static void setLocale(Context context, String newLanguage) {

@@ -23,7 +23,7 @@ public class ReqUtil {
     }
 
     public static void loginReq(Context context, JSONObject params, LoginCallback callback) {
-        String baseURL = Utils.getBaseURL(context);
+        String baseURL = Utils.getBaseURL();
         httpHelper = HTTPHelper.getInstance(context);
         tokenManager = new TokenManager(context);
 
@@ -33,7 +33,7 @@ public class ReqUtil {
 
         httpHelper.makeRequest(
                 Request.Method.POST,
-                baseURL + "/api/v1/auth/login",
+                baseURL + "auth/login",
                 params,
                 false,
                 new HTTPResponseListener() {
@@ -53,11 +53,11 @@ public class ReqUtil {
     }
 
     public static void registerReq(Context context) {
-        String baseURL = Utils.getBaseURL(context);
+        String baseURL = Utils.getBaseURL();
     }
 
     public static void getProfileReq(Context context, String phoneNumber, ProfileCallback callback) {
-        String baseURL = Utils.getBaseURL(context);
+        String baseURL = Utils.getBaseURL();
         httpHelper = HTTPHelper.getInstance(context);
         tokenManager = new TokenManager(context);
 
@@ -70,7 +70,7 @@ public class ReqUtil {
 
         httpHelper.makeRequest(
                 Request.Method.POST,
-                baseURL + "/api/v1/user/getProfile",
+                baseURL + "user/getProfile",
                 params,
                 true,
                 new HTTPResponseListener() {

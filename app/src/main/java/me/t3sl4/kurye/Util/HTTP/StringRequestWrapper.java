@@ -30,7 +30,7 @@ public final class StringRequestWrapper implements HttpRequest {
 
     @Override
     public void execute(final RequestQueue requestQueue) {
-        final String url = Utils.getBaseURL(context) + endpoint;
+        final String url = Utils.getBaseURL() + endpoint;
         final StringRequest stringRequest = new StringRequest(method, url,
                 response -> {
                     try {

@@ -34,7 +34,7 @@ public final class JsonRequest implements HttpRequest {
 
     @Override
     public void execute(final RequestQueue requestQueue) {
-        final String url = Utils.getBaseURL(context) + endpoint;
+        final String url = Utils.getBaseURL() + endpoint;
         final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(method, url, params,
                 response -> {
                     try {
