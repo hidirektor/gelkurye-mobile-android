@@ -5,6 +5,7 @@ import android.content.Context;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -31,7 +32,13 @@ public final class StringRequestWrapper implements HttpRequest {
     public void execute(final RequestQueue requestQueue) {
         final String url = Utils.getBaseURL(context) + endpoint;
         final StringRequest stringRequest = new StringRequest(method, url,
-                response -> listener.onSuccess(new JSONObject()), listener::onError) {
+                response -> {
+                    try {
+                        listener.onSuccess(new JSONObject());
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }, listener::onError) {
             @Override
             public Map<String, String> getHeaders() {
                 final Map<String, String> headers = new HashMap<>();

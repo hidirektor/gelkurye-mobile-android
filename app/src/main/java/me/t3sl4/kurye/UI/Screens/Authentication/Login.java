@@ -31,6 +31,7 @@ import me.t3sl4.kurye.UI.Screens.PasswordReset.Reset1;
 import me.t3sl4.kurye.Util.HTTP.HTTPHelper;
 import me.t3sl4.kurye.Util.HTTP.HTTPResponseListener;
 import me.t3sl4.kurye.Util.HTTP.TokenManager;
+import me.t3sl4.kurye.Util.ReqUtil;
 
 public class Login extends AppCompatActivity {
     private CountryCodePicker phoneNumberCode;
@@ -65,7 +66,13 @@ public class Login extends AppCompatActivity {
         isRemembered = rememberMe.isChecked();
 
         PasswordFieldUtil.setChangeablePasswordField(passwordField, getApplicationContext());
-        loginButton.setOnClickListener(v -> loginUser());
+        loginButton.setOnClickListener(v -> {
+            try {
+                loginUser();
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+        });
 
         sifremiUnuttumButton.setOnClickListener(v -> {
             Intent intent = new Intent(Login.this, Reset1.class);
@@ -73,45 +80,29 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    private void loginUser() {
-        String endpoint = "login";
+    private void loginUser() throws JSONException {
+        JSONObject params = new JSONObject();
+        String inputPhoneNumber = phoneNumberField.getText().toString();
+        String inputPassword = passwordField.getText().toString();
+        if(inputPhoneNumber.isEmpty() || inputPassword.isEmpty() || inputPhoneNumber == null || inputPassword == null) {
+            Sneaker.with(Login.this).setTitle("Hata !").setMessage("Lütfen gerekli alanları kontrol edin!").sneakError();
+        } else {
+            params.put("phoneNumber", phoneNumberField.getText().toString());
+            params.put("password", passwordField.getText().toString());
 
-        Map<String, String> params = new HashMap<>();
-        params.put("phoneNumber", phoneNumberField.getText().toString());
-        params.put("password", passwordField.getText().toString());
+            ReqUtil.loginReq(this, params, new ReqUtil.LoginCallback() {
+                @Override
+                public void onSuccess() {
+                    Intent intent = new Intent(Login.this, Dashboard.class);
+                    startActivity(intent);
+                }
 
-        httpHelper.makeRequest(
-                com.android.volley.Request.Method.POST,
-                endpoint,
-                new JSONObject(params),
-                false,
-                new HTTPResponseListener() {
-                    @Override
-                    public void onSuccess(JSONObject response) {
-                        try {
-                            String accessToken = response.getString("accessToken");
-                            String refreshToken = response.getString("refreshToken");
-                            // Tokenları saklayın veya işleyin
-                            Log.d("LoginSuccess", "AccessToken: " + accessToken);
-                            Log.d("LoginSuccess", "RefreshToken: " + refreshToken);
-                            saveTokens(accessToken, refreshToken);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Sneaker.with(Login.this).setTitle("Hata !").setMessage("Yanıt işlenirken bir hata oluştu!").sneakError();
-                        }
-                    }
-
-                    @Override
-                    public void onError(VolleyError error) {
-                        error.printStackTrace();
-                        Sneaker.with(Login.this).setTitle("Hata !").setMessage("Giriş işlemi başarısız!").sneakError();
-                    }
-                },
-                tokenManager
-        );
-
-        Intent intent = new Intent(Login.this, Dashboard.class);
-        startActivity(intent);
+                @Override
+                public void onError() {
+                    Sneaker.with(Login.this).setTitle("Hata !").setMessage("Giriş başarısız!").sneakError();
+                }
+            });
+        }
     }
 
     private void saveTokens(String accessToken, String refreshToken) {

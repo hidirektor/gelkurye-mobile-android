@@ -5,6 +5,7 @@ import android.content.Context;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -36,7 +37,11 @@ public final class JsonRequest implements HttpRequest {
         final String url = Utils.getBaseURL(context) + endpoint;
         final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(method, url, params,
                 response -> {
-                    listener.onSuccess(response);
+                    try {
+                        listener.onSuccess(response);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
                     if (tokenManager != null) {
                         tokenManager.saveTokensIfNeeded(response);
                     }
