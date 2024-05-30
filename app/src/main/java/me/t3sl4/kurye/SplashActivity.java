@@ -23,14 +23,21 @@ public class SplashActivity extends AppCompatActivity {
 
         NavigationBarUtil.hideNavigationBar(this);
 
-        isFirstTime = SharedPreferencesManager.getSharedPref("isFirstTime", this, false);
+        isFirstTime = SharedPreferencesManager.getSharedPref("isFirstTime", this, true);
 
         checkLanguage();
+
+        String accessToken = SharedPreferencesManager.getSharedPref("accessToken", this, "");
+        String refreshToken = SharedPreferencesManager.getSharedPref("refreshToken", this, "");
 
         if (isFirstTime) {
             setupOnboarding();
         } else {
-            redirectToMainActivity();
+            if(accessToken != null && refreshToken != null) {
+                //token ile kullanıcı verisi alınıp
+            } else {
+                redirectToSelectionScreen();
+            }
         }
     }
 
@@ -41,7 +48,7 @@ public class SplashActivity extends AppCompatActivity {
         SharedPreferencesManager.writeSharedPref("isFirstTime", false, this);
     }
 
-    private void redirectToMainActivity() {
+    private void redirectToSelectionScreen() {
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);

@@ -19,6 +19,7 @@ import com.zpj.widget.checkbox.ZCheckBox;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import me.t3sl4.kurye.Model.User.Profile;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.EditText.EditTextUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
@@ -78,12 +79,27 @@ public class Login extends AppCompatActivity {
             Sneaker.with(Login.this).setTitle("Hata !").setMessage("Lütfen gerekli alanları kontrol edin!").sneakError();
         } else {
             params.put("phoneNumber", phoneNumberCode.getSelectedCountryCode() + phoneNumberField.getText().toString());
-            Log.d("tel no:", phoneNumberCode.getSelectedCountryCode() + phoneNumberField.getText().toString());
             params.put("password", passwordField.getText().toString());
 
             ReqUtil.loginReq(this, params, new ReqUtil.LoginCallback() {
                 @Override
                 public void onSuccess() {
+                    ReqUtil.getProfileReq(Login.this, phoneNumberCode.getSelectedCountryCode() + phoneNumberField.getText().toString(), new ReqUtil.ProfileCallback() {
+                        @Override
+                        public void onSuccess(Profile profile) {
+                            //TODO
+                            // Profil datasını yeni intente aktar
+                            Intent intent = new Intent(Login.this, Dashboard.class);
+                            startActivity(intent);
+                        }
+
+                        @Override
+                        public void onError() {
+                            Sneaker.with(Login.this).setTitle("Hata !").setMessage("Profil alınamadı!").sneakError();
+                        }
+                    });
+
+
                     Intent intent = new Intent(Login.this, Dashboard.class);
                     startActivity(intent);
                 }
