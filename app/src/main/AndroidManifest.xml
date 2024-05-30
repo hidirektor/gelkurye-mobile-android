@@ -37,23 +37,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Screens.OnBoard.OnBoard1" />
-        <activity android:name=".Screens.OnBoard.OnBoard2" />
-        <activity android:name=".Screens.OnBoard.OnBoard3" />
-        <activity android:name=".Screens.MainActivity" />
-        <activity android:name=".Screens.Authentication.Login" android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".Screens.Authentication.Register" android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".Screens.General.Dashboard" />
-        <activity android:name=".Screens.PasswordReset.Reset1" android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".Screens.PasswordReset.Reset2" android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".Screens.PasswordReset.Reset3" android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".Screens.PasswordReset.Reset4" />
-        <activity android:name=".Screens.Hamburger.FAQ" />
-        <activity android:name=".Screens.Order.Orders" />
-        <activity android:name=".Screens.Order.CurrentOrder" />
-        <activity android:name=".Screens.User.Profile" android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".Screens.User.EditProfile" android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".Screens.User.Earning" />
+        <activity android:name=".UI.Screens.OnBoard.OnBoard1" />
+        <activity android:name=".UI.Screens.OnBoard.OnBoard2" />
+        <activity android:name=".UI.Screens.OnBoard.OnBoard3" />
+        <activity android:name=".UI.Screens.MainActivity" />
+        <activity android:name=".UI.Screens.Authentication.Login" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".UI.Screens.Authentication.Register" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".UI.Screens.General.Dashboard" />
+        <activity android:name=".UI.Screens.PasswordReset.Reset1" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".UI.Screens.PasswordReset.Reset2" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".UI.Screens.PasswordReset.Reset3" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".UI.Screens.PasswordReset.Reset4" />
+        <activity android:name=".UI.Screens.Hamburger.FAQ" />
+        <activity android:name=".UI.Screens.Order.Orders" />
+        <activity android:name=".UI.Screens.Order.CurrentOrder" />
+        <activity android:name=".UI.Screens.User.Profile" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".UI.Screens.User.EditProfile" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".UI.Screens.User.Earning" />
     </application>
 
 </manifest>

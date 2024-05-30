@@ -81,7 +81,7 @@
                     android:layout_marginEnd="32dp"
                     android:layout_below="@id/passwordTextView"
                     android:background="@drawable/background_edittext"
-                    android:drawableEnd="@drawable/password_show_ikon"
+                    android:drawableEnd="@drawable/ikon_pass_show"
                     android:ems="10"
                     android:fontFamily="@font/poppins"
                     android:hint="@string/merchant_setup_getiryemek3"

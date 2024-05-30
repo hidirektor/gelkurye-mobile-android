@@ -6,9 +6,10 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import me.t3sl4.kurye.Screens.MainActivity;
-import me.t3sl4.kurye.Screens.OnBoard.OnBoard1;
-import me.t3sl4.kurye.LocalData.SharedPreferencesManager;
+import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
+import me.t3sl4.kurye.UI.Screens.MainActivity;
+import me.t3sl4.kurye.UI.Screens.OnBoard.OnBoard1;
+import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 import me.t3sl4.kurye.Util.Utils;
 
 public class SplashActivity extends AppCompatActivity {
@@ -20,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        Utils.getInstance().getNavigationBar().hideNavigationBar(this);
+        NavigationBarUtil.hideNavigationBar(this);
 
         isFirstTime = SharedPreferencesManager.getSharedPref("isFirstTime", this, false);
 
@@ -57,6 +58,6 @@ public class SplashActivity extends AppCompatActivity {
             currentLanguage = SharedPreferencesManager.getSharedPref("language", SplashActivity.this, "tr");
         }
 
-        Utils.getInstance().getLanguageConverter().setLocale(SplashActivity.this, currentLanguage);
+        Utils.setLocale(SplashActivity.this, currentLanguage);
     }
 }
