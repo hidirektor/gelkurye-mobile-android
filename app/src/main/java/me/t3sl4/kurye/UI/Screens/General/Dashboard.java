@@ -191,16 +191,19 @@ public class Dashboard extends AppCompatActivity {
         ordersButton.setOnClickListener(v -> {
             Intent ordersIntent = new Intent(Dashboard.this, Orders.class);
             startActivity(ordersIntent);
+            finish();
         });
 
         earningButton.setOnClickListener(v -> {
             Intent earningIntent = new Intent(Dashboard.this, Earning.class);
             startActivity(earningIntent);
+            finish();
         });
 
         profileButton.setOnClickListener(v -> {
             Intent profileIntent = new Intent(Dashboard.this, Profile.class);
             startActivity(profileIntent);
+            finish();
         });
     }
 

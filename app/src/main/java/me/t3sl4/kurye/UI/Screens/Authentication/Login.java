@@ -89,6 +89,7 @@ public class Login extends AppCompatActivity {
                             Intent dashboardIntent = new Intent(Login.this, Dashboard.class);
                             dashboardIntent.putExtra("profile", profile);
                             startActivity(dashboardIntent);
+                            finish();
                         }
 
                         @Override

@@ -164,8 +164,8 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onSuccess(JSONObject response) {
                 Intent loginIntent = new Intent(Profile.this, Login.class);
-                finish();
                 startActivity(loginIntent);
+                finish();
             }
 
             @Override
