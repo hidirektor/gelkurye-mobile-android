@@ -224,17 +224,21 @@ public class Register extends AppCompatActivity {
 
     private void registerUser() throws JSONException {
         JSONObject params = new JSONObject();
-        params.put("username", Objects.requireNonNull(fragmentData.get(0)).getString("username"));
-        params.put("email", Objects.requireNonNull(fragmentData.get(0)).getString("email"));
-        params.put("password", Objects.requireNonNull(fragmentData.get(0)).getString("password"));
-        params.put("nameSurname", Objects.requireNonNull(fragmentData.get(1)).getString("nameSurname"));
+        params.put("userName", Objects.requireNonNull(fragmentData.get(0)).getString("username"));
+        params.put("eMail", Objects.requireNonNull(fragmentData.get(0)).getString("email"));
+        params.put("userType", "CARRIER");
+        params.put("NameSurname", Objects.requireNonNull(fragmentData.get(1)).getString("nameSurname"));
         params.put("phoneNumber", Objects.requireNonNull(fragmentData.get(1)).getString("phoneNumber"));
         params.put("address", Objects.requireNonNull(fragmentData.get(1)).getString("address"));
+        params.put("password", Objects.requireNonNull(fragmentData.get(0)).getString("password"));
         params.put("profilePhoto", Objects.requireNonNull(fragmentData.get(1)).getString("profilePhoto"));
         params.put("relativeNameSurname", Objects.requireNonNull(fragmentData.get(2)).getString("relativeNameSurname"));
         params.put("relativePhoneNumber", Objects.requireNonNull(fragmentData.get(2)).getString("relativePhoneNumber"));
         params.put("licenseFrontFace", Objects.requireNonNull(fragmentData.get(3)).getString("licenseFront"));
         params.put("licenseBackFace", Objects.requireNonNull(fragmentData.get(3)).getString("licenseBack"));
+        params.put("merchantName", "");
+        params.put("merchantAddress", "");
+        params.put("c", "");
 
         ReqUtil.registerReq(Register.this, params, new HTTPResponseListener() {
             @Override

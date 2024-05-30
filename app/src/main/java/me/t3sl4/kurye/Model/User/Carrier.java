@@ -7,7 +7,7 @@ import android.os.Parcelable;
 
 import com.google.gson.Gson;
 
-public class Profile implements Parcelable {
+public class Carrier implements Parcelable {
     private int id;
     private String userID;
     private String userName;
@@ -31,7 +31,7 @@ public class Profile implements Parcelable {
     private int userRating;
 
     // Constructor
-    public Profile(int id, String userID, String userName, String eMail, String userType, String nameSurname,
+    public Carrier(int id, String userID, String userName, String eMail, String userType, String nameSurname,
                    String phoneNumber, String address, String password, String profilePhoto,
                    String relativeNameSurname, String relativePhoneNumber, String lastPasswordChange,
                    String createdAt, String licenseFrontFace, String licenseBackFace, boolean nightMode,
@@ -86,6 +86,20 @@ public class Profile implements Parcelable {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public String getFormattedPhoneNumber() {
+        if (phoneNumber == null || phoneNumber.length() != 12) {
+            return phoneNumber; // or handle the error as you see fit
+        }
+
+        String countryCode = phoneNumber.substring(0, 2);
+        String areaCode = phoneNumber.substring(2, 5);
+        String part1 = phoneNumber.substring(5, 8);
+        String part2 = phoneNumber.substring(8, 10);
+        String part3 = phoneNumber.substring(10, 12);
+
+        return "+" + countryCode + " (" + areaCode + ") " + part1 + " " + part2 + " " + part3;
     }
 
     public String getAddress() {
@@ -149,7 +163,7 @@ public class Profile implements Parcelable {
         return new Gson().toJson(this);
     }
 
-    protected Profile(Parcel in) {
+    protected Carrier(Parcel in) {
         id = in.readInt();
         userID = in.readString();
         userName = in.readString();
@@ -173,15 +187,15 @@ public class Profile implements Parcelable {
         userRating = in.readInt();
     }
 
-    public static final Creator<Profile> CREATOR = new Creator<Profile>() {
+    public static final Creator<Carrier> CREATOR = new Creator<Carrier>() {
         @Override
-        public Profile createFromParcel(Parcel in) {
-            return new Profile(in);
+        public Carrier createFromParcel(Parcel in) {
+            return new Carrier(in);
         }
 
         @Override
-        public Profile[] newArray(int size) {
-            return new Profile[size];
+        public Carrier[] newArray(int size) {
+            return new Carrier[size];
         }
     };
 

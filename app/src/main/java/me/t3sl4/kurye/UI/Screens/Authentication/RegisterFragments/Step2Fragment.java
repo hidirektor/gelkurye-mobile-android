@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.hbb20.CountryCodePicker;
 
 import java.io.IOException;
@@ -46,7 +48,9 @@ public class Step2Fragment extends Fragment {
         });
 
         if (getArguments() != null) {
-            profilePhotoImageView.setImageDrawable(Utils.decodeImage(getArguments().getString("profilePhoto", "")));
+            Glide.with(this)
+                    .load(Utils.decodeImage(getArguments().getString("profilePhoto", "")))
+                    .into(profilePhotoImageView);
             nameSurnameEditText.setText(getArguments().getString("nameSurname", ""));
             phoneNumberEditText.setText(getArguments().getString("phoneNumber", ""));
             addressEditText.setText(getArguments().getString("address", ""));
@@ -64,7 +68,7 @@ public class Step2Fragment extends Fragment {
     }
 
     public String getPhoneNumber() {
-        return phoneNumberEditText.getText().toString();
+        return phoneNumberContryCode.getSelectedCountryCode() + phoneNumberEditText.getText().toString();
     }
 
     public String getAddress() {
@@ -72,7 +76,9 @@ public class Step2Fragment extends Fragment {
     }
 
     public void setProfilePhoto(String encodedPhoto) {
-        profilePhotoImageView.setImageDrawable(Utils.decodeImage(encodedPhoto));
+        Glide.with(this)
+                .load(Utils.decodeImage(encodedPhoto))
+                .into(profilePhotoImageView);
     }
 
     @Override
@@ -82,6 +88,8 @@ public class Step2Fragment extends Fragment {
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), data.getData());
                 profilePhotoImageView.setImageBitmap(bitmap);
+
+                Log.d("bitmap", bitmap.toString());
 
                 hashedProfilePhoto = Utils.encodeImage(bitmap);
             } catch (IOException e) {

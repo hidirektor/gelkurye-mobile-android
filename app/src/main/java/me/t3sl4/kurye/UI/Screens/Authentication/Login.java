@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,7 +18,7 @@ import com.zpj.widget.checkbox.ZCheckBox;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import me.t3sl4.kurye.Model.User.Profile;
+import me.t3sl4.kurye.Model.User.Carrier;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.EditText.EditTextUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
@@ -81,14 +80,15 @@ public class Login extends AppCompatActivity {
             params.put("phoneNumber", phoneNumberCode.getSelectedCountryCode() + phoneNumberField.getText().toString());
             params.put("password", passwordField.getText().toString());
 
-            ReqUtil.loginReq(this, params, new ReqUtil.LoginCallback() {
+            ReqUtil.loginReq(this, params, new ReqUtil.GeneralCallback() {
                 @Override
                 public void onSuccess() {
                     ReqUtil.getProfileReq(Login.this, phoneNumberCode.getSelectedCountryCode() + phoneNumberField.getText().toString(), new ReqUtil.ProfileCallback() {
                         @Override
-                        public void onSuccess(Profile profile) {
-                            Intent intent = new Intent(Login.this, Dashboard.class);
-                            startActivity(intent);
+                        public void onSuccess(Carrier profile) {
+                            Intent dashboardIntent = new Intent(Login.this, Dashboard.class);
+                            dashboardIntent.putExtra("profile", profile);
+                            startActivity(dashboardIntent);
                         }
 
                         @Override
@@ -96,10 +96,6 @@ public class Login extends AppCompatActivity {
                             Sneaker.with(Login.this).setTitle("Hata !").setMessage("Profil alınamadı!").sneakError();
                         }
                     });
-
-
-                    Intent intent = new Intent(Login.this, Dashboard.class);
-                    startActivity(intent);
                 }
 
                 @Override

@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+
 import java.io.IOException;
 
 import me.t3sl4.kurye.R;
@@ -44,8 +46,12 @@ public class Step4Fragment extends Fragment {
         });
 
         if (getArguments() != null) {
-            licenseFrontFace.setImageDrawable(Utils.decodeImage(getArguments().getString("licenseFront", "")));
-            licenseBackFace.setImageDrawable(Utils.decodeImage(getArguments().getString("licenseBack", "")));
+            Glide.with(this)
+                    .load(Utils.decodeImage(getArguments().getString("licenseFront", "")))
+                    .into(licenseFrontFace);
+            Glide.with(this)
+                    .load(Utils.decodeImage(getArguments().getString("licenseBack", "")))
+                    .into(licenseBackFace);
         }
 
         return view;
@@ -60,12 +66,16 @@ public class Step4Fragment extends Fragment {
     }
 
     public void setLicenseFront(String encodedPhoto) {
-        licenseFrontFace.setImageDrawable(Utils.decodeImage(encodedPhoto));
+        Glide.with(this)
+                .load(Utils.decodeImage(encodedPhoto))
+                .into(licenseFrontFace);
         licenseFrontFace.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
     public void setLicenseBack(String encodedPhoto) {
-        licenseBackFace.setImageDrawable(Utils.decodeImage(encodedPhoto));
+        Glide.with(this)
+                .load(Utils.decodeImage(encodedPhoto))
+                .into(licenseBackFace);
         licenseBackFace.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 

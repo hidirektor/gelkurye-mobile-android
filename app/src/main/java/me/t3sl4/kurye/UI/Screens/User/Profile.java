@@ -3,10 +3,12 @@ package me.t3sl4.kurye.UI.Screens.User;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -21,21 +23,33 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.android.volley.VolleyError;
+import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
+import com.irozon.sneaker.Sneaker;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.sigma.niceswitch.NiceSwitch;
 
+import org.json.JSONObject;
+
 import java.util.Objects;
 
+import me.t3sl4.kurye.Model.User.Carrier;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
+import me.t3sl4.kurye.UI.Screens.Authentication.Login;
 import me.t3sl4.kurye.UI.Screens.General.Dashboard;
 import me.t3sl4.kurye.UI.Screens.Order.Orders;
+import me.t3sl4.kurye.Util.HTTP.HTTPResponseListener;
+import me.t3sl4.kurye.Util.HTTP.TokenManager;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
+import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
 
 public class Profile extends AppCompatActivity {
+    private Carrier currentProfile;
+
     //Personal Stats:
     private CircularImageView profilePhotoDashboard;
     private TextView nameSurnameDashboard;
@@ -77,11 +91,14 @@ public class Profile extends AppCompatActivity {
         headerButtonClicks();
 
         midSectionButtonClicks();
+
+        currentProfile = Utils.getFromSharedPreferences(this);
+        initializeProfileData();
     }
 
     private void componentInitialize() {
         //Personal Stats Definitions:
-        profilePhotoDashboard = findViewById(R.id.profilePhotoDashboard);
+        profilePhotoDashboard = findViewById(R.id.profileImageView);
         ratingBarDashboard = findViewById(R.id.ratingStar);
         nameSurnameDashboard = findViewById(R.id.nameSurnameDashboard);
         phoneNumberDashboard = findViewById(R.id.phoneNumberDashboard);
@@ -141,7 +158,19 @@ public class Profile extends AppCompatActivity {
         });
 
         logoutButton.setOnClickListener(v -> {
-            //Çıkış Processi
+            ReqUtil.logoutReq(Profile.this, new HTTPResponseListener() {
+                @Override
+                public void onSuccess(JSONObject response) {
+                    Intent loginIntent = new Intent(Profile.this, Login.class);
+                    startActivity(loginIntent);
+                    finish();
+                }
+
+                @Override
+                public void onError(VolleyError error) {
+                    Sneaker.with(Profile.this).setTitle("Hata !").setMessage("Çıkış yapılamadı, lütfen tekrar deneyin.").sneakError();
+                }
+            });
         });
 
         editProfileButton.setOnClickListener(v -> {
@@ -287,5 +316,27 @@ public class Profile extends AppCompatActivity {
         SharedPreferencesManager.writeSharedPref("language", nextLang, Profile.this);
         Utils.setLocale(Profile.this, nextLang);
         recreate();
+    }
+
+    private void initializeProfileData() {
+        if(currentProfile != null) {
+            nameSurnameDashboard.setText(currentProfile.getNameSurname());
+            phoneNumberDashboard.setText(currentProfile.getFormattedPhoneNumber());
+            ratingBarDashboard.setRating(currentProfile.getUserRating());
+
+            String encodedProfilePhoto = currentProfile.getProfilePhoto();
+            if (encodedProfilePhoto != null && !encodedProfilePhoto.isEmpty()) {
+                Bitmap decodedProfilePhoto = Utils.decodeImage(encodedProfilePhoto);
+                if (decodedProfilePhoto != null) {
+                    Glide.with(this)
+                            .load(decodedProfilePhoto)
+                            .into(profilePhotoDashboard);
+                } else {
+                    Log.e("Dashboard", "Decoded profile photo is null");
+                }
+            } else {
+                Log.e("Dashboard", "Encoded profile photo is empty or null");
+            }
+        }
     }
 }

@@ -2,8 +2,10 @@ package me.t3sl4.kurye.UI.Screens.General;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -15,13 +17,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.navigation.NavigationView;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 import com.irozon.sneaker.Sneaker;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
-import me.t3sl4.kurye.Model.User.Profile;
+import me.t3sl4.kurye.Model.User.Carrier;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Hamburger.FAQ;
@@ -30,10 +33,11 @@ import me.t3sl4.kurye.UI.Screens.Order.Orders;
 import me.t3sl4.kurye.UI.Screens.User.Earning;
 import me.t3sl4.kurye.UI.Screens.User.EditProfile;
 import me.t3sl4.kurye.UI.Components.Navigation.NavigationUtil;
+import me.t3sl4.kurye.UI.Screens.User.Profile;
 import me.t3sl4.kurye.Util.Utils;
 
 public class Dashboard extends AppCompatActivity {
-    private Profile currentProfile;
+    private Carrier currentProfile;
 
     //Personal Stats:
     private CircularImageView profilePhotoDashboard;
@@ -80,7 +84,7 @@ public class Dashboard extends AppCompatActivity {
 
         hamburgerEffect();
 
-        currentProfile = initializeProfile();
+        currentProfile = Utils.getFromSharedPreferences(this);
 
         initializeProfileData();
     }
@@ -199,24 +203,29 @@ public class Dashboard extends AppCompatActivity {
         });
     }
 
-    private Profile initializeProfile() {
-        Intent intent = getIntent();
-        if (intent.hasExtra("profile")) {
-            return intent.getParcelableExtra("profile");
-        } else {
-            Sneaker.with(Dashboard.this).setTitle("Hata !").setMessage("Profil alınamadı tekrar giriş yapınız!").sneakError();
-        }
-        return null;
-    }
-
     private void initializeProfileData() {
         if(currentProfile != null) {
             nameSurnameDashboard.setText(currentProfile.getNameSurname());
             nameSurnameHamburger.setText(currentProfile.getNameSurname());
-            phoneNumberDashboard.setText(currentProfile.getPhoneNumber());
+            phoneNumberDashboard.setText(currentProfile.getFormattedPhoneNumber());
             ratingBarDashboard.setRating(currentProfile.getUserRating());
-            profilePhotoDashboard.setImageDrawable(Utils.decodeImage(currentProfile.getProfilePhoto()));
-            profilePhotoHamburger.setImageDrawable(Utils.decodeImage(currentProfile.getProfilePhoto()));
+
+            String encodedProfilePhoto = currentProfile.getProfilePhoto();
+            if (encodedProfilePhoto != null && !encodedProfilePhoto.isEmpty()) {
+                Bitmap decodedProfilePhoto = Utils.decodeImage(encodedProfilePhoto);
+                if (decodedProfilePhoto != null) {
+                    Glide.with(this)
+                            .load(decodedProfilePhoto)
+                            .into(profilePhotoDashboard);
+                    Glide.with(this)
+                            .load(decodedProfilePhoto)
+                            .into(profilePhotoHamburger);
+                } else {
+                    Log.e("Dashboard", "Decoded profile photo is null");
+                }
+            } else {
+                Log.e("Dashboard", "Encoded profile photo is empty or null");
+            }
         }
     }
 }

@@ -83,6 +83,7 @@ dependencies {
     implementation("org.cactoos:cactoos:0.55.0")
 
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
     implementation("com.irozon.sneaker:sneaker:2.0.0")
 
     testImplementation("junit:junit:4.13.2")
