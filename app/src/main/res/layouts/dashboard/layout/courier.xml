@@ -40,18 +40,18 @@
         android:id="@+id/profileInfoSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="24dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header">
-        <ImageView
+        <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/profilePhotoDashboard"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="0.3"
-            android:layout_gravity="center|center_horizontal"
-            app:srcCompat="@drawable/background_profilephoto" />
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ikon_dev_photo"
+            app:civ_shadow="false"/>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1.0"
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/developer"
                 android:textColor="@color/mainTextColor"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:textAlignment="center" />
 
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/developer_mail"
                 android:textColor="@color/mainTextColor"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 android:textAlignment="center" />
 
             <com.iarcuschin.simpleratingbar.SimpleRatingBar
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/ratingStar"
                 app:srb_isIndicator="true"
-                app:srb_starSize="24dp"
+                app:srb_starSize="26dp"
                 app:srb_numberOfStars="5"
                 app:srb_rating="3"
                 app:srb_stepSize="0.5"
@@ -91,9 +91,8 @@
         </LinearLayout>
         <Button
             android:id="@+id/kazaButton"
-            android:layout_width="0dp"
-            android:layout_weight="0.3"
-            android:layout_height="match_parent"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
             android:layout_gravity="center"
             android:layout_marginEnd="10dp"
             android:background="@drawable/background_sos"

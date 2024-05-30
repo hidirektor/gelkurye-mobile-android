@@ -23,6 +23,7 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
+import com.mikhaellopez.circularimageview.CircularImageView;
 import com.sigma.niceswitch.NiceSwitch;
 
 import java.util.Objects;
@@ -36,7 +37,7 @@ import me.t3sl4.kurye.Util.Utils;
 
 public class Profile extends AppCompatActivity {
     //Personal Stats:
-    private ImageView profilePhotoDashboard;
+    private CircularImageView profilePhotoDashboard;
     private TextView nameSurnameDashboard;
     private TextView phoneNumberDashboard;
     private SimpleRatingBar ratingBarDashboard;

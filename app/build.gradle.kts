@@ -55,15 +55,15 @@ android {
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
 
     implementation("com.google.android.material:material:1.12.0")
     implementation("com.google.firebase:protolite-well-known-types:18.0.0")
-    implementation("com.google.android.gms:play-services-base:18.4.0")
+    implementation("com.google.android.gms:play-services-base:18.5.0")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
-    implementation("com.google.android.gms:play-services-location:21.2.0")
+    implementation("com.google.android.gms:play-services-location:21.3.0")
     implementation("com.google.maps.android:android-maps-utils:2.3.0")
     implementation("com.google.code.gson:gson:2.10.1")
 
@@ -78,6 +78,7 @@ dependencies {
     implementation("com.github.sigma1326:NiceSwitch:1.0")
     implementation("com.kofigyan.stateprogressbar:stateprogressbar:1.0.0")
     implementation("com.hbb20:ccp:2.7.3")
+    implementation("com.mikhaellopez:circularimageview:3.2.0")
 
     implementation("org.cactoos:cactoos:0.55.0")
 
