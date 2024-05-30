@@ -4,8 +4,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.telephony.PhoneNumberUtils;
 
 import com.google.gson.Gson;
+
+import java.util.Locale;
 
 public class Carrier implements Parcelable {
     private int id;
@@ -89,17 +92,7 @@ public class Carrier implements Parcelable {
     }
 
     public String getFormattedPhoneNumber() {
-        if (phoneNumber == null || phoneNumber.length() != 12) {
-            return phoneNumber; // or handle the error as you see fit
-        }
-
-        String countryCode = phoneNumber.substring(0, 2);
-        String areaCode = phoneNumber.substring(2, 5);
-        String part1 = phoneNumber.substring(5, 8);
-        String part2 = phoneNumber.substring(8, 10);
-        String part3 = phoneNumber.substring(10, 12);
-
-        return "+" + countryCode + " (" + areaCode + ") " + part1 + " " + part2 + " " + part3;
+        return PhoneNumberUtils.formatNumber("+" +phoneNumber, Locale.getDefault().getCountry());
     }
 
     public String getAddress() {

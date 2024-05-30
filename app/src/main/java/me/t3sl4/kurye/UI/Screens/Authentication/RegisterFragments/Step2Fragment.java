@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -32,6 +34,23 @@ public class Step2Fragment extends Fragment {
 
     private String hashedProfilePhoto;
 
+    private ActivityResultLauncher<Intent> imagePickerLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent data = result.getData();
+                    if (data != null) {
+                        try {
+                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), data.getData());
+                            profilePhotoImageView.setImageBitmap(bitmap);
+                            hashedProfilePhoto = Utils.encodeImage(bitmap);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -44,7 +63,7 @@ public class Step2Fragment extends Fragment {
 
         profilePhotoImageView.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            startActivityForResult(intent, PICK_IMAGE);
+            imagePickerLauncher.launch(intent);
         });
 
         if (getArguments() != null) {
@@ -79,22 +98,5 @@ public class Step2Fragment extends Fragment {
         Glide.with(this)
                 .load(Utils.decodeImage(encodedPhoto))
                 .into(profilePhotoImageView);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK && data != null) {
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), data.getData());
-                profilePhotoImageView.setImageBitmap(bitmap);
-
-                Log.d("bitmap", bitmap.toString());
-
-                hashedProfilePhoto = Utils.encodeImage(bitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 }
