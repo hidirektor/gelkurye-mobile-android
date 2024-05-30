@@ -89,7 +89,7 @@
                             android:layout_width="128dp"
                             android:layout_height="64dp"
                             app:srcCompat="@drawable/ikon_trendyol"
-                            app:tint="@color/navbarButtonColor"
+                            app:tint="@color/primaryColor"
                             android:layout_gravity="center|center_vertical"/>
 
                         <com.sigma.niceswitch.NiceSwitch
@@ -98,7 +98,7 @@
                             android:layout_height="wrap_content"
                             app:switcher_on_color="@color/on_color"
                             app:switcher_off_color="@color/off_color"
-                            app:switcher_icon_color="@color/icon_color"
+                            app:switcher_icon_color="@color/white"
                             android:layout_gravity="center"
                             android:layout_marginTop="12dp"/>
                     </LinearLayout>
@@ -132,7 +132,7 @@
                             android:layout_height="wrap_content"
                             app:switcher_on_color="@color/on_color"
                             app:switcher_off_color="@color/off_color"
-                            app:switcher_icon_color="@color/icon_color"
+                            app:switcher_icon_color="@color/white"
                             android:layout_gravity="center|center_horizontal"
                             android:layout_marginTop="12dp"/>
                     </LinearLayout>
@@ -175,7 +175,7 @@
                             android:layout_height="wrap_content"
                             app:switcher_on_color="@color/on_color"
                             app:switcher_off_color="@color/off_color"
-                            app:switcher_icon_color="@color/icon_color"
+                            app:switcher_icon_color="@color/white"
                             android:layout_gravity="center"
                             android:layout_marginTop="12dp"/>
                     </LinearLayout>
@@ -362,7 +362,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
                         app:srcCompat="@drawable/ikon_merchant"
-                        app:tint="@color/navbarButtonColor" />
+                        app:tint="@color/primaryColor" />
 
                     <TextView
                         android:id="@+id/textView8"
@@ -370,7 +370,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/merchant_marketplace"
                         android:textAlignment="center"
-                        android:textColor="@color/navbarButtonColor"
+                        android:textColor="@color/primaryColor"
                         android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>

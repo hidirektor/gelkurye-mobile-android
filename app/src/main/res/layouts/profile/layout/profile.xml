@@ -90,7 +90,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="@string/developer"
-                            android:textColor="@color/specTextColor"
+                            android:textColor="@color/mainTextColor"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             android:textAlignment="center" />
@@ -99,7 +99,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/developer_mail"
-                            android:textColor="@color/specTextColor"
+                            android:textColor="@color/mainTextColor"
                             android:textSize="14sp"
                             android:textAlignment="center" />
 
@@ -113,7 +113,7 @@
                             app:srb_stepSize="0.5"
                             app:srb_isIndicator="true"
                             app:srb_borderColor="@color/black"
-                            app:srb_fillColor="@color/answerBackcolor" />
+                            app:srb_fillColor="@color/primaryColor" />
                     </LinearLayout>
                     <ImageView
                         android:id="@+id/editProfileImageView"
@@ -175,7 +175,7 @@
                                 app:layout_constraintVertical_bias="0.29000002"
                                 android:layout_marginTop="12dp"
                                 app:srcCompat="@drawable/ikon_shift"
-                                app:tint="@color/navbarButtonColor"
+                                app:tint="@color/primaryColor"
                                 android:layout_gravity="center|center_vertical"/>
 
                             <TextView
@@ -199,7 +199,7 @@
                             android:layout_height="wrap_content"
                             app:switcher_on_color="@color/on_color"
                             app:switcher_off_color="@color/off_color"
-                            app:switcher_icon_color="@color/icon_color"
+                            app:switcher_icon_color="@color/white"
                             android:layout_gravity="center" />
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -236,7 +236,7 @@
                                 app:layout_constraintVertical_bias="0.29000002"
                                 android:layout_marginTop="12dp"
                                 app:srcCompat="@drawable/ikon_night_mode"
-                                app:tint="@color/navbarButtonColor"
+                                app:tint="@color/primaryColor"
                                 android:layout_gravity="center|center_vertical"/>
 
                             <TextView
@@ -259,7 +259,7 @@
                             android:layout_height="wrap_content"
                             app:switcher_on_color="@color/on_color"
                             app:switcher_off_color="@color/off_color"
-                            app:switcher_icon_color="@color/icon_color"
+                            app:switcher_icon_color="@color/white"
                             android:layout_gravity="center|center_horizontal" />
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -464,7 +464,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
                         app:srcCompat="@drawable/ikon_navbar_profile"
-                        app:tint="@color/navbarButtonColor" />
+                        app:tint="@color/primaryColor" />
 
                     <TextView
                         android:id="@+id/textView8"
@@ -472,7 +472,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/navbar_button_profile"
                         android:textAlignment="center"
-                        android:textColor="@color/navbarButtonColor"
+                        android:textColor="@color/primaryColor"
                         android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>

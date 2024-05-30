@@ -163,7 +163,7 @@
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:tint="@color/navbarButtonColor"
+                        app:tint="@color/primaryColor"
                         app:srcCompat="@drawable/ikon_navbar_delivery" />
 
                     <TextView
@@ -171,7 +171,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/navbar_button_orders"
                         android:textAlignment="center"
-                        android:textColor="@color/navbarButtonColor"
+                        android:textColor="@color/primaryColor"
                         android:textSize="12sp" />
                 </LinearLayout>
 

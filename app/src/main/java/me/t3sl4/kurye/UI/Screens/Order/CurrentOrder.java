@@ -168,7 +168,7 @@ public class CurrentOrder extends FragmentActivity implements OnMapReadyCallback
     public void onTaskDone(Object... values) {
         if (currentPolyline != null)
             currentPolyline.remove();
-        int routeColor = ContextCompat.getColor(this, R.color.navbarButtonColor);
+        int routeColor = ContextCompat.getColor(this, R.color.primaryColor);
         currentPolyline = mMap.addPolyline(((PolylineOptions) values[0]).width(10).color(routeColor));
     }
 

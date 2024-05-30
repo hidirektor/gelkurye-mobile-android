@@ -36,11 +36,11 @@
                 app:spb_maxStateNumber="three"
                 app:spb_stateSize="48dp"
                 app:spb_stateBackgroundColor="#BDBDBD"
-                app:spb_stateForegroundColor="@color/navbarButtonColor"
+                app:spb_stateForegroundColor="@color/primaryColor"
                 app:spb_stateNumberBackgroundColor="#808080"
                 app:spb_stateNumberForegroundColor="@color/white"
-                app:spb_currentStateDescriptionColor="@color/navbarButtonColor"
-                app:spb_stateDescriptionColor="@color/specTextColor"
+                app:spb_currentStateDescriptionColor="@color/primaryColor"
+                app:spb_stateDescriptionColor="@color/mainTextColor"
                 android:textAlignment="center"
                 app:spb_animateToCurrentProgressState="true"
                 app:spb_checkStateCompleted="true"
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Teslime Kalan Süre: \n4 dk"
-                android:textColor="@color/specTextColor"
+                android:textColor="@color/mainTextColor"
                 android:textSize="22sp"
                 android:textAlignment="center"
                 android:textStyle="bold"
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Sipariş ID"
-                    android:textColor="@color/specTextColor"
+                    android:textColor="@color/mainTextColor"
                     android:textSize="22sp" />
 
                 <TextView
@@ -81,7 +81,7 @@
                     android:layout_weight="1"
                     android:text="#23124123123"
                     android:textAlignment="viewEnd"
-                    android:textColor="@color/specTextColor"
+                    android:textColor="@color/mainTextColor"
                     android:textSize="22sp" />
 
             </LinearLayout>
@@ -106,7 +106,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Ödeme Türü"
-                    android:textColor="@color/specTextColor"
+                    android:textColor="@color/mainTextColor"
                     android:textSize="22sp" />
 
                 <TextView
@@ -116,7 +116,7 @@
                     android:layout_weight="1"
                     android:text="#23124123123"
                     android:textAlignment="viewEnd"
-                    android:textColor="@color/specTextColor"
+                    android:textColor="@color/mainTextColor"
                     android:textSize="22sp" />
 
             </LinearLayout>
@@ -141,7 +141,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Sipariş Tutarı"
-                    android:textColor="@color/specTextColor"
+                    android:textColor="@color/mainTextColor"
                     android:textSize="22sp" />
 
                 <TextView
@@ -151,7 +151,7 @@
                     android:layout_weight="1"
                     android:text="123.45 ₺"
                     android:textAlignment="viewEnd"
-                    android:textColor="@color/specTextColor"
+                    android:textColor="@color/mainTextColor"
                     android:textSize="22sp" />
 
             </LinearLayout>
@@ -176,7 +176,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Müşteri"
-                    android:textColor="@color/specTextColor"
+                    android:textColor="@color/mainTextColor"
                     android:textSize="22sp" />
 
                 <TextView
@@ -186,7 +186,7 @@
                     android:layout_weight="1"
                     android:text="@string/developer"
                     android:textAlignment="viewEnd"
-                    android:textColor="@color/specTextColor"
+                    android:textColor="@color/mainTextColor"
                     android:textSize="22sp" />
 
             </LinearLayout>
@@ -211,7 +211,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Adres"
-                    android:textColor="@color/specTextColor"
+                    android:textColor="@color/mainTextColor"
                     android:textSize="22sp" />
 
                 <TextView
@@ -221,7 +221,7 @@
                     android:layout_weight="1"
                     android:text="Hacıfeyzullah Mah. Kuşadası / Aydın"
                     android:textAlignment="viewEnd"
-                    android:textColor="@color/specTextColor"
+                    android:textColor="@color/mainTextColor"
                     android:textSize="22sp" />
 
             </LinearLayout>
