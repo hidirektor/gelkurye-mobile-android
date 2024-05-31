@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import me.t3sl4.kurye.R;
+import me.t3sl4.kurye.UI.Components.EditText.EditTextUtil;
 import me.t3sl4.kurye.UI.Components.PasswordField.PasswordFieldUtil;
 
 public class Step1Fragment extends Fragment {

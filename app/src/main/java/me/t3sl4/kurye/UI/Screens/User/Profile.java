@@ -43,6 +43,7 @@ import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Authentication.Login;
 import me.t3sl4.kurye.UI.Screens.General.Dashboard;
+import me.t3sl4.kurye.UI.Screens.MainActivity;
 import me.t3sl4.kurye.UI.Screens.Order.Orders;
 import me.t3sl4.kurye.Util.HTTP.HTTPResponseListener;
 import me.t3sl4.kurye.Util.HTTP.TokenManager;
@@ -163,7 +164,7 @@ public class Profile extends AppCompatActivity {
         logoutButton.setOnClickListener(v -> ReqUtil.logoutReq(Profile.this, new HTTPResponseListener() {
             @Override
             public void onSuccess(JSONObject response) {
-                Intent loginIntent = new Intent(Profile.this, Login.class);
+                Intent loginIntent = new Intent(Profile.this, MainActivity.class);
                 startActivity(loginIntent);
                 finish();
             }
