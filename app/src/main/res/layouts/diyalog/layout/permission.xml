@@ -1,0 +1,84 @@
+<!-- res/layout/custom_dialog_layout.xml -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:background="@drawable/background_btn_7"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:src="@drawable/ikon_location_info"/>
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/permission_location_header"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/outfit_semibold"
+            android:textColor="@color/black"
+            android:paddingBottom="8dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/dialog_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/permission_location_desc"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:fontFamily="@font/outfit_semibold"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:padding="16dp">
+            <Button
+                android:id="@+id/denyButton"
+                android:layout_width="0dp"
+                android:layout_weight="1.0"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/background_btn_2"
+                android:text="@string/permission_location_button_deny"
+                android:textAllCaps="false"
+                android:fontFamily="@font/outfit_semibold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"/>
+
+            <Button
+                android:id="@+id/authorizeButton"
+                android:layout_width="0dp"
+                android:layout_weight="1.0"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/background_btn_1"
+                android:text="@string/permission_location_button_authorize"
+                android:textAllCaps="false"
+                android:fontFamily="@font/outfit_semibold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginEnd="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

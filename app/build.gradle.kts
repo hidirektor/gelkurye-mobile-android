@@ -19,7 +19,7 @@ android {
                 "src/main/res/layouts/onboard",
                 "src/main/res/layouts/auth",
                 "src/main/res/layouts",
-                "src/main/res",
+                "src/main/res", "src/main/res/layouts/dialogs", "src/main/res/layouts/diyalog",
             )
         }
     }
@@ -28,8 +28,8 @@ android {
         applicationId = "me.t3sl4.kurye"
         minSdk = 29
         targetSdk = 34
-        versionCode = 2
-        versionName = "03.06.2024"
+        versionCode = 3
+        versionName = "05.06.2024"
 
         buildConfigField("String", "BASE_URL", "\"http://85.95.231.92:4000/api/v1/\"")
 

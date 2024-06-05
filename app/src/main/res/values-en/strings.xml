@@ -141,4 +141,10 @@
     <string name="merchant_setup_yemeksepeti4">Password</string>
 
     <string name="merchant_synch">Synch Account</string>
+
+    <!-- Permission Texts -->
+    <string name="permission_location_header">Location Permission</string>
+    <string name="permission_location_desc">Location permission is required to deliver orders to addresses in the shortest possible time.</string>
+    <string name="permission_location_button_authorize">Authorize</string>
+    <string name="permission_location_button_deny">Reddet</string>
 </resources>

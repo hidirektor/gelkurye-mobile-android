@@ -1,13 +1,23 @@
 package me.t3sl4.kurye.Util;
 
+import android.Manifest;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
 
 import com.google.gson.Gson;
 import com.irozon.sneaker.Sneaker;
@@ -17,8 +27,10 @@ import java.util.Locale;
 
 import me.t3sl4.kurye.BuildConfig;
 import me.t3sl4.kurye.Model.User.Carrier;
+import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.SplashActivity;
 import me.t3sl4.kurye.UI.Screens.General.Dashboard;
+import me.t3sl4.kurye.UI.Screens.MainActivity;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 
 public class Utils {
@@ -66,4 +78,48 @@ public class Utils {
         String profileJson = sharedPreferences.getString(KEY_PROFILE_GSON, "");
         return new Gson().fromJson(profileJson, Carrier.class);
     }
+
+    public static boolean checkPermissions(Context context, String[] requestedPermissions, int requestCode) {
+        boolean allPermissionsDenied = true;
+        for (String permission : requestedPermissions) {
+            if (context.checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED) {
+                allPermissionsDenied = false;
+                break;
+            }
+        }
+
+        if (allPermissionsDenied) {
+            showCustomDialog(context, requestedPermissions, requestCode);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private static void showCustomDialog(Context context, String[] requestedPermissions, int requestCode) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View dialogView = inflater.inflate(R.layout.permission, null);
+
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(context);
+        alertBuilder.setView(dialogView);
+
+        Button yesButton = dialogView.findViewById(R.id.authorizeButton);
+        Button noButton = dialogView.findViewById(R.id.denyButton);
+
+        AlertDialog alert = alertBuilder.create();
+
+        alertBuilder.setCancelable(true);
+        yesButton.setOnClickListener(view -> {
+            ActivityCompat.requestPermissions((Activity) context, requestedPermissions, requestCode);
+            alert.dismiss();
+        });
+
+        noButton.setOnClickListener(view -> {
+            Sneaker.with((Activity)context).setTitle("Hata !").setMessage("Lokasyon izni gereklidir. Lütfen yeniden başlatın!").sneakError();
+            alert.dismiss();
+        });
+
+        alert.show();
+    }
+
 }
