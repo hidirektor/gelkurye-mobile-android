@@ -164,7 +164,8 @@
 
     <!-- Permission Texts -->
     <string name="permission_location_header">Konum İzni</string>
-    <string name="permission_location_desc">Siparişleri adreslere en kısa yoldan teslim edebilmek için konum izni gereklidir.</string>
+    <string name="permission_location_desc">Sipariş teslimi sırasında haritayı görmek için, GelKuryenin konumunuzu her zaman kullanmasına izin verin.</string>
+    <string name="permission_location_desc2">GelKurye, arka planda konumu kullanarak kuryeye en kısa yolu haritada gösterecektir.</string>
     <string name="permission_location_button_authorize">İzin Ver</string>
     <string name="permission_location_button_deny">Reddet</string>
 </resources>

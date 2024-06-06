@@ -144,7 +144,8 @@
 
     <!-- Permission Texts -->
     <string name="permission_location_header">Location Permission</string>
-    <string name="permission_location_desc">Location permission is required to deliver orders to addresses in the shortest possible time.</string>
+    <string name="permission_location_desc">To see maps for delivering orders, allow GelKurye to use your location all of the time.</string>
+    <string name="permission_location_desc2">GelKurye will use location in the background to show shortest way to courier on the map.</string>
     <string name="permission_location_button_authorize">Authorize</string>
     <string name="permission_location_button_deny">Reddet</string>
 </resources>

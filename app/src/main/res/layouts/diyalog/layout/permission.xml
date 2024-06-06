@@ -45,6 +45,18 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"/>
 
+        <TextView
+            android:id="@+id/dialog_message_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/permission_location_desc2"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:fontFamily="@font/outfit_semibold"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
