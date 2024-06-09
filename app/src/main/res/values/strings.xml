@@ -168,4 +168,7 @@
     <string name="permission_location_desc2">GelKurye, arka planda konumu kullanarak kuryeye en kısa yolu haritada gösterecektir.</string>
     <string name="permission_location_button_authorize">İzin Ver</string>
     <string name="permission_location_button_deny">Reddet</string>
+
+    <!-- Error Texts -->
+    <string name="country_error">Şuan sadece Türkiyeye hizmet veriyoruz.</string>
 </resources>

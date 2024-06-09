@@ -21,11 +21,13 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.hbb20.CountryCodePicker;
+import com.irozon.sneaker.Sneaker;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import me.t3sl4.kurye.R;
+import me.t3sl4.kurye.UI.Screens.Authentication.Login;
 import me.t3sl4.kurye.Util.Utils;
 
 public class Step2Fragment extends Fragment {
@@ -67,6 +69,12 @@ public class Step2Fragment extends Fragment {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             imagePickerLauncher.launch(intent);
         });
+
+        phoneNumberContryCode.setOnClickListener(v -> {
+            Sneaker.with(Step2Fragment.this).setTitle("Hata !").setMessage(getString(R.string.country_error)).sneakError();
+        });
+
+        phoneNumberContryCode.setCcpClickable(false);
 
         if (getArguments() != null) {
             Glide.with(this)

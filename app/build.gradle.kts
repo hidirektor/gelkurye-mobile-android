@@ -28,8 +28,8 @@ android {
         applicationId = "me.t3sl4.kurye"
         minSdk = 29
         targetSdk = 34
-        versionCode = 4
-        versionName = "06.06.2024"
+        versionCode = 6
+        versionName = "09.06.2024"
 
         buildConfigField("String", "BASE_URL", "\"http://85.95.231.92:4000/api/v1/\"")
 

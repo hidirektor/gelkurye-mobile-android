@@ -148,4 +148,7 @@
     <string name="permission_location_desc2">GelKurye will use location in the background to show shortest way to courier on the map.</string>
     <string name="permission_location_button_authorize">Authorize</string>
     <string name="permission_location_button_deny">Reddet</string>
+
+    <!-- Error Texts -->
+    <string name="country_error">We currently only serve Turkey.</string>
 </resources>

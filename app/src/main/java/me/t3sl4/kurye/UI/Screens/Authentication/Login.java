@@ -26,6 +26,7 @@ import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.EditText.EditTextUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Components.PasswordField.PasswordFieldUtil;
+import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step2Fragment;
 import me.t3sl4.kurye.UI.Screens.General.Dashboard;
 import me.t3sl4.kurye.UI.Screens.PasswordReset.Reset1;
 import me.t3sl4.kurye.Util.ReqUtil;
@@ -66,6 +67,12 @@ public class Login extends AppCompatActivity {
                 throw new RuntimeException(e);
             }
         });
+
+        phoneNumberCode.setOnClickListener(v -> {
+            Sneaker.with(Login.this).setTitle("Hata !").setMessage(getString(R.string.country_error)).sneakError();
+        });
+
+        phoneNumberCode.setCcpClickable(false);
 
         sifremiUnuttumButton.setOnClickListener(v -> {
             Intent intent = new Intent(Login.this, Reset1.class);
