@@ -39,7 +39,7 @@ public class Login extends AppCompatActivity {
     private ZCheckBox rememberMe;
     private TextView sifremiUnuttumButton;
 
-    private boolean isRemembered = false;
+    private boolean isRemembered =  false;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
