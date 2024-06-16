@@ -239,7 +239,7 @@ public class Register extends AppCompatActivity {
         params.put("licenseBackFace", Objects.requireNonNull(fragmentData.get(3)).getString("licenseBack"));
         params.put("merchantName", "");
         params.put("merchantAddress", "");
-        params.put("c", "");
+        params.put("contactNumber", "");
 
         ReqUtil.registerReq(Register.this, params, new HTTPResponseListener() {
             @Override
