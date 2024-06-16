@@ -12,6 +12,7 @@ import com.irozon.sneaker.Sneaker;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Authentication.Login;
+import me.t3sl4.kurye.UI.Screens.Authentication.MerchantRegister;
 import me.t3sl4.kurye.UI.Screens.Authentication.Register;
 import me.t3sl4.kurye.Util.Utils;
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button loginButton = findViewById(R.id.loginButton);
         Button registerButton = findViewById(R.id.registerButton);
+        Button merhcantRegisterButton = findViewById(R.id.merchantRegisterButton);
 
         permissionGranted = Utils.checkPermissions(MainActivity.this, permissionsList, locationPermissioCode);
 
@@ -45,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
 
         registerButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, Register.class);
+            startActivity(intent);
+        });
+
+        merhcantRegisterButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, MerchantRegister.class);
             startActivity(intent);
         });
     }
