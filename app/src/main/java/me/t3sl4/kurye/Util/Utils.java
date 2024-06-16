@@ -1,10 +1,8 @@
 package me.t3sl4.kurye.Util;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -15,7 +13,6 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 
@@ -28,9 +25,6 @@ import java.util.Locale;
 import me.t3sl4.kurye.BuildConfig;
 import me.t3sl4.kurye.Model.User.Carrier;
 import me.t3sl4.kurye.R;
-import me.t3sl4.kurye.SplashActivity;
-import me.t3sl4.kurye.UI.Screens.General.Dashboard;
-import me.t3sl4.kurye.UI.Screens.MainActivity;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 
 public class Utils {

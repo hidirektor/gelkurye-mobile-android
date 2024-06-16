@@ -8,8 +8,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import me.t3sl4.kurye.R;
-import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Components.EditText.EditTextUtil;
+import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 
 public class Reset1 extends AppCompatActivity {
     private EditText mailField;

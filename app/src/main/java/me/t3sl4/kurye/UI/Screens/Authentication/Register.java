@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -19,7 +18,6 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.android.volley.Request;
 import com.android.volley.VolleyError;
 import com.irozon.sneaker.Sneaker;
 import com.kofigyan.stateprogressbar.StateProgressBar;
@@ -34,7 +32,6 @@ import java.util.Map;
 import java.util.Objects;
 
 import me.t3sl4.kurye.R;
-import me.t3sl4.kurye.UI.Components.EditText.EditTextUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step1Fragment;
 import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step2Fragment;

@@ -12,11 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+import me.t3sl4.kurye.Model.Earning.EarningAdapter;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.General.Dashboard;
 import me.t3sl4.kurye.UI.Screens.Order.Orders;
-import me.t3sl4.kurye.Model.Earning.EarningAdapter;
 
 public class Earning extends AppCompatActivity {
     //Personal Statistics:

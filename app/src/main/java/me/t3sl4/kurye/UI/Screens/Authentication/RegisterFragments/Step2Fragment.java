@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Base64;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,11 +21,9 @@ import com.bumptech.glide.Glide;
 import com.hbb20.CountryCodePicker;
 import com.irozon.sneaker.Sneaker;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import me.t3sl4.kurye.R;
-import me.t3sl4.kurye.UI.Screens.Authentication.Login;
 import me.t3sl4.kurye.Util.Utils;
 
 public class Step2Fragment extends Fragment {

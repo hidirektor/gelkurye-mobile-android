@@ -1,7 +1,9 @@
 package me.t3sl4.kurye.Util.HTTP;
 
 import android.content.Context;
+
 import org.json.JSONObject;
+
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 
 public final class TokenManager {

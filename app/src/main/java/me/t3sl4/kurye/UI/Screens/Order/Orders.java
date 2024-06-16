@@ -14,13 +14,13 @@ import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
+import me.t3sl4.kurye.Model.Order.Order;
+import me.t3sl4.kurye.Model.Order.OrderAdapter;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.General.Dashboard;
 import me.t3sl4.kurye.UI.Screens.User.Earning;
 import me.t3sl4.kurye.UI.Screens.User.Profile;
-import me.t3sl4.kurye.Model.Order.Order;
-import me.t3sl4.kurye.Model.Order.OrderAdapter;
 
 public class Orders extends AppCompatActivity {
     //Header Buttons:

@@ -3,6 +3,7 @@ package me.t3sl4.kurye;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -73,7 +74,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void redirectToSelectionScreen() {
-        new Handler().postDelayed(() -> {
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
@@ -81,7 +82,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void redirectToLoginScreen() {
-        new Handler().postDelayed(() -> {
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
             Intent intent = new Intent(SplashActivity.this, Login.class);
             startActivity(intent);
             finish();
