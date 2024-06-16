@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App Name -->
     <string name="app_name">GelKurye</string>
+
+    <!-- OnBoard Screen Texts -->
     <string name="onboard_skip">Skip</string>
     <string name="onboard_header_1">Real-time Order Service</string>
     <string name="onboard_spec_1">We follow your Trendyol, Getir and YemekSepeti orders instantly.</string>
@@ -8,10 +10,20 @@
     <string name="onboard_spec_2">As soon as your order is placed in the system, we direct one of our couriers to your business.</string>
     <string name="onboard_header_3">Fast Delivery</string>
     <string name="onboard_spec_3">We deliver the order in a short time.</string>
+
+    <!-- Login Register Selection Texts -->
     <string name="selection_header">GelKurye is One Step Close to You</string>
     <string name="selection_spec">With one click on our GelKurye application, our courier is right at your door. Register now and benefit from the privileges…</string>
+
+    <!-- Button Texts -->
     <string name="button_login">Login</string>
     <string name="button_register">Register</string>
+    <string name="button_register_merchant">Merchant Register</string>
+    <string name="button_next">Next</string>
+    <string name="button_confirm">Confirm</string>
+    <string name="button_reset">Reset</string>
+
+    <!-- Button Hints -->
     <string name="hint_star">*</string>
     <string name="hint_username">Username</string>
     <string name="hint_password">Password</string>
@@ -21,39 +33,60 @@
     <string name="hint_mail">E-Mail</string>
     <string name="hint_phone">Phone</string>
     <string name="hint_pass_repeat">Repeat your Password</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_relative_name_surname">Relative Name Surname</string>
+    <string name="hint_relative_phone_number">Relative Phone Number</string>
+
+    <!-- License Texts -->
     <string name="license_front">License Front</string>
     <string name="license_back">License Back</string>
+
+    <!-- Navbar Texts -->
     <string name="navbar_home">Home</string>
     <string name="navbar_orders">Orders</string>
     <string name="navbar_profile">Profile</string>
     <string name="navbar_settings">Settings</string>
+    <string name="navbar_support">Support</string>
+    <string name="navbar_button_dashboard">Dashboard</string>
+    <string name="navbar_button_earning">Earning</string>
+
+    <!-- Welcome Text -->
     <string name="welcome">Welcome back</string>
+
+    <!-- Order Texts -->
     <string name="current_order">Current Order</string>
     <string name="waiting_orders">Waiting Orders</string>
     <string name="all_orders">All Orders</string>
-    <string name="settings">Settings</string>
-    <string name="faq">F.A.Q.</string>
-    <string name="support">Support Us</string>
-    <string name="delivered">Delivered</string>
     <string name="active">Active Orders</string>
+    <string name="delivered">Delivered</string>
+    <string name="current_taken">Received</string>
+    <string name="current_on_way">On the Road</string>
+    <string name="current_delivered">Delivered</string>
     <string name="accept">Accept</string>
     <string name="decline">Decline</string>
+
+    <!-- Profile Texts -->
     <string name="profile_photo">Profile Photo</string>
     <string name="password_forget">Forget My Password</string>
     <string name="forget_password_spec">Username or E-Mail</string>
-    <string name="button_next">Next</string>
+    <string name="profile_edit">Edit Profile</string>
+
+    <!-- OTP Texts -->
     <string name="enter_otp">Enter OTP</string>
-    <string name="button_confirm">Confirm</string>
     <string name="enter_otp_spec">Enter the OTP code we sent below.</string>
     <string name="enter_otp_second">Enter OTP Code</string>
-    <string name="remaining_time">"Last: "</string>
-    <string name="seperator">" : "</string>
+    <string name="remaining_time">Last: </string>
+    <string name="seperator">:</string>
     <string name="send_again">Send OTP Again</string>
+
+    <!-- Password Reset Texts -->
     <string name="password_reset">Reset Password</string>
-    <string name="button_reset">Reset</string>
     <string name="reset_success">Password Reset Successfully Completed.</string>
+    <string name="current_password">Current Password</string>
+    <string name="change_pass">Change Password</string>
 
     <!-- F.A.Q. Section -->
+    <string name="faq">F.A.Q.</string>
     <string name="faq_spec">Frequently Asked Questions</string>
     <string name="faq_q1">Will we receive a confirmation code when submitting?</string>
     <string name="faq_a1">Yes, we send an OTP code to the customer as soon as you receive the order. As soon as you take the order to the customer, you must take this 6-digit code from the customer, enter it on the application screen and deliver the order that way.</string>
@@ -64,12 +97,6 @@
     <string name="faq_q4">Are my package statistics updated?</string>
     <string name="faq_a4">Yes, your statistics are updated after each delivery.</string>
 
-    <!-- Navbar -->
-    <string name="navbar_button_dashboard">Dashboard</string>
-    <string name="navbar_button_orders">Orders</string>
-    <string name="navbar_button_earning">Earning</string>
-    <string name="navbar_button_profile">Profile</string>
-
     <!-- Stats -->
     <string name="stats_completed">Completed Deliveries</string>
     <string name="stats_pending">Pending Deliveries</string>
@@ -77,42 +104,25 @@
     <string name="stats_total_earning">Total Earning</string>
     <string name="stats_cancelled">Deliveries Cancelled</string>
 
-    <!-- Profile -->
+    <!-- Profile Section -->
     <string name="shift">Shift</string>
     <string name="night_mode">Night Mode</string>
-    <string name="change_pass">Change Password</string>
     <string name="language">Change Language</string>
     <string name="contact_us">Support</string>
 
-    <!-- Earning -->
+    <!-- Earning Section -->
     <string name="earning_transactions">Transactions</string>
     <string name="earning_balance">Balance</string>
     <string name="earning_withdraw">Withdraw</string>
 
-    <!-- Change Password -->
-    <string name="current_password">Current Password</string>
-
     <!-- SOS Section -->
     <string name="sos_button">Help</string>
-
-    <!-- Register Section -->
-    <string name="hint_address">Address</string>
-    <string name="hint_relative_name_surname">Relative Name Surname</string>
-    <string name="hint_relative_phone_number">Relative Phone Number</string>
 
     <!-- Register Fragment Section -->
     <string name="register_fragment_auth">Authentication</string>
     <string name="register_fragment_personal">Personal Info</string>
     <string name="register_fragment_relative">Relative Info</string>
     <string name="register_fragment_license">License</string>
-
-    <!-- Current Order Section -->
-    <string name="current_taken">Received</string>
-    <string name="current_on_way">On the Road</string>
-    <string name="current_delivered">Delivered</string>
-
-    <!-- Edit Profile -->
-    <string name="profile_edit">Edit Profile</string>
 
     <!-- Map Texts -->
     <string name="map_text_origin">Restaurant</string>
@@ -124,22 +134,15 @@
     <string name="merchant_setup_trendyol">Setup Trendyol</string>
     <string name="merchant_setup_getiryemek">Setup GetirYemek</string>
     <string name="merchant_setup_yemeksepeti">Setup YemekSepeti</string>
-
-    <!-- Trendyol Texts -->
     <string name="merchant_setup_trendyol2">Trendyol Info</string>
     <string name="merchant_setup_trendyol3">Supplier Id</string>
     <string name="merchant_setup_trendyol4">API Key</string>
     <string name="merchant_setup_trendyol5">Secret Key</string>
-
-    <!-- GetirYemek Texts -->
     <string name="merchant_setup_getiryemek2">GetirYemek Info</string>
     <string name="merchant_setup_getiryemek3">Token</string>
-
-    <!-- YemekSepeti Texts -->
     <string name="merchant_setup_yemeksepeti2">YemekSepeti Info</string>
     <string name="merchant_setup_yemeksepeti3">Username</string>
     <string name="merchant_setup_yemeksepeti4">Password</string>
-
     <string name="merchant_synch">Synch Account</string>
 
     <!-- Permission Texts -->
@@ -147,7 +150,7 @@
     <string name="permission_location_desc">To see maps for delivering orders, allow GelKurye to use your location all of the time.</string>
     <string name="permission_location_desc2">GelKurye will use location in the background to show shortest way to courier on the map.</string>
     <string name="permission_location_button_authorize">Authorize</string>
-    <string name="permission_location_button_deny">Reddet</string>
+    <string name="permission_location_button_deny">Deny</string>
 
     <!-- Error Texts -->
     <string name="country_error">We currently only serve Turkey.</string>

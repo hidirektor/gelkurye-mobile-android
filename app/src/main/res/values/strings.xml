@@ -1,15 +1,13 @@
 <resources>
+    <!-- App Name -->
     <string name="app_name">GelKurye</string>
 
-    <!-- OnBoard Screen Textx -->
+    <!-- OnBoard Screen Texts -->
     <string name="onboard_skip">Atla</string>
-
     <string name="onboard_header_1">Anlık Sipariş Çekme</string>
     <string name="onboard_spec_1">Trendyol, Getir ve YemekSepeti siparişlerinizi anlık olarak takip ediyoruz.</string>
-
     <string name="onboard_header_2">Otomatik Kurye Yönlendirme</string>
     <string name="onboard_spec_2">Siparişiniz sisteme düştüğü gibi işletmenize kuryelerimizden birini yönlendiriyoruz.</string>
-
     <string name="onboard_header_3">Hızlı Teslimat</string>
     <string name="onboard_spec_3">Kısa süre içerisinde siparişi teslim ediyoruz.</string>
 
@@ -20,6 +18,10 @@
     <!-- Button Texts -->
     <string name="button_login">Giriş Yap</string>
     <string name="button_register">Kayıt Ol</string>
+    <string name="button_register_merchant">Restaurant Kaydı</string>
+    <string name="button_next">İleri</string>
+    <string name="button_confirm">Onayla</string>
+    <string name="button_reset">Sıfırla</string>
 
     <!-- Button Hints -->
     <string name="hint_star">*</string>
@@ -27,47 +29,68 @@
     <string name="hint_password">Şifre</string>
     <string name="hint_rememberme">Beni Hatırla</string>
     <string name="hint_forgetpass">Şifremi Unuttum ?</string>
-
     <string name="hint_namesurname">İsim Soyisim</string>
     <string name="hint_mail">E-Posta Adresi</string>
     <string name="hint_phone">Telefon Numarası</string>
     <string name="hint_pass_repeat">Şifreyi Tekrar Giriniz</string>
+    <string name="hint_address">Adres</string>
+    <string name="hint_relative_name_surname">Yakınınız</string>
+    <string name="hint_relative_phone_number">Yakınınızın Telefon Numarası</string>
 
+    <!-- License Texts -->
     <string name="license_front">Ehliyet Ön Yüz</string>
     <string name="license_back">Ehliyet Arka Yüz</string>
+
+    <!-- Navbar Texts -->
     <string name="navbar_home">Anasayfa</string>
     <string name="navbar_orders">Siparişler</string>
     <string name="navbar_profile">Profil</string>
     <string name="navbar_settings">Ayarlar</string>
+    <string name="navbar_support">Destek</string>
+    <string name="navbar_button_dashboard">Dashboard</string>
+    <string name="navbar_button_earning">Kazanç</string>
+
+    <!-- Developer Info -->
     <string name="developer" translatable="false">Halil İbrahim Direktör</string>
     <string name="developer_mail" translatable="false">hidirektor@gmail.com</string>
+
+    <!-- Welcome Text -->
     <string name="welcome">Merhabalar</string>
+
+    <!-- Order Texts -->
     <string name="current_order">Şuanki Sipariş</string>
     <string name="waiting_orders">Bekleyen Siparişler</string>
     <string name="all_orders">Tüm Siparişler</string>
-    <string name="settings">Ayarlar</string>
-    <string name="faq">S.S.S.</string>
-    <string name="support">Destek Olun</string>
-    <string name="delivered">Teslim Edilenler</string>
     <string name="active">Aktif Siparişler</string>
+    <string name="delivered">Teslim Edilenler</string>
+    <string name="current_taken">Teslim Alındı</string>
+    <string name="current_on_way">Yolda</string>
+    <string name="current_delivered">Teslim Edildi</string>
     <string name="accept">Kabul Et</string>
     <string name="decline">Reddet</string>
+
+    <!-- Profile Texts -->
     <string name="profile_photo">Profil Fotoğrafı</string>
     <string name="password_forget">Şifremi Unuttum</string>
     <string name="forget_password_spec">Kullanıcı Adı ya da E-Posta Adresiniz</string>
-    <string name="button_next">İleri</string>
+    <string name="profile_edit">Profili Düzenle</string>
+
+    <!-- OTP Texts -->
     <string name="enter_otp">Onay Kodu Gir</string>
-    <string name="button_confirm">Onayla</string>
     <string name="enter_otp_spec">Gönderdiğimiz OTP kodunu aşağıya girin.</string>
     <string name="enter_otp_second">Onay Kodunu Giriniz</string>
-    <string name="remaining_time">"Kalan Süre: "</string>
+    <string name="remaining_time">Kalan Süre: </string>
     <string name="seperator">:</string>
     <string name="send_again">Tekrar Gönder</string>
+
+    <!-- Password Reset Texts -->
     <string name="password_reset">Şifre Sıfırla</string>
-    <string name="button_reset">Sıfırla</string>
     <string name="reset_success">Şifreniz Başarılı Şekilde Değiştirilmiştir.</string>
+    <string name="current_password">Mevcut Şifreniz</string>
+    <string name="change_pass">Şifreni Değiştir</string>
 
     <!-- S.S.S. Section -->
+    <string name="faq">S.S.S.</string>
     <string name="faq_spec">Sıkça Sorulan Sorular</string>
     <string name="faq_q1">Siparişi teslim ederken onay kodu alacak mıyız?</string>
     <string name="faq_a1">Evet siparişi üzerinize aldığınız anda müşteriye bir OTP kodu gönderiyoruz. Sizler de siparişi müşteriye götürdüğünüz an müşteriden bu 6 haneli kodu alıp uygulama ekranından girip sipariş teslimini o şekilde gerçekleştirmelisiniz.</string>
@@ -78,12 +101,6 @@
     <string name="faq_q4">Paket istatistiklerim güncelleniyor mu?</string>
     <string name="faq_a4">Evet, her teslimat sonrasında istatistikleriniz güncellenir.</string>
 
-    <!-- Navbar -->
-    <string name="navbar_button_dashboard">Dashboard</string>
-    <string name="navbar_button_orders">Siparişler</string>
-    <string name="navbar_button_earning">Kazanç</string>
-    <string name="navbar_button_profile">Profil</string>
-
     <!-- Stats -->
     <string name="stats_completed">Teslim Edilen Paket</string>
     <string name="stats_pending">Bekleyen Sipariş</string>
@@ -91,14 +108,13 @@
     <string name="stats_total_earning">Toplam Kazanç</string>
     <string name="stats_cancelled">Sipariş İptal Edildi</string>
 
-    <!-- Profile -->
+    <!-- Profile Section -->
     <string name="shift">Vardiya</string>
     <string name="night_mode">Koyu Tema</string>
-    <string name="change_pass">Şifreni Değiştir</string>
     <string name="language">Dil Değiştir</string>
     <string name="contact_us">Bize Ulaşın</string>
 
-    <!-- Earning -->
+    <!-- Earning Section -->
     <string name="earning_transactions">Yapılan İşlemler</string>
     <string name="earning_balance">Toplam Bakiye</string>
     <string name="earning_withdraw">Hesaba Aktar</string>
@@ -109,30 +125,14 @@
     <string name="lang_english_1" translatable="false">English (United States)</string>
     <string name="lang_english_2" translatable="false">English (United States)</string>
 
-    <!-- Change Password -->
-    <string name="current_password">Mevcut Şifreniz</string>
-
     <!-- SOS Section -->
     <string name="sos_button">Yardım</string>
-
-    <!-- Register Section -->
-    <string name="hint_address">Adres</string>
-    <string name="hint_relative_name_surname">Yakınınız</string>
-    <string name="hint_relative_phone_number">Yakınınızın Telefon Numarası</string>
 
     <!-- Register Fragment Section -->
     <string name="register_fragment_auth">Hesap\nBilgileri</string>
     <string name="register_fragment_personal">Kişisel\nBilgiler</string>
     <string name="register_fragment_relative">Yakınınız</string>
     <string name="register_fragment_license">Yasal</string>
-
-    <!-- Current Order Section -->
-    <string name="current_taken">Teslim Alındı</string>
-    <string name="current_on_way">Yolda</string>
-    <string name="current_delivered">Teslim Edildi</string>
-
-    <!-- Edit Profile -->
-    <string name="profile_edit">Profili Düzenle</string>
 
     <!-- Map Texts -->
     <string name="map_text_origin">Restaurant</string>
@@ -144,22 +144,15 @@
     <string name="merchant_setup_trendyol">Trendyol Eşle</string>
     <string name="merchant_setup_getiryemek">GetirYemek Eşle</string>
     <string name="merchant_setup_yemeksepeti">YemekSepeti Eşle</string>
-
-    <!-- Trendyol Texts -->
     <string name="merchant_setup_trendyol2">Trendyol Info</string>
     <string name="merchant_setup_trendyol3">Supplier Id</string>
     <string name="merchant_setup_trendyol4">API Key</string>
     <string name="merchant_setup_trendyol5">Secret Key</string>
-
-    <!-- GetirYemek Texts -->
     <string name="merchant_setup_getiryemek2">GetirYemek Info</string>
     <string name="merchant_setup_getiryemek3">Token</string>
-
-    <!-- YemekSepeti Texts -->
     <string name="merchant_setup_yemeksepeti2">YemekSepeti Info</string>
     <string name="merchant_setup_yemeksepeti3">Username</string>
     <string name="merchant_setup_yemeksepeti4">Password</string>
-
     <string name="merchant_synch">Hesabı Eşle</string>
 
     <!-- Permission Texts -->

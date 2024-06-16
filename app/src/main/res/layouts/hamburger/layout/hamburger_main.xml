@@ -130,7 +130,7 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/outfit_semibold"
-                    android:text="@string/settings"
+                    android:text="@string/navbar_settings"
                     android:textColor="#6A6ABA"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -176,7 +176,7 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/outfit_semibold"
-                    android:text="@string/support"
+                    android:text="@string/navbar_support"
                     android:textColor="#6A6ABA"
                     android:textSize="18sp" />
             </LinearLayout>
