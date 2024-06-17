@@ -151,6 +151,90 @@ public class Carrier implements Parcelable {
         return userRating;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void seteMail(String eMail) {
+        this.eMail = eMail;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    public void setNameSurname(String nameSurname) {
+        this.nameSurname = nameSurname;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setProfilePhoto(String profilePhoto) {
+        this.profilePhoto = profilePhoto;
+    }
+
+    public void setRelativeNameSurname(String relativeNameSurname) {
+        this.relativeNameSurname = relativeNameSurname;
+    }
+
+    public void setRelativePhoneNumber(String relativePhoneNumber) {
+        this.relativePhoneNumber = relativePhoneNumber;
+    }
+
+    public void setLastPasswordChange(String lastPasswordChange) {
+        this.lastPasswordChange = lastPasswordChange;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setLicenseFrontFace(String licenseFrontFace) {
+        this.licenseFrontFace = licenseFrontFace;
+    }
+
+    public void setLicenseBackFace(String licenseBackFace) {
+        this.licenseBackFace = licenseBackFace;
+    }
+
+    public void setNightMode(boolean nightMode) {
+        this.nightMode = nightMode;
+    }
+
+    public void setSelectedLanguage(boolean selectedLanguage) {
+        this.selectedLanguage = selectedLanguage;
+    }
+
+    public void setFirstBreakTime(String firstBreakTime) {
+        this.firstBreakTime = firstBreakTime;
+    }
+
+    public void setSecondBreakTime(String secondBreakTime) {
+        this.secondBreakTime = secondBreakTime;
+    }
+
+    public void setUserRating(int userRating) {
+        this.userRating = userRating;
+    }
+
     // Gson to JSON
     public String toJson() {
         return new Gson().toJson(this);

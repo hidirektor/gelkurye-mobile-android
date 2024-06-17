@@ -183,6 +183,7 @@ public class ReqUtil {
                     @Override
                     public void onError(VolleyError error) {
                         Log.d("Logout", error.toString());
+                        tokenManager.clearTokens();
                         callback.onError(error);
                     }
                 },

@@ -158,19 +158,26 @@ public class Profile extends AppCompatActivity {
             finish();
         });
 
-        logoutButton.setOnClickListener(v -> ReqUtil.logoutReq(Profile.this, new HTTPResponseListener() {
-            @Override
-            public void onSuccess(JSONObject response) {
-                Intent loginIntent = new Intent(Profile.this, MainActivity.class);
-                startActivity(loginIntent);
-                finish();
-            }
+        logoutButton.setOnClickListener(v -> {
+            Intent loginIntent = new Intent(Profile.this, MainActivity.class);
 
-            @Override
-            public void onError(VolleyError error) {
-                Sneaker.with(Profile.this).setTitle("Hata !").setMessage("Çıkış yapılamadı, lütfen tekrar deneyin.").sneakError();
-            }
-        }));
+            ReqUtil.logoutReq(Profile.this, new HTTPResponseListener() {
+                @Override
+                public void onSuccess(JSONObject response) {
+                    startActivity(loginIntent);
+                    finish();
+                }
+
+                @Override
+                public void onError(VolleyError error) {
+                    Sneaker.with(Profile.this).setTitle("Hata !").setMessage("Çıkış yapılamadı, lütfen tekrar deneyin.").sneakError();
+                    startActivity(loginIntent);
+                    finish();
+                }
+            });
+
+
+        });
 
         editProfileButton.setOnClickListener(v -> {
             //Profil Düzenleme Processi

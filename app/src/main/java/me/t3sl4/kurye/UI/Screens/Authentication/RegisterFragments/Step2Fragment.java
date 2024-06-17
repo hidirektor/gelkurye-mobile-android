@@ -72,16 +72,24 @@ public class Step2Fragment extends Fragment {
 
         phoneNumberContryCode.setCcpClickable(false);
 
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         if (getArguments() != null) {
-            Glide.with(this)
-                    .load(Utils.decodeImage(getArguments().getString("profilePhoto", "")))
-                    .into(profilePhotoImageView);
+            String encodedPhoto = getArguments().getString("profilePhoto", "");
+            if (encodedPhoto != null && !encodedPhoto.isEmpty()) {
+                Glide.with(this)
+                        .load(Utils.decodeImage(encodedPhoto))
+                        .into(profilePhotoImageView);
+            }
             nameSurnameEditText.setText(getArguments().getString("nameSurname", ""));
             phoneNumberEditText.setText(getArguments().getString("phoneNumber", ""));
             addressEditText.setText(getArguments().getString("address", ""));
         }
-
-        return view;
     }
 
     public String getProfilePhoto() {
@@ -101,8 +109,10 @@ public class Step2Fragment extends Fragment {
     }
 
     public void setProfilePhoto(String encodedPhoto) {
-        Glide.with(this)
-                .load(Utils.decodeImage(encodedPhoto))
-                .into(profilePhotoImageView);
+        if (isAdded()) {
+            Glide.with(this)
+                    .load(Utils.decodeImage(encodedPhoto))
+                    .into(profilePhotoImageView);
+        }
     }
 }

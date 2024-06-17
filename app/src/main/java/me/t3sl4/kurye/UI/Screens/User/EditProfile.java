@@ -21,28 +21,32 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import me.t3sl4.kurye.Model.User.Carrier;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step1Fragment;
 import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step2Fragment;
 import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step3Fragment;
 import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step4Fragment;
+import me.t3sl4.kurye.Util.ReqUtil;
+import me.t3sl4.kurye.Util.Utils;
 
 public class EditProfile extends AppCompatActivity {
-    //Main Variables:
+    private Carrier currentProfile;
+    // Main Variables:
     String[] stateNames;
 
-    //Header Section:
+    // Header Section:
     private ImageView backButtonImage;
     private StateProgressBar editProfileStateBar;
     private ViewPager2 editProfileViewPager;
 
-    //Bottom Section:
+    // Bottom Section:
     private ImageView stepOncekiImageView;
     private ImageView stepSonrakiImageView;
     private Button editProfileButton;
 
-    //Fragment Management:
+    // Fragment Management:
     private List<Fragment> fragmentList = new ArrayList<>();
     private Map<Integer, Bundle> fragmentData = new HashMap<>();
 
@@ -53,6 +57,9 @@ public class EditProfile extends AppCompatActivity {
 
         NavigationBarUtil.hideNavigationBar(this);
 
+        currentProfile = Utils.getFromSharedPreferences(this);
+        Log.d("test23", currentProfile.getProfilePhoto());
+
         initializeComponents();
 
         fragmentAdapterInitialize();
@@ -61,26 +68,7 @@ public class EditProfile extends AppCompatActivity {
 
         bottomComponentsClickListeners();
 
-        if (fragmentData.containsKey(1)) {
-            String encodedImage = Objects.requireNonNull(fragmentData.get(1)).getString("profilePhoto");
-            if (encodedImage != null) {
-                Step2Fragment step2Fragment = (Step2Fragment) fragmentList.get(1);
-                step2Fragment.setProfilePhoto(encodedImage);
-            }
-        } else if(fragmentData.containsKey(3)) {
-            String encodedLicenseFront = Objects.requireNonNull(fragmentData.get(3)).getString("licenseFront");
-            String encodedLicenseBack = Objects.requireNonNull(fragmentData.get(3)).getString("licenseBack");
-
-            Step4Fragment step4Fragment = (Step4Fragment) fragmentList.get(3);
-
-            if (encodedLicenseFront != null) {
-                step4Fragment.setLicenseFront(encodedLicenseFront);
-            }
-
-            if(encodedLicenseBack != null) {
-                step4Fragment.setLicenseBack(encodedLicenseBack);
-            }
-        }
+        initializeUser();
     }
 
     private void initializeComponents() {
@@ -101,7 +89,7 @@ public class EditProfile extends AppCompatActivity {
 
         editProfileStateBar.setStateDescriptionData(stateNames);
 
-        //Fragment Definition:
+        // Fragment Definition:
         fragmentList.add(new Step1Fragment());
         fragmentList.add(new Step2Fragment());
         fragmentList.add(new Step3Fragment());
@@ -194,11 +182,66 @@ public class EditProfile extends AppCompatActivity {
 
         editProfileButton.setOnClickListener(v -> {
             saveFragmentData(editProfileViewPager.getCurrentItem());
-            if(allDataValid()) {
+
+            /*if (!dataChanged()) {
+                Sneaker.with(EditProfile.this)
+                        .setTitle("Uyarı")
+                        .setMessage("Herhangi bir değişiklik yapılmadı.")
+                        .sneakWarning();
+                return;
+            }*/
+
+            if (!allDataValid()) {
+                Sneaker.with(EditProfile.this)
+                        .setTitle("Hata!")
+                        .setMessage("Lütfen eksik kısımları kontrol edin!")
+                        .sneakError();
                 logFragmentData();
-            } else {
-                Sneaker.with(EditProfile.this).setTitle("Hata !").setMessage("Lütfen eksik kısımları kontrol edin!").sneakError();
+                return;
             }
+
+            Carrier profile = Utils.getFromSharedPreferences(EditProfile.this);
+            if (profile != null) {
+                for (int i = 0; i < fragmentData.size(); i++) {
+                    Bundle data = fragmentData.get(i);
+                    if (data != null) {
+                        if (i == 0) {
+                            profile.setUserName(data.getString("username"));
+                            profile.seteMail(data.getString("email"));
+                        } else if (i == 1) {
+                            profile.setProfilePhoto(data.getString("profilePhoto"));
+                            profile.setNameSurname(data.getString("nameSurname"));
+                            profile.setPhoneNumber(data.getString("phoneNumber"));
+                            profile.setAddress(data.getString("address"));
+                        } else if (i == 2) {
+                            profile.setRelativeNameSurname(data.getString("relativeNameSurname"));
+                            profile.setRelativePhoneNumber(data.getString("relativePhoneNumber"));
+                        } else if (i == 3) {
+                            profile.setLicenseFrontFace(data.getString("licenseFront"));
+                            profile.setLicenseBackFace(data.getString("licenseBack"));
+                        }
+                    }
+                }
+                profile.saveToSharedPreferences(EditProfile.this);
+            }
+
+            ReqUtil.updateProfileReq(EditProfile.this, new ReqUtil.GeneralCallback() {
+                @Override
+                public void onSuccess() {
+                    Sneaker.with(EditProfile.this)
+                            .setTitle("Başarılı!")
+                            .setMessage("Profil başarıyla güncellendi.")
+                            .sneakSuccess();
+                }
+
+                @Override
+                public void onError() {
+                    Sneaker.with(EditProfile.this)
+                            .setTitle("Hata!")
+                            .setMessage("Profil güncellenirken bir hata oluştu.")
+                            .sneakError();
+                }
+            });
         });
     }
 
@@ -208,16 +251,44 @@ public class EditProfile extends AppCompatActivity {
         });
     }
 
+    private void initializeUser() {
+        if (currentProfile != null) {
+            Bundle step1Data = new Bundle();
+            step1Data.putString("username", currentProfile.getUserName());
+            step1Data.putString("email", currentProfile.geteMail());
+            fragmentData.put(0, step1Data);
+
+            Bundle step2Data = new Bundle();
+            step2Data.putString("profilePhoto", currentProfile.getProfilePhoto());
+            step2Data.putString("nameSurname", currentProfile.getNameSurname());
+            step2Data.putString("phoneNumber", currentProfile.getPhoneNumber());
+            step2Data.putString("address", currentProfile.getAddress());
+            fragmentData.put(1, step2Data);
+
+            Bundle step3Data = new Bundle();
+            step3Data.putString("relativeNameSurname", currentProfile.getRelativeNameSurname());
+            step3Data.putString("relativePhoneNumber", currentProfile.getRelativePhoneNumber());
+            fragmentData.put(2, step3Data);
+
+            Bundle step4Data = new Bundle();
+            step4Data.putString("licenseFront", currentProfile.getLicenseFrontFace());
+            step4Data.putString("licenseBack", currentProfile.getLicenseBackFace());
+            fragmentData.put(3, step4Data);
+        }
+    }
+
     private boolean allDataValid() {
         for (int i = 0; i < fragmentData.size(); i++) {
             Bundle data = fragmentData.get(i);
             if (data != null) {
                 for (String key : data.keySet()) {
                     if (data.getString(key) == null || Objects.requireNonNull(data.getString(key)).isEmpty()) {
+                        Log.d("allDataValid", key + " is invalid");
                         return false;
                     }
                 }
             } else {
+                Log.d("allDataValid", "data for fragment " + i + " is null");
                 return false;
             }
         }
