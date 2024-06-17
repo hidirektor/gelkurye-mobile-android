@@ -82,16 +82,31 @@ public class Step4Fragment extends Fragment {
             licenseBackPicker.launch(intent);
         });
 
-        if (getArguments() != null) {
-            Glide.with(this)
-                    .load(Utils.decodeImage(getArguments().getString("licenseFront", "")))
-                    .into(licenseFrontFace);
-            Glide.with(this)
-                    .load(Utils.decodeImage(getArguments().getString("licenseFront", "")))
-                    .into(licenseBackFace);
-        }
-
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        if (getArguments() != null) {
+            String encodedFrontPhoto = getArguments().getString("licenseFront", "");
+            String encodedBackPhoto = getArguments().getString("licenseBack", "");
+
+            if (encodedFrontPhoto != null && !encodedFrontPhoto.isEmpty()) {
+                hashedLicenseFrontFace = encodedFrontPhoto; // Initialize hashedLicenseFrontFace
+                Glide.with(this)
+                        .load(Utils.decodeImage(encodedFrontPhoto))
+                        .into(licenseFrontFace);
+            }
+
+            if (encodedBackPhoto != null && !encodedBackPhoto.isEmpty()) {
+                hashedLicenseBackFace = encodedBackPhoto; // Initialize hashedLicenseBackFace
+                Glide.with(this)
+                        .load(Utils.decodeImage(encodedBackPhoto))
+                        .into(licenseBackFace);
+            }
+        }
     }
 
     public String getLicenseFront() {
@@ -103,6 +118,7 @@ public class Step4Fragment extends Fragment {
     }
 
     public void setLicenseFront(String encodedPhoto) {
+        hashedLicenseFrontFace = encodedPhoto;
         Glide.with(this)
                 .load(Utils.decodeImage(encodedPhoto))
                 .centerCrop()
@@ -110,10 +126,10 @@ public class Step4Fragment extends Fragment {
     }
 
     public void setLicenseBack(String encodedPhoto) {
+        hashedLicenseBackFace = encodedPhoto;
         Glide.with(this)
                 .load(Utils.decodeImage(encodedPhoto))
                 .centerCrop()
                 .into(licenseBackFace);
     }
-
 }

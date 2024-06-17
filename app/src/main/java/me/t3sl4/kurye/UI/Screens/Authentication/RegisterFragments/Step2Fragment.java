@@ -82,12 +82,13 @@ public class Step2Fragment extends Fragment {
         if (getArguments() != null) {
             String encodedPhoto = getArguments().getString("profilePhoto", "");
             if (encodedPhoto != null && !encodedPhoto.isEmpty()) {
+                hashedProfilePhoto = encodedPhoto; // Initialize hashedProfilePhoto
                 Glide.with(this)
                         .load(Utils.decodeImage(encodedPhoto))
                         .into(profilePhotoImageView);
             }
             nameSurnameEditText.setText(getArguments().getString("nameSurname", ""));
-            phoneNumberEditText.setText(getArguments().getString("phoneNumber", ""));
+            phoneNumberEditText.setText(getArguments().getString("phoneNumber", "").substring(2));
             addressEditText.setText(getArguments().getString("address", ""));
         }
     }
@@ -109,6 +110,7 @@ public class Step2Fragment extends Fragment {
     }
 
     public void setProfilePhoto(String encodedPhoto) {
+        hashedProfilePhoto = encodedPhoto;
         if (isAdded()) {
             Glide.with(this)
                     .load(Utils.decodeImage(encodedPhoto))

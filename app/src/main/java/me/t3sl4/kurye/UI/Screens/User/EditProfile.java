@@ -57,9 +57,6 @@ public class EditProfile extends AppCompatActivity {
 
         NavigationBarUtil.hideNavigationBar(this);
 
-        currentProfile = Utils.getFromSharedPreferences(this);
-        Log.d("test23", currentProfile.getProfilePhoto());
-
         initializeComponents();
 
         fragmentAdapterInitialize();
@@ -68,6 +65,7 @@ public class EditProfile extends AppCompatActivity {
 
         bottomComponentsClickListeners();
 
+        currentProfile = Utils.getFromSharedPreferences(this);
         initializeUser();
     }
 
@@ -183,20 +181,20 @@ public class EditProfile extends AppCompatActivity {
         editProfileButton.setOnClickListener(v -> {
             saveFragmentData(editProfileViewPager.getCurrentItem());
 
-            /*if (!dataChanged()) {
-                Sneaker.with(EditProfile.this)
-                        .setTitle("Uyarı")
-                        .setMessage("Herhangi bir değişiklik yapılmadı.")
-                        .sneakWarning();
-                return;
-            }*/
-
             if (!allDataValid()) {
                 Sneaker.with(EditProfile.this)
                         .setTitle("Hata!")
                         .setMessage("Lütfen eksik kısımları kontrol edin!")
                         .sneakError();
                 logFragmentData();
+                return;
+            }
+
+            if (!dataChanged()) {
+                Sneaker.with(EditProfile.this)
+                        .setTitle("Uyarı")
+                        .setMessage("Herhangi bir değişiklik yapılmadı.")
+                        .sneakWarning();
                 return;
             }
 
@@ -293,5 +291,40 @@ public class EditProfile extends AppCompatActivity {
             }
         }
         return true;
+    }
+
+    private boolean dataChanged() {
+        Carrier profile = Utils.getFromSharedPreferences(this);
+        if (profile != null) {
+            for (int i = 0; i < fragmentData.size(); i++) {
+                Bundle data = fragmentData.get(i);
+                if (data != null) {
+                    if (i == 0) {
+                        if (!Objects.equals(profile.getUserName(), data.getString("username")) ||
+                                !Objects.equals(profile.geteMail(), data.getString("email"))) {
+                            return true;
+                        }
+                    } else if (i == 1) {
+                        if (!Objects.equals(profile.getProfilePhoto(), data.getString("profilePhoto")) ||
+                                !Objects.equals(profile.getNameSurname(), data.getString("nameSurname")) ||
+                                !Objects.equals(profile.getPhoneNumber(), data.getString("phoneNumber")) ||
+                                !Objects.equals(profile.getAddress(), data.getString("address"))) {
+                            return true;
+                        }
+                    } else if (i == 2) {
+                        if (!Objects.equals(profile.getRelativeNameSurname(), data.getString("relativeNameSurname")) ||
+                                !Objects.equals(profile.getRelativePhoneNumber(), data.getString("relativePhoneNumber"))) {
+                            return true;
+                        }
+                    } else if (i == 3) {
+                        if (!Objects.equals(profile.getLicenseFrontFace(), data.getString("licenseFront")) ||
+                                !Objects.equals(profile.getLicenseBackFace(), data.getString("licenseBack"))) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
     }
 }
