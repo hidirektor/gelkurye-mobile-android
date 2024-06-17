@@ -203,9 +203,17 @@ public class ReqUtil {
         JSONObject requestBody = new JSONObject();
 
         try {
-            userData.put("userID", profile.getUserID());
             userData.put("userName", profile.getUserName());
             userData.put("eMail", profile.geteMail());
+            userData.put("userType", profile.getUserType());
+            userData.put("NameSurname", profile.getNameSurname());
+            userData.put("address", profile.getAddress());
+            userData.put("password", profile.getPassword());
+            userData.put("profilePhoto", profile.getProfilePhoto());
+            userData.put("relativeNameSurname", profile.getRelativeNameSurname());
+            userData.put("relativePhoneNumber", profile.getRelativePhoneNumber());
+            userData.put("registeredMerchant", "");
+            userData.put("lastPasswordChange", profile.getLastPasswordChange());
 
             userDocumentsData.put("licenseFrontFace", profile.getLicenseFrontFace());
             userDocumentsData.put("licenseBackFace", profile.getLicenseBackFace());
@@ -242,4 +250,5 @@ public class ReqUtil {
                 tokenManager
         );
     }
+
 }
