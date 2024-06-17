@@ -1,6 +1,9 @@
 package me.t3sl4.kurye.UI.Screens.User;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,11 +26,13 @@ import java.util.Objects;
 
 import me.t3sl4.kurye.Model.User.Carrier;
 import me.t3sl4.kurye.R;
+import me.t3sl4.kurye.SplashActivity;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step1Fragment;
 import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step2Fragment;
 import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step3Fragment;
 import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step4Fragment;
+import me.t3sl4.kurye.UI.Screens.MainActivity;
 import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
 
@@ -230,6 +235,7 @@ public class EditProfile extends AppCompatActivity {
                             .setTitle("Başarılı!")
                             .setMessage("Profil başarıyla güncellendi.")
                             .sneakSuccess();
+                    new Handler(Looper.getMainLooper()).postDelayed(() -> finish(), 2000);
                 }
 
                 @Override
