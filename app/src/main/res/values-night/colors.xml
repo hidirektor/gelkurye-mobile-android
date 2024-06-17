@@ -52,8 +52,8 @@
     <color name="faqColor">#051B35</color>
 
     <!-- Background Colors -->
-    <color name="profileBackground">#F3F6FE</color>
-    <color name="profile_button_background">#F6F7FB</color>
+    <color name="profileBackground">#404245</color>
+    <color name="profile_button_background">#57585A</color>
 
     <!-- Switcher Colors -->
     <color name="switcher_on_color">#48ea8b</color>

@@ -31,7 +31,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 import com.irozon.sneaker.Sneaker;
 import com.mikhaellopez.circularimageview.CircularImageView;
-import com.sigma.niceswitch.NiceSwitch;
+import me.t3sl4.kurye.UI.Components.NiceSwitch.NiceSwitch;
 
 import org.json.JSONObject;
 
@@ -111,8 +111,7 @@ public class Profile extends AppCompatActivity {
         shiftSwitch = findViewById(R.id.shiftSwitch);
         nightThemeSwitch = findViewById(R.id.nightThemeSwitch);
 
-        shiftSwitch.setChecked(false);
-        nightThemeSwitch.setChecked(false);
+        nightThemeSwitch.setChecked(Utils.isNightModeEnabled(this));
 
         //Linear Buttons:
         earningLinearButton = findViewById(R.id.earningLinearButton);
@@ -193,12 +192,19 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        nightThemeSwitch.setOnCheckedChangedListener(v -> {
-            if(nightThemeSwitch.isChecked()) {
-                //Gece Modu Aktifleştirildi
+        nightThemeSwitch.setOnCheckedChangedListener(checked -> {
+            Utils.setNightMode(Profile.this, checked);
+            Utils.applyNightMode(Profile.this);
+
+            if (checked) {
+                // Gece Modu Aktifleştirildi
+                Log.d("Switch", "Gece Modu Aktifleştirildi");
             } else {
-                //Gece Modu Kapatıldı
+                // Gece Modu Kapatıldı
+                Log.d("Switch", "Gece Modu Kapatıldı");
             }
+
+            recreate();
         });
     }
 

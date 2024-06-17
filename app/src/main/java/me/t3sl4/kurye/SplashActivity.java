@@ -37,6 +37,7 @@ public class SplashActivity extends AppCompatActivity {
         isFirstTime = SharedPreferencesManager.getSharedPref("isFirstTime", this, true);
 
         checkLanguage();
+        checkNightMode();
 
         String accessToken = SharedPreferencesManager.getSharedPref("accessToken", this, "");
         String refreshToken = SharedPreferencesManager.getSharedPref("refreshToken", this, "");
@@ -99,6 +100,11 @@ public class SplashActivity extends AppCompatActivity {
         }
 
         Utils.setLocale(SplashActivity.this, currentLanguage);
+    }
+
+    private void checkNightMode() {
+        boolean isNightMode = SharedPreferencesManager.getSharedPref("nightMode", this, false);
+        Utils.applyNightMode(SplashActivity.this);
     }
 
     private void refreshProfileData() {

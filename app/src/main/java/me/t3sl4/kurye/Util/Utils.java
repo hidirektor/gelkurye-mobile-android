@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 
 import com.google.gson.Gson;
@@ -31,6 +32,7 @@ import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 public class Utils {
     private static final String PREF_NAME = "MyProfilePref";
     private static final String KEY_PROFILE_GSON = "profileGSON";
+    private static final String KEY_NIGHT_MODE = "nightMode";
 
     public static String getBaseURL() {
         return BuildConfig.BASE_URL;
@@ -149,4 +151,23 @@ public class Utils {
             e.printStackTrace();
         }
     }
-}
+
+    public static void setNightMode(Context context, boolean isEnabled) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(KEY_NIGHT_MODE, isEnabled);
+        editor.apply();
+    }
+
+    public static boolean isNightModeEnabled(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean(KEY_NIGHT_MODE, false);
+    }
+
+    public static void applyNightMode(Context context) {
+        if (isNightModeEnabled(context)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+    }}
