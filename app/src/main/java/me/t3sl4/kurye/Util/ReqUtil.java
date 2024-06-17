@@ -71,7 +71,6 @@ public class ReqUtil {
         );
     }
 
-
     public static void getProfileReq(Context context, String phoneNumber, ProfileCallback callback) {
         httpHelper = HTTPHelper.getInstance(context);
         tokenManager = new TokenManager(context);
@@ -185,6 +184,58 @@ public class ReqUtil {
                     public void onError(VolleyError error) {
                         Log.d("Logout", error.toString());
                         callback.onError(error);
+                    }
+                },
+                tokenManager
+        );
+    }
+
+    public static void updateProfileReq(Context context, GeneralCallback callback) {
+        httpHelper = HTTPHelper.getInstance(context);
+        tokenManager = new TokenManager(context);
+
+        Carrier profile = Utils.getFromSharedPreferences(context);
+
+        JSONObject userData = new JSONObject();
+        JSONObject userDocumentsData = new JSONObject();
+        JSONObject userPreferencesData = new JSONObject();
+        JSONObject requestBody = new JSONObject();
+
+        try {
+            userData.put("userID", profile.getUserID());
+            userData.put("userName", profile.getUserName());
+            userData.put("eMail", profile.geteMail());
+
+            userDocumentsData.put("licenseFrontFace", profile.getLicenseFrontFace());
+            userDocumentsData.put("licenseBackFace", profile.getLicenseBackFace());
+
+            userPreferencesData.put("nightMode", profile.isNightMode());
+            userPreferencesData.put("selectedLanguage", profile.isSelectedLanguage());
+            userPreferencesData.put("firstBreakTime", profile.getFirstBreakTime());
+            userPreferencesData.put("secondBreakTime", profile.getSecondBreakTime());
+
+            requestBody.put("phoneNumber", profile.getPhoneNumber());
+            requestBody.put("userData", userData);
+            requestBody.put("userDocumentsData", userDocumentsData);
+            requestBody.put("userPreferencesData", userPreferencesData);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        httpHelper.makeRequest(
+                Request.Method.POST,
+                "user/updateProfile",
+                requestBody,
+                true,
+                new HTTPResponseListener() {
+                    @Override
+                    public void onSuccess(JSONObject response) {
+                        callback.onSuccess();
+                    }
+
+                    @Override
+                    public void onError(VolleyError error) {
+                        callback.onError();
                     }
                 },
                 tokenManager

@@ -20,6 +20,7 @@ import com.google.gson.Gson;
 import com.irozon.sneaker.Sneaker;
 
 import java.io.ByteArrayOutputStream;
+import java.lang.reflect.Field;
 import java.util.Locale;
 
 import me.t3sl4.kurye.BuildConfig;
@@ -116,4 +117,36 @@ public class Utils {
         alert.show();
     }
 
+    public static Object getData(Context context, String key) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        String profileJson = sharedPreferences.getString(KEY_PROFILE_GSON, "");
+        Carrier profile = new Gson().fromJson(profileJson, Carrier.class);
+
+        try {
+            Field field = Carrier.class.getDeclaredField(key);
+            field.setAccessible(true);
+            return field.get(profile);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static void setData(Context context, String key, Object value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        String profileJson = sharedPreferences.getString(KEY_PROFILE_GSON, "");
+        Carrier profile = new Gson().fromJson(profileJson, Carrier.class);
+
+        try {
+            Field field = Carrier.class.getDeclaredField(key);
+            field.setAccessible(true);
+            field.set(profile, value);
+
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(KEY_PROFILE_GSON, new Gson().toJson(profile));
+            editor.apply();
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
 }
