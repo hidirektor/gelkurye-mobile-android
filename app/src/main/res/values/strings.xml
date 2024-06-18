@@ -37,6 +37,11 @@
     <string name="hint_relative_name_surname">Yakınınız</string>
     <string name="hint_relative_phone_number">Yakınınızın Telefon Numarası</string>
 
+    <!-- Merchant Register Hints -->
+    <string name="hint_merchant_name">İşletme Adı</string>
+    <string name="hint_merchant_addres">İşletme Adresi</string>
+    <string name="hint_merchant_contact_number">İşletme Telefon Numarası</string>
+
     <!-- License Texts -->
     <string name="license_front">Ehliyet Ön Yüz</string>
     <string name="license_back">Ehliyet Arka Yüz</string>
@@ -47,6 +52,7 @@
     <string name="navbar_profile">Profil</string>
     <string name="navbar_settings">Ayarlar</string>
     <string name="navbar_support">Destek</string>
+    <string name="navbar_logout">Çıkış Yap</string>
     <string name="navbar_button_dashboard">Dashboard</string>
     <string name="navbar_button_earning">Kazanç</string>
 
@@ -133,6 +139,7 @@
     <string name="register_fragment_personal">Kişisel\nBilgiler</string>
     <string name="register_fragment_relative">Yakınınız</string>
     <string name="register_fragment_license">Yasal</string>
+    <string name="register_fragment_merchant">İşletme</string>
 
     <!-- Map Texts -->
     <string name="map_text_origin">Restaurant</string>

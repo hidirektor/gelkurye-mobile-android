@@ -58,21 +58,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_gravity="center|center_vertical">
+            android:layout_gravity="center">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.45"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
-                android:padding="12dp">
+                android:padding="12dp"
+                android:layout_gravity="center">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/btn1"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="12dp"
                     android:layout_weight="0.5"
                     android:background="@drawable/background_btn_6"
@@ -92,13 +92,14 @@
                             app:tint="@color/primaryColor"
                             android:layout_gravity="center|center_vertical"/>
 
-                        <com.sigma.niceswitch.NiceSwitch
+                        <me.t3sl4.kurye.UI.Components.NiceSwitch.NiceSwitch
                             android:id="@+id/trendyolYemekSwitch"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             app:switcher_on_color="@color/on_color"
                             app:switcher_off_color="@color/off_color"
                             app:switcher_icon_color="@color/white"
+                            android:checked="false"
                             android:layout_gravity="center"
                             android:layout_marginTop="12dp"/>
                     </LinearLayout>
@@ -107,7 +108,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/btn2"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="12dp"
                     android:layout_weight="0.5"
                     android:background="@drawable/background_btn_6"
@@ -126,13 +127,14 @@
                             app:srcCompat="@drawable/ikon_getiryemek"
                             android:layout_gravity="center|center_vertical"/>
 
-                        <com.sigma.niceswitch.NiceSwitch
+                        <me.t3sl4.kurye.UI.Components.NiceSwitch.NiceSwitch
                             android:id="@+id/getirYemekSwitch"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             app:switcher_on_color="@color/on_color"
                             app:switcher_off_color="@color/off_color"
                             app:switcher_icon_color="@color/white"
+                            android:checked="false"
                             android:layout_gravity="center|center_horizontal"
                             android:layout_marginTop="12dp"/>
                     </LinearLayout>
@@ -141,8 +143,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.45"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
@@ -152,7 +153,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/yemeksepetiButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/background_btn_6"
                     android:padding="10dp">
 
@@ -169,13 +170,14 @@
                             app:srcCompat="@drawable/ikon_yemeksepeti"
                             android:layout_gravity="center|center_vertical"/>
 
-                        <com.sigma.niceswitch.NiceSwitch
+                        <me.t3sl4.kurye.UI.Components.NiceSwitch.NiceSwitch
                             android:id="@+id/yemeksepetiSwitch"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:switcher_on_color="@color/on_color"
                             app:switcher_off_color="@color/off_color"
                             app:switcher_icon_color="@color/white"
+                            android:checked="false"
                             android:layout_gravity="center"
                             android:layout_marginTop="12dp"/>
                     </LinearLayout>
@@ -184,12 +186,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1.0"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="36dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp">
+                android:layout_marginEnd="24dp"
+                android:layout_gravity="center">
 
                 <LinearLayout
                     android:id="@+id/changePassLinearButton"

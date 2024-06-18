@@ -37,6 +37,11 @@
     <string name="hint_relative_name_surname">Relative Name Surname</string>
     <string name="hint_relative_phone_number">Relative Phone Number</string>
 
+    <!-- Merchant Register Hints -->
+    <string name="hint_merchant_name">Merchant Name</string>
+    <string name="hint_merchant_addres">Merchant Address</string>
+    <string name="hint_merchant_contact_number">Merchant Phone Number</string>
+
     <!-- License Texts -->
     <string name="license_front">License Front</string>
     <string name="license_back">License Back</string>
@@ -47,6 +52,7 @@
     <string name="navbar_profile">Profile</string>
     <string name="navbar_settings">Settings</string>
     <string name="navbar_support">Support</string>
+    <string name="navbar_logout">Logout</string>
     <string name="navbar_button_dashboard">Dashboard</string>
     <string name="navbar_button_earning">Earning</string>
 
@@ -123,6 +129,7 @@
     <string name="register_fragment_personal">Personal Info</string>
     <string name="register_fragment_relative">Relative Info</string>
     <string name="register_fragment_license">License</string>
+    <string name="register_fragment_merchant">Merchant</string>
 
     <!-- Map Texts -->
     <string name="map_text_origin">Restaurant</string>

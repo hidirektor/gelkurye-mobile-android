@@ -176,7 +176,6 @@ public class Profile extends AppCompatActivity {
                 }
             });
 
-
         });
 
         editProfileButton.setOnClickListener(v -> {

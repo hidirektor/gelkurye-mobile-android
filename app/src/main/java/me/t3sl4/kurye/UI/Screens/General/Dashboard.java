@@ -16,22 +16,30 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.navigation.NavigationView;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
+import com.irozon.sneaker.Sneaker;
 import com.mikhaellopez.circularimageview.CircularImageView;
+
+import org.json.JSONObject;
 
 import me.t3sl4.kurye.Model.User.Carrier;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.Navigation.NavigationUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
+import me.t3sl4.kurye.UI.Screens.Authentication.Login;
 import me.t3sl4.kurye.UI.Screens.Hamburger.FAQ;
+import me.t3sl4.kurye.UI.Screens.MainActivity;
 import me.t3sl4.kurye.UI.Screens.Order.CurrentOrder;
 import me.t3sl4.kurye.UI.Screens.Order.Orders;
 import me.t3sl4.kurye.UI.Screens.User.Earning;
 import me.t3sl4.kurye.UI.Screens.User.EditProfile;
 import me.t3sl4.kurye.UI.Screens.User.Profile;
+import me.t3sl4.kurye.Util.HTTP.HTTPResponseListener;
+import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
 
 public class Dashboard extends AppCompatActivity {
@@ -66,6 +74,7 @@ public class Dashboard extends AppCompatActivity {
     private LinearLayout navSettingsButton;
     private LinearLayout navFaqButton;
     private LinearLayout navSupportButton;
+    private LinearLayout navLogoutButton;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -143,6 +152,7 @@ public class Dashboard extends AppCompatActivity {
         navSettingsButton = hamburgerView.findViewById(R.id.navSettings);
         navFaqButton = hamburgerView.findViewById(R.id.navFAQ);
         navSupportButton = hamburgerView.findViewById(R.id.navSupport);
+        navLogoutButton = hamburgerView.findViewById(R.id.navLogout);
     }
 
     private void hamburgerMenuButtonClicks() {
@@ -175,6 +185,25 @@ public class Dashboard extends AppCompatActivity {
         navSupportButton.setOnClickListener(v -> {
             Intent githubIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/hidirektor"));
             startActivity(githubIntent);
+        });
+
+        navLogoutButton.setOnClickListener(v -> {
+            Intent loginIntent = new Intent(Dashboard.this, MainActivity.class);
+
+            ReqUtil.logoutReq(Dashboard.this, new HTTPResponseListener() {
+                @Override
+                public void onSuccess(JSONObject response) {
+                    startActivity(loginIntent);
+                    finish();
+                }
+
+                @Override
+                public void onError(VolleyError error) {
+                    Sneaker.with(Dashboard.this).setTitle("Hata !").setMessage("Çıkış yapılamadı, lütfen tekrar deneyin.").sneakError();
+                    startActivity(loginIntent);
+                    finish();
+                }
+            });
         });
     }
 
