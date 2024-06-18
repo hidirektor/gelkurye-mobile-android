@@ -20,7 +20,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.android.volley.VolleyError;
 import com.irozon.sneaker.Sneaker;
-import com.kofigyan.stateprogressbar.StateProgressBar;
+import me.t3sl4.kurye.UI.Components.StateProgressBar.StateProgressBar;
 
 import org.json.JSONException;
 import org.json.JSONObject;

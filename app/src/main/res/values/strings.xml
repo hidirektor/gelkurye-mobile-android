@@ -164,4 +164,7 @@
 
     <!-- Error Texts -->
     <string name="country_error">Şuan sadece Türkiyeye hizmet veriyoruz.</string>
+
+    <!-- ProgressBar Texts -->
+    <string name="check_icon" translatable="false">&#xf00c;</string>
 </resources>

@@ -16,7 +16,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.irozon.sneaker.Sneaker;
-import com.kofigyan.stateprogressbar.StateProgressBar;
+import me.t3sl4.kurye.UI.Components.StateProgressBar.StateProgressBar;
 
 import java.util.ArrayList;
 import java.util.HashMap;

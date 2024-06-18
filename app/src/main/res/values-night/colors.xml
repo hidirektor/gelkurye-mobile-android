@@ -59,4 +59,10 @@
     <color name="switcher_on_color">#48ea8b</color>
     <color name="switcher_off_color">#ff4651</color>
     <color name="switcher_icon_color">@android:color/white</color>
+
+    <!-- ProgressBar Colors -->
+    <color name="background_color">#F2000000</color>
+    <color name="foreground_color">#b42379</color>
+    <color name="background_text_color">#808080</color>
+    <color name="foreground_text_color">#eeeeee</color>
 </resources>

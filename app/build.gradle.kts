@@ -134,7 +134,6 @@ dependencies {
     implementation("io.github.chaosleung:pinview:1.4.4")
     implementation("com.iarcuschin:simpleratingbar:0.1.5")
     implementation("com.github.Z-P-J:ZCheckBox:1.0.0")
-    implementation("com.kofigyan.stateprogressbar:stateprogressbar:1.0.0")
     implementation("com.hbb20:ccp:2.7.3")
     implementation("com.mikhaellopez:circularimageview:3.2.0")
 

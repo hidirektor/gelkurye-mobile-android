@@ -43,7 +43,7 @@
                 android:textStyle="bold"
                 android:layout_gravity="center" />
 
-            <com.kofigyan.stateprogressbar.StateProgressBar
+            <me.t3sl4.kurye.UI.Components.StateProgressBar.StateProgressBar
                 android:id="@+id/registerStateBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

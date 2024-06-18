@@ -59,7 +59,7 @@
                     android:background="@color/black"
                     android:layout_marginBottom="10dp"/>
 
-                <com.kofigyan.stateprogressbar.StateProgressBar
+                <me.t3sl4.kurye.UI.Components.StateProgressBar.StateProgressBar
                     android:id="@+id/editProfileStateBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -74,6 +74,7 @@
                     android:textAlignment="center"
                     app:spb_animateToCurrentProgressState="true"
                     app:spb_checkStateCompleted="true"
+                    app:spb_stateNumberVisibility="false"
                     android:layout_gravity="center"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"/>
