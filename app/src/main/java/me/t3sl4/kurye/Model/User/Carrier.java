@@ -28,7 +28,7 @@ public class Carrier implements Parcelable {
     private String licenseFrontFace;
     private String licenseBackFace;
     private boolean nightMode;
-    private boolean selectedLanguage;
+    private String selectedLanguage;
     private String firstBreakTime;
     private String secondBreakTime;
     private int userRating;
@@ -38,7 +38,7 @@ public class Carrier implements Parcelable {
                    String phoneNumber, String address, String password, String profilePhoto,
                    String relativeNameSurname, String relativePhoneNumber, String lastPasswordChange,
                    String createdAt, String licenseFrontFace, String licenseBackFace, boolean nightMode,
-                   boolean selectedLanguage, String firstBreakTime, String secondBreakTime, int userRating) {
+                   String selectedLanguage, String firstBreakTime, String secondBreakTime, int userRating) {
         this.id = id;
         this.userID = userID;
         this.userName = userName;
@@ -135,7 +135,7 @@ public class Carrier implements Parcelable {
         return nightMode;
     }
 
-    public boolean isSelectedLanguage() {
+    public String isSelectedLanguage() {
         return selectedLanguage;
     }
 
@@ -219,7 +219,7 @@ public class Carrier implements Parcelable {
         this.nightMode = nightMode;
     }
 
-    public void setSelectedLanguage(boolean selectedLanguage) {
+    public void setSelectedLanguage(String selectedLanguage) {
         this.selectedLanguage = selectedLanguage;
     }
 
@@ -258,7 +258,7 @@ public class Carrier implements Parcelable {
         licenseFrontFace = in.readString();
         licenseBackFace = in.readString();
         nightMode = in.readByte() != 0;
-        selectedLanguage = in.readByte() != 0;
+        selectedLanguage = in.readString();
         firstBreakTime = in.readString();
         secondBreakTime = in.readString();
         userRating = in.readInt();
@@ -300,7 +300,7 @@ public class Carrier implements Parcelable {
         dest.writeString(licenseFrontFace);
         dest.writeString(licenseBackFace);
         dest.writeByte((byte) (nightMode ? 1 : 0));
-        dest.writeByte((byte) (selectedLanguage ? 1 : 0));
+        dest.writeString(selectedLanguage);
         dest.writeString(firstBreakTime);
         dest.writeString(secondBreakTime);
         dest.writeInt(userRating);

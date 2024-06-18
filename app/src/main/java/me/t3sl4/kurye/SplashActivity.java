@@ -103,7 +103,6 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void checkNightMode() {
-        boolean isNightMode = SharedPreferencesManager.getSharedPref("nightMode", this, false);
         Utils.applyNightMode(SplashActivity.this);
     }
 

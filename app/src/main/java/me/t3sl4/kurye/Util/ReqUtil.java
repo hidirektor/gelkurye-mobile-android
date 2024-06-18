@@ -118,7 +118,7 @@ public class ReqUtil {
                             int userPreferencesId = userPreferencesObject.getInt("id");
                             String userPreferencesUserID = userPreferencesObject.getString("userID");
                             boolean nightMode = userPreferencesObject.getBoolean("nightMode");
-                            boolean selectedLanguage = userPreferencesObject.getBoolean("selectedLanguage");
+                            String selectedLanguage = userPreferencesObject.getString("selectedLanguage");
                             String firstBreakTime = userPreferencesObject.getString("firstBreakTime");
                             String secondBreakTime = userPreferencesObject.getString("secondBreakTime");
 
@@ -251,4 +251,35 @@ public class ReqUtil {
         );
     }
 
+    public static void updatePreferencesReq(Context context, String phoneNumber, JSONObject preferencesData, GeneralCallback callback) {
+        httpHelper = HTTPHelper.getInstance(context);
+        tokenManager = new TokenManager(context);
+
+        JSONObject requestBody = new JSONObject();
+        try {
+            requestBody.put("phoneNumber", phoneNumber);
+            requestBody.put("preferencesData", preferencesData);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        httpHelper.makeRequest(
+                Request.Method.POST,
+                "user/updatePreferences",
+                requestBody,
+                true,
+                new HTTPResponseListener() {
+                    @Override
+                    public void onSuccess(JSONObject response) {
+                        callback.onSuccess();
+                    }
+
+                    @Override
+                    public void onError(VolleyError error) {
+                        callback.onError();
+                    }
+                },
+                tokenManager
+        );
+    }
 }

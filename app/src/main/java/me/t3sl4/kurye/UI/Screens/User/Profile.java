@@ -33,6 +33,7 @@ import com.irozon.sneaker.Sneaker;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import me.t3sl4.kurye.UI.Components.NiceSwitch.NiceSwitch;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Objects;
@@ -196,13 +197,27 @@ public class Profile extends AppCompatActivity {
             Utils.setNightMode(Profile.this, checked);
             Utils.applyNightMode(Profile.this);
 
-            if (checked) {
-                // Gece Modu Aktifleştirildi
-                Log.d("Switch", "Gece Modu Aktifleştirildi");
-            } else {
-                // Gece Modu Kapatıldı
-                Log.d("Switch", "Gece Modu Kapatıldı");
+            JSONObject preferencesData = new JSONObject();
+            try {
+                preferencesData.put("nightMode", checked);
+                preferencesData.put("selectedLanguage", SharedPreferencesManager.getSharedPref("language", Profile.this, "en"));
+                preferencesData.put("firstBreakTime", null);
+                preferencesData.put("secondBreakTime", null);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+
+            ReqUtil.updatePreferencesReq(Profile.this, currentProfile.getPhoneNumber(), preferencesData, new ReqUtil.GeneralCallback() {
+                @Override
+                public void onSuccess() {
+                    Log.d("Switch", "Gece Modu Güncellendi");
+                }
+
+                @Override
+                public void onError() {
+                    Log.e("Switch", "Gece Modu Güncelleme Hatası");
+                }
+            });
 
             recreate();
         });
@@ -275,6 +290,7 @@ public class Profile extends AppCompatActivity {
 
             turkishButton.setOnClickListener(view -> {
                 //Sistem dilini türkçe yap
+                languageDialog.dismiss();
                 switchLanguage("tr");
 
                 englishButton.setChecked(false);
@@ -282,6 +298,7 @@ public class Profile extends AppCompatActivity {
 
             englishButton.setOnClickListener(view -> {
                 //Sistem dilini ingilizce yap
+                languageDialog.dismiss();
                 switchLanguage("en");
 
                 turkishButton.setChecked(false);
@@ -327,6 +344,27 @@ public class Profile extends AppCompatActivity {
     private void switchLanguage(String nextLang) {
         SharedPreferencesManager.writeSharedPref("language", nextLang, Profile.this);
         Utils.setLocale(Profile.this, nextLang);
+        JSONObject preferencesData = new JSONObject();
+        try {
+            preferencesData.put("nightMode", nightThemeSwitch.isChecked());
+            preferencesData.put("selectedLanguage", nextLang);
+            preferencesData.put("firstBreakTime", null);
+            preferencesData.put("secondBreakTime", null);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        ReqUtil.updatePreferencesReq(Profile.this, currentProfile.getPhoneNumber(), preferencesData, new ReqUtil.GeneralCallback() {
+            @Override
+            public void onSuccess() {
+                Log.d("Switch", "Sistem Dili" + nextLang + " Olarak Güncellendi");
+            }
+
+            @Override
+            public void onError() {
+                Log.e("Switch", "Sistem Dili Güncelleme Hatası");
+            }
+        });
         recreate();
     }
 
