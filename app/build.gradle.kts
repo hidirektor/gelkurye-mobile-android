@@ -1,43 +1,101 @@
+import java.text.SimpleDateFormat
+import java.util.Properties
+import java.io.FileInputStream
+import java.util.Date
+
 plugins {
     id("com.android.application")
 }
+
+val keystorePropertiesFile = file("signing.properties")
+val keystoreProperties = Properties()
+keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 
 android {
     namespace = "me.t3sl4.kurye"
     compileSdk = 34
 
-    sourceSets {
-        getByName("main") {
-            res.srcDirs(
-                "src/main/res/layouts/merchant",
-                "src/main/res/layouts/dashboard",
-                "src/main/res/layouts/order",
-                "src/main/res/layouts/earning",
-                "src/main/res/layouts/profile",
-                "src/main/res/layouts/hamburger",
-                "src/main/res/layouts/general",
-                "src/main/res/layouts/onboard",
-                "src/main/res/layouts/auth",
-                "src/main/res/layouts",
-                "src/main/res", "src/main/res/layouts/dialogs", "src/main/res/layouts/diyalog",
-            )
+    applicationVariants.all {
+        outputs.all {
+            val output = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
+            val variantName = name
+            val versionName = versionName
+            val formattedDate = SimpleDateFormat("dd-MM-yyyy").format(Date())
+            val fileExtension = output.outputFile.extension
+            output.outputFileName = "GelKurye ${variantName}_${formattedDate}_v${versionName}.${fileExtension}"
         }
     }
 
-    defaultConfig {
-        applicationId = "me.t3sl4.kurye"
-        minSdk = 29
-        targetSdk = 34
-        versionCode = 10
-        versionName = "18.06.2024"
+    val versionPropsFile = file("version.properties")
+    val versionProps = Properties()
 
-        buildConfigField("String", "BASE_URL", "\"http://85.95.231.92:4000/api/v1/\"")
+    if (versionPropsFile.canRead()) {
+        versionProps.load(FileInputStream(versionPropsFile))
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        val patch = versionProps["PATCH"].toString().toInt() + 1
+        var minor = versionProps["MINOR"].toString().toInt()
+        var major = versionProps["MAJOR"].toString().toInt()
+        val realVersionCode = versionProps["VERSION_CODE"].toString().toInt() + 1
+
+        if (patch == 100) {
+            minor += 1
+            versionProps["PATCH"] = "0"
+        } else {
+            versionProps["PATCH"] = patch.toString()
+        }
+
+        if (minor == 10) {
+            major += 1
+            minor = 0
+        }
+
+        versionProps["MINOR"] = minor.toString()
+        versionProps["MAJOR"] = major.toString()
+        versionProps["VERSION_CODE"] = realVersionCode.toString()
+        versionProps.store(versionPropsFile.writer(), null)
+
+        defaultConfig {
+            applicationId = "me.t3sl4.kurye"
+            minSdk = 29
+            targetSdk = 34
+            versionCode = realVersionCode
+            versionName = "$major.$minor.$patch($versionCode)"
+
+            buildConfigField("String", "BASE_URL", "\"http://85.95.231.92:4000/api/v1/\"")
+
+            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        }
+
+        signingConfigs {
+            create("key0") {
+                keyAlias = keystoreProperties["keyAlias"] as String
+                keyPassword = keystoreProperties["keyPassword"] as String
+                storeFile = file(keystoreProperties["storeFile"] as String)
+                storePassword = keystoreProperties["storePassword"] as String
+            }
+        }
+    } else {
+        throw GradleException("Could not read version.properties!")
     }
 
+    sourceSets["main"].res.srcDirs(
+        "src/main/res/layouts/merchant",
+        "src/main/res/layouts/dashboard",
+        "src/main/res/layouts/order",
+        "src/main/res/layouts/earning",
+        "src/main/res/layouts/profile",
+        "src/main/res/layouts/hamburger",
+        "src/main/res/layouts/general",
+        "src/main/res/layouts/onboard",
+        "src/main/res/layouts/auth",
+        "src/main/res/layouts",
+        "src/main/res",
+        "src/main/res/layouts/dialogs",
+        "src/main/res/layouts/diyalog"
+    )
+
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
             isShrinkResources = false
             buildFeatures.buildConfig = true
@@ -48,6 +106,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
