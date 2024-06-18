@@ -342,11 +342,14 @@
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/hamburgerMenu"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:background="@drawable/navigation"
         app:headerLayout="@layout/hamburger_main"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:visibility="invisible"/>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

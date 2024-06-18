@@ -96,8 +96,8 @@ android {
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
-            isShrinkResources = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             buildFeatures.buildConfig = true
 
             proguardFiles(
@@ -113,6 +113,11 @@ android {
     }
 }
 
+tasks.withType<JavaCompile> {
+    options.compilerArgs.add("-Xlint:deprecation")
+    options.isWarnings = true
+}
+
 dependencies {
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -125,6 +130,12 @@ dependencies {
     implementation("com.google.android.gms:play-services-location:21.3.0")
     implementation("com.google.maps.android:android-maps-utils:2.3.0")
     implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.google.code.findbugs:annotations:3.0.1") {
+        exclude(group = "com.google.code.findbugs", module = "jsr305")
+        exclude(group = "net.jcip", module = "jcip-annotations")
+    }
+
+    implementation("androidx.core:core-ktx:1.7.0")
 
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")

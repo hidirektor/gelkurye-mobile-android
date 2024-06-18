@@ -21,7 +21,7 @@
             android:layout_height="96dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/ikon_dev_photo"
             app:civ_shadow="false"
             android:layout_gravity="center|center_horizontal"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
             android:text="@string/developer"
-            android:textColor="#1A1A35"
+            android:textColor="@color/white"
             android:textAlignment="center"
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@+id/profilePhotoHamburger"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/outfit"
             android:text="@string/welcome"
-            android:textColor="#1A1A35"
+            android:textColor="@color/white"
             android:textAlignment="center"
             android:textSize="14sp"
             app:layout_constraintTop_toBottomOf="@+id/nameSurnameHamburger"
@@ -68,7 +68,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="top"
-            android:layout_marginTop="25dp">
+            android:layout_marginTop="22dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginBottom="12dp">
             <Button
                 android:id="@+id/navCurrentOrder"
                 android:layout_width="250dp"
@@ -108,7 +111,7 @@
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/outfit_semibold"
                     android:text="@string/all_orders"
-                    android:textColor="#6A6ABA"
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -131,7 +134,7 @@
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/outfit_semibold"
                     android:text="@string/navbar_settings"
-                    android:textColor="#6A6ABA"
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -154,7 +157,7 @@
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/outfit_semibold"
                     android:text="@string/faq"
-                    android:textColor="#6A6ABA"
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -177,7 +180,7 @@
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/outfit_semibold"
                     android:text="@string/navbar_support"
-                    android:textColor="#6A6ABA"
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
@@ -187,7 +190,7 @@
         android:id="@+id/appLogo"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:src="@drawable/app_logo"
+        android:src="@drawable/app_logo_navbar"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

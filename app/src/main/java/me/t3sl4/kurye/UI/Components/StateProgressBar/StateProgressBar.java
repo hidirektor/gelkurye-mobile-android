@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -15,11 +16,11 @@ import android.widget.Scroller;
 
 import androidx.core.content.ContextCompat;
 
-import me.t3sl4.kurye.UI.Components.StateProgressBar.components.StateItem;
-import me.t3sl4.kurye.UI.Components.StateProgressBar.components.StateItemDescription;
-import me.t3sl4.kurye.UI.Components.StateProgressBar.components.StateItemNumber;
-import me.t3sl4.kurye.UI.Components.StateProgressBar.listeners.OnStateItemClickListener;
-import me.t3sl4.kurye.UI.Components.StateProgressBar.utils.FontManager;
+import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.Components.StateItem;
+import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.Components.StateItemDescription;
+import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.Components.StateItemNumber;
+import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.Listeners.OnStateItemClickListener;
+import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.FontManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1331,10 +1332,9 @@ public class StateProgressBar extends View {
     }
 
     private float convertSpToPixel(float sp) {
-        final float scale = getResources().getDisplayMetrics().scaledDensity;
-        return sp * scale;
+        final float scale = getResources().getConfiguration().fontScale;
+        return sp * scale * getResources().getDisplayMetrics().density;
     }
-
 
     @Override
     protected void onAttachedToWindow() {
@@ -1429,7 +1429,6 @@ public class StateProgressBar extends View {
 
             mIsStateNumberDescending = bundle.getBoolean(IS_STATE_NUMBER_DESCENDING_KEY);
 
-
             mStateNumberTextSize = bundle.getFloat(STATE_NUMBER_TEXT_SIZE_KEY);
             mStateSize = bundle.getFloat(STATE_SIZE_KEY);
             resetStateSizeValues();
@@ -1440,7 +1439,6 @@ public class StateProgressBar extends View {
             mStateDescriptionSize = bundle.getFloat(STATE_DESCRIPTION_SIZE_KEY);
             resolveStateDescriptionSize();
 
-
             mMaxStateNumber = bundle.getInt(MAX_STATE_NUMBER_KEY);
             mCurrentStateNumber = bundle.getInt(CURRENT_STATE_NUMBER_KEY);
             resolveMaxStateNumber();
@@ -1448,7 +1446,6 @@ public class StateProgressBar extends View {
             mAnimStartDelay = bundle.getInt(ANIM_START_DELAY_KEY);
 
             mAnimDuration = bundle.getInt(ANIM_DURATION_KEY);
-
 
             mDescTopSpaceDecrementer = bundle.getFloat(DESC_TOP_SPACE_DECREMENTER_KEY);
 
@@ -1478,12 +1475,15 @@ public class StateProgressBar extends View {
 
             setAllStatesCompleted(bundle.getBoolean(ENABLE_ALL_STATES_COMPLETED_KEY));
 
-            super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATE));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATE, Parcelable.class));
+            }
 
             return;
         }
         super.onRestoreInstanceState(state);
     }
+
 
 
 }

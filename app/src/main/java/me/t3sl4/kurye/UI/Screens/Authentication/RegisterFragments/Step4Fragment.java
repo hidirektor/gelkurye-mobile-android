@@ -3,6 +3,8 @@ package me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.ImageDecoder;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
@@ -35,7 +37,8 @@ public class Step4Fragment extends Fragment {
                     Intent data = result.getData();
                     if (data != null) {
                         try {
-                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), data.getData());
+                            Uri imageUri = data.getData();
+                            Bitmap bitmap = ImageDecoder.decodeBitmap(ImageDecoder.createSource(requireActivity().getContentResolver(), imageUri));
                             licenseFrontFace.setImageBitmap(bitmap);
 
                             hashedLicenseFrontFace = Utils.encodeImage(bitmap);
@@ -54,7 +57,8 @@ public class Step4Fragment extends Fragment {
                     Intent data = result.getData();
                     if (data != null) {
                         try {
-                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), data.getData());
+                            Uri imageUri = data.getData();
+                            Bitmap bitmap = ImageDecoder.decodeBitmap(ImageDecoder.createSource(requireActivity().getContentResolver(), imageUri));
                             licenseBackFace.setImageBitmap(bitmap);
 
                             hashedLicenseBackFace = Utils.encodeImage(bitmap);

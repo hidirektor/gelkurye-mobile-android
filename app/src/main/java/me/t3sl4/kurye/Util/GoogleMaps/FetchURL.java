@@ -1,6 +1,7 @@
 package me.t3sl4.kurye.Util.GoogleMaps;
 
-import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -8,29 +9,32 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
-public class FetchURL extends AsyncTask<String, Void, String> {
-    private OnTaskDoneListener taskListener;
+public class FetchURL {
+    private final OnTaskDoneListener taskListener;
+    private final Executor executor;
+    private final Handler handler;
 
     public FetchURL(OnTaskDoneListener taskListener) {
         this.taskListener = taskListener;
+        this.executor = Executors.newSingleThreadExecutor();
+        this.handler = new Handler(Looper.getMainLooper());
     }
 
-    @Override
-    protected String doInBackground(String... strings) {
-        String data = "";
-        try {
-            data = downloadUrl(strings[0]);
-        } catch (Exception e) {
-            Log.e("Background Task", e.toString());
-        }
-        return data;
-    }
+    public void execute(String... strings) {
+        executor.execute(() -> {
+            String data = "";
+            try {
+                data = downloadUrl(strings[0]);
+            } catch (Exception e) {
+                Log.e("Background Task", e.toString());
+            }
 
-    @Override
-    protected void onPostExecute(String s) {
-        super.onPostExecute(s);
-        new ParserTask(taskListener).execute(s);
+            String finalData = data;
+            handler.post(() -> new ParserTask(taskListener).execute(finalData));
+        });
     }
 
     private String downloadUrl(String strUrl) throws Exception {
@@ -53,8 +57,12 @@ public class FetchURL extends AsyncTask<String, Void, String> {
         } catch (Exception e) {
             Log.e("Exception", e.toString());
         } finally {
-            inputStream.close();
-            urlConnection.disconnect();
+            if (inputStream != null) {
+                inputStream.close();
+            }
+            if (urlConnection != null) {
+                urlConnection.disconnect();
+            }
         }
         return data;
     }
