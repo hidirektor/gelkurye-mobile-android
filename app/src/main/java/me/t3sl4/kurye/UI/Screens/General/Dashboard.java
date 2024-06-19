@@ -16,34 +16,26 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.navigation.NavigationView;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
-import com.irozon.sneaker.Sneaker;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
-import org.json.JSONObject;
-
-import me.t3sl4.kurye.Model.User.Carrier;
+import me.t3sl4.kurye.Model.User.UserModel;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.Navigation.NavigationUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
-import me.t3sl4.kurye.UI.Screens.Authentication.Login;
 import me.t3sl4.kurye.UI.Screens.Hamburger.FAQ;
-import me.t3sl4.kurye.UI.Screens.MainActivity;
 import me.t3sl4.kurye.UI.Screens.Order.CurrentOrder;
 import me.t3sl4.kurye.UI.Screens.Order.Orders;
 import me.t3sl4.kurye.UI.Screens.User.Earning;
 import me.t3sl4.kurye.UI.Screens.User.EditProfile;
 import me.t3sl4.kurye.UI.Screens.User.Profile;
-import me.t3sl4.kurye.Util.HTTP.HTTPResponseListener;
-import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
 
 public class Dashboard extends AppCompatActivity {
-    private Carrier currentProfile;
+    private UserModel currentProfile;
 
     //Personal Stats:
     private CircularImageView profilePhotoDashboard;

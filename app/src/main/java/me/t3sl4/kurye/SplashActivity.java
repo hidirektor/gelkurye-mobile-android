@@ -11,7 +11,7 @@ import com.irozon.sneaker.Sneaker;
 
 import java.util.Objects;
 
-import me.t3sl4.kurye.Model.User.Carrier;
+import me.t3sl4.kurye.Model.User.UserModel;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Authentication.Login;
 import me.t3sl4.kurye.UI.Screens.General.Dashboard;
@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
     private final int WAITING_TIME = 2000;
     boolean isFirstTime;
 
-    private Carrier currentProfile;
+    private UserModel currentProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +110,7 @@ public class SplashActivity extends AppCompatActivity {
     private void refreshProfileData() {
         ReqUtil.getProfileReq(SplashActivity.this, currentProfile.getPhoneNumber(), new ReqUtil.ProfileCallback() {
             @Override
-            public void onSuccess(Carrier profile) {
+            public void onSuccess(UserModel profile) {
                 //TODO: Update profile
             }
 

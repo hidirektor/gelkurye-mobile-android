@@ -21,7 +21,7 @@ import com.zpj.widget.checkbox.ZCheckBox;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import me.t3sl4.kurye.Model.User.Carrier;
+import me.t3sl4.kurye.Model.User.UserModel;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.EditText.EditTextUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
@@ -94,7 +94,7 @@ public class Login extends AppCompatActivity {
                 public void onSuccess() {
                     ReqUtil.getProfileReq(Login.this, phoneNumberCode.getSelectedCountryCode() + phoneNumberField.getText().toString(), new ReqUtil.ProfileCallback() {
                         @Override
-                        public void onSuccess(Carrier profile) {
+                        public void onSuccess(UserModel profile) {
                             Intent dashboardIntent = new Intent(Login.this, Dashboard.class);
                             dashboardIntent.putExtra("profile", profile);
                             startActivity(dashboardIntent);

@@ -29,9 +29,8 @@ import java.lang.reflect.Field;
 import java.util.Locale;
 
 import me.t3sl4.kurye.BuildConfig;
-import me.t3sl4.kurye.Model.User.Carrier;
+import me.t3sl4.kurye.Model.User.UserModel;
 import me.t3sl4.kurye.R;
-import me.t3sl4.kurye.UI.Screens.General.Dashboard;
 import me.t3sl4.kurye.UI.Screens.MainActivity;
 import me.t3sl4.kurye.Util.HTTP.HTTPResponseListener;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
@@ -77,10 +76,10 @@ public class Utils {
         return BitmapFactory.decodeByteArray(decodedImageBytes, 0, decodedImageBytes.length);
     }
 
-    public static Carrier getFromSharedPreferences(Context context) {
+    public static UserModel getFromSharedPreferences(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         String profileJson = sharedPreferences.getString(KEY_PROFILE_GSON, "");
-        return new Gson().fromJson(profileJson, Carrier.class);
+        return new Gson().fromJson(profileJson, UserModel.class);
     }
 
     public static boolean checkPermissions(Context context, String[] requestedPermissions, int requestCode) {
@@ -129,10 +128,10 @@ public class Utils {
     public static Object getData(Context context, String key) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         String profileJson = sharedPreferences.getString(KEY_PROFILE_GSON, "");
-        Carrier profile = new Gson().fromJson(profileJson, Carrier.class);
+        UserModel profile = new Gson().fromJson(profileJson, UserModel.class);
 
         try {
-            Field field = Carrier.class.getDeclaredField(key);
+            Field field = UserModel.class.getDeclaredField(key);
             field.setAccessible(true);
             return field.get(profile);
         } catch (NoSuchFieldException | IllegalAccessException e) {
@@ -144,10 +143,10 @@ public class Utils {
     public static void setData(Context context, String key, Object value) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         String profileJson = sharedPreferences.getString(KEY_PROFILE_GSON, "");
-        Carrier profile = new Gson().fromJson(profileJson, Carrier.class);
+        UserModel profile = new Gson().fromJson(profileJson, UserModel.class);
 
         try {
-            Field field = Carrier.class.getDeclaredField(key);
+            Field field = UserModel.class.getDeclaredField(key);
             field.setAccessible(true);
             field.set(profile, value);
 

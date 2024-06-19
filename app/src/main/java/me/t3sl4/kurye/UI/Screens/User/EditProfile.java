@@ -1,6 +1,5 @@
 package me.t3sl4.kurye.UI.Screens.User;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -24,20 +23,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import me.t3sl4.kurye.Model.User.Carrier;
+import me.t3sl4.kurye.Model.User.UserModel;
 import me.t3sl4.kurye.R;
-import me.t3sl4.kurye.SplashActivity;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step1Fragment;
 import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step2Fragment;
 import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step3Fragment;
 import me.t3sl4.kurye.UI.Screens.Authentication.RegisterFragments.Step4Fragment;
-import me.t3sl4.kurye.UI.Screens.MainActivity;
 import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
 
 public class EditProfile extends AppCompatActivity {
-    private Carrier currentProfile;
+    private UserModel currentProfile;
     // Main Variables:
     String[] stateNames;
 
@@ -203,7 +200,7 @@ public class EditProfile extends AppCompatActivity {
                 return;
             }
 
-            Carrier profile = Utils.getFromSharedPreferences(EditProfile.this);
+            UserModel profile = Utils.getFromSharedPreferences(EditProfile.this);
             if (profile != null) {
                 for (int i = 0; i < fragmentData.size(); i++) {
                     Bundle data = fragmentData.get(i);
@@ -300,7 +297,7 @@ public class EditProfile extends AppCompatActivity {
     }
 
     private boolean dataChanged() {
-        Carrier profile = Utils.getFromSharedPreferences(this);
+        UserModel profile = Utils.getFromSharedPreferences(this);
         if (profile != null) {
             for (int i = 0; i < fragmentData.size(); i++) {
                 Bundle data = fragmentData.get(i);

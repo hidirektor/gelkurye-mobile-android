@@ -5,10 +5,14 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import me.t3sl4.kurye.Model.User.UserModel;
 import me.t3sl4.kurye.R;
+import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Components.NiceSwitch.NiceSwitch;
+import me.t3sl4.kurye.Util.Utils;
 
 public class Marketplace extends AppCompatActivity {
+    private UserModel currentProfile;
 
     private NiceSwitch synchTrendyol;
     private NiceSwitch synchGetirYemek;
@@ -23,7 +27,11 @@ public class Marketplace extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.marketplace);
 
+        NavigationBarUtil.hideNavigationBar(this);
+
         componentInitialize();
+
+        currentProfile = Utils.getFromSharedPreferences(this);
     }
 
     private void componentInitialize() {

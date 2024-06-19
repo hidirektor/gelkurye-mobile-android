@@ -9,7 +9,7 @@ import com.android.volley.VolleyError;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import me.t3sl4.kurye.Model.User.Carrier;
+import me.t3sl4.kurye.Model.User.UserModel;
 import me.t3sl4.kurye.Util.HTTP.HTTPHelper;
 import me.t3sl4.kurye.Util.HTTP.HTTPResponseListener;
 import me.t3sl4.kurye.Util.HTTP.TokenManager;
@@ -24,7 +24,7 @@ public class ReqUtil {
     }
 
     public interface ProfileCallback {
-        void onSuccess(Carrier profile);
+        void onSuccess(UserModel profile);
         void onError();
     }
 
@@ -127,7 +127,7 @@ public class ReqUtil {
                             String userRatingUserID = userRatingObject.getString("userID");
                             int userRating = userRatingObject.getInt("userRating");
 
-                            Carrier profile = new Carrier(id, userID, userName, eMail, userType, nameSurname, phoneNumber, address,
+                            UserModel profile = new UserModel(id, userID, userName, eMail, userType, nameSurname, phoneNumber, address,
                                     password, profilePhoto, relativeNameSurname, relativePhoneNumber, lastPasswordChange, createdAt,
                                     licenseFrontFace, licenseBackFace, nightMode, selectedLanguage, firstBreakTime, secondBreakTime,
                                     userRating);
@@ -195,7 +195,7 @@ public class ReqUtil {
         httpHelper = HTTPHelper.getInstance(context);
         tokenManager = new TokenManager(context);
 
-        Carrier profile = Utils.getFromSharedPreferences(context);
+        UserModel profile = Utils.getFromSharedPreferences(context);
 
         JSONObject userData = new JSONObject();
         JSONObject userDocumentsData = new JSONObject();

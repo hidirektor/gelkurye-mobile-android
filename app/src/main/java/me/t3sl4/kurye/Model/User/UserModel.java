@@ -10,7 +10,7 @@ import com.google.gson.Gson;
 
 import java.util.Locale;
 
-public class Carrier implements Parcelable {
+public class UserModel implements Parcelable {
     private int id;
     private String userID;
     private String userName;
@@ -34,11 +34,11 @@ public class Carrier implements Parcelable {
     private int userRating;
 
     // Constructor
-    public Carrier(int id, String userID, String userName, String eMail, String userType, String nameSurname,
-                   String phoneNumber, String address, String password, String profilePhoto,
-                   String relativeNameSurname, String relativePhoneNumber, String lastPasswordChange,
-                   String createdAt, String licenseFrontFace, String licenseBackFace, boolean nightMode,
-                   String selectedLanguage, String firstBreakTime, String secondBreakTime, int userRating) {
+    public UserModel(int id, String userID, String userName, String eMail, String userType, String nameSurname,
+                     String phoneNumber, String address, String password, String profilePhoto,
+                     String relativeNameSurname, String relativePhoneNumber, String lastPasswordChange,
+                     String createdAt, String licenseFrontFace, String licenseBackFace, boolean nightMode,
+                     String selectedLanguage, String firstBreakTime, String secondBreakTime, int userRating) {
         this.id = id;
         this.userID = userID;
         this.userName = userName;
@@ -240,7 +240,7 @@ public class Carrier implements Parcelable {
         return new Gson().toJson(this);
     }
 
-    protected Carrier(Parcel in) {
+    protected UserModel(Parcel in) {
         id = in.readInt();
         userID = in.readString();
         userName = in.readString();
@@ -264,15 +264,15 @@ public class Carrier implements Parcelable {
         userRating = in.readInt();
     }
 
-    public static final Creator<Carrier> CREATOR = new Creator<Carrier>() {
+    public static final Creator<UserModel> CREATOR = new Creator<UserModel>() {
         @Override
-        public Carrier createFromParcel(Parcel in) {
-            return new Carrier(in);
+        public UserModel createFromParcel(Parcel in) {
+            return new UserModel(in);
         }
 
         @Override
-        public Carrier[] newArray(int size) {
-            return new Carrier[size];
+        public UserModel[] newArray(int size) {
+            return new UserModel[size];
         }
     };
 
