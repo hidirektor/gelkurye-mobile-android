@@ -11,9 +11,9 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 205,
-      "versionName": "1.1.5(205)",
-      "outputFile": "GelKurye release_19-06-2024_v1.1.5(205).apk"
+      "versionCode": 240,
+      "versionName": "1.1.40(240)",
+      "outputFile": "GelKurye release_20-06-2024_v1.1.40(240).apk"
     }
   ],
   "elementType": "File",
@@ -22,14 +22,14 @@
       "minApi": 28,
       "maxApi": 30,
       "baselineProfiles": [
-        "baselineProfiles/1/GelKurye release_19-06-2024_v1.1.5(205).dm"
+        "baselineProfiles/1/GelKurye release_20-06-2024_v1.1.40(240).dm"
       ]
     },
     {
       "minApi": 31,
       "maxApi": 2147483647,
       "baselineProfiles": [
-        "baselineProfiles/0/GelKurye release_19-06-2024_v1.1.5(205).dm"
+        "baselineProfiles/0/GelKurye release_20-06-2024_v1.1.40(240).dm"
       ]
     }
   ],

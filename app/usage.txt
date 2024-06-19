@@ -31474,7 +31474,6 @@ com.irozon.sneaker.Sneaker:
     public final void hide()
     public final com.irozon.sneaker.Sneaker setCornerRadius(int)
     public final com.irozon.sneaker.Sneaker setCornerRadius(int,int)
-    public final com.irozon.sneaker.Sneaker setDuration(int)
     public final com.irozon.sneaker.Sneaker setHeight(int)
     public final com.irozon.sneaker.Sneaker setIcon(int)
     public final com.irozon.sneaker.Sneaker setIcon(int,int)
@@ -50709,7 +50708,6 @@ com.irozon.sneaker.Sneaker:
     public boolean mAutoHide
     public int mCornerRadius
     public com.irozon.sneaker.interfaces.OnSneakerDismissListener mDismissListener
-    public int mDuration
     public int mHeight
     public int mIconSize
     public boolean mIsCircular
@@ -50719,6 +50717,7 @@ com.irozon.sneaker.Sneaker:
     public static void removeExistingSneakerView()
     public final void removeView(android.widget.LinearLayout,boolean)
     public static void removeView$default(com.irozon.sneaker.Sneaker,com.irozon.sneaker.SneakerView)
+    public static com.irozon.sneaker.Sneaker setDuration()
     public final void setMessage(java.lang.String)
     public static void setTargetView()
     public static com.irozon.sneaker.Sneaker setTitle()
@@ -51300,6 +51299,9 @@ me.t3sl4.kurye.UI.Components.PasswordField.PasswordFieldUtil:
     static void <clinit>()
 me.t3sl4.kurye.UI.Screens.Order.CurrentOrder:
     static void <clinit>()
+me.t3sl4.kurye.UI.Screens.User.Merchant.Marketplace$$InternalSyntheticBackport$1$ef4753612bd3f59a411e3b5f3f15f0418b862adad554128683cbc298f7fd2412$0
+me.t3sl4.kurye.UI.Screens.User.Merchant.Marketplace$$InternalSyntheticBackport$1$ef4753612bd3f59a411e3b5f3f15f0418b862adad554128683cbc298f7fd2412$1
+me.t3sl4.kurye.UI.Screens.User.Merchant.Marketplace$$InternalSyntheticBackport$1$ef4753612bd3f59a411e3b5f3f15f0418b862adad554128683cbc298f7fd2412$2
 org.cactoos.Fallback$From:
     public static java.lang.Object apply()
     public static int support()
