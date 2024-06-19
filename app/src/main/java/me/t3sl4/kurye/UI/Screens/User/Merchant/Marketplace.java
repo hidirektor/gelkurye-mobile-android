@@ -1,8 +1,10 @@
 package me.t3sl4.kurye.UI.Screens.User.Merchant;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
+import android.view.Gravity;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -15,6 +17,9 @@ import com.irozon.sneaker.Sneaker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import me.t3sl4.kurye.Model.User.UserModel;
 import me.t3sl4.kurye.R;
@@ -103,7 +108,9 @@ public class Marketplace extends AppCompatActivity {
     }
 
     private void showTrendyolBottomSheetDialog() {
-        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+        AtomicBoolean buttonClicked = new AtomicBoolean(false);
+
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this, R.style.BottomSheetDialog);
         bottomSheetDialog.setContentView(R.layout.synch_trendyol);
 
         EditText supplierIDEditText = bottomSheetDialog.findViewById(R.id.currentPasswordEditText);
@@ -112,6 +119,7 @@ public class Marketplace extends AppCompatActivity {
         Button synchButton = bottomSheetDialog.findViewById(R.id.synchTrendyolButton);
 
         synchButton.setOnClickListener(v -> {
+            buttonClicked.set(true);
             String supplierID = supplierIDEditText.getText().toString();
             String apiKey = apiKeyEditText.getText().toString();
             String apiSecretKey = apiSecretKeyEditText.getText().toString();
@@ -132,16 +140,31 @@ public class Marketplace extends AppCompatActivity {
         });
 
         bottomSheetDialog.show();
+        Objects.requireNonNull(bottomSheetDialog.getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        bottomSheetDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        bottomSheetDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        bottomSheetDialog.getWindow().setGravity(Gravity.BOTTOM);
+
+        NavigationBarUtil.hideNavigationBarOnDialog(bottomSheetDialog);
+        bottomSheetDialog.setOnDismissListener(dialog -> {
+            NavigationBarUtil.hideNavigationBar(Marketplace.this);
+            if(!buttonClicked.get()) {
+                synchGetirYemek.setChecked(false);
+            }
+        });
     }
 
     private void showGetirYemekBottomSheetDialog() {
-        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+        AtomicBoolean buttonClicked = new AtomicBoolean(false);
+
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this, R.style.BottomSheetDialog);
         bottomSheetDialog.setContentView(R.layout.synch_getiryemek);
 
         EditText merchantTokenEditText = bottomSheetDialog.findViewById(R.id.passwordEditText);
         Button synchButton = bottomSheetDialog.findViewById(R.id.synchGetirYemekButton);
 
         synchButton.setOnClickListener(v -> {
+            buttonClicked.set(true);
             String merchantToken = merchantTokenEditText.getText().toString();
 
             JSONObject marketplaceAPI = new JSONObject();
@@ -160,10 +183,24 @@ public class Marketplace extends AppCompatActivity {
         });
 
         bottomSheetDialog.show();
+        Objects.requireNonNull(bottomSheetDialog.getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        bottomSheetDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        bottomSheetDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        bottomSheetDialog.getWindow().setGravity(Gravity.BOTTOM);
+
+        NavigationBarUtil.hideNavigationBarOnDialog(bottomSheetDialog);
+        bottomSheetDialog.setOnDismissListener(dialog -> {
+            NavigationBarUtil.hideNavigationBar(Marketplace.this);
+            if(!buttonClicked.get()) {
+                synchGetirYemek.setChecked(false);
+            }
+        });
     }
 
     private void showYemekSepetiBottomSheetDialog() {
-        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+        AtomicBoolean buttonClicked = new AtomicBoolean(false);
+
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this, R.style.BottomSheetDialog);
         bottomSheetDialog.setContentView(R.layout.synch_yemeksepeti);
 
         EditText usernameEditText = bottomSheetDialog.findViewById(R.id.passwordEditText);
@@ -171,6 +208,7 @@ public class Marketplace extends AppCompatActivity {
         Button synchButton = bottomSheetDialog.findViewById(R.id.synchYemekSepetiButton);
 
         synchButton.setOnClickListener(v -> {
+            buttonClicked.set(true);
             String username = usernameEditText.getText().toString();
             String password = passwordEditText.getText().toString();
 
@@ -190,6 +228,18 @@ public class Marketplace extends AppCompatActivity {
         });
 
         bottomSheetDialog.show();
+        Objects.requireNonNull(bottomSheetDialog.getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        bottomSheetDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        bottomSheetDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        bottomSheetDialog.getWindow().setGravity(Gravity.BOTTOM);
+
+        NavigationBarUtil.hideNavigationBarOnDialog(bottomSheetDialog);
+        bottomSheetDialog.setOnDismissListener(dialog -> {
+            NavigationBarUtil.hideNavigationBar(Marketplace.this);
+            if(!buttonClicked.get()) {
+                synchGetirYemek.setChecked(false);
+            }
+        });
     }
 
     private void updateMerchantAPI(JSONObject marketplaceAPI, BottomSheetDialog bottomSheetDialog, String marketplaceName) {
