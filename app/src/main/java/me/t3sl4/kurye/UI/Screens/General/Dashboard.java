@@ -20,10 +20,12 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.navigation.NavigationView;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
+import com.irozon.sneaker.Sneaker;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import me.t3sl4.kurye.Model.User.UserModel;
 import me.t3sl4.kurye.R;
+import me.t3sl4.kurye.SplashActivity;
 import me.t3sl4.kurye.UI.Components.Navigation.NavigationUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Hamburger.FAQ;
@@ -32,6 +34,7 @@ import me.t3sl4.kurye.UI.Screens.Order.Orders;
 import me.t3sl4.kurye.UI.Screens.User.Earning;
 import me.t3sl4.kurye.UI.Screens.User.EditProfile;
 import me.t3sl4.kurye.UI.Screens.User.Profile;
+import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
 
 public class Dashboard extends AppCompatActivity {
@@ -84,6 +87,7 @@ public class Dashboard extends AppCompatActivity {
         hamburgerEffect();
 
         currentProfile = Utils.getFromSharedPreferences(this);
+        refreshProfileData();
 
         initializeProfileData();
     }
@@ -227,5 +231,19 @@ public class Dashboard extends AppCompatActivity {
                 Log.e("Dashboard", "Encoded profile photo is empty or null");
             }
         }
+    }
+
+    private void refreshProfileData() {
+        ReqUtil.getProfileReq(Dashboard.this, currentProfile.getPhoneNumber(), new ReqUtil.ProfileCallback() {
+            @Override
+            public void onSuccess(UserModel profile) {
+                //TODO: Update profile
+            }
+
+            @Override
+            public void onError() {
+                Sneaker.with(Dashboard.this).setTitle("Hata !").setMessage("Profil alınamadı!").sneakError();
+            }
+        });
     }
 }

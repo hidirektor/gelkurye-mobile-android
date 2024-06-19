@@ -28,6 +28,7 @@ import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Components.PasswordField.PasswordFieldUtil;
 import me.t3sl4.kurye.UI.Screens.General.Dashboard;
 import me.t3sl4.kurye.UI.Screens.PasswordReset.Reset1;
+import me.t3sl4.kurye.UI.Screens.User.Merchant.Marketplace;
 import me.t3sl4.kurye.Util.ReqUtil;
 
 public class Login extends AppCompatActivity {
@@ -95,10 +96,17 @@ public class Login extends AppCompatActivity {
                     ReqUtil.getProfileReq(Login.this, phoneNumberCode.getSelectedCountryCode() + phoneNumberField.getText().toString(), new ReqUtil.ProfileCallback() {
                         @Override
                         public void onSuccess(UserModel profile) {
-                            Intent dashboardIntent = new Intent(Login.this, Dashboard.class);
-                            dashboardIntent.putExtra("profile", profile);
-                            startActivity(dashboardIntent);
-                            finish();
+                            if(profile.getUserType().equals("CARRIER")) {
+                                Intent dashboardIntent = new Intent(Login.this, Dashboard.class);
+                                dashboardIntent.putExtra("profile", profile);
+                                startActivity(dashboardIntent);
+                                finish();
+                            } else {
+                                Intent dashboardIntent = new Intent(Login.this, Marketplace.class);
+                                dashboardIntent.putExtra("profile", profile);
+                                startActivity(dashboardIntent);
+                                finish();
+                            }
                         }
 
                         @Override

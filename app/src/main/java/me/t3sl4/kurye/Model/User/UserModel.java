@@ -10,6 +10,8 @@ import com.google.gson.Gson;
 
 import java.util.Locale;
 
+import javax.annotation.Nullable;
+
 public class UserModel implements Parcelable {
     private int id;
     private String userID;
@@ -32,6 +34,18 @@ public class UserModel implements Parcelable {
     private String firstBreakTime;
     private String secondBreakTime;
     private int userRating;
+
+    private String merchantID;
+    private String merchantName;
+    private String merchantAddress;
+    private String merchantPhoneNumber;
+
+    private String trendyolSupplierID;
+    private String trendyolAPIKey;
+    private String trendyolAPISecretKey;
+    private String getirYemekMerchantToken;
+    private String yemekSepetiUsername;
+    private String yemekSepetiPassword;
 
     // Constructor
     public UserModel(int id, String userID, String userName, String eMail, String userType, String nameSurname,
@@ -60,6 +74,31 @@ public class UserModel implements Parcelable {
         this.firstBreakTime = firstBreakTime;
         this.secondBreakTime = secondBreakTime;
         this.userRating = userRating;
+    }
+
+    public UserModel(int id, String userID, String userName, String eMail, String userType, String nameSurname,
+                     String phoneNumber, String address, String password, String profilePhoto,
+                     String relativeNameSurname, String relativePhoneNumber, String lastPasswordChange,
+                     String createdAt, boolean nightMode,
+                     String selectedLanguage, String firstBreakTime, String secondBreakTime) {
+        this.id = id;
+        this.userID = userID;
+        this.userName = userName;
+        this.eMail = eMail;
+        this.userType = userType;
+        this.nameSurname = nameSurname;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.password = password;
+        this.profilePhoto = profilePhoto;
+        this.relativeNameSurname = relativeNameSurname;
+        this.relativePhoneNumber = relativePhoneNumber;
+        this.lastPasswordChange = lastPasswordChange;
+        this.createdAt = createdAt;
+        this.nightMode = nightMode;
+        this.selectedLanguage = selectedLanguage;
+        this.firstBreakTime = firstBreakTime;
+        this.secondBreakTime = secondBreakTime;
     }
 
     // Getters
@@ -235,6 +274,86 @@ public class UserModel implements Parcelable {
         this.userRating = userRating;
     }
 
+    public String getMerchantID() {
+        return merchantID;
+    }
+
+    public void setMerchantID(String merchantID) {
+        this.merchantID = merchantID;
+    }
+
+    public String getMerchantName() {
+        return merchantName;
+    }
+
+    public void setMerchantName(String merchantName) {
+        this.merchantName = merchantName;
+    }
+
+    public String getMerchantAddress() {
+        return merchantAddress;
+    }
+
+    public void setMerchantAddress(String merchantAddress) {
+        this.merchantAddress = merchantAddress;
+    }
+
+    public String getMerchantPhoneNumber() {
+        return merchantPhoneNumber;
+    }
+
+    public void setMerchantPhoneNumber(String merchantPhoneNumber) {
+        this.merchantPhoneNumber = merchantPhoneNumber;
+    }
+
+    public String getTrendyolSupplierID() {
+        return trendyolSupplierID;
+    }
+
+    public void setTrendyolSupplierID(String trendyolSupplierID) {
+        this.trendyolSupplierID = trendyolSupplierID;
+    }
+
+    public String getTrendyolAPIKey() {
+        return trendyolAPIKey;
+    }
+
+    public void setTrendyolAPIKey(String trendyolAPIKey) {
+        this.trendyolAPIKey = trendyolAPIKey;
+    }
+
+    public String getTrendyolAPISecretKey() {
+        return trendyolAPISecretKey;
+    }
+
+    public void setTrendyolAPISecretKey(String trendyolAPISecretKey) {
+        this.trendyolAPISecretKey = trendyolAPISecretKey;
+    }
+
+    public String getGetirYemekMerchantToken() {
+        return getirYemekMerchantToken;
+    }
+
+    public void setGetirYemekMerchantToken(String getirYemekMerchantToken) {
+        this.getirYemekMerchantToken = getirYemekMerchantToken;
+    }
+
+    public String getYemekSepetiUsername() {
+        return yemekSepetiUsername;
+    }
+
+    public void setYemekSepetiUsername(String yemekSepetiUsername) {
+        this.yemekSepetiUsername = yemekSepetiUsername;
+    }
+
+    public String getYemekSepetiPassword() {
+        return yemekSepetiPassword;
+    }
+
+    public void setYemekSepetiPassword(String yemekSepetiPassword) {
+        this.yemekSepetiPassword = yemekSepetiPassword;
+    }
+
     // Gson to JSON
     public String toJson() {
         return new Gson().toJson(this);
@@ -262,6 +381,16 @@ public class UserModel implements Parcelable {
         firstBreakTime = in.readString();
         secondBreakTime = in.readString();
         userRating = in.readInt();
+        merchantID = in.readString();
+        merchantName = in.readString();
+        merchantAddress = in.readString();
+        merchantPhoneNumber = in.readString();
+        trendyolSupplierID = in.readString();
+        trendyolAPIKey = in.readString();
+        trendyolAPISecretKey = in.readString();
+        getirYemekMerchantToken = in.readString();
+        yemekSepetiUsername = in.readString();
+        yemekSepetiPassword = in.readString();
     }
 
     public static final Creator<UserModel> CREATOR = new Creator<UserModel>() {
@@ -304,6 +433,16 @@ public class UserModel implements Parcelable {
         dest.writeString(firstBreakTime);
         dest.writeString(secondBreakTime);
         dest.writeInt(userRating);
+        dest.writeString(merchantID);
+        dest.writeString(merchantName);
+        dest.writeString(merchantAddress);
+        dest.writeString(merchantPhoneNumber);
+        dest.writeString(trendyolSupplierID);
+        dest.writeString(trendyolAPIKey);
+        dest.writeString(trendyolAPISecretKey);
+        dest.writeString(getirYemekMerchantToken);
+        dest.writeString(yemekSepetiUsername);
+        dest.writeString(yemekSepetiPassword);
     }
 
     // SharedPreferences

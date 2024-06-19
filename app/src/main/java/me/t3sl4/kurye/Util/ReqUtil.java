@@ -108,29 +108,66 @@ public class ReqUtil {
                             String lastPasswordChange = userObject.getString("lastPasswordChange");
                             String createdAt = userObject.getString("createdAt");
 
-                            JSONObject userDocumentsObject = response.getJSONObject("userDocuments");
-                            int userDocumentsId = userDocumentsObject.getInt("id");
-                            String userDocumentsUserID = userDocumentsObject.getString("userID");
-                            String licenseFrontFace = userDocumentsObject.getString("licenseFrontFace");
-                            String licenseBackFace = userDocumentsObject.getString("licenseBackFace");
-
                             JSONObject userPreferencesObject = response.getJSONObject("userPreferences");
-                            int userPreferencesId = userPreferencesObject.getInt("id");
-                            String userPreferencesUserID = userPreferencesObject.getString("userID");
                             boolean nightMode = userPreferencesObject.getBoolean("nightMode");
                             String selectedLanguage = userPreferencesObject.getString("selectedLanguage");
                             String firstBreakTime = userPreferencesObject.getString("firstBreakTime");
                             String secondBreakTime = userPreferencesObject.getString("secondBreakTime");
 
-                            JSONObject userRatingObject = response.getJSONObject("userRating");
-                            int userRatingId = userRatingObject.getInt("id");
-                            String userRatingUserID = userRatingObject.getString("userID");
-                            int userRating = userRatingObject.getInt("userRating");
+                            UserModel profile;
 
-                            UserModel profile = new UserModel(id, userID, userName, eMail, userType, nameSurname, phoneNumber, address,
-                                    password, profilePhoto, relativeNameSurname, relativePhoneNumber, lastPasswordChange, createdAt,
-                                    licenseFrontFace, licenseBackFace, nightMode, selectedLanguage, firstBreakTime, secondBreakTime,
-                                    userRating);
+                            if(userType.equals("CARRIER")) {
+                                JSONObject userDocumentsObject = response.getJSONObject("userDocuments");
+                                String licenseFrontFace = userDocumentsObject.getString("licenseFrontFace");
+                                String licenseBackFace = userDocumentsObject.getString("licenseBackFace");
+
+                                JSONObject userRatingObject = response.getJSONObject("userRating");
+                                int userRating = userRatingObject.getInt("userRating");
+
+                                profile = new UserModel(id, userID, userName, eMail, userType, nameSurname, phoneNumber, address,
+                                        password, profilePhoto, relativeNameSurname, relativePhoneNumber, lastPasswordChange, createdAt,
+                                        licenseFrontFace, licenseBackFace, nightMode, selectedLanguage, firstBreakTime, secondBreakTime,
+                                        userRating);
+                            } else {
+                                JSONObject userMerchantObject = response.getJSONObject("Merchant");
+                                String merchantID = userMerchantObject.getString("merchantID");
+                                String merchantName = userMerchantObject.getString("merchantName");
+                                String merchantAddress = userMerchantObject.getString("merchantAddress");
+                                String merchantPhoneNumber = userMerchantObject.getString("contactNumber");
+
+                                JSONObject userMerchantsAPIObject = response.optJSONObject("MerchantAPI");
+                                String trendyolSupplierID = null;
+                                String trendyolAPIKey = null;
+                                String trendyolAPISecretKey = null;
+                                String getirYemekMerchantToken = null;
+                                String yemekSepetiUsername = null;
+                                String yemekSepetiPassword = null;
+
+                                if (userMerchantsAPIObject != null) {
+                                    trendyolSupplierID = userMerchantsAPIObject.optString("trendyolSupplierID", null);
+                                    trendyolAPIKey = userMerchantsAPIObject.optString("trendyolAPIKey", null);
+                                    trendyolAPISecretKey = userMerchantsAPIObject.optString("trendyolAPISecretKey", null);
+                                    getirYemekMerchantToken = userMerchantsAPIObject.optString("getirYemekMerchantToken", null);
+                                    yemekSepetiUsername = userMerchantsAPIObject.optString("yemekSepetiUsername", null);
+                                    yemekSepetiPassword = userMerchantsAPIObject.optString("yemekSepetiPassword", null);
+                                }
+
+                                profile = new UserModel(id, userID, userName, eMail, userType, nameSurname, phoneNumber, address,
+                                        password, profilePhoto, relativeNameSurname, relativePhoneNumber, lastPasswordChange, createdAt,
+                                        nightMode, selectedLanguage, firstBreakTime, secondBreakTime);
+
+                                profile.setMerchantID(merchantID);
+                                profile.setMerchantName(merchantName);
+                                profile.setMerchantAddress(merchantAddress);
+                                profile.setMerchantPhoneNumber(merchantPhoneNumber);
+
+                                profile.setTrendyolSupplierID(trendyolSupplierID);
+                                profile.setTrendyolAPIKey(trendyolAPIKey);
+                                profile.setTrendyolAPISecretKey(trendyolAPISecretKey);
+                                profile.setGetirYemekMerchantToken(getirYemekMerchantToken);
+                                profile.setYemekSepetiUsername(yemekSepetiUsername);
+                                profile.setYemekSepetiPassword(yemekSepetiPassword);
+                            }
 
                             // Save profile Gson to SharedPreferences
                             profile.saveToSharedPreferences(context);
@@ -279,6 +316,51 @@ public class ReqUtil {
                         callback.onError();
                     }
                 },
+                tokenManager
+        );
+    }
+
+    public static void getMerchantAPIReq(Context context, String phoneNumber, String userID, HTTPResponseListener listener) {
+        httpHelper = HTTPHelper.getInstance(context);
+        tokenManager = new TokenManager(context);
+
+        JSONObject params = new JSONObject();
+        try {
+            params.put("phoneNumber", phoneNumber);
+            params.put("userID", userID);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        httpHelper.makeRequest(
+                Request.Method.POST,
+                "merchant/getMerchantAPI",
+                params,
+                true,
+                listener,
+                tokenManager
+        );
+    }
+
+    public static void updateMerchantAPIReq(Context context, String phoneNumber, String userID, JSONObject marketplaceAPI, HTTPResponseListener listener) {
+        httpHelper = HTTPHelper.getInstance(context);
+        tokenManager = new TokenManager(context);
+
+        JSONObject params = new JSONObject();
+        try {
+            params.put("phoneNumber", phoneNumber);
+            params.put("userID", userID);
+            params.put("marketplace-API", marketplaceAPI);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        httpHelper.makeRequest(
+                Request.Method.POST,
+                "merchant/updateMerchantAPI",
+                params,
+                true,
+                listener,
                 tokenManager
         );
     }
