@@ -161,6 +161,9 @@
     <string name="merchant_setup_yemeksepeti3">Username</string>
     <string name="merchant_setup_yemeksepeti4">Password</string>
     <string name="merchant_synch">Hesabı Eşle</string>
+    <string name="merchant_setup_steps_trendyol">Trendyol Bilgilerini Nasıl Bulacağım ?</string>
+    <string name="merchant_setup_steps_getiryemek">GetirYemek Bilgilerini Nasıl Bulacağım ?</string>
+    <string name="merchant_setup_steps_yemeksepeti">YemekSepeti Bilgilerini Nasıl Bulacağım ?</string>
 
     <!-- Permission Texts -->
     <string name="permission_location_header">Konum İzni</string>

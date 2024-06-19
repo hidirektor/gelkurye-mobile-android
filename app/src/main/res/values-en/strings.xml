@@ -151,6 +151,9 @@
     <string name="merchant_setup_yemeksepeti3">Username</string>
     <string name="merchant_setup_yemeksepeti4">Password</string>
     <string name="merchant_synch">Synch Account</string>
+    <string name="merchant_setup_steps_trendyol">How Can You Find Trendyol API ?</string>
+    <string name="merchant_setup_steps_getiryemek">How Can You Find Getir Yemek API ?</string>
+    <string name="merchant_setup_steps_yemeksepeti">How Can You Find YemekSepeti API ?</string>
 
     <!-- Permission Texts -->
     <string name="permission_location_header">Location Permission</string>

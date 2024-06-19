@@ -194,7 +194,7 @@
                 android:layout_gravity="center">
 
                 <LinearLayout
-                    android:id="@+id/changePassLinearButton"
+                    android:id="@+id/findTrendyolButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -206,14 +206,14 @@
                         android:drawablePadding="16dp"
                         android:ems="10"
                         android:fontFamily="@font/outfit_medium"
-                        android:text="@string/merchant_setup_trendyol"
+                        android:text="@string/merchant_setup_steps_trendyol"
                         android:padding="8dp"
                         android:textColor="@color/faqColor"
                         app:drawableEndCompat="@drawable/faq_end_ikon" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/changeLangLinearButton"
+                    android:id="@+id/findGetirYemekButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -225,14 +225,14 @@
                         android:drawablePadding="16dp"
                         android:ems="10"
                         android:fontFamily="@font/outfit_medium"
-                        android:text="@string/merchant_setup_getiryemek"
+                        android:text="@string/merchant_setup_steps_getiryemek"
                         android:padding="8dp"
                         android:textColor="@color/faqColor"
                         app:drawableEndCompat="@drawable/faq_end_ikon" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/contactUsLinearButton"
+                    android:id="@+id/findYemekSepetiButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -244,7 +244,7 @@
                         android:drawablePadding="16dp"
                         android:ems="10"
                         android:fontFamily="@font/outfit_medium"
-                        android:text="@string/merchant_setup_yemeksepeti"
+                        android:text="@string/merchant_setup_steps_yemeksepeti"
                         android:padding="8dp"
                         android:textColor="@color/faqColor"
                         app:drawableEndCompat="@drawable/faq_end_ikon" />
