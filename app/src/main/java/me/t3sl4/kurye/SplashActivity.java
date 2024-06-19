@@ -17,6 +17,7 @@ import me.t3sl4.kurye.UI.Screens.Authentication.Login;
 import me.t3sl4.kurye.UI.Screens.General.Dashboard;
 import me.t3sl4.kurye.UI.Screens.MainActivity;
 import me.t3sl4.kurye.UI.Screens.OnBoard.OnBoard1;
+import me.t3sl4.kurye.UI.Screens.User.Merchant.Marketplace;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
@@ -54,7 +55,7 @@ public class SplashActivity extends AppCompatActivity {
                     if ("CARRIER".equals(currentProfile.getUserType())) {
                         dashboardIntent = new Intent(SplashActivity.this, Dashboard.class);
                     } else if ("MERCHANT".equals(currentProfile.getUserType())) {
-                        dashboardIntent = new Intent(SplashActivity.this, Dashboard.class);
+                        dashboardIntent = new Intent(SplashActivity.this, Marketplace.class);
                     }
                     startActivity(dashboardIntent);
                     finish();

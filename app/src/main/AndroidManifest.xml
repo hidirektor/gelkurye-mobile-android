@@ -55,6 +55,7 @@
         <activity android:name=".UI.Screens.User.Profile" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".UI.Screens.User.EditProfile" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".UI.Screens.User.Earning" />
+        <activity android:name=".UI.Screens.User.Merchant.Marketplace" />
     </application>
 
 </manifest>

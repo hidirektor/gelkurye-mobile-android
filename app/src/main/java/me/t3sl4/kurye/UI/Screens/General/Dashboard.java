@@ -188,22 +188,7 @@ public class Dashboard extends AppCompatActivity {
         });
 
         navLogoutButton.setOnClickListener(v -> {
-            Intent loginIntent = new Intent(Dashboard.this, MainActivity.class);
-
-            ReqUtil.logoutReq(Dashboard.this, new HTTPResponseListener() {
-                @Override
-                public void onSuccess(JSONObject response) {
-                    startActivity(loginIntent);
-                    finish();
-                }
-
-                @Override
-                public void onError(VolleyError error) {
-                    Sneaker.with(Dashboard.this).setTitle("Hata !").setMessage("Çıkış yapılamadı, lütfen tekrar deneyin.").sneakError();
-                    startActivity(loginIntent);
-                    finish();
-                }
-            });
+            Utils.logoutAndNotify(Dashboard.this, Dashboard.this);
         });
     }
 

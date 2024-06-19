@@ -3,6 +3,7 @@ package me.t3sl4.kurye.Util;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -17,8 +18,11 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 
+import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.irozon.sneaker.Sneaker;
+
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.lang.reflect.Field;
@@ -27,6 +31,9 @@ import java.util.Locale;
 import me.t3sl4.kurye.BuildConfig;
 import me.t3sl4.kurye.Model.User.Carrier;
 import me.t3sl4.kurye.R;
+import me.t3sl4.kurye.UI.Screens.General.Dashboard;
+import me.t3sl4.kurye.UI.Screens.MainActivity;
+import me.t3sl4.kurye.Util.HTTP.HTTPResponseListener;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 
 public class Utils {
@@ -170,4 +177,27 @@ public class Utils {
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
-    }}
+    }
+
+    public static void logoutAndNotify(final Context context, final Activity activity) {
+        Intent loginIntent = new Intent(activity, MainActivity.class);
+
+        ReqUtil.logoutReq(activity, new HTTPResponseListener() {
+            @Override
+            public void onSuccess(JSONObject response) {
+                activity.startActivity(loginIntent);
+                activity.finish();
+            }
+
+            @Override
+            public void onError(VolleyError error) {
+                /*Sneaker.with(activity)
+                        .setTitle("Hata !")
+                        .setMessage("Çıkış yapılamadı, lütfen tekrar deneyin.")
+                        .sneakError();*/
+                activity.startActivity(loginIntent);
+                activity.finish();
+            }
+        });
+    }
+}

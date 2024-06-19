@@ -159,22 +159,7 @@ public class Profile extends AppCompatActivity {
         });
 
         logoutButton.setOnClickListener(v -> {
-            Intent loginIntent = new Intent(Profile.this, MainActivity.class);
-
-            ReqUtil.logoutReq(Profile.this, new HTTPResponseListener() {
-                @Override
-                public void onSuccess(JSONObject response) {
-                    startActivity(loginIntent);
-                    finish();
-                }
-
-                @Override
-                public void onError(VolleyError error) {
-                    Sneaker.with(Profile.this).setTitle("Hata !").setMessage("Çıkış yapılamadı, lütfen tekrar deneyin.").sneakError();
-                    startActivity(loginIntent);
-                    finish();
-                }
-            });
+            Utils.logoutAndNotify(Profile.this, Profile.this);
 
         });
 
