@@ -27,6 +27,7 @@ import me.t3sl4.kurye.UI.Components.Navigation.NavigationUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Merchant.Hamburger.FAQ;
 import me.t3sl4.kurye.UI.Screens.Merchant.Navbar.Marketplace;
+import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
 
@@ -82,6 +83,13 @@ public class MerchantDashboard extends AppCompatActivity {
         hamburgerEffect();
 
         currentProfile = Utils.getFromSharedPreferences(this);
+
+        String accessToken = SharedPreferencesManager.getSharedPref("accessToken", this, "");
+        String refreshToken = SharedPreferencesManager.getSharedPref("refreshToken", this, "");
+
+        Log.d("Merchant-Access", accessToken);
+        Log.d("Merchant-Refresh", refreshToken);
+
         refreshProfileData();
 
         initializeProfileData();

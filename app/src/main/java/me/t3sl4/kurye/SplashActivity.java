@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,6 +43,9 @@ public class SplashActivity extends AppCompatActivity {
 
         String accessToken = SharedPreferencesManager.getSharedPref("accessToken", this, "");
         String refreshToken = SharedPreferencesManager.getSharedPref("refreshToken", this, "");
+
+        Log.d("Splash-Access", accessToken);
+        Log.d("Splash-Refresh", refreshToken);
 
         if (isFirstTime) {
             setupOnboarding();
