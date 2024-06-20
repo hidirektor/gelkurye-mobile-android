@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -69,6 +70,9 @@ public class MerchantDashboard extends AppCompatActivity {
     private LinearLayout navFaqButton;
     private LinearLayout navSupportButton;
     private LinearLayout navLogoutButton;
+
+    //Orders List View
+    private ListView ordersList;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -140,6 +144,9 @@ public class MerchantDashboard extends AppCompatActivity {
         navFaqButton = hamburgerView.findViewById(R.id.navFAQ);
         navSupportButton = hamburgerView.findViewById(R.id.navSupport);
         navLogoutButton = hamburgerView.findViewById(R.id.navLogout);
+
+        //Orders Section
+        ordersList = findViewById(R.id.ordersListView);
     }
 
     private void hamburgerMenuButtonClicks() {
