@@ -7998,7 +7998,6 @@ androidx.core.view.MotionEventCompat:
     public static float getAxisValue(android.view.MotionEvent,int)
     public static float getAxisValue(android.view.MotionEvent,int,int)
     public static int getButtonState(android.view.MotionEvent)
-    public static int getPointerCount(android.view.MotionEvent)
     public static int getPointerId(android.view.MotionEvent,int)
     public static int getSource(android.view.MotionEvent)
     public static float getX(android.view.MotionEvent,int)
@@ -15611,6 +15610,36 @@ com.futuremind.recyclerviewfastscroll.viewprovider.VisibilityAnimationManager$Ab
     public com.futuremind.recyclerviewfastscroll.viewprovider.VisibilityAnimationManager$AbsBuilder withHideAnimator(int)
     public com.futuremind.recyclerviewfastscroll.viewprovider.VisibilityAnimationManager$AbsBuilder withHideDelay(int)
     public com.futuremind.recyclerviewfastscroll.viewprovider.VisibilityAnimationManager$AbsBuilder withShowAnimator(int)
+com.github.chrisbanes.photoview.BuildConfig
+com.github.chrisbanes.photoview.Compat:
+    private static final int SIXTY_FPS_INTERVAL
+    void <init>()
+com.github.chrisbanes.photoview.CustomGestureDetector:
+    private static final int INVALID_POINTER_ID
+com.github.chrisbanes.photoview.PhotoView:
+    public void <init>(android.content.Context)
+    public void <init>(android.content.Context,android.util.AttributeSet,int,int)
+    public void getDisplayMatrix(android.graphics.Matrix)
+    public boolean isZoomEnabled()
+    public boolean setDisplayMatrix(android.graphics.Matrix)
+    public void setScale(float,float,float,boolean)
+    public void setScale(float,boolean)
+    public void setScaleLevels(float,float,float)
+com.github.chrisbanes.photoview.PhotoViewAttacher:
+    private static final int EDGE_BOTH
+    private static final int EDGE_LEFT
+    private static final int EDGE_NONE
+    private static final int EDGE_RIGHT
+    public void getDisplayMatrix(android.graphics.Matrix)
+    public void getSuppMatrix(android.graphics.Matrix)
+    public boolean isZoomEnabled()
+    public void setBaseRotation(float)
+    public boolean setDisplayMatrix(android.graphics.Matrix)
+    public void setScaleLevels(float,float,float)
+    public void setZoomInterpolator(android.view.animation.Interpolator)
+com.github.chrisbanes.photoview.R
+com.github.chrisbanes.photoview.Util:
+    void <init>()
 com.google.android.gms.actions.ItemListIntents
 com.google.android.gms.actions.NoteIntents
 com.google.android.gms.actions.ReserveIntents
@@ -46666,6 +46695,86 @@ com.futuremind.recyclerviewfastscroll.viewprovider.VisibilityAnimationManager$Bu
 com.futuremind.recyclerviewfastscroll.viewprovider.VisibilityAnimationManager:
     public static void hide()
     public static void show()
+com.github.chrisbanes.photoview.Compat
+com.github.chrisbanes.photoview.CustomGestureDetector:
+    public final float getActiveX(android.view.MotionEvent)
+    public final float getActiveY(android.view.MotionEvent)
+    public static boolean isDragging()
+    public static boolean isScaling()
+    public static boolean onTouchEvent()
+com.github.chrisbanes.photoview.OnGestureListener:
+    public abstract void onDrag()
+    public abstract void onFling()
+    public abstract void onScale(float,float,float)
+com.github.chrisbanes.photoview.OnMatrixChangedListener:
+    public abstract void onMatrixChanged()
+com.github.chrisbanes.photoview.OnOutsidePhotoTapListener:
+    public abstract void onOutsidePhotoTap()
+com.github.chrisbanes.photoview.OnPhotoTapListener:
+    public abstract void onPhotoTap()
+com.github.chrisbanes.photoview.OnScaleChangedListener:
+    public abstract void onScaleChange()
+com.github.chrisbanes.photoview.OnSingleFlingListener:
+    public abstract boolean onFling()
+com.github.chrisbanes.photoview.PhotoView:
+    public static void init()
+com.github.chrisbanes.photoview.PhotoViewAttacher$AnimatedZoomRunnable:
+    public static float interpolate()
+com.github.chrisbanes.photoview.PhotoViewAttacher$FlingRunnable:
+    public static void cancelFling()
+    public static void fling()
+com.github.chrisbanes.photoview.PhotoViewAttacher:
+    public static float DEFAULT_MAX_SCALE
+    public static float DEFAULT_MID_SCALE
+    public static float DEFAULT_MIN_SCALE
+    public static int DEFAULT_ZOOM_DURATION
+    public static int SINGLE_TOUCH
+    public float mBaseRotation
+    public com.github.chrisbanes.photoview.OnMatrixChangedListener mMatrixChangeListener
+    public com.github.chrisbanes.photoview.OnOutsidePhotoTapListener mOutsidePhotoTapListener
+    public com.github.chrisbanes.photoview.OnPhotoTapListener mPhotoTapListener
+    public com.github.chrisbanes.photoview.OnScaleChangedListener mScaleChangeListener
+    public com.github.chrisbanes.photoview.OnSingleFlingListener mSingleFlingListener
+    static void <clinit>()
+    public static synthetic void access$200()
+    public static synthetic float access$300()
+    public static synthetic int access$400()
+    public static synthetic void access$600()
+    public static synthetic void access$700()
+    public static void cancelFling()
+    public final android.graphics.RectF getDisplayRect()
+    public final android.graphics.RectF getDisplayRect(android.graphics.Matrix)
+    public static android.graphics.Matrix getImageMatrix()
+    public static int getImageViewHeight(android.widget.ImageView)
+    public static int getImageViewWidth(android.widget.ImageView)
+    public static float getMaximumScale()
+    public static float getMediumScale()
+    public static float getMinimumScale()
+    public static android.widget.ImageView$ScaleType getScaleType()
+    public final float getValue(android.graphics.Matrix,int)
+    public final void onDrag()
+    public final void onFling()
+    public final void resetMatrix()
+    public static void setAllowParentInterceptOnEdge()
+    public final void setImageViewMatrix(android.graphics.Matrix)
+    public static void setMaximumScale()
+    public static void setMediumScale()
+    public static void setMinimumScale()
+    public static void setOnClickListener()
+    public static void setOnDoubleTapListener()
+    public static void setOnLongClickListener()
+    public static void setOnMatrixChangeListener()
+    public static void setOnOutsidePhotoTapListener()
+    public static void setOnPhotoTapListener()
+    public static void setOnScaleChangeListener()
+    public static void setOnSingleFlingListener()
+    public final void setRotationBy(float)
+    public static void setRotationTo()
+    public static void setScale()
+    public static void setScale$1()
+    public static void setScaleType()
+    public static void setZoomTransitionDuration()
+    public static void setZoomable()
 com.google.android.gms.auth.api.signin.GoogleSignInAccount:
     public static final com.google.android.gms.common.util.Clock zaa
     public static android.accounts.Account getAccount()
@@ -51297,11 +51406,11 @@ kotlinx.coroutines.JobKt__JobKt
 kotlinx.coroutines.flow.MutableStateFlow
 me.t3sl4.kurye.UI.Components.PasswordField.PasswordFieldUtil:
     static void <clinit>()
-me.t3sl4.kurye.UI.Screens.Order.CurrentOrder:
+me.t3sl4.kurye.UI.Screens.Carrier.Order.CurrentOrder:
     static void <clinit>()
-me.t3sl4.kurye.UI.Screens.User.Merchant.Marketplace$$InternalSyntheticBackport$1$ef4753612bd3f59a411e3b5f3f15f0418b862adad554128683cbc298f7fd2412$0
-me.t3sl4.kurye.UI.Screens.User.Merchant.Marketplace$$InternalSyntheticBackport$1$ef4753612bd3f59a411e3b5f3f15f0418b862adad554128683cbc298f7fd2412$1
-me.t3sl4.kurye.UI.Screens.User.Merchant.Marketplace$$InternalSyntheticBackport$1$ef4753612bd3f59a411e3b5f3f15f0418b862adad554128683cbc298f7fd2412$2
+me.t3sl4.kurye.UI.Screens.Merchant.Navbar.Marketplace$$InternalSyntheticBackport$1$f2c3b52e6c004bc28af211e1f28aec6a51f974c7c8e4e78178cea47d1873ac0b$0
+me.t3sl4.kurye.UI.Screens.Merchant.Navbar.Marketplace$$InternalSyntheticBackport$1$f2c3b52e6c004bc28af211e1f28aec6a51f974c7c8e4e78178cea47d1873ac0b$1
+me.t3sl4.kurye.UI.Screens.Merchant.Navbar.Marketplace$$InternalSyntheticBackport$1$f2c3b52e6c004bc28af211e1f28aec6a51f974c7c8e4e78178cea47d1873ac0b$2
 org.cactoos.Fallback$From:
     public static java.lang.Object apply()
     public static int support()
