@@ -94,13 +94,21 @@ public class MerchantDashboard extends AppCompatActivity {
     @SuppressLint("ClickableViewAccessibility")
     private void hamburgerEffect() {
         restrictedHeaderSection.setOnClickListener(v -> {
-            if (hamburgerMenu.getVisibility() == View.VISIBLE) {
+            if(hamburgerMenu.getVisibility() == View.VISIBLE) {
                 NavigationUtil.hideNavigationViewWithAnimation(hamburgerMenu, MerchantDashboard.this);
             }
         });
 
+        ordersList.setOnTouchListener((view, motionEvent) -> {
+            if(motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
+                NavigationUtil.hideNavigationViewWithAnimation(hamburgerMenu, this);
+                return true;
+            }
+            return false;
+        });
+
         restrictedBottomSection.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
+            if(motionEvent.getAction() == MotionEvent.ACTION_DOWN && hamburgerMenu.getVisibility() == View.VISIBLE) {
                 NavigationUtil.hideNavigationViewWithAnimation(hamburgerMenu, this);
                 return true;
             }
