@@ -51,6 +51,7 @@
         <activity android:name=".UI.Screens.General.PasswordReset.Reset3" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".UI.Screens.General.PasswordReset.Reset4" />
         <activity android:name=".UI.Screens.Carrier.Hamburger.FAQ" />
+        <activity android:name=".UI.Screens.Merchant.Hamburger.FAQ" />
         <activity android:name=".UI.Screens.Carrier.Navbar.Orders" />
         <activity android:name=".UI.Screens.Carrier.Order.CurrentOrder" />
         <activity android:name=".UI.Screens.Carrier.Navbar.Profile.Profile" android:windowSoftInputMode="adjustPan" />

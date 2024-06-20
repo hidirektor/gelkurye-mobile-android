@@ -28,11 +28,11 @@ import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.Navigation.NavigationUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Carrier.Hamburger.FAQ;
-import me.t3sl4.kurye.UI.Screens.Carrier.Order.CurrentOrder;
-import me.t3sl4.kurye.UI.Screens.Carrier.Navbar.Orders;
 import me.t3sl4.kurye.UI.Screens.Carrier.Navbar.Earning;
+import me.t3sl4.kurye.UI.Screens.Carrier.Navbar.Orders;
 import me.t3sl4.kurye.UI.Screens.Carrier.Navbar.Profile.EditProfile;
 import me.t3sl4.kurye.UI.Screens.Carrier.Navbar.Profile.Profile;
+import me.t3sl4.kurye.UI.Screens.Carrier.Order.CurrentOrder;
 import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
 

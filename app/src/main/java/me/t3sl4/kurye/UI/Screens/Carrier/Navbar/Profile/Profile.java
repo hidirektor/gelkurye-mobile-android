@@ -29,7 +29,6 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 import com.mikhaellopez.circularimageview.CircularImageView;
-import me.t3sl4.kurye.UI.Components.NiceSwitch.NiceSwitch;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,6 +38,7 @@ import java.util.Objects;
 import me.t3sl4.kurye.Model.User.UserModel;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
+import me.t3sl4.kurye.UI.Components.NiceSwitch.NiceSwitch;
 import me.t3sl4.kurye.UI.Screens.Carrier.CarrierDashboard;
 import me.t3sl4.kurye.UI.Screens.Carrier.Navbar.Earning;
 import me.t3sl4.kurye.UI.Screens.Carrier.Navbar.Orders;

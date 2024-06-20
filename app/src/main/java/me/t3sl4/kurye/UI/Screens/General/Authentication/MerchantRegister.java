@@ -20,7 +20,6 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.android.volley.VolleyError;
 import com.irozon.sneaker.Sneaker;
-import me.t3sl4.kurye.UI.Components.StateProgressBar.StateProgressBar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,6 +32,7 @@ import java.util.Objects;
 
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
+import me.t3sl4.kurye.UI.Components.StateProgressBar.StateProgressBar;
 import me.t3sl4.kurye.UI.Screens.General.Authentication.RegisterFragments.Step1Fragment;
 import me.t3sl4.kurye.UI.Screens.General.Authentication.RegisterFragments.Step2Fragment;
 import me.t3sl4.kurye.UI.Screens.General.Authentication.RegisterFragments.Step5Fragment;

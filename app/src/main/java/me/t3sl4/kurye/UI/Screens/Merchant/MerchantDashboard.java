@@ -25,11 +25,8 @@ import me.t3sl4.kurye.Model.User.UserModel;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.Navigation.NavigationUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
-import me.t3sl4.kurye.UI.Screens.Carrier.Hamburger.FAQ;
-import me.t3sl4.kurye.UI.Screens.Carrier.Order.CurrentOrder;
-import me.t3sl4.kurye.UI.Screens.Carrier.Navbar.Orders;
+import me.t3sl4.kurye.UI.Screens.Merchant.Hamburger.FAQ;
 import me.t3sl4.kurye.UI.Screens.Merchant.Navbar.Marketplace;
-import me.t3sl4.kurye.UI.Screens.Carrier.Navbar.Profile.EditProfile;
 import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
 
@@ -60,8 +57,7 @@ public class MerchantDashboard extends AppCompatActivity {
     private LinearLayout profileButton;
 
     //Hamburger Menu Buttons
-    private Button currentOrderButton;
-    private LinearLayout navAllOrdersButton;
+    private Button navAllOrdersButton;
     private LinearLayout navSettingsButton;
     private LinearLayout navFaqButton;
     private LinearLayout navSupportButton;
@@ -142,7 +138,6 @@ public class MerchantDashboard extends AppCompatActivity {
         View hamburgerView = hamburgerMenu.getHeaderView(0);
         profilePhotoHamburger = hamburgerView.findViewById(R.id.profilePhotoHamburger);
         nameSurnameHamburger = hamburgerView.findViewById(R.id.nameSurnameHamburger);
-        currentOrderButton = hamburgerView.findViewById(R.id.navCurrentOrder);
         navAllOrdersButton = hamburgerView.findViewById(R.id.navAllOrders);
         navSettingsButton = hamburgerView.findViewById(R.id.navSettings);
         navFaqButton = hamburgerView.findViewById(R.id.navFAQ);
@@ -157,22 +152,15 @@ public class MerchantDashboard extends AppCompatActivity {
         //Hamburger Menu Trigger Listener
         hamburgerButton.setOnClickListener(v -> NavigationUtil.showNavigationViewWithAnimation(hamburgerMenu, this));
 
-        //Hamburger Button Clicks
-        currentOrderButton.setOnClickListener(v -> {
-            //Anlık map takibi ile şuanki ekranı gösterme
-            Intent currentOrderIntent = new Intent(MerchantDashboard.this, CurrentOrder.class);
-            startActivity(currentOrderIntent);
-        });
-
         navAllOrdersButton.setOnClickListener(v -> {
-            Intent allOrdersIntent = new Intent(MerchantDashboard.this, Orders.class);
-            startActivity(allOrdersIntent);
+            //Intent allOrdersIntent = new Intent(MerchantDashboard.this, Orders.class);
+            //startActivity(allOrdersIntent);
         });
 
         navSettingsButton.setOnClickListener(v -> {
             //Ayarlar ekranına yönlendir
-            Intent settingsIntent = new Intent(MerchantDashboard.this, EditProfile.class);
-            startActivity(settingsIntent);
+            //Intent settingsIntent = new Intent(MerchantDashboard.this, EditProfile.class);
+            //startActivity(settingsIntent);
         });
 
         navFaqButton.setOnClickListener(v -> {

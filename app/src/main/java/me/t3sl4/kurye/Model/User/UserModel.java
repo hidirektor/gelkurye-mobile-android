@@ -10,8 +10,6 @@ import com.google.gson.Gson;
 
 import java.util.Locale;
 
-import javax.annotation.Nullable;
-
 public class UserModel implements Parcelable {
     private int id;
     private String userID;

@@ -103,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:background="@drawable/navigation"
-        app:headerLayout="@layout/hamburger_main"
+        app:headerLayout="@layout/hamburger_merchant"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

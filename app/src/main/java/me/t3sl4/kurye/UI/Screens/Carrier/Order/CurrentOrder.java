@@ -39,10 +39,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import me.t3sl4.kurye.UI.Components.StateProgressBar.StateProgressBar;
 
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
+import me.t3sl4.kurye.UI.Components.StateProgressBar.StateProgressBar;
 import me.t3sl4.kurye.Util.GoogleMaps.FetchURL;
 import me.t3sl4.kurye.Util.GoogleMaps.OnTaskDoneListener;
 

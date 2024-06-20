@@ -1,5 +1,16 @@
 package me.t3sl4.kurye.UI.Components.NiceSwitch;
 
+import static me.t3sl4.kurye.UI.Components.NiceSwitch.Constants.BOUNCE_ANIM_AMPLITUDE_IN;
+import static me.t3sl4.kurye.UI.Components.NiceSwitch.Constants.BOUNCE_ANIM_AMPLITUDE_OUT;
+import static me.t3sl4.kurye.UI.Components.NiceSwitch.Constants.BOUNCE_ANIM_FREQUENCY_IN;
+import static me.t3sl4.kurye.UI.Components.NiceSwitch.Constants.BOUNCE_ANIM_FREQUENCY_OUT;
+import static me.t3sl4.kurye.UI.Components.NiceSwitch.Constants.COLOR_ANIMATION_DURATION;
+import static me.t3sl4.kurye.UI.Components.NiceSwitch.Constants.KEY_CHECKED;
+import static me.t3sl4.kurye.UI.Components.NiceSwitch.Constants.ON_CLICK_RADIUS_OFFSET;
+import static me.t3sl4.kurye.UI.Components.NiceSwitch.Constants.STATE;
+import static me.t3sl4.kurye.UI.Components.NiceSwitch.Constants.SWITCHER_ANIMATION_DURATION;
+import static me.t3sl4.kurye.UI.Components.NiceSwitch.Constants.TRANSLATE_ANIMATION_DURATION;
+
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
@@ -24,8 +35,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
 import me.t3sl4.kurye.R;
-
-import static me.t3sl4.kurye.UI.Components.NiceSwitch.Constants.*;
 
 @Keep
 public class NiceSwitch extends View {

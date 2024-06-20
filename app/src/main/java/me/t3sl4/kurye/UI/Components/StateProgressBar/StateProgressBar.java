@@ -16,17 +16,16 @@ import android.widget.Scroller;
 
 import androidx.core.content.ContextCompat;
 
-import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.Components.StateItem;
-import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.Components.StateItemDescription;
-import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.Components.StateItemNumber;
-import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.Listeners.OnStateItemClickListener;
-import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.FontManager;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import me.t3sl4.kurye.R;
+import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.Components.StateItem;
+import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.Components.StateItemDescription;
+import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.Components.StateItemNumber;
+import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.FontManager;
+import me.t3sl4.kurye.UI.Components.StateProgressBar.Utils.Listeners.OnStateItemClickListener;
 
 public class StateProgressBar extends View {
 

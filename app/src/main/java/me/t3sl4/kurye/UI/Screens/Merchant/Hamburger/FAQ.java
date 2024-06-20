@@ -1,4 +1,4 @@
-package me.t3sl4.kurye.UI.Screens.Carrier.Hamburger;
+package me.t3sl4.kurye.UI.Screens.Merchant.Hamburger;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -41,7 +41,7 @@ public class FAQ extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.faq_carrier);
+        setContentView(R.layout.faq_merchant);
 
         NavigationBarUtil.hideNavigationBar(this);
 

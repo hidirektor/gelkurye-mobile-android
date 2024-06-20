@@ -27,8 +27,8 @@ import me.t3sl4.kurye.UI.Components.EditText.EditTextUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Components.PasswordField.PasswordFieldUtil;
 import me.t3sl4.kurye.UI.Screens.Carrier.CarrierDashboard;
-import me.t3sl4.kurye.UI.Screens.Merchant.MerchantDashboard;
 import me.t3sl4.kurye.UI.Screens.General.PasswordReset.Reset1;
+import me.t3sl4.kurye.UI.Screens.Merchant.MerchantDashboard;
 import me.t3sl4.kurye.Util.ReqUtil;
 
 public class Login extends AppCompatActivity {

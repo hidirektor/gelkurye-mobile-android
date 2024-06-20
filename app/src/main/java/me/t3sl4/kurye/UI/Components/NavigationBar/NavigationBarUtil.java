@@ -1,8 +1,8 @@
 package me.t3sl4.kurye.UI.Components.NavigationBar;
 
 import android.app.Activity;
-import android.os.Build;
 import android.view.View;
+
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
