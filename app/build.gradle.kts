@@ -135,7 +135,7 @@ dependencies {
         exclude(group = "net.jcip", module = "jcip-annotations")
     }
 
-    implementation("androidx.core:core-ktx:1.7.0")
+    implementation("androidx.core:core-ktx:1.13.1")
 
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
@@ -153,6 +153,7 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
     implementation("com.irozon.sneaker:sneaker:2.0.0")
+    implementation("com.github.chrisbanes:PhotoView:2.0.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
