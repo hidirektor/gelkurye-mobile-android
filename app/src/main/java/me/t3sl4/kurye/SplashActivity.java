@@ -13,12 +13,11 @@ import java.util.Objects;
 
 import me.t3sl4.kurye.Model.User.UserModel;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
-import me.t3sl4.kurye.UI.Screens.Authentication.Login;
-import me.t3sl4.kurye.UI.Screens.General.Carrier.CarrierDashboard;
-import me.t3sl4.kurye.UI.Screens.General.Merchant.MerchantDashboard;
+import me.t3sl4.kurye.UI.Screens.General.Authentication.Login;
+import me.t3sl4.kurye.UI.Screens.Carrier.CarrierDashboard;
+import me.t3sl4.kurye.UI.Screens.Merchant.MerchantDashboard;
 import me.t3sl4.kurye.UI.Screens.MainActivity;
-import me.t3sl4.kurye.UI.Screens.OnBoard.OnBoard1;
-import me.t3sl4.kurye.UI.Screens.General.Merchant.Marketplace;
+import me.t3sl4.kurye.UI.Screens.General.OnBoard.OnBoard1;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;

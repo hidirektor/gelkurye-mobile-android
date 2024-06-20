@@ -11,9 +11,9 @@ import com.irozon.sneaker.Sneaker;
 
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
-import me.t3sl4.kurye.UI.Screens.Authentication.Login;
-import me.t3sl4.kurye.UI.Screens.Authentication.MerchantRegister;
-import me.t3sl4.kurye.UI.Screens.Authentication.Register;
+import me.t3sl4.kurye.UI.Screens.General.Authentication.Login;
+import me.t3sl4.kurye.UI.Screens.General.Authentication.MerchantRegister;
+import me.t3sl4.kurye.UI.Screens.General.Authentication.Register;
 import me.t3sl4.kurye.Util.Utils;
 
 public class MainActivity extends AppCompatActivity {
