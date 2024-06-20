@@ -148,6 +148,9 @@
 
     <!-- Merchant Texts -->
     <string name="merchant_marketplace">Pazaryeri</string>
+    <string name="merchant_marketplace_trendyol" translatable="false">Trendyol</string>
+    <string name="merchant_marketplace_getiryemek" translatable="false">Getir Yemek</string>
+    <string name="merchant_marketplace_yemeksepeti" translatable="false">Yemek Sepeti</string>
     <string name="merchant_setup_trendyol">Trendyol Eşle</string>
     <string name="merchant_setup_getiryemek">GetirYemek Eşle</string>
     <string name="merchant_setup_yemeksepeti">YemekSepeti Eşle</string>

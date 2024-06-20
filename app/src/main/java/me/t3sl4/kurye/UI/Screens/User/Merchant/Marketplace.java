@@ -2,14 +2,17 @@ package me.t3sl4.kurye.UI.Screens.User.Merchant;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.android.volley.VolleyError;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -40,6 +43,25 @@ public class Marketplace extends AppCompatActivity {
     private LinearLayout findGetirYemek;
     private LinearLayout findYemekSepeti;
 
+    private Button trendyolInfoButton;
+    private Button getirYemekInfoButton;
+    private Button yemekSepetiInfoButton;
+
+    private LinearLayout trendyolLinearLayout;
+    private ImageView trendyolCloseButton;
+    private EditText trendyolSupplierIDEditText;
+    private EditText trendyolAPIKeyEditText;
+    private EditText trendyolAPISecretKeyEditText;
+
+    private LinearLayout getirYemekLinearLayout;
+    private ImageView getirYemekCloseButton;
+    private EditText getirYemekMerchantTokenEditText;
+
+    private LinearLayout yemekSepetiLinearLayout;
+    private ImageView yemekSepetiCloseButton;
+    private EditText yemekSepetiUsernameEditText;
+    private EditText yemekSepetiPasswordEditText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +72,14 @@ public class Marketplace extends AppCompatActivity {
         componentInitialize();
 
         currentProfile = Utils.getFromSharedPreferences(this);
-        refreshProfileData();
 
         checkMarketPlaces();
 
         setupSwitchListeners();
+
+        infoComponentClicks();
+
+        refreshProfileData();
     }
 
     private void componentInitialize() {
@@ -65,6 +90,25 @@ public class Marketplace extends AppCompatActivity {
         findTrendyol = findViewById(R.id.findTrendyolButton);
         findGetirYemek = findViewById(R.id.findGetirYemekButton);
         findYemekSepeti = findViewById(R.id.findYemekSepetiButton);
+
+        trendyolInfoButton = findViewById(R.id.trendyolInfo);
+        getirYemekInfoButton = findViewById(R.id.getirYemekInfo);
+        yemekSepetiInfoButton = findViewById(R.id.yemekSepetiInfo);
+
+        trendyolLinearLayout = findViewById(R.id.trendyolLinearLayout);
+        trendyolCloseButton = findViewById(R.id.trendyolCloseImageView);
+        trendyolSupplierIDEditText = findViewById(R.id.supplierIDEditText);
+        trendyolAPIKeyEditText = findViewById(R.id.apiKeyEditText);
+        trendyolAPISecretKeyEditText = findViewById(R.id.secretKeyEditText);
+
+        getirYemekLinearLayout = findViewById(R.id.getirYemekLinearLayout);
+        getirYemekCloseButton = findViewById(R.id.getirYemekCloseImageView);
+        getirYemekMerchantTokenEditText = findViewById(R.id.getirYemekMerchantTokenEditText);
+
+        yemekSepetiLinearLayout = findViewById(R.id.yemekSepetiLinearLayout);
+        yemekSepetiCloseButton = findViewById(R.id.yemekSepetiCloseImageView);
+        yemekSepetiUsernameEditText = findViewById(R.id.yemekSepetiUsernameEditText);
+        yemekSepetiPasswordEditText = findViewById(R.id.yemekSepetiPasswordEditText);
     }
 
     private void checkMarketPlaces() {
@@ -105,6 +149,70 @@ public class Marketplace extends AppCompatActivity {
                 showYemekSepetiBottomSheetDialog();
             }
         });
+    }
+
+    private void infoComponentClicks() {
+        int defaultTextColor = ContextCompat.getColor(this, R.color.editTextTopColor);
+        int secondTextColor = ContextCompat.getColor(this, R.color.white);
+
+        Drawable defaultDrawable = ContextCompat.getDrawable(this, R.drawable.allorders);
+        Drawable secondDrawable = ContextCompat.getDrawable(this, R.drawable.background_waitingorders);
+
+        trendyolInfoButton.setOnClickListener(v -> {
+            setButtonStatus(defaultTextColor, defaultDrawable);
+            trendyolInfoButton.setTextColor(secondTextColor);
+            trendyolInfoButton.setBackground(secondDrawable);
+
+            trendyolLinearLayout.setVisibility(LinearLayout.VISIBLE);
+            trendyolSupplierIDEditText.setText(currentProfile.getTrendyolSupplierID());
+            trendyolAPIKeyEditText.setText(currentProfile.getTrendyolAPIKey());
+            trendyolAPISecretKeyEditText.setText(currentProfile.getTrendyolAPISecretKey());
+        });
+
+        getirYemekInfoButton.setOnClickListener(v -> {
+            setButtonStatus(defaultTextColor, defaultDrawable);
+            getirYemekInfoButton.setTextColor(secondTextColor);
+            getirYemekInfoButton.setBackground(secondDrawable);
+
+            getirYemekLinearLayout.setVisibility(LinearLayout.VISIBLE);
+            getirYemekMerchantTokenEditText.setText(currentProfile.getGetirYemekMerchantToken());
+        });
+
+        yemekSepetiInfoButton.setOnClickListener(v -> {
+            setButtonStatus(defaultTextColor, defaultDrawable);
+            yemekSepetiInfoButton.setTextColor(secondTextColor);
+            yemekSepetiInfoButton.setBackground(secondDrawable);
+
+            yemekSepetiLinearLayout.setVisibility(LinearLayout.VISIBLE);
+            yemekSepetiUsernameEditText.setText(currentProfile.getYemekSepetiUsername());
+            yemekSepetiPasswordEditText.setText(currentProfile.getYemekSepetiPassword());
+        });
+
+        trendyolCloseButton.setOnClickListener(v -> {
+            setButtonStatus(defaultTextColor, defaultDrawable);
+        });
+
+        getirYemekCloseButton.setOnClickListener(v -> {
+            setButtonStatus(defaultTextColor, defaultDrawable);
+        });
+
+        yemekSepetiCloseButton.setOnClickListener(v -> {
+            setButtonStatus(defaultTextColor, defaultDrawable);
+        });
+    }
+
+    private void setButtonStatus(int defaultTextColor, Drawable defaultDrawable) {
+        trendyolInfoButton.setTextColor(defaultTextColor);
+        trendyolInfoButton.setBackground(defaultDrawable);
+        trendyolLinearLayout.setVisibility(LinearLayout.GONE);
+
+        getirYemekInfoButton.setTextColor(defaultTextColor);
+        getirYemekInfoButton.setBackground(defaultDrawable);
+        getirYemekLinearLayout.setVisibility(LinearLayout.GONE);
+
+        yemekSepetiInfoButton.setTextColor(defaultTextColor);
+        yemekSepetiInfoButton.setBackground(defaultDrawable);
+        yemekSepetiLinearLayout.setVisibility(LinearLayout.GONE);
     }
 
     private void showTrendyolBottomSheetDialog() {
