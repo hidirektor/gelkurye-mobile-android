@@ -382,17 +382,83 @@ public class Marketplace extends AppCompatActivity {
         });
     }
 
+    private void showTrendyolFindBottomSheetDialog() {
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this, R.style.BottomSheetDialog);
+        bottomSheetDialog.setContentView(R.layout.find_api_trendyol);
+
+        ImageView closeDialog = bottomSheetDialog.findViewById(R.id.closePopup);
+
+        closeDialog.setOnClickListener(v -> {
+            bottomSheetDialog.dismiss();
+        });
+
+        bottomSheetDialog.show();
+        Objects.requireNonNull(bottomSheetDialog.getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        bottomSheetDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        bottomSheetDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        bottomSheetDialog.getWindow().setGravity(Gravity.BOTTOM);
+
+        NavigationBarUtil.hideNavigationBarOnDialog(bottomSheetDialog);
+        bottomSheetDialog.setOnDismissListener(dialog -> {
+            NavigationBarUtil.hideNavigationBar(Marketplace.this);
+        });
+    }
+
+    private void showGetirYemekFindBottomSheetDialog() {
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this, R.style.BottomSheetDialog);
+        bottomSheetDialog.setContentView(R.layout.find_api_getiryemek);
+
+        ImageView closeDialog = bottomSheetDialog.findViewById(R.id.closePopup);
+
+        closeDialog.setOnClickListener(v -> {
+            bottomSheetDialog.dismiss();
+        });
+
+        bottomSheetDialog.show();
+        Objects.requireNonNull(bottomSheetDialog.getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        bottomSheetDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        bottomSheetDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        bottomSheetDialog.getWindow().setGravity(Gravity.BOTTOM);
+
+        NavigationBarUtil.hideNavigationBarOnDialog(bottomSheetDialog);
+        bottomSheetDialog.setOnDismissListener(dialog -> {
+            NavigationBarUtil.hideNavigationBar(Marketplace.this);
+        });
+    }
+
+    private void showYemekSepetiFindBottomSheetDialog() {
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this, R.style.BottomSheetDialog);
+        bottomSheetDialog.setContentView(R.layout.find_api_yemeksepeti);
+
+        ImageView closeDialog = bottomSheetDialog.findViewById(R.id.closePopup);
+
+        closeDialog.setOnClickListener(v -> {
+            bottomSheetDialog.dismiss();
+        });
+
+        bottomSheetDialog.show();
+        Objects.requireNonNull(bottomSheetDialog.getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        bottomSheetDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        bottomSheetDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        bottomSheetDialog.getWindow().setGravity(Gravity.BOTTOM);
+
+        NavigationBarUtil.hideNavigationBarOnDialog(bottomSheetDialog);
+        bottomSheetDialog.setOnDismissListener(dialog -> {
+            NavigationBarUtil.hideNavigationBar(Marketplace.this);
+        });
+    }
+
     private void popupButtonClicks() {
         findTrendyol.setOnClickListener(v -> {
-
+            showTrendyolFindBottomSheetDialog();
         });
 
         findGetirYemek.setOnClickListener(v -> {
-
+            showGetirYemekFindBottomSheetDialog();
         });
 
         findYemekSepeti.setOnClickListener(v -> {
-
+            showYemekSepetiFindBottomSheetDialog();
         });
     }
 
