@@ -102,6 +102,14 @@
     <string name="faq_a3">The application constantly tracks your location to ensure precision in terms of order tracking.</string>
     <string name="faq_q4">Are my package statistics updated?</string>
     <string name="faq_a4">Yes, your statistics are updated after each delivery.</string>
+    <string name="faq_merchant_q1">Why do I have to provide my username and password for Yemek Sepeti?</string>
+    <string name="faq_merchant_a1">According to Yemek Sepeti policies, in order to be able to withdraw your orders from Yemek Sepeti, we have to get your Yemek Sepeti username and password and generate a "Token" from Yemek Sepeti. In line with our data storage policies, any information you share with us is not shared with any 3rd party.</string>
+    <string name="faq_merchant_q2">Is the data on the "Earnings" screen updated simultaneously?</string>
+    <string name="faq_merchant_a2">Yes. The data on the earnings screen is calculated and produced in line with your orders coming in simultaneously. Thus, you can access your business"'"s current earnings table whenever you want.</string>
+    <string name="faq_merchant_q3">How often are orders withdrawn from marketplaces?</string>
+    <string name="faq_merchant_a3">We check your orders in your marketplace accounts every minute. This way, no order is overlooked and is assigned to our couriers.</string>
+    <string name="faq_merchant_q4">Do you automatically update order status?</string>
+    <string name="faq_merchant_a4">Yes, order statuses are also automatically updated in the marketplaces based on the couriers actions (accepting the order, delivering the order).</string>
 
     <!-- Stats -->
     <string name="stats_completed">Completed Deliveries</string>

@@ -108,6 +108,14 @@
     <string name="faq_a3">Uygulama sipariş takibi açısından hassaslık sağlayabilmek için sürekli olarak konumunuzu takip eder.</string>
     <string name="faq_q4">Paket istatistiklerim güncelleniyor mu?</string>
     <string name="faq_a4">Evet, her teslimat sonrasında istatistikleriniz güncellenir.</string>
+    <string name="faq_merchant_q1">Yemek Sepeti için neden kullanıcı adı ve şifremi vermek zorundayım?</string>
+    <string name="faq_merchant_a1">Yemek Sepeti politikaları gereği yemek sepetinde ki siparişlerinizi çekebilmemiz için yemek sepeti kullanıcı adı ve şifrenizi sizlerden alıp yemek sepetinden "Token" üretmek zorundayız. Veri saklama politikalarımız doğrultusunda bizlerle paylaştığınız hiçbir bilgi 3. parti hiçbir kişiyle paylaşılmamaktadır.</string>
+    <string name="faq_merchant_q2">"Kazanç" ekranında ki veriler eş zamanlı olarak mı güncelleniyor?</string>
+    <string name="faq_merchant_a2">Evet. Kazanç ekranında ki verileriniz eş zamanlı olarak gelen siparişleriniz doğrultusunda hesaplanarak üretilir. Böylece işletmenizin güncel kazanç tablosuna istediğiniz zaman ulaşabilirsiniz.</string>
+    <string name="faq_merchant_q3">Siparişler ne sıklıkla pazaryerlerinden çekiliyor?</string>
+    <string name="faq_merchant_a3">Pazaryerlerinde ki hesaplarınıza düşen siparişleriniz için birer dakika arayla kontrol yapıyoruz. Böylece hiçbir sipariş gözden kaçmıyor ve kuryelerimize atanıyor.</string>
+    <string name="faq_merchant_q4">Sipariş durumunu otomatik güncelliyor musunuz?</string>
+    <string name="faq_merchant_a4">Evet sipariş durumları da kuryelerin eylemlerine (siparişi kabul etme, siparişi teslim etme) göre pazaryerlerinde otomatik olarak güncelleniyor.</string>
 
     <!-- Stats -->
     <string name="stats_completed">Teslim Edilen Paket</string>

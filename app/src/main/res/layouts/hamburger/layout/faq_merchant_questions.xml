@@ -50,7 +50,7 @@
                         android:drawablePadding="16dp"
                         android:ems="10"
                         android:fontFamily="@font/outfit_medium"
-                        android:text="@string/faq_q1"
+                        android:text="@string/faq_merchant_q1"
                         android:padding="8dp"
                         android:textColor="@color/faqColor"
                         android:drawableEnd="@drawable/faq_end_ikon"/>
@@ -75,7 +75,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/outfit_medium"
                         android:background="@drawable/faq_answerbackground"
-                        android:text="@string/faq_a1"
+                        android:text="@string/faq_merchant_a1"
                         android:textColor="@color/white"
                         android:padding="16dp" />
                 </LinearLayout>
@@ -106,7 +106,7 @@
                         android:drawablePadding="16dp"
                         android:ems="10"
                         android:fontFamily="@font/outfit_medium"
-                        android:text="@string/faq_q2"
+                        android:text="@string/faq_merchant_q2"
                         android:padding="8dp"
                         android:textColor="@color/faqColor"
                         android:drawableEnd="@drawable/faq_end_ikon"/>
@@ -131,7 +131,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/outfit_medium"
                         android:background="@drawable/faq_answerbackground"
-                        android:text="@string/faq_a2"
+                        android:text="@string/faq_merchant_a2"
                         android:textColor="@color/white"
                         android:padding="16dp" />
                 </LinearLayout>
@@ -162,7 +162,7 @@
                         android:drawablePadding="16dp"
                         android:ems="10"
                         android:fontFamily="@font/outfit_medium"
-                        android:text="@string/faq_q3"
+                        android:text="@string/faq_merchant_q3"
                         android:padding="8dp"
                         android:textColor="@color/faqColor"
                         android:drawableEnd="@drawable/faq_end_ikon"/>
@@ -188,7 +188,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/outfit_medium"
                         android:background="@drawable/faq_answerbackground"
-                        android:text="@string/faq_a3"
+                        android:text="@string/faq_merchant_a3"
                         android:textColor="@color/white"
                         android:padding="16dp" />
                 </LinearLayout>
@@ -219,7 +219,7 @@
                         android:drawablePadding="16dp"
                         android:ems="10"
                         android:fontFamily="@font/outfit_medium"
-                        android:text="@string/faq_q4"
+                        android:text="@string/faq_merchant_q4"
                         android:padding="8dp"
                         android:textColor="@color/faqColor"
                         android:drawableEnd="@drawable/faq_end_ikon"/>
@@ -245,7 +245,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/outfit_medium"
                         android:background="@drawable/faq_answerbackground"
-                        android:text="@string/faq_a4"
+                        android:text="@string/faq_merchant_a4"
                         android:textColor="@color/white"
                         android:padding="16dp" />
                 </LinearLayout>
