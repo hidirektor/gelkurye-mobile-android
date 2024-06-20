@@ -37,6 +37,8 @@ import me.t3sl4.kurye.Util.Utils;
 public class Marketplace extends AppCompatActivity {
     private UserModel currentProfile;
 
+    private ImageView closeButton;
+
     private NiceSwitch synchTrendyol;
     private NiceSwitch synchGetirYemek;
     private NiceSwitch synchYemekSepeti;
@@ -88,10 +90,14 @@ public class Marketplace extends AppCompatActivity {
 
         navbarButtonClicks();
 
+        generalButtonClicks();
+
         refreshProfileData();
     }
 
     private void componentInitialize() {
+        closeButton = findViewById(R.id.backButtonImage);
+
         synchTrendyol = findViewById(R.id.trendyolYemekSwitch);
         synchGetirYemek = findViewById(R.id.getirYemekSwitch);
         synchYemekSepeti = findViewById(R.id.yemeksepetiSwitch);
@@ -160,6 +166,12 @@ public class Marketplace extends AppCompatActivity {
             if (synchYemekSepeti.isChecked()) {
                 showYemekSepetiBottomSheetDialog();
             }
+        });
+    }
+
+    private void generalButtonClicks() {
+        closeButton.setOnClickListener(v -> {
+            finish();
         });
     }
 
