@@ -181,6 +181,7 @@ public class ReqUtil {
 
                     @Override
                     public void onError(VolleyError error) {
+                        Log.d("getProfile-Error", error.toString());
                         callback.onError();
                     }
                 },

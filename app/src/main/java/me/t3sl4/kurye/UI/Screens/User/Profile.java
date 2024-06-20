@@ -39,7 +39,7 @@ import java.util.Objects;
 import me.t3sl4.kurye.Model.User.UserModel;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
-import me.t3sl4.kurye.UI.Screens.General.Dashboard;
+import me.t3sl4.kurye.UI.Screens.General.Carrier.CarrierDashboard;
 import me.t3sl4.kurye.UI.Screens.Order.Orders;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 import me.t3sl4.kurye.Util.ReqUtil;
@@ -126,7 +126,7 @@ public class Profile extends AppCompatActivity {
     private void navbarButtonClicks() {
         //Navbar button click listeners
         dashboardButton.setOnClickListener(v -> {
-            Intent dashboardIntent = new Intent(Profile.this, Dashboard.class);
+            Intent dashboardIntent = new Intent(Profile.this, CarrierDashboard.class);
             finish();
             startActivity(dashboardIntent);
         });

@@ -1,4 +1,4 @@
-package me.t3sl4.kurye.UI.Screens.General;
+package me.t3sl4.kurye.UI.Screens.General.Carrier;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -25,7 +25,6 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 
 import me.t3sl4.kurye.Model.User.UserModel;
 import me.t3sl4.kurye.R;
-import me.t3sl4.kurye.SplashActivity;
 import me.t3sl4.kurye.UI.Components.Navigation.NavigationUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Hamburger.FAQ;
@@ -37,7 +36,7 @@ import me.t3sl4.kurye.UI.Screens.User.Profile;
 import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
 
-public class Dashboard extends AppCompatActivity {
+public class CarrierDashboard extends AppCompatActivity {
     private UserModel currentProfile;
 
     //Personal Stats:
@@ -75,7 +74,7 @@ public class Dashboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.courier);
+        setContentView(R.layout.carrier);
 
         NavigationBarUtil.hideNavigationBar(this);
 
@@ -96,7 +95,7 @@ public class Dashboard extends AppCompatActivity {
     private void hamburgerEffect() {
         restrictedHeaderSection.setOnClickListener(v -> {
             if (hamburgerMenu.getVisibility() == View.VISIBLE) {
-                NavigationUtil.hideNavigationViewWithAnimation(hamburgerMenu, Dashboard.this);
+                NavigationUtil.hideNavigationViewWithAnimation(hamburgerMenu, CarrierDashboard.this);
             }
         });
 
@@ -158,23 +157,23 @@ public class Dashboard extends AppCompatActivity {
         //Hamburger Button Clicks
         currentOrderButton.setOnClickListener(v -> {
             //Anlık map takibi ile şuanki ekranı gösterme
-            Intent currentOrderIntent = new Intent(Dashboard.this, CurrentOrder.class);
+            Intent currentOrderIntent = new Intent(CarrierDashboard.this, CurrentOrder.class);
             startActivity(currentOrderIntent);
         });
 
         navAllOrdersButton.setOnClickListener(v -> {
-            Intent allOrdersIntent = new Intent(Dashboard.this, Orders.class);
+            Intent allOrdersIntent = new Intent(CarrierDashboard.this, Orders.class);
             startActivity(allOrdersIntent);
         });
 
         navSettingsButton.setOnClickListener(v -> {
             //Ayarlar ekranına yönlendir
-            Intent settingsIntent = new Intent(Dashboard.this, EditProfile.class);
+            Intent settingsIntent = new Intent(CarrierDashboard.this, EditProfile.class);
             startActivity(settingsIntent);
         });
 
         navFaqButton.setOnClickListener(v -> {
-            Intent faqIntent = new Intent(Dashboard.this, FAQ.class);
+            Intent faqIntent = new Intent(CarrierDashboard.this, FAQ.class);
             startActivity(faqIntent);
         });
 
@@ -184,7 +183,7 @@ public class Dashboard extends AppCompatActivity {
         });
 
         navLogoutButton.setOnClickListener(v -> {
-            Utils.logoutAndNotify(Dashboard.this, Dashboard.this);
+            Utils.logoutAndNotify(CarrierDashboard.this, CarrierDashboard.this);
         });
     }
 
@@ -196,17 +195,17 @@ public class Dashboard extends AppCompatActivity {
         });
 
         ordersButton.setOnClickListener(v -> {
-            Intent ordersIntent = new Intent(Dashboard.this, Orders.class);
+            Intent ordersIntent = new Intent(CarrierDashboard.this, Orders.class);
             startActivity(ordersIntent);
         });
 
         earningButton.setOnClickListener(v -> {
-            Intent earningIntent = new Intent(Dashboard.this, Earning.class);
+            Intent earningIntent = new Intent(CarrierDashboard.this, Earning.class);
             startActivity(earningIntent);
         });
 
         profileButton.setOnClickListener(v -> {
-            Intent profileIntent = new Intent(Dashboard.this, Profile.class);
+            Intent profileIntent = new Intent(CarrierDashboard.this, Profile.class);
             startActivity(profileIntent);
         });
     }
@@ -234,7 +233,7 @@ public class Dashboard extends AppCompatActivity {
     }
 
     private void refreshProfileData() {
-        ReqUtil.getProfileReq(Dashboard.this, currentProfile.getPhoneNumber(), new ReqUtil.ProfileCallback() {
+        ReqUtil.getProfileReq(CarrierDashboard.this, currentProfile.getPhoneNumber(), new ReqUtil.ProfileCallback() {
             @Override
             public void onSuccess(UserModel profile) {
                 //TODO: Update profile
@@ -242,7 +241,7 @@ public class Dashboard extends AppCompatActivity {
 
             @Override
             public void onError() {
-                Sneaker.with(Dashboard.this).setTitle("Hata !").setMessage("Profil alınamadı!").sneakError();
+                Sneaker.with(CarrierDashboard.this).setTitle("Hata !").setMessage("Profil alınamadı!").sneakError();
             }
         });
     }

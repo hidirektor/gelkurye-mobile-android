@@ -589,7 +589,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/ordersButton"
+                    android:id="@+id/marketplaceButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -597,18 +597,21 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/imageView5"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/ikon_navbar_delivery" />
+                        app:srcCompat="@drawable/ikon_merchant"
+                        app:tint="@color/primaryColor" />
 
                     <TextView
+                        android:id="@+id/textView8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/navbar_orders"
+                        android:text="@string/merchant_marketplace"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
+                        android:textColor="@color/primaryColor"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -645,21 +648,18 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView5"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/ikon_merchant"
-                        app:tint="@color/primaryColor" />
+                        app:srcCompat="@drawable/ikon_navbar_profile" />
 
                     <TextView
-                        android:id="@+id/textView8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/merchant_marketplace"
+                        android:text="@string/navbar_profile"
                         android:textAlignment="center"
-                        android:textColor="@color/primaryColor"
+                        android:textColor="@color/black"
                         android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>

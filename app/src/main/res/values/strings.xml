@@ -59,6 +59,8 @@
     <!-- Developer Info -->
     <string name="developer" translatable="false">Halil İbrahim Direktör</string>
     <string name="developer_mail" translatable="false">hidirektor@gmail.com</string>
+    <string name="developer_merchant_name" translatable="false">Komagene</string>
+    <string name="developer_merchant_address" translatable="false">Kuşadası / Aydın</string>
 
     <!-- Welcome Text -->
     <string name="welcome">Merhabalar</string>

@@ -1,5 +1,6 @@
-package me.t3sl4.kurye.UI.Screens.User.Merchant;
+package me.t3sl4.kurye.UI.Screens.General.Merchant;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -62,6 +63,9 @@ public class Marketplace extends AppCompatActivity {
     private EditText yemekSepetiUsernameEditText;
     private EditText yemekSepetiPasswordEditText;
 
+    //Navbar Buttons
+    private LinearLayout dashboardButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +82,10 @@ public class Marketplace extends AppCompatActivity {
         setupSwitchListeners();
 
         infoComponentClicks();
+
+        popupButtonClicks();
+
+        navbarButtonClicks();
 
         refreshProfileData();
     }
@@ -109,6 +117,9 @@ public class Marketplace extends AppCompatActivity {
         yemekSepetiCloseButton = findViewById(R.id.yemekSepetiCloseImageView);
         yemekSepetiUsernameEditText = findViewById(R.id.yemekSepetiUsernameEditText);
         yemekSepetiPasswordEditText = findViewById(R.id.yemekSepetiPasswordEditText);
+
+        //Navbar Buttons
+        dashboardButton = findViewById(R.id.dashboardButton);
     }
 
     private void checkMarketPlaces() {
@@ -198,6 +209,14 @@ public class Marketplace extends AppCompatActivity {
 
         yemekSepetiCloseButton.setOnClickListener(v -> {
             setButtonStatus(defaultTextColor, defaultDrawable);
+        });
+    }
+
+    private void navbarButtonClicks() {
+        dashboardButton.setOnClickListener(v -> {
+            Intent dashboardIntent = new Intent(Marketplace.this, MerchantDashboard.class);
+            startActivity(dashboardIntent);
+            finish();
         });
     }
 
@@ -347,6 +366,20 @@ public class Marketplace extends AppCompatActivity {
             if(!buttonClicked.get()) {
                 synchGetirYemek.setChecked(false);
             }
+        });
+    }
+
+    private void popupButtonClicks() {
+        findTrendyol.setOnClickListener(v -> {
+
+        });
+
+        findGetirYemek.setOnClickListener(v -> {
+
+        });
+
+        findYemekSepeti.setOnClickListener(v -> {
+
         });
     }
 

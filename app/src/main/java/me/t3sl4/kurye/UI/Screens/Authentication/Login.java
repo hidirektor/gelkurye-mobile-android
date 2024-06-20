@@ -26,9 +26,10 @@ import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.EditText.EditTextUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Components.PasswordField.PasswordFieldUtil;
-import me.t3sl4.kurye.UI.Screens.General.Dashboard;
+import me.t3sl4.kurye.UI.Screens.General.Carrier.CarrierDashboard;
+import me.t3sl4.kurye.UI.Screens.General.Merchant.MerchantDashboard;
 import me.t3sl4.kurye.UI.Screens.PasswordReset.Reset1;
-import me.t3sl4.kurye.UI.Screens.User.Merchant.Marketplace;
+import me.t3sl4.kurye.UI.Screens.General.Merchant.Marketplace;
 import me.t3sl4.kurye.Util.ReqUtil;
 
 public class Login extends AppCompatActivity {
@@ -97,12 +98,12 @@ public class Login extends AppCompatActivity {
                         @Override
                         public void onSuccess(UserModel profile) {
                             if(profile.getUserType().equals("CARRIER")) {
-                                Intent dashboardIntent = new Intent(Login.this, Dashboard.class);
+                                Intent dashboardIntent = new Intent(Login.this, CarrierDashboard.class);
                                 dashboardIntent.putExtra("profile", profile);
                                 startActivity(dashboardIntent);
                                 finish();
                             } else {
-                                Intent dashboardIntent = new Intent(Login.this, Marketplace.class);
+                                Intent dashboardIntent = new Intent(Login.this, MerchantDashboard.class);
                                 dashboardIntent.putExtra("profile", profile);
                                 startActivity(dashboardIntent);
                                 finish();

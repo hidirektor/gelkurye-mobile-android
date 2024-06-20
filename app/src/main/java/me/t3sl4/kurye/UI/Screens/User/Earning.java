@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import me.t3sl4.kurye.Model.Earning.EarningAdapter;
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
-import me.t3sl4.kurye.UI.Screens.General.Dashboard;
+import me.t3sl4.kurye.UI.Screens.General.Carrier.CarrierDashboard;
 import me.t3sl4.kurye.UI.Screens.Order.Orders;
 
 public class Earning extends AppCompatActivity {
@@ -75,7 +75,7 @@ public class Earning extends AppCompatActivity {
     private void navbarButtonClicks() {
         //Navbar button click listeners
         dashboardButton.setOnClickListener(v -> {
-            Intent dashboardIntent = new Intent(Earning.this, Dashboard.class);
+            Intent dashboardIntent = new Intent(Earning.this, CarrierDashboard.class);
             finish();
             startActivity(dashboardIntent);
         });
