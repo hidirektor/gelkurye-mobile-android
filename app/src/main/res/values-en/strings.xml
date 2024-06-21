@@ -22,6 +22,8 @@
     <string name="button_next">Next</string>
     <string name="button_confirm">Confirm</string>
     <string name="button_reset">Reset</string>
+    <string name="button_yes">Yes</string>
+    <string name="button_no">No</string>
 
     <!-- Button Hints -->
     <string name="hint_star">*</string>
@@ -177,4 +179,8 @@
     <string name="find_api_trendyol">In order to get API information from Trendyol, all you need to do is open a store in this marketplace. After your Trendyol store is opened, you need to go to the "Integration Information" tab in the "My Account Information" section. After entering here, you can get your seller ID, API Key and API Secret information.</string>
     <string name="find_api_getiryemek">First, enter the POS Integration tab in the Get management panel. Then select GoPOS from the POS Company selection section and press the Create button. The API key information for your restaurant will be created in the POS Restaurant Secret Key section.</string>
     <string name="find_api_yemeksepeti">In order to pair your Yemek Sepeti account with our application, you must provide us with the "Username" and "Password" information you use when logging into Yemek Sepeti. The reason for this is Yemek Sepeti protocols, as explained in our FAQ screen.</string>
+
+    <!-- Exit Texts -->
+    <string name="exit_title">Exit</string>
+    <string name="exit_description">Are you sure you want to log out?</string>
 </resources>

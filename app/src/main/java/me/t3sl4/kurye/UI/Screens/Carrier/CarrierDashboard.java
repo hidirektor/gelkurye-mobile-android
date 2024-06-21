@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,8 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
@@ -32,6 +35,7 @@ import me.t3sl4.kurye.UI.Screens.Carrier.Navbar.Orders;
 import me.t3sl4.kurye.UI.Screens.Carrier.Navbar.Profile.EditProfile;
 import me.t3sl4.kurye.UI.Screens.Carrier.Navbar.Profile.Profile;
 import me.t3sl4.kurye.UI.Screens.Carrier.Order.CurrentOrder;
+import me.t3sl4.kurye.UI.Screens.Merchant.MerchantDashboard;
 import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
 import me.t3sl4.kurye.kurye.UI.Components.Sneaker.Sneaker;
@@ -89,6 +93,13 @@ public class CarrierDashboard extends AppCompatActivity {
         refreshProfileData();
 
         initializeProfileData();
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                showExitConfirmationDialog();
+            }
+        });
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -244,5 +255,29 @@ public class CarrierDashboard extends AppCompatActivity {
                 Sneaker.with(CarrierDashboard.this).setTitle("Hata !").setMessage("Profil alınamadı!").sneakError();
             }
         });
+    }
+
+    private void showExitConfirmationDialog() {
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.exit_popup, null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+
+        TextView dialogTitle = dialogView.findViewById(R.id.dialog_title);
+        TextView dialogMessage = dialogView.findViewById(R.id.dialog_message);
+        Button positiveButton = dialogView.findViewById(R.id.positive_button);
+        Button negativeButton = dialogView.findViewById(R.id.negative_button);
+
+        AlertDialog alertDialog = builder.create();
+
+        positiveButton.setOnClickListener(v -> {
+            alertDialog.dismiss();
+            Utils.logoutAndNotify(CarrierDashboard.this, CarrierDashboard.this);
+        });
+
+        negativeButton.setOnClickListener(v -> alertDialog.dismiss());
+
+        alertDialog.show();
     }
 }

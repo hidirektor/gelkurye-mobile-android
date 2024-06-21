@@ -1,11 +1,13 @@
 package me.t3sl4.kurye.UI.Screens.Merchant;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,8 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -97,6 +101,37 @@ public class MerchantDashboard extends AppCompatActivity {
         Log.d("Merchant-Refresh", refreshToken);
 
         initializeProfileData();
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                showExitConfirmationDialog();
+            }
+        });
+    }
+
+    private void showExitConfirmationDialog() {
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.exit_popup, null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+
+        TextView dialogTitle = dialogView.findViewById(R.id.dialog_title);
+        TextView dialogMessage = dialogView.findViewById(R.id.dialog_message);
+        Button positiveButton = dialogView.findViewById(R.id.positive_button);
+        Button negativeButton = dialogView.findViewById(R.id.negative_button);
+
+        AlertDialog alertDialog = builder.create();
+
+        positiveButton.setOnClickListener(v -> {
+            alertDialog.dismiss();
+            Utils.logoutAndNotify(MerchantDashboard.this, MerchantDashboard.this);
+        });
+
+        negativeButton.setOnClickListener(v -> alertDialog.dismiss());
+
+        alertDialog.show();
     }
 
     @SuppressLint("ClickableViewAccessibility")

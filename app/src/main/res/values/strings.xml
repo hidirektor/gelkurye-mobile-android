@@ -22,6 +22,8 @@
     <string name="button_next">İleri</string>
     <string name="button_confirm">Onayla</string>
     <string name="button_reset">Sıfırla</string>
+    <string name="button_yes">Evet</string>
+    <string name="button_no">Hayır</string>
 
     <!-- Button Hints -->
     <string name="hint_star">*</string>
@@ -195,4 +197,8 @@
     <string name="find_api_trendyol">Trendyoldan API bilgilerini alabilmeniz için bu pazaryerinde bir mağaza açmanız yeterli. Trendyol mağazanız açıldıktan sonra, “Hesap Bilgilerim” kısmında "Entegrasyon Bilgileri" sekmesine girmeniz gerekiyor. Buraya girdikten sonra, satıcı IDnizi, API Key ve API Secret bilgilerinizi alabilirsiniz.</string>
     <string name="find_api_getiryemek">Öncelikle getir yönetim panelinde bulunan POS Entegrasyonu sekmesine girin. Daha sonra POS Firması seçme bölümünden GoPOS’u seçin ve Oluştur butonuna basın. POS Restoran Secret Key kısmında restoranınıza ait apikey bilgisi oluşacaktır.</string>
     <string name="find_api_yemeksepeti">Yemek Sepeti hesabınızla uygulamamızı eşleyebilmeniz için bizlere yemek sepetine giriş yaparken kullandığınız "Kullanıcı Adı" ve "Şifre" bilgilerinizi vermelisiniz. Bunun sebebi S.S.S. ekranımızda da açıkladığımız gibi Yemek Sepeti protokolleridir.</string>
+
+    <!-- Exit Texts -->
+    <string name="exit_title">Çıkış Yap</string>
+    <string name="exit_description">Çıkış yapmak istediğinize emin misiniz?</string>
 </resources>
