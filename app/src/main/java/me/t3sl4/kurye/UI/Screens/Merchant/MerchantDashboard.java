@@ -2,6 +2,7 @@ package me.t3sl4.kurye.UI.Screens.Merchant;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -27,9 +29,12 @@ import me.t3sl4.kurye.UI.Components.Navigation.NavigationUtil;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.Merchant.Hamburger.FAQ;
 import me.t3sl4.kurye.UI.Screens.Merchant.Navbar.Marketplace;
+import me.t3sl4.kurye.UI.Screens.Merchant.Navbar.Profile.EditProfile;
+import me.t3sl4.kurye.UI.Screens.Merchant.Navbar.Profile.Profile;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
+import me.t3sl4.kurye.kurye.UI.Components.Sneaker.Sneaker;
 
 public class MerchantDashboard extends AppCompatActivity {
     private UserModel currentProfile;
@@ -83,14 +88,13 @@ public class MerchantDashboard extends AppCompatActivity {
         hamburgerEffect();
 
         currentProfile = Utils.getFromSharedPreferences(this);
+        refreshProfileData();
 
         String accessToken = SharedPreferencesManager.getSharedPref("accessToken", this, "");
         String refreshToken = SharedPreferencesManager.getSharedPref("refreshToken", this, "");
 
         Log.d("Merchant-Access", accessToken);
         Log.d("Merchant-Refresh", refreshToken);
-
-        refreshProfileData();
 
         initializeProfileData();
     }
@@ -167,8 +171,8 @@ public class MerchantDashboard extends AppCompatActivity {
 
         navSettingsButton.setOnClickListener(v -> {
             //Ayarlar ekranına yönlendir
-            //Intent settingsIntent = new Intent(MerchantDashboard.this, EditProfile.class);
-            //startActivity(settingsIntent);
+            Intent settingsIntent = new Intent(MerchantDashboard.this, EditProfile.class);
+            startActivity(settingsIntent);
         });
 
         navFaqButton.setOnClickListener(v -> {
@@ -204,8 +208,8 @@ public class MerchantDashboard extends AppCompatActivity {
         });
 
         profileButton.setOnClickListener(v -> {
-            //Intent profileIntent = new Intent(MerchantDashboard.this, Profile.class);
-            //startActivity(profileIntent);
+            Intent profileIntent = new Intent(MerchantDashboard.this, Profile.class);
+            startActivity(profileIntent);
         });
     }
 
@@ -241,7 +245,7 @@ public class MerchantDashboard extends AppCompatActivity {
 
             @Override
             public void onError() {
-                //Sneaker.with(MerchantDashboard.this).setTitle("Hata !").setMessage("Profil alınamadı!").sneakError();
+                Sneaker.with(MerchantDashboard.this).setTitle("Hata !").setMessage("Profil alınamadı!").sneakError();
             }
         });
     }

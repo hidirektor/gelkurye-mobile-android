@@ -8,8 +8,6 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.irozon.sneaker.Sneaker;
-
 import java.util.Objects;
 
 import me.t3sl4.kurye.Model.User.UserModel;
@@ -22,6 +20,7 @@ import me.t3sl4.kurye.UI.Screens.Merchant.MerchantDashboard;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
 import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
+import me.t3sl4.kurye.kurye.UI.Components.Sneaker.Sneaker;
 
 public class SplashActivity extends AppCompatActivity {
     private final int WAITING_TIME = 2000;

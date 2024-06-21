@@ -5,6 +5,7 @@ import java.util.Date
 
 plugins {
     id("com.android.application")
+    id("org.jetbrains.kotlin.android")
 }
 
 val keystorePropertiesFile = file("signing.properties")
@@ -111,6 +112,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 tasks.withType<JavaCompile> {
@@ -152,7 +156,6 @@ dependencies {
 
     implementation("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
-    implementation("com.irozon.sneaker:sneaker:2.0.0")
     implementation("com.github.chrisbanes:PhotoView:2.0.0")
 
     testImplementation("junit:junit:4.13.2")

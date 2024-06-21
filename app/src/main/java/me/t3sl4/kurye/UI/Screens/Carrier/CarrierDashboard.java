@@ -20,7 +20,6 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.navigation.NavigationView;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
-import com.irozon.sneaker.Sneaker;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import me.t3sl4.kurye.Model.User.UserModel;
@@ -35,6 +34,7 @@ import me.t3sl4.kurye.UI.Screens.Carrier.Navbar.Profile.Profile;
 import me.t3sl4.kurye.UI.Screens.Carrier.Order.CurrentOrder;
 import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
+import me.t3sl4.kurye.kurye.UI.Components.Sneaker.Sneaker;
 
 public class CarrierDashboard extends AppCompatActivity {
     private UserModel currentProfile;

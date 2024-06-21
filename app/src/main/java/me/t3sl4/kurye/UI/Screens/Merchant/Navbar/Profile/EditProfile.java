@@ -1,4 +1,4 @@
-package me.t3sl4.kurye.UI.Screens.Carrier.Navbar.Profile;
+package me.t3sl4.kurye.UI.Screens.Merchant.Navbar.Profile;
 
 import android.os.Bundle;
 import android.os.Handler;

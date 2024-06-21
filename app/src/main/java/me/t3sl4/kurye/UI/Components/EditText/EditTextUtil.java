@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 
-import com.irozon.sneaker.Sneaker;
+import me.t3sl4.kurye.kurye.UI.Components.Sneaker.Sneaker;
 
 public class EditTextUtil {
     public static boolean checkNull(EditText controlElement, @Nullable Integer controlSize) {

@@ -56,6 +56,8 @@
         <activity android:name=".UI.Screens.Carrier.Order.CurrentOrder" />
         <activity android:name=".UI.Screens.Carrier.Navbar.Profile.Profile" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".UI.Screens.Carrier.Navbar.Profile.EditProfile" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".UI.Screens.Merchant.Navbar.Profile.Profile" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".UI.Screens.Merchant.Navbar.Profile.EditProfile" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".UI.Screens.Carrier.Navbar.Earning" />
         <activity android:name=".UI.Screens.Merchant.Navbar.Marketplace" />
     </application>

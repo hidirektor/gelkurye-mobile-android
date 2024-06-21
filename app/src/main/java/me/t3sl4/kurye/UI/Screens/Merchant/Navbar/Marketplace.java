@@ -17,7 +17,6 @@ import androidx.core.content.ContextCompat;
 
 import com.android.volley.VolleyError;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.irozon.sneaker.Sneaker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,6 +32,7 @@ import me.t3sl4.kurye.UI.Screens.Merchant.MerchantDashboard;
 import me.t3sl4.kurye.Util.HTTP.HTTPResponseListener;
 import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.Util.Utils;
+import me.t3sl4.kurye.kurye.UI.Components.Sneaker.Sneaker;
 
 public class Marketplace extends AppCompatActivity {
     private UserModel currentProfile;

@@ -15,7 +15,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.hbb20.CountryCodePicker;
-import com.irozon.sneaker.Sneaker;
 import com.zpj.widget.checkbox.ZCheckBox;
 
 import org.json.JSONException;
@@ -30,6 +29,7 @@ import me.t3sl4.kurye.UI.Screens.Carrier.CarrierDashboard;
 import me.t3sl4.kurye.UI.Screens.General.PasswordReset.Reset1;
 import me.t3sl4.kurye.UI.Screens.Merchant.MerchantDashboard;
 import me.t3sl4.kurye.Util.ReqUtil;
+import me.t3sl4.kurye.kurye.UI.Components.Sneaker.Sneaker;
 
 public class Login extends AppCompatActivity {
     private CountryCodePicker phoneNumberCode;

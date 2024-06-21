@@ -21,12 +21,12 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.hbb20.CountryCodePicker;
-import com.irozon.sneaker.Sneaker;
 
 import java.io.IOException;
 
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.Util.Utils;
+import me.t3sl4.kurye.kurye.UI.Components.Sneaker.Sneaker;
 
 public class Step2Fragment extends Fragment {
     private EditText nameSurnameEditText, phoneNumberEditText, addressEditText;

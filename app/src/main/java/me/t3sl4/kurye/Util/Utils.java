@@ -20,7 +20,6 @@ import androidx.core.app.ActivityCompat;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
-import com.irozon.sneaker.Sneaker;
 
 import org.json.JSONObject;
 
@@ -34,6 +33,7 @@ import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Screens.MainActivity;
 import me.t3sl4.kurye.Util.HTTP.HTTPResponseListener;
 import me.t3sl4.kurye.Util.LocalData.SharedPreferencesManager;
+import me.t3sl4.kurye.kurye.UI.Components.Sneaker.Sneaker;
 
 public class Utils {
     private static final String PREF_NAME = "MyProfilePref";

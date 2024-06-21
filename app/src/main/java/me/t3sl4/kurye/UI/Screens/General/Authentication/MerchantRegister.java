@@ -19,7 +19,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.android.volley.VolleyError;
-import com.irozon.sneaker.Sneaker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,6 +39,7 @@ import me.t3sl4.kurye.Util.HTTP.HTTPHelper;
 import me.t3sl4.kurye.Util.HTTP.HTTPResponseListener;
 import me.t3sl4.kurye.Util.HTTP.TokenManager;
 import me.t3sl4.kurye.Util.ReqUtil;
+import me.t3sl4.kurye.kurye.UI.Components.Sneaker.Sneaker;
 
 public class MerchantRegister extends AppCompatActivity {
     String[] stateNames;

@@ -7,14 +7,13 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.irozon.sneaker.Sneaker;
-
 import me.t3sl4.kurye.R;
 import me.t3sl4.kurye.UI.Components.NavigationBar.NavigationBarUtil;
 import me.t3sl4.kurye.UI.Screens.General.Authentication.Login;
 import me.t3sl4.kurye.UI.Screens.General.Authentication.MerchantRegister;
 import me.t3sl4.kurye.UI.Screens.General.Authentication.Register;
 import me.t3sl4.kurye.Util.Utils;
+import me.t3sl4.kurye.kurye.UI.Components.Sneaker.Sneaker;
 
 public class MainActivity extends AppCompatActivity {
 
