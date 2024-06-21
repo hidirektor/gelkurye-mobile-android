@@ -28,6 +28,7 @@ import me.t3sl4.kurye.UI.Components.PasswordField.PasswordFieldUtil;
 import me.t3sl4.kurye.UI.Screens.Carrier.CarrierDashboard;
 import me.t3sl4.kurye.UI.Screens.General.PasswordReset.Reset1;
 import me.t3sl4.kurye.UI.Screens.Merchant.MerchantDashboard;
+import me.t3sl4.kurye.Util.HTTP.TokenManager;
 import me.t3sl4.kurye.Util.ReqUtil;
 import me.t3sl4.kurye.kurye.UI.Components.Sneaker.Sneaker;
 
@@ -84,7 +85,7 @@ public class Login extends AppCompatActivity {
         JSONObject params = new JSONObject();
         String inputPhoneNumber = phoneNumberField.getText().toString();
         String inputPassword = passwordField.getText().toString();
-        if(inputPhoneNumber.isEmpty() || inputPassword.isEmpty()) {
+        if (inputPhoneNumber.isEmpty() || inputPassword.isEmpty()) {
             Sneaker.with(Login.this).setTitle("Hata !").setMessage("Lütfen gerekli alanları kontrol edin!").sneakError();
         } else {
             params.put("phoneNumber", phoneNumberCode.getSelectedCountryCode() + phoneNumberField.getText().toString());
@@ -93,10 +94,12 @@ public class Login extends AppCompatActivity {
             ReqUtil.loginReq(this, params, new ReqUtil.GeneralCallback() {
                 @Override
                 public void onSuccess() {
+                    TokenManager tokenManager = new TokenManager(Login.this);
+                    saveTokens(tokenManager.getAccessToken(), tokenManager.getRefreshToken());
                     ReqUtil.getProfileReq(Login.this, phoneNumberCode.getSelectedCountryCode() + phoneNumberField.getText().toString(), new ReqUtil.ProfileCallback() {
                         @Override
                         public void onSuccess(UserModel profile) {
-                            if(profile.getUserType().equals("CARRIER")) {
+                            if (profile.getUserType().equals("CARRIER")) {
                                 Intent dashboardIntent = new Intent(Login.this, CarrierDashboard.class);
                                 dashboardIntent.putExtra("profile", profile);
                                 startActivity(dashboardIntent);
